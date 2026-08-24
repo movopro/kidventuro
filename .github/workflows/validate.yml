@@ -1,0 +1,44 @@
+name: Validate Kidventuro
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          set -e
+          for file in *.js; do
+            echo "Checking $file"
+            node --check "$file"
+          done
+      - name: Check required launch files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          required = [
+              'index.html','styles.css','app.js','booklet.html','booklet-v2.js',
+              'booklet-session.js','catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
+              'age-core.js','age-pages.js','age-final.js','trip-days.js',
+              'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME'
+          ]
+          missing=[p for p in required if not Path(p).exists()]
+          if missing:
+              raise SystemExit('Missing required files: ' + ', '.join(missing))
+          cname=Path('CNAME').read_text(encoding='utf-8').strip()
+          if cname != 'kidventuro.com':
+              raise SystemExit(f'Unexpected CNAME: {cname}')
+          index=Path('index.html').read_text(encoding='utf-8')
+          if 'site-enhance.js' in index or 'booklet.js' in index:
+              raise SystemExit('Obsolete script reference found in index.html')
+          booklet=Path('booklet.html').read_text(encoding='utf-8')
+          if 'booklet-session.js' not in booklet or 'booklet-v2.js' not in booklet:
+              raise SystemExit('Booklet script chain is incomplete')
+          print('Static checks passed')
+          PY
