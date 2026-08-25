@@ -18,12 +18,13 @@ const env = {
 
 const sign = raw => crypto.createHmac('sha256', secret).update(raw).digest('hex');
 
-async function checkoutSession() {
+async function checkoutSession(product='adventure') {
   const request = new Request('https://example.workers.dev/checkout/session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Origin': 'https://kidventuro.com' },
     body: JSON.stringify({
       ref,
+      product,
       name: 'Alex',
       age: '7',
       destination: 'Rome',
@@ -35,11 +36,11 @@ async function checkoutSession() {
   return worker.fetch(request, env);
 }
 
-async function webhook(eventName, status='paid') {
+async function webhook(eventName, status='paid', product='adventure') {
   const payload = {
     meta: {
       event_name: eventName,
-      custom_data: { kv_ref: ref, product: 'adventure' }
+      custom_data: { kv_ref: ref, product }
     },
     data: {
       id: '12345',
@@ -80,6 +81,7 @@ async function fulfillment(query) {
   assert.equal(response.status, 200, 'checkout personalization should be stored before redirect');
   const body = await response.json();
   assert.equal(body.ok, true);
+  assert.equal(body.product, 'adventure');
 }
 
 {
@@ -90,6 +92,13 @@ async function fulfillment(query) {
   });
   const response = await worker.fetch(bad, env);
   assert.equal(response.status, 401, 'invalid signatures must be rejected');
+}
+
+{
+  const mismatch = await webhook('order_created', 'paid', 'mini');
+  assert.equal(mismatch.status, 200);
+  const body = await mismatch.json();
+  assert.equal(body.ignored, 'checkout_session_product_mismatch', 'a different product must not unlock this session');
 }
 
 {
@@ -106,9 +115,12 @@ async function fulfillment(query) {
   assert.equal(result.response.status, 200);
   assert.equal(result.body.paid, true, 'paid order should unlock');
   assert.equal(result.body.test_mode, true);
+  assert.equal(result.body.product, 'adventure');
 
   const byRef = await fulfillment(`ref=${encodeURIComponent(ref)}`);
   assert.equal(byRef.response.status, 200);
+  assert.equal(byRef.body.product, 'adventure');
+  assert.equal(byRef.body.personalization.product, 'adventure');
   assert.equal(byRef.body.personalization.name, 'Alex');
   assert.equal(byRef.body.personalization.destination, 'Rome');
 
@@ -130,4 +142,4 @@ async function fulfillment(query) {
   assert.equal(fulfilled.body.refunded, true);
 }
 
-console.log('Webhook and fulfillment integration tests passed');
+console.log('Product-aware webhook and fulfillment integration tests passed');
