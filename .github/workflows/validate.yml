@@ -25,13 +25,13 @@ jobs:
           from pathlib import Path
           required = [
               'package.json',
-              'index.html','styles.css','app.js','checkout.js','runtime-config.js',
+              'index.html','styles.css','app.js','checkout.js','site-expansion.js','runtime-config.js',
               'success.html','success.js','booklet.html','booklet-v2.js','booklet-session.js',
-              'mini-mode.js','family-mode.js',
-              'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
+              'mini-mode.js','family-mode.js','ai-mode.js',
+              'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','test-catalog.mjs',
               'age-core.js','age-pages.js','age-final.js','trip-days.js',
               'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME',
-              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/test-webhook.mjs'
+              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/src/ai.js','worker/test-webhook.mjs','worker/test-ai.mjs'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
@@ -52,6 +52,8 @@ jobs:
           required_secrets=config.get('secrets',{}).get('required',[])
           if 'LEMONSQUEEZY_WEBHOOK_SECRET' not in required_secrets:
               raise SystemExit('Lemon Squeezy webhook secret is not declared as required')
+          if config.get('vars',{}).get('OPENAI_MODEL') != 'gpt-5.6-luna':
+              raise SystemExit('Expected OpenAI model configuration is missing')
           bindings=config.get('kv_namespaces',[])
           if not any(x.get('binding')=='ENTITLEMENTS' for x in bindings):
               raise SystemExit('ENTITLEMENTS KV binding is missing')
@@ -71,7 +73,7 @@ jobs:
           ]
           if any(cid not in checkout for cid in checkout_ids):
               raise SystemExit('One or more Lemon Squeezy product checkout URLs are missing')
-          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children"]:
+          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children",'site-expansion.js']:
               if marker not in checkout:
                   raise SystemExit(f'Checkout validation marker missing: {marker}')
           booklet=Path('booklet.html').read_text(encoding='utf-8')
@@ -80,9 +82,9 @@ jobs:
           if 'booklet-v2.js' in booklet:
               raise SystemExit('Generator must not load before entitlement verification')
           gate=Path('booklet-session.js').read_text(encoding='utf-8')
-          for marker in ['mini-mode.js','family-mode.js','status.product']:
+          for marker in ['mini-mode.js','family-mode.js','status.product','catalog-4.js','catalog-5.js','/ai/enrich','ai-mode.js']:
               if marker not in gate:
-                  raise SystemExit(f'Product gate marker missing: {marker}')
+                  raise SystemExit(f'Product/AI gate marker missing: {marker}')
           success=Path('success.html').read_text(encoding='utf-8')
           if 'runtime-config.js' not in success or 'success.js' not in success:
               raise SystemExit('Payment success page is incomplete')
@@ -90,12 +92,15 @@ jobs:
           if 'personalization.children' not in success_js:
               raise SystemExit('Family recovery is missing from success flow')
           worker=Path('worker/src/index.js').read_text(encoding='utf-8')
-          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS','ALLOWED_PRODUCTS','input.children']:
+          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS','ALLOWED_PRODUCTS','input.children','/ai/enrich','OPENAI_API_KEY']:
               if marker not in worker:
                   raise SystemExit(f'Worker validation marker missing: {marker}')
+          privacy=Path('privacy.html').read_text(encoding='utf-8')
+          if 'AI-assisted personalization' not in privacy or 'OpenAI' not in privacy:
+              raise SystemExit('Privacy notice is not synchronized with AI flow')
           print('Static checks passed')
           PY
-      - name: Test signed Lemon Squeezy webhook flow
+      - name: Test signed Lemon Squeezy, AI and catalog flows
         working-directory: worker
         run: npm test
       - name: Validate root-level Cloudflare deployment flow
