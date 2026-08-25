@@ -63,6 +63,18 @@ function cleanContent(value){
   return content;
 }
 
+const enrichmentSchema={
+  type:'object',
+  properties:{
+    destination_hook:{type:'string'},
+    interest_mission:{type:'string'},
+    family_mission:{type:'string'},
+    reflection_prompt:{type:'string'}
+  },
+  required:['destination_hook','interest_mission','family_mission','reflection_prompt'],
+  additionalProperties:false
+};
+
 export async function getAiEnrichment(ref,session,env){
   const cached=await env.ENTITLEMENTS.get(aiKey(ref));
   if(cached){
@@ -73,7 +85,22 @@ export async function getAiEnrichment(ref,session,env){
 
   const profile=privacySafeProfile(session);
   const model=String(env.OPENAI_MODEL||'gpt-5.6-luna');
-  const prompt=`You create short, child-safe microcopy for Kidventuro printable family travel activity books.\n\nRules:\n- Audience: children ages 4-12, always supervised by an adult.\n- Never tell a child to wander away, approach strangers, enter restricted/private areas, touch exhibits, climb structures, cross roads alone, or do anything risky/disruptive.\n- Do not give opening hours, prices, live conditions, medical/legal/safety advice, or claims that require current information.\n- Do not invent destination facts. Make observational and creative missions that work even if a particular venue is closed.\n- Do not ask for or mention a child's name.\n- Keep language warm, concise and printable.\n- Return ONLY a JSON object with exactly these string keys: destination_hook, interest_mission, family_mission, reflection_prompt.\n\nProfile (intentionally contains no names):\n${JSON.stringify(profile)}\n\nRequirements:\n- destination_hook: one sentence, <= 24 words, makes this destination feel distinctive without stating a fragile fact.\n- interest_mission: one safe observation/drawing/pattern mission tailored to the age band and interest, <= 32 words.\n- family_mission: one cooperative mission suitable for the whole family, <= 32 words.\n- reflection_prompt: one question that helps the child remember a sensory/detail-based moment, <= 24 words.`;
+  const instructions=`Create short, child-safe microcopy for Kidventuro printable family travel activity books.
+
+Safety and quality rules:
+- Audience: children ages 4-12, always supervised by an adult.
+- Never tell a child to wander away, approach strangers, enter restricted/private areas, touch exhibits, climb structures, cross roads alone, or do anything risky or disruptive.
+- Do not give opening hours, prices, live conditions, medical/legal/safety advice, or claims that require current information.
+- Do not invent destination facts. Prefer observation, drawing, pattern, colour, sound and memory missions that still work if a particular venue is closed.
+- Do not ask for or mention a child's name.
+- Keep language warm, concise and printable.
+- Write in the profile language.
+
+Field requirements:
+- destination_hook: one sentence, no more than 24 words, making the destination feel distinctive without a fragile factual claim.
+- interest_mission: one safe mission tailored to the age band and interest, no more than 32 words.
+- family_mission: one cooperative mission suitable for the whole family, no more than 32 words.
+- reflection_prompt: one question about a sensory or visual detail worth remembering, no more than 24 words.`;
 
   let response;
   try{
@@ -83,7 +110,23 @@ export async function getAiEnrichment(ref,session,env){
         'Authorization':`Bearer ${env.OPENAI_API_KEY}`,
         'Content-Type':'application/json'
       },
-      body:JSON.stringify({model,input:prompt,max_output_tokens:450})
+      body:JSON.stringify({
+        model,
+        instructions,
+        input:`Privacy-reduced Kidventuro profile (contains no child names):\n${JSON.stringify(profile)}`,
+        reasoning:{effort:'none'},
+        text:{
+          verbosity:'low',
+          format:{
+            type:'json_schema',
+            name:'kidventuro_enrichment',
+            strict:true,
+            schema:enrichmentSchema
+          }
+        },
+        max_output_tokens:300,
+        store:false
+      })
     });
   }catch{
     return {ai:false,reason:'provider_unavailable'};
@@ -100,4 +143,4 @@ export async function getAiEnrichment(ref,session,env){
   return {ai:true,cached:false,...record};
 }
 
-export const __test={privacySafeProfile,parseJsonText,cleanContent,outputText};
+export const __test={privacySafeProfile,parseJsonText,cleanContent,outputText,enrichmentSchema};
