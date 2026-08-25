@@ -30,7 +30,7 @@ jobs:
               'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
               'age-core.js','age-pages.js','age-final.js','trip-days.js',
               'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME',
-              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js'
+              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/test-webhook.mjs'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
@@ -79,6 +79,9 @@ jobs:
                   raise SystemExit(f'Worker validation marker missing: {marker}')
           print('Static checks passed')
           PY
+      - name: Test signed Lemon Squeezy webhook flow
+        working-directory: worker
+        run: npm test
       - name: Validate root-level Cloudflare deployment flow
         run: |
           printf 'LEMONSQUEEZY_WEBHOOK_SECRET=ci-placeholder-not-a-real-secret\n' > worker/.dev.vars
