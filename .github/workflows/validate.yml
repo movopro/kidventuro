@@ -67,3 +67,9 @@ jobs:
                   raise SystemExit(f'Worker validation marker missing: {marker}')
           print('Static checks passed')
           PY
+      - name: Install Worker dependencies
+        working-directory: worker
+        run: npm install --no-audit --no-fund
+      - name: Validate Cloudflare Worker deployment
+        working-directory: worker
+        run: npm run check
