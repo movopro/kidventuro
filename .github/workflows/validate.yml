@@ -46,9 +46,17 @@ jobs:
           config=json.loads(Path('worker/wrangler.jsonc').read_text(encoding='utf-8'))
           if config.get('name') != 'kidventuro-api':
               raise SystemExit('Unexpected Worker name')
+          if config.get('keep_vars') is not True:
+              raise SystemExit('Cloudflare dashboard runtime vars are not preserved')
+          required_secrets=config.get('secrets',{}).get('required',[])
+          if 'LEMONSQUEEZY_WEBHOOK_SECRET' not in required_secrets:
+              raise SystemExit('Lemon Squeezy webhook secret is not declared as required')
           bindings=config.get('kv_namespaces',[])
           if not any(x.get('binding')=='ENTITLEMENTS' for x in bindings):
               raise SystemExit('ENTITLEMENTS KV binding is missing')
+          runtime=Path('runtime-config.js').read_text(encoding='utf-8')
+          if 'https://kidventuro-api.m-oreshkov.workers.dev' not in runtime:
+              raise SystemExit('Frontend API URL is not configured')
           index=Path('index.html').read_text(encoding='utf-8')
           if 'site-enhance.js' in index or 'booklet.js' in index:
               raise SystemExit('Obsolete script reference found in index.html')
@@ -72,4 +80,7 @@ jobs:
           print('Static checks passed')
           PY
       - name: Validate root-level Cloudflare deployment flow
-        run: npm run check-worker
+        run: |
+          printf 'LEMONSQUEEZY_WEBHOOK_SECRET=ci-placeholder-not-a-real-secret\n' > worker/.dev.vars
+          npm run check-worker
+          rm -f worker/.dev.vars
