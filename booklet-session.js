@@ -3,7 +3,7 @@
   const SESSION_KEY='kidventuro:booklet';
   const PAID_KEY='kidventuro:paid_ref';
   const allowed=['name','age','destination','interest','days','lang'];
-  const catalogScripts=['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js'];
+  const catalogScripts=['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js'];
   const adventureScripts=['booklet-v2.js','age-core.js','age-pages.js','age-final.js','trip-days.js'];
 
   const fail=(message)=>{
@@ -20,6 +20,32 @@
     s.onerror=()=>reject(new Error(`Could not load ${src}`));
     document.body.appendChild(s);
   });
+
+  const loadAi=async(api,ref)=>{
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),9000);
+    try{
+      const r=await fetch(`${api}/ai/enrich`,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({ref}),
+        cache:'no-store',
+        credentials:'omit',
+        signal:controller.signal
+      });
+      const result=await r.json().catch(()=>({}));
+      if(r.ok&&result.ai===true&&result.content){
+        window.KIDVENTURO_AI=result.content;
+        try{sessionStorage.setItem('kidventuro:ai',JSON.stringify(result.content));}catch{}
+        return true;
+      }
+    }catch(err){
+      if(err?.name!=='AbortError') console.warn('Kidventuro AI enhancement unavailable',err);
+    }finally{
+      clearTimeout(timer);
+    }
+    return false;
+  };
 
   (async()=>{
     let data;
@@ -60,6 +86,8 @@
     }
 
     try{ sessionStorage.setItem(PAID_KEY,data.kv_ref); }catch{}
+    if(title) title.textContent='Personalizing your adventure…';
+    await loadAi(api,data.kv_ref);
 
     try{
       for(const src of catalogScripts) await loadScript(src);
@@ -67,6 +95,7 @@
       if(product==='family'){
         await loadScript('family-mode.js');
         document.body.dataset.product='family';
+        await loadScript('ai-mode.js');
         return;
       }
 
@@ -77,6 +106,7 @@
       for(const src of adventureScripts) await loadScript(src);
       if(product==='mini') await loadScript('mini-mode.js');
       document.body.dataset.product=product;
+      await loadScript('ai-mode.js');
       history.replaceState(null,'',location.pathname);
     }catch(e){
       console.error(e);
