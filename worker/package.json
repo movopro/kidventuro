@@ -1,0 +1,12 @@
+{
+  "name": "kidventuro-api",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "check": "wrangler deploy --dry-run",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}
