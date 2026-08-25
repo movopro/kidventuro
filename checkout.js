@@ -1,5 +1,12 @@
 (()=>{
-  const CHECKOUT_URL='https://kidventuro.lemonsqueezy.com/checkout/buy/002731fe-1735-4287-8223-450d8ef41202';
+  const PRODUCTS={
+    adventure:{
+      price:'€9.90',
+      checkoutUrl:'https://kidventuro.lemonsqueezy.com/checkout/buy/002731fe-1735-4287-8223-450d8ef41202'
+    },
+    mini:{price:'€5.90',checkoutUrl:''},
+    family:{price:'€14.90',checkoutUrl:''}
+  };
   const API='https://kidventuro-api.m-oreshkov.workers.dev';
   const SESSION_KEY='kidventuro:booklet';
 
@@ -15,13 +22,15 @@
     try{return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'{}')||{};}catch{return {};}
   };
 
-  const saveCheckoutSession=()=>{
+  const saveCheckoutSession=(product='adventure')=>{
+    if(!PRODUCTS[product]) throw new Error('invalid_product');
     const existing=readExisting();
-    const ref=existing.kv_ref||makeRef();
+    const ref=(existing.product===product&&existing.kv_ref)?existing.kv_ref:makeRef();
     const name=(document.getElementById('childName')?.value||'').trim().slice(0,20);
     if(!name) throw new Error('name_required');
 
     const data={
+      product,
       name,
       age:document.getElementById('childAge')?.value||'7',
       destination:document.getElementById('destination')?.value||'Rome',
@@ -46,6 +55,7 @@
       cache:'no-store',
       body:JSON.stringify({
         ref:data.kv_ref,
+        product:data.product,
         name:data.name,
         age:data.age,
         destination:data.destination,
@@ -58,31 +68,35 @@
     if(!r.ok||body.ok!==true) throw new Error(body.error||'checkout_session_failed');
   };
 
-  const buildCheckoutUrl=ref=>{
-    const url=new URL(CHECKOUT_URL);
-    // Lemon Squeezy receives only an opaque reference. Personalization stays with Kidventuro.
+  const buildCheckoutUrl=(ref,product)=>{
+    const config=PRODUCTS[product];
+    if(!config?.checkoutUrl) throw new Error('checkout_not_connected');
+    const url=new URL(config.checkoutUrl);
+    // Lemon Squeezy receives only an opaque reference and product key. Personalization stays with Kidventuro.
     url.searchParams.set('checkout[custom][kv_ref]',ref);
-    url.searchParams.set('checkout[custom][product]','adventure');
+    url.searchParams.set('checkout[custom][product]',product);
     return url.toString();
   };
 
-  const startCheckout=async e=>{
+  const startCheckout=async(product='adventure',e)=>{
     if(e) e.preventDefault();
     const trigger=e?.currentTarget;
     const originalText=trigger?.textContent||'';
     try{
+      if(!PRODUCTS[product]?.checkoutUrl) throw new Error('checkout_not_connected');
       if(trigger){
         trigger.setAttribute('aria-busy','true');
         trigger.textContent=document.documentElement.lang==='bg'?'Подготвяме плащането…':'Preparing secure checkout…';
       }
-      const data=saveCheckoutSession();
+      const data=saveCheckoutSession(product);
       await registerCheckoutSession(data);
-      window.location.assign(buildCheckoutUrl(data.kv_ref));
+      window.location.assign(buildCheckoutUrl(data.kv_ref,product));
     }catch(err){
       console.error('Kidventuro checkout preparation failed',err);
+      const unavailable=err?.message==='checkout_not_connected';
       alert(document.documentElement.lang==='bg'
-        ? 'Не успяхме да подготвим сигурното плащане. Опитай отново след малко.'
-        : 'We could not prepare the secure checkout. Please try again in a moment.');
+        ? (unavailable?'Този пакет още не е активиран за плащане.':'Не успяхме да подготвим сигурното плащане. Опитай отново след малко.')
+        : (unavailable?'This package is not connected to checkout yet.':'We could not prepare the secure checkout. Please try again in a moment.'));
       if(trigger){
         trigger.removeAttribute('aria-busy');
         trigger.textContent=originalText;
@@ -90,19 +104,23 @@
     }
   };
 
-  // Replace the old full-book node so no demo-generation click handler remains attached.
   const oldBooklet=document.getElementById('openBooklet');
   if(oldBooklet){
     const checkoutButton=oldBooklet.cloneNode(true);
     oldBooklet.replaceWith(checkoutButton);
-    checkoutButton.addEventListener('click',startCheckout);
+    checkoutButton.addEventListener('click',e=>startCheckout('adventure',e));
   }
 
   const pricingButton=document.querySelector('.price-card.featured a[data-i18n="createPreview"]');
   if(pricingButton){
     pricingButton.setAttribute('href','#checkout');
-    pricingButton.addEventListener('click',startCheckout);
+    pricingButton.addEventListener('click',e=>startCheckout('adventure',e));
   }
+
+  window.KidventuroCheckout={
+    start:(product,e)=>startCheckout(product,e),
+    products:PRODUCTS
+  };
 
   try{
     translations.en.openBooklet='Unlock full adventure — €9.90 →';
