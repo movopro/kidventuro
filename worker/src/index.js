@@ -34,8 +34,11 @@ async function verifySignature(rawBody, signature, secret) {
 }
 
 const entitlementKey = ref => `entitlement:${ref}`;
+const checkoutSessionKey = ref => `checkout_session:${ref}`;
+const orderKey = identifier => `order_ref:${identifier}`;
 const diagnosticKey = 'diagnostic:last_webhook';
 const validRef = ref => /^[a-f0-9-]{24,64}$/i.test(ref);
+const validOrderIdentifier = value => /^[a-z0-9-]{8,80}$/i.test(value);
 const refHint = ref => validRef(ref) ? ref.slice(-8) : '';
 
 async function saveDiagnostic(env, data) {
@@ -60,6 +63,50 @@ async function readDiagnostic(env) {
   const raw = await env.ENTITLEMENTS.get(diagnosticKey);
   if (!raw) return null;
   try { return JSON.parse(raw); } catch { return null; }
+}
+
+function cleanPersonalization(input) {
+  const name = String(input?.name || '').trim().slice(0, 20);
+  const age = Number(input?.age);
+  const days = Number(input?.days);
+  const destination = String(input?.destination || '').trim().slice(0, 40);
+  const interest = String(input?.interest || '').trim().slice(0, 40);
+  const lang = input?.lang === 'bg' ? 'bg' : 'en';
+
+  if (!name || !Number.isInteger(age) || age < 4 || age > 12) return null;
+  if (![2, 3, 4, 5, 7].includes(days)) return null;
+  if (!destination || !interest) return null;
+
+  return {
+    name,
+    age: String(age),
+    destination,
+    interest,
+    days: String(days),
+    lang,
+    created_at: new Date().toISOString()
+  };
+}
+
+async function handleCheckoutSession(request, env) {
+  if (!env.ENTITLEMENTS) return json({ ok: false, error: 'storage_not_configured' }, 503);
+  if (request.headers.get('Origin') !== ALLOWED_ORIGIN) return json({ ok: false, error: 'origin_not_allowed' }, 403);
+
+  let payload;
+  try { payload = await request.json(); }
+  catch { return json({ ok: false, error: 'invalid_json' }, 400); }
+
+  const ref = String(payload?.ref || '').trim();
+  const personalization = cleanPersonalization(payload);
+  if (!validRef(ref) || !personalization) return json({ ok: false, error: 'invalid_checkout_session' }, 400);
+
+  await env.ENTITLEMENTS.put(
+    checkoutSessionKey(ref),
+    JSON.stringify(personalization),
+    { expirationTtl: 60 * 60 * 24 * 7 }
+  );
+
+  return json({ ok: true });
 }
 
 async function handleWebhook(request, env) {
@@ -92,6 +139,7 @@ async function handleWebhook(request, env) {
   const orderItem = attrs.first_order_item || {};
   const variantId = String(orderItem.variant_id || '');
   const orderStatus = String(attrs.status || '').toLowerCase();
+  const orderIdentifier = String(attrs.identifier || '').trim();
   const testMode = Boolean(attrs.test_mode ?? payload?.meta?.test_mode);
 
   const diag = result => saveDiagnostic(env, {
@@ -129,7 +177,7 @@ async function handleWebhook(request, env) {
       paid: true,
       product: product || 'adventure',
       order_id: String(payload?.data?.id || ''),
-      order_identifier: String(attrs.identifier || ''),
+      order_identifier: orderIdentifier,
       variant_id: variantId,
       test_mode: testMode,
       created_at: new Date().toISOString()
@@ -140,6 +188,9 @@ async function handleWebhook(request, env) {
       JSON.stringify(record),
       { expirationTtl: 60 * 60 * 24 * 30 }
     );
+    if (validOrderIdentifier(orderIdentifier)) {
+      await env.ENTITLEMENTS.put(orderKey(orderIdentifier), ref, { expirationTtl: 60 * 60 * 24 * 30 });
+    }
     await diag('entitlement_created');
     return json({ ok: true });
   }
@@ -150,6 +201,9 @@ async function handleWebhook(request, env) {
       JSON.stringify({ paid: false, refunded: true, variant_id: variantId, updated_at: new Date().toISOString() }),
       { expirationTtl: 60 * 60 * 24 * 30 }
     );
+    if (validOrderIdentifier(orderIdentifier)) {
+      await env.ENTITLEMENTS.put(orderKey(orderIdentifier), ref, { expirationTtl: 60 * 60 * 24 * 30 });
+    }
     await diag('entitlement_refunded');
     return json({ ok: true });
   }
@@ -158,22 +212,57 @@ async function handleWebhook(request, env) {
   return json({ ok: true, ignored: event || 'unknown_event' });
 }
 
+async function readEntitlement(ref, env) {
+  const raw = await env.ENTITLEMENTS.get(entitlementKey(ref));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch { return null; }
+}
+
 async function handleStatus(url, env) {
   if (!env.ENTITLEMENTS) return json({ paid: false, error: 'storage_not_configured' }, 503);
   const ref = String(url.searchParams.get('ref') || '').trim();
   if (!validRef(ref)) return json({ paid: false, reason: 'invalid_ref' }, 400);
 
-  const raw = await env.ENTITLEMENTS.get(entitlementKey(ref));
-  if (!raw) return json({ paid: false, reason: 'not_found' });
-
-  let record;
-  try { record = JSON.parse(raw); }
-  catch { return json({ paid: false, reason: 'invalid_record' }); }
+  const record = await readEntitlement(ref, env);
+  if (!record) return json({ paid: false, reason: 'not_found' });
 
   return json({
     paid: record.paid === true,
     refunded: record.refunded === true,
     test_mode: record.test_mode === true
+  });
+}
+
+async function handleFulfillment(url, env) {
+  if (!env.ENTITLEMENTS) return json({ paid: false, error: 'storage_not_configured' }, 503);
+
+  let ref = String(url.searchParams.get('ref') || '').trim();
+  const order = String(url.searchParams.get('order') || '').trim();
+
+  if (!validRef(ref) && validOrderIdentifier(order)) {
+    ref = String(await env.ENTITLEMENTS.get(orderKey(order)) || '').trim();
+  }
+  if (!validRef(ref)) return json({ paid: false, reason: 'not_found' }, 404);
+
+  const entitlement = await readEntitlement(ref, env);
+  if (!entitlement) return json({ paid: false, reason: 'not_found' }, 404);
+  if (entitlement.refunded === true) return json({ paid: false, refunded: true }, 403);
+  if (entitlement.paid !== true) return json({ paid: false, reason: 'not_paid' }, 403);
+
+  const rawSession = await env.ENTITLEMENTS.get(checkoutSessionKey(ref));
+  if (!rawSession) {
+    return json({ paid: true, ref, test_mode: entitlement.test_mode === true, personalization: null, reason: 'personalization_expired' }, 410);
+  }
+
+  let personalization;
+  try { personalization = JSON.parse(rawSession); }
+  catch { return json({ paid: true, ref, personalization: null, reason: 'invalid_personalization' }, 500); }
+
+  return json({
+    paid: true,
+    ref,
+    test_mode: entitlement.test_mode === true,
+    personalization
   });
 }
 
@@ -192,8 +281,10 @@ export default {
         last_webhook: lastWebhook
       });
     }
+    if (url.pathname === '/checkout/session' && request.method === 'POST') return handleCheckoutSession(request, env);
     if (url.pathname === '/webhooks/lemonsqueezy' && request.method === 'POST') return handleWebhook(request, env);
     if (url.pathname === '/entitlement/status' && request.method === 'GET') return handleStatus(url, env);
+    if (url.pathname === '/fulfillment' && request.method === 'GET') return handleFulfillment(url, env);
 
     return json({ error: 'not_found' }, 404);
   }
