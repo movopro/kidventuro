@@ -49,6 +49,7 @@ async function saveDiagnostic(env, data) {
     product: String(data.product || ''),
     variant_id: String(data.variant_id || ''),
     test_mode: Boolean(data.test_mode),
+    signature_present: Boolean(data.signature_present),
     result: String(data.result || '')
   };
   await env.ENTITLEMENTS.put(diagnosticKey, JSON.stringify(record), { expirationTtl: 60 * 60 * 24 * 7 });
@@ -68,11 +69,20 @@ async function handleWebhook(request, env) {
   const rawBody = await request.text();
   const signature = request.headers.get('X-Signature') || '';
   const valid = await verifySignature(rawBody, signature, env.LEMONSQUEEZY_WEBHOOK_SECRET);
-  if (!valid) return json({ ok: false, error: 'invalid_signature' }, 401);
+  if (!valid) {
+    await saveDiagnostic(env, {
+      signature_present: Boolean(signature),
+      result: signature ? 'rejected_invalid_signature' : 'rejected_missing_signature'
+    });
+    return json({ ok: false, error: 'invalid_signature' }, 401);
+  }
 
   let payload;
   try { payload = JSON.parse(rawBody); }
-  catch { return json({ ok: false, error: 'invalid_json' }, 400); }
+  catch {
+    await saveDiagnostic(env, { signature_present: true, result: 'rejected_invalid_json' });
+    return json({ ok: false, error: 'invalid_json' }, 400);
+  }
 
   const event = String(payload?.meta?.event_name || '');
   const custom = payload?.meta?.custom_data || {};
@@ -92,6 +102,7 @@ async function handleWebhook(request, env) {
     product,
     variant_id: variantId,
     test_mode: testMode,
+    signature_present: true,
     result
   });
 
