@@ -1,4 +1,5 @@
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
+const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
 
 const responseHeaders = {
   'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
@@ -39,7 +40,14 @@ const orderKey = identifier => `order_ref:${identifier}`;
 const diagnosticKey = 'diagnostic:last_webhook';
 const validRef = ref => /^[a-f0-9-]{24,64}$/i.test(ref);
 const validOrderIdentifier = value => /^[a-z0-9-]{8,80}$/i.test(value);
+const validProduct = value => ALLOWED_PRODUCTS.has(String(value || '').trim().toLowerCase());
 const refHint = ref => validRef(ref) ? ref.slice(-8) : '';
+
+function expectedVariantFor(product, env) {
+  if (product === 'mini') return env.EXPECTED_VARIANT_MINI || '';
+  if (product === 'family') return env.EXPECTED_VARIANT_FAMILY || '';
+  return env.EXPECTED_VARIANT_ADVENTURE || env.EXPECTED_VARIANT_ID || '';
+}
 
 async function saveDiagnostic(env, data) {
   if (!env.ENTITLEMENTS) return;
@@ -72,10 +80,11 @@ function cleanPersonalization(input) {
   const destination = String(input?.destination || '').trim().slice(0, 40);
   const interest = String(input?.interest || '').trim().slice(0, 40);
   const lang = input?.lang === 'bg' ? 'bg' : 'en';
+  const product = String(input?.product || 'adventure').trim().toLowerCase();
 
   if (!name || !Number.isInteger(age) || age < 4 || age > 12) return null;
   if (![2, 3, 4, 5, 7].includes(days)) return null;
-  if (!destination || !interest) return null;
+  if (!destination || !interest || !validProduct(product)) return null;
 
   return {
     name,
@@ -84,6 +93,7 @@ function cleanPersonalization(input) {
     interest,
     days: String(days),
     lang,
+    product,
     created_at: new Date().toISOString()
   };
 }
@@ -106,7 +116,13 @@ async function handleCheckoutSession(request, env) {
     { expirationTtl: 60 * 60 * 24 * 7 }
   );
 
-  return json({ ok: true });
+  return json({ ok: true, product: personalization.product });
+}
+
+async function readCheckoutSession(ref, env) {
+  const raw = await env.ENTITLEMENTS.get(checkoutSessionKey(ref));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch { return null; }
 }
 
 async function handleWebhook(request, env) {
@@ -134,7 +150,7 @@ async function handleWebhook(request, env) {
   const event = String(payload?.meta?.event_name || '');
   const custom = payload?.meta?.custom_data || {};
   const ref = String(custom.kv_ref || '').trim();
-  const product = String(custom.product || '').trim();
+  const product = String(custom.product || '').trim().toLowerCase();
   const attrs = payload?.data?.attributes || {};
   const orderItem = attrs.first_order_item || {};
   const variantId = String(orderItem.variant_id || '');
@@ -158,11 +174,19 @@ async function handleWebhook(request, env) {
     await diag('ignored_missing_or_invalid_ref');
     return json({ ok: true, ignored: 'missing_or_invalid_ref' });
   }
-  if (product && product !== 'adventure') {
+  if (!validProduct(product)) {
     await diag('ignored_unexpected_product');
     return json({ ok: true, ignored: 'unexpected_product' });
   }
-  if (env.EXPECTED_VARIANT_ID && variantId !== String(env.EXPECTED_VARIANT_ID)) {
+
+  const checkoutSession = await readCheckoutSession(ref, env);
+  if (!checkoutSession || checkoutSession.product !== product) {
+    await diag('ignored_checkout_session_product_mismatch');
+    return json({ ok: true, ignored: 'checkout_session_product_mismatch' });
+  }
+
+  const expectedVariant = expectedVariantFor(product, env);
+  if (expectedVariant && variantId !== String(expectedVariant)) {
     await diag('ignored_unexpected_variant');
     return json({ ok: true, ignored: 'unexpected_variant' });
   }
@@ -175,7 +199,7 @@ async function handleWebhook(request, env) {
 
     const record = {
       paid: true,
-      product: product || 'adventure',
+      product,
       order_id: String(payload?.data?.id || ''),
       order_identifier: orderIdentifier,
       variant_id: variantId,
@@ -198,7 +222,7 @@ async function handleWebhook(request, env) {
   if (event === 'order_refunded') {
     await env.ENTITLEMENTS.put(
       entitlementKey(ref),
-      JSON.stringify({ paid: false, refunded: true, variant_id: variantId, updated_at: new Date().toISOString() }),
+      JSON.stringify({ paid: false, refunded: true, product, variant_id: variantId, updated_at: new Date().toISOString() }),
       { expirationTtl: 60 * 60 * 24 * 30 }
     );
     if (validOrderIdentifier(orderIdentifier)) {
@@ -229,7 +253,8 @@ async function handleStatus(url, env) {
   return json({
     paid: record.paid === true,
     refunded: record.refunded === true,
-    test_mode: record.test_mode === true
+    test_mode: record.test_mode === true,
+    product: record.product || ''
   });
 }
 
@@ -246,21 +271,26 @@ async function handleFulfillment(url, env) {
 
   const entitlement = await readEntitlement(ref, env);
   if (!entitlement) return json({ paid: false, reason: 'not_found' }, 404);
-  if (entitlement.refunded === true) return json({ paid: false, refunded: true }, 403);
-  if (entitlement.paid !== true) return json({ paid: false, reason: 'not_paid' }, 403);
+  if (entitlement.refunded === true) return json({ paid: false, refunded: true, product: entitlement.product || '' }, 403);
+  if (entitlement.paid !== true) return json({ paid: false, reason: 'not_paid', product: entitlement.product || '' }, 403);
 
   const rawSession = await env.ENTITLEMENTS.get(checkoutSessionKey(ref));
   if (!rawSession) {
-    return json({ paid: true, ref, test_mode: entitlement.test_mode === true, personalization: null, reason: 'personalization_expired' }, 410);
+    return json({ paid: true, ref, product: entitlement.product || '', test_mode: entitlement.test_mode === true, personalization: null, reason: 'personalization_expired' }, 410);
   }
 
   let personalization;
   try { personalization = JSON.parse(rawSession); }
-  catch { return json({ paid: true, ref, personalization: null, reason: 'invalid_personalization' }, 500); }
+  catch { return json({ paid: true, ref, product: entitlement.product || '', personalization: null, reason: 'invalid_personalization' }, 500); }
+
+  if (personalization.product !== entitlement.product) {
+    return json({ paid: false, reason: 'product_mismatch' }, 409);
+  }
 
   return json({
     paid: true,
     ref,
+    product: entitlement.product,
     test_mode: entitlement.test_mode === true,
     personalization
   });
@@ -278,6 +308,7 @@ export default {
         service: 'kidventuro-api',
         storage: Boolean(env.ENTITLEMENTS),
         webhook_secret: Boolean(env.LEMONSQUEEZY_WEBHOOK_SECRET),
+        products: [...ALLOWED_PRODUCTS],
         last_webhook: lastWebhook
       });
     }
