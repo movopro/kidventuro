@@ -142,4 +142,45 @@ async function fulfillment(query) {
   assert.equal(fulfilled.body.refunded, true);
 }
 
-console.log('Product-aware webhook and fulfillment integration tests passed');
+{
+  const familyEnv={LEMONSQUEEZY_WEBHOOK_SECRET:secret,ENTITLEMENTS:new MemoryKV()};
+  const familyRef='99999999-8888-4777-8666-555555555555';
+  const familyOrder='ffffffff-eeee-4ddd-8ccc-bbbbbbbbbbbb';
+  const children=[
+    {name:'Emma',age:'5',interest:'animals'},
+    {name:'Leo',age:'9',interest:'space'},
+    {name:'Mia',age:'12',interest:'art'}
+  ];
+
+  const checkoutRequest=new Request('https://example.workers.dev/checkout/session',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Origin':'https://kidventuro.com'},
+    body:JSON.stringify({ref:familyRef,product:'family',destination:'Paris',days:'5',lang:'en',children})
+  });
+  const checkoutResponse=await worker.fetch(checkoutRequest,familyEnv);
+  assert.equal(checkoutResponse.status,200,'Family checkout should accept 1-3 validated children');
+  assert.equal((await checkoutResponse.json()).product,'family');
+
+  const payload={
+    meta:{event_name:'order_created',custom_data:{kv_ref:familyRef,product:'family'}},
+    data:{id:'98765',attributes:{identifier:familyOrder,status:'paid',test_mode:true,first_order_item:{variant_id:123456}}}
+  };
+  const raw=JSON.stringify(payload);
+  const webhookRequest=new Request('https://example.workers.dev/webhooks/lemonsqueezy',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','X-Signature':sign(raw)},
+    body:raw
+  });
+  const webhookResponse=await worker.fetch(webhookRequest,familyEnv);
+  assert.equal(webhookResponse.status,200);
+
+  const fulfillResponse=await worker.fetch(new Request(`https://example.workers.dev/fulfillment?order=${encodeURIComponent(familyOrder)}`),familyEnv);
+  const family=await fulfillResponse.json();
+  assert.equal(fulfillResponse.status,200,'Paid Family order should fulfill');
+  assert.equal(family.product,'family');
+  assert.equal(family.personalization.children.length,3);
+  assert.equal(family.personalization.children[1].name,'Leo');
+  assert.equal(family.personalization.destination,'Paris');
+}
+
+console.log('Product-aware webhook, recovery and Family fulfillment integration tests passed');
