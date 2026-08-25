@@ -2,50 +2,58 @@
 
 This Worker verifies Lemon Squeezy webhooks and stores short-lived purchase entitlements in Cloudflare KV.
 
-## Recommended MVP deployment
+## Current deployment
 
-Use Cloudflare **Workers Builds** and connect the existing GitHub repository `movopro/kidventuro`.
+Cloudflare **Workers Builds** is connected to `movopro/kidventuro`.
 
-Cloudflare project settings:
+Use these Cloudflare build settings:
 
 - Repository: `movopro/kidventuro`
-- Root directory: `worker`
-- Worker name: `kidventuro-api`
+- Production branch: `main`
+- Root directory: leave empty / repository root
 - Build command: leave blank
 - Deploy command: `npm run deploy`
-- Production branch: `main`
 
-The Wrangler config uses automatic KV provisioning. On the first deploy Cloudflare will create and bind the `ENTITLEMENTS` KV namespace automatically.
+The root `package.json` forwards deployment into `worker/`, where Wrangler is installed and executed. This avoids Cloudflare root-directory ambiguity.
 
-The first deploy can succeed without the Lemon Squeezy secret. After deployment add the encrypted Worker secret:
+Worker name: `kidventuro-api`
 
-- `LEMONSQUEEZY_WEBHOOK_SECRET`
+Production workers.dev endpoint:
 
-Do **not** commit its value to GitHub.
+`https://kidventuro-api.m-oreshkov.workers.dev`
+
+## Runtime bindings
+
+`worker/wrangler.jsonc` declares:
+
+- `ENTITLEMENTS` KV binding, provisioned/inherited by Wrangler
+- required encrypted secret `LEMONSQUEEZY_WEBHOOK_SECRET`
+- `keep_vars: true` so dashboard runtime variables are preserved on future Wrangler deploys
+
+The webhook secret must be added under the Worker's **Runtime variables and secrets**, not Workers Builds build variables.
+
+Do **not** commit the secret value to GitHub. Local `.env` and `.dev.vars` files are ignored by Git.
 
 ## Public endpoints
 
-After deployment Cloudflare will provide a URL similar to:
+- `GET https://kidventuro-api.m-oreshkov.workers.dev/health`
+- `POST https://kidventuro-api.m-oreshkov.workers.dev/webhooks/lemonsqueezy`
+- `GET https://kidventuro-api.m-oreshkov.workers.dev/entitlement/status?ref=...`
 
-`https://kidventuro-api.<your-workers-subdomain>.workers.dev`
+A correctly configured `/health` response shows:
 
-Endpoints:
-
-- `POST /webhooks/lemonsqueezy`
-- `GET /entitlement/status?ref=...`
-- `GET /health`
-
-Open `/health` after adding the secret. A correctly configured Worker returns JSON showing `storage: true` and `webhook_secret: true`.
+- `storage: true`
+- `webhook_secret: true`
 
 ## Lemon Squeezy webhook
 
-In Lemon Squeezy Settings → Webhooks create a webhook in the same mode you are testing (Test mode first):
+In Lemon Squeezy Settings → Webhooks create the webhook in the same mode you are testing (Test mode first):
 
-- Callback URL: `<WORKER_URL>/webhooks/lemonsqueezy`
+- Callback URL: `https://kidventuro-api.m-oreshkov.workers.dev/webhooks/lemonsqueezy`
 - Signing secret: exactly the same value stored in Cloudflare as `LEMONSQUEEZY_WEBHOOK_SECRET`
 - Events: `order_created`, `order_refunded`
 
-Lemon Squeezy test-mode and live-mode webhooks are separate. Configure and test Test mode first, then repeat for Live mode before launch.
+Lemon Squeezy test-mode and live-mode webhooks are separate. Configure Test mode first and repeat for Live mode before launch.
 
 ## Product confirmation button
 
@@ -57,25 +65,25 @@ Button text:
 
 `Create my adventure`
 
-The browser retains only the opaque `kv_ref` needed to match the checkout with the entitlement. Child personalization does not need to be sent to Lemon Squeezy.
+The browser retains only the opaque `kv_ref` needed to match checkout with the entitlement. Child personalization does not need to be sent to Lemon Squeezy.
 
 ## Frontend API URL
 
-After Cloudflare gives you the final `workers.dev` URL, update the single `apiBase` value in the repository root file:
+The repository root `runtime-config.js` is configured to use:
 
-`runtime-config.js`
+`https://kidventuro-api.m-oreshkov.workers.dev`
 
-The success page and booklet gate both read that one value.
+Both the success page and the booklet payment gate use this value.
 
 ## Optional production hardening
 
-The Worker supports an optional `EXPECTED_VARIANT_ID` environment variable. Once the numeric Lemon Squeezy variant ID is known, set it in Cloudflare so orders for any future product cannot unlock the Adventure product by mistake.
+The Worker supports an optional `EXPECTED_VARIANT_ID` runtime variable. Once the numeric Lemon Squeezy variant ID is confirmed, set it in Cloudflare so a different future product cannot unlock the Adventure product.
 
 ## Security model
 
 - Lemon Squeezy receives only an opaque `kv_ref` custom checkout value.
 - The Worker verifies `X-Signature` with HMAC-SHA256 before trusting the webhook.
-- Only orders whose status is `paid` create an entitlement.
+- Only `paid` orders create an entitlement.
 - Entitlements expire from KV after 30 days.
-- `booklet.html` verifies the entitlement against the Worker before loading the generator scripts.
-- The current generator code is still public client-side JavaScript. This is a purchase gate for the MVP, not DRM. Stronger protection would move final generation or protected assets server-side.
+- `booklet.html` verifies the entitlement against the Worker before loading generator scripts.
+- The current generator remains public client-side JavaScript. This is an MVP purchase gate, not DRM. Stronger protection would move final generation or protected assets server-side.
