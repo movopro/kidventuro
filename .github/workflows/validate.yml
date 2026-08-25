@@ -24,6 +24,7 @@ jobs:
           import json
           from pathlib import Path
           required = [
+              'package.json',
               'index.html','styles.css','app.js','checkout.js','runtime-config.js',
               'success.html','success.js','booklet.html','booklet-v2.js','booklet-session.js',
               'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
@@ -39,6 +40,9 @@ jobs:
               raise SystemExit(f'Unexpected CNAME: {cname}')
           if Path('worker/wrangler.toml').exists():
               raise SystemExit('Obsolete worker/wrangler.toml is still present')
+          root_pkg=json.loads(Path('package.json').read_text(encoding='utf-8'))
+          if 'deploy' not in root_pkg.get('scripts',{}) or '--prefix worker' not in root_pkg['scripts']['deploy']:
+              raise SystemExit('Root Cloudflare deploy bridge is missing')
           config=json.loads(Path('worker/wrangler.jsonc').read_text(encoding='utf-8'))
           if config.get('name') != 'kidventuro-api':
               raise SystemExit('Unexpected Worker name')
@@ -67,9 +71,5 @@ jobs:
                   raise SystemExit(f'Worker validation marker missing: {marker}')
           print('Static checks passed')
           PY
-      - name: Install Worker dependencies
-        working-directory: worker
-        run: npm install --no-audit --no-fund
-      - name: Validate Cloudflare Worker deployment
-        working-directory: worker
-        run: npm run check
+      - name: Validate root-level Cloudflare deployment flow
+        run: npm run check-worker
