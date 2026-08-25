@@ -14,7 +14,7 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           set -e
-          for file in *.js; do
+          for file in *.js worker/src/*.js; do
             echo "Checking $file"
             node --check "$file"
           done
@@ -23,10 +23,12 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           required = [
-              'index.html','styles.css','app.js','checkout.js','booklet.html','booklet-v2.js',
-              'booklet-session.js','catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
+              'index.html','styles.css','app.js','checkout.js','success.html','success.js',
+              'booklet.html','booklet-v2.js','booklet-session.js',
+              'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
               'age-core.js','age-pages.js','age-final.js','trip-days.js',
-              'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME'
+              'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME',
+              'worker/src/index.js','worker/wrangler.toml','worker/README.md'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
@@ -45,5 +47,11 @@ jobs:
           booklet=Path('booklet.html').read_text(encoding='utf-8')
           if 'booklet-session.js' not in booklet or 'booklet-v2.js' not in booklet:
               raise SystemExit('Booklet script chain is incomplete')
+          worker=Path('worker/src/index.js').read_text(encoding='utf-8')
+          if 'X-Signature' not in worker or 'LEMONSQUEEZY_WEBHOOK_SECRET' not in worker:
+              raise SystemExit('Webhook signature verification is incomplete')
+          success=Path('success.js').read_text(encoding='utf-8')
+          if 'api.kidventuro.com' not in success or 'entitlement/status' not in success:
+              raise SystemExit('Success entitlement polling is incomplete')
           print('Static checks passed')
           PY
