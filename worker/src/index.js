@@ -1,3 +1,5 @@
+import {getAiEnrichment} from './ai.js';
+
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
 
@@ -319,6 +321,29 @@ async function handleFulfillment(url, env) {
   });
 }
 
+async function handleAiEnrichment(request, env) {
+  if (!env.ENTITLEMENTS) return json({ ok: false, ai: false, error: 'storage_not_configured' }, 503);
+  if (request.headers.get('Origin') !== ALLOWED_ORIGIN) return json({ ok: false, ai: false, error: 'origin_not_allowed' }, 403);
+
+  let payload;
+  try { payload = await request.json(); }
+  catch { return json({ ok: false, ai: false, error: 'invalid_json' }, 400); }
+  const ref = String(payload?.ref || '').trim();
+  if (!validRef(ref)) return json({ ok: false, ai: false, error: 'invalid_ref' }, 400);
+
+  const entitlement = await readEntitlement(ref, env);
+  if (!entitlement || entitlement.paid !== true || entitlement.refunded === true) {
+    return json({ ok: false, ai: false, error: 'paid_entitlement_required' }, 403);
+  }
+  const session = await readCheckoutSession(ref, env);
+  if (!session || session.product !== entitlement.product) {
+    return json({ ok: false, ai: false, error: 'checkout_session_unavailable' }, 409);
+  }
+
+  const result = await getAiEnrichment(ref, session, env);
+  return json({ ok: true, ...result });
+}
+
 export default {
   async fetch(request, env) {
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: responseHeaders });
@@ -331,6 +356,8 @@ export default {
         service: 'kidventuro-api',
         storage: Boolean(env.ENTITLEMENTS),
         webhook_secret: Boolean(env.LEMONSQUEEZY_WEBHOOK_SECRET),
+        ai_configured: Boolean(env.OPENAI_API_KEY),
+        ai_model: String(env.OPENAI_MODEL || 'gpt-5.6-luna'),
         products: [...ALLOWED_PRODUCTS],
         last_webhook: lastWebhook
       });
@@ -339,6 +366,7 @@ export default {
     if (url.pathname === '/webhooks/lemonsqueezy' && request.method === 'POST') return handleWebhook(request, env);
     if (url.pathname === '/entitlement/status' && request.method === 'GET') return handleStatus(url, env);
     if (url.pathname === '/fulfillment' && request.method === 'GET') return handleFulfillment(url, env);
+    if (url.pathname === '/ai/enrich' && request.method === 'POST') return handleAiEnrichment(request, env);
 
     return json({ error: 'not_found' }, 404);
   }
