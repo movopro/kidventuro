@@ -3,7 +3,7 @@
   const SESSION_KEY='kidventuro:booklet';
   const PAID_KEY='kidventuro:paid_ref';
   const allowed=['name','age','destination','interest','days','lang'];
-  const generatorScripts=['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','booklet-v2.js','age-core.js','age-pages.js','age-final.js','trip-days.js'];
+  const baseScripts=['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','booklet-v2.js','age-core.js','age-pages.js','age-final.js','trip-days.js'];
 
   const fail=(message)=>{
     const title=document.getElementById('toolbarTitle');
@@ -28,6 +28,9 @@
       return;
     }
 
+    const product=['mini','adventure','family'].includes(data.product)?data.product:'adventure';
+    data.product=product;
+
     let api='';
     try{ api=(window.KIDVENTURO_CONFIG?.apiBase||sessionStorage.getItem(API_KEY)||'').replace(/\/$/,''); }catch{}
     if(!api){
@@ -43,11 +46,20 @@
       const r=await fetch(`${api}/entitlement/status?ref=${encodeURIComponent(data.kv_ref)}`,{cache:'no-store',credentials:'omit'});
       const status=await r.json().catch(()=>({}));
       if(!r.ok||status.paid!==true){
-        fail(status.refunded?'This order has been refunded.':'We could not verify a paid order for this adventure.');
+        fail(status.refunded?'This order has been refunded.':'We could not verify a paid order for this Kidventuro product.');
+        return;
+      }
+      if(status.product&&status.product!==product){
+        fail('The purchased Kidventuro product does not match this booklet session.');
         return;
       }
     }catch{
       fail('Payment verification is temporarily unavailable. Please try again from the payment confirmation page.');
+      return;
+    }
+
+    if(product==='family'){
+      fail('Your Family purchase is verified, but the multi-child booklet generator is not active yet. Please contact Kidventuro support.');
       return;
     }
 
@@ -58,11 +70,13 @@
     history.replaceState(null,'',`${location.pathname}?${params.toString()}`);
 
     try{
-      for(const src of generatorScripts) await loadScript(src);
+      for(const src of baseScripts) await loadScript(src);
+      if(product==='mini') await loadScript('mini-mode.js');
+      document.body.dataset.product=product;
       history.replaceState(null,'',location.pathname);
     }catch(e){
       console.error(e);
-      fail('The adventure could not be generated. Please reload the page.');
+      fail('The Kidventuro product could not be generated. Please reload the page.');
     }
   })();
 })();
