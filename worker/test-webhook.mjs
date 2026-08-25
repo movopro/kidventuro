@@ -76,12 +76,28 @@ async function fulfillment(query) {
   return { response, body: await response.json() };
 }
 
+async function aiEnrichment(targetRef=ref,targetEnv=env){
+  const request=new Request('https://example.workers.dev/ai/enrich',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Origin':'https://kidventuro.com'},
+    body:JSON.stringify({ref:targetRef})
+  });
+  const response=await worker.fetch(request,targetEnv);
+  return {response,body:await response.json()};
+}
+
 {
   const response = await checkoutSession();
   assert.equal(response.status, 200, 'checkout personalization should be stored before redirect');
   const body = await response.json();
   assert.equal(body.ok, true);
   assert.equal(body.product, 'adventure');
+}
+
+{
+  const gated=await aiEnrichment();
+  assert.equal(gated.response.status,403,'AI enrichment must require a paid entitlement');
+  assert.equal(gated.body.error,'paid_entitlement_required');
 }
 
 {
@@ -128,6 +144,11 @@ async function fulfillment(query) {
   assert.equal(byOrder.response.status, 200, 'order identifier should recover fulfillment in a new tab');
   assert.equal(byOrder.body.ref, ref);
   assert.equal(byOrder.body.personalization.interest, 'dinosaurs');
+
+  const ai=await aiEnrichment();
+  assert.equal(ai.response.status,200,'paid orders may request optional AI enrichment');
+  assert.equal(ai.body.ai,false,'without an OpenAI key the deterministic fallback must remain active');
+  assert.equal(ai.body.reason,'not_configured');
 }
 
 {
@@ -140,6 +161,9 @@ async function fulfillment(query) {
   const fulfilled = await fulfillment(`order=${encodeURIComponent(orderIdentifier)}`);
   assert.equal(fulfilled.response.status, 403, 'refunded orders must not fulfill');
   assert.equal(fulfilled.body.refunded, true);
+
+  const ai=await aiEnrichment();
+  assert.equal(ai.response.status,403,'refunded orders must not use AI enrichment');
 }
 
 {
@@ -183,4 +207,4 @@ async function fulfillment(query) {
   assert.equal(family.personalization.destination,'Paris');
 }
 
-console.log('Product-aware webhook, recovery and Family fulfillment integration tests passed');
+console.log('Product-aware webhook, recovery, AI gating and Family fulfillment integration tests passed');
