@@ -1,0 +1,11 @@
+node_modules/
+worker/node_modules/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+worker/.dev.vars
+worker/.dev.vars.*
+worker/.env
+worker/.env.*
+.DS_Store
