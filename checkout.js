@@ -1,4 +1,5 @@
 (()=>{
+  const expansionReady=import('./site-expansion.js').catch(err=>console.warn('Kidventuro destination expansion unavailable',err));
   const PRODUCTS={
     mini:{
       price:'€5.90',
@@ -42,7 +43,6 @@
     const existing=readExisting();
     const ref=(existing.product===product&&existing.kv_ref)?existing.kv_ref:makeRef();
     const main=mainValues();
-    if(!main.name) throw new Error('name_required');
 
     const data={product,...main,kv_ref:ref,saved_at:Date.now()};
     if(product==='family'){
@@ -51,6 +51,8 @@
       data.name=familyChildren[0].name;
       data.age=familyChildren[0].age;
       data.interest=familyChildren[0].interest;
+    }else if(!main.name){
+      throw new Error('name_required');
     }
 
     try{
@@ -95,6 +97,7 @@
 
   const startCheckout=async(product='adventure',e,familyChildren=null)=>{
     if(e) e.preventDefault();
+    await expansionReady;
     const trigger=e?.currentTarget;
     const originalText=trigger?.textContent||'';
     try{
@@ -193,8 +196,9 @@
     return children;
   };
 
-  const openFamilyCheckout=e=>{
+  const openFamilyCheckout=async e=>{
     if(e) e.preventDefault();
+    await expansionReady;
     const trigger=e?.currentTarget;
     const dialog=familyDialog();
     dialog.returnValue='';
