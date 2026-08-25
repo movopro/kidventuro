@@ -29,11 +29,12 @@
     }
 
     let api='';
-    try{ api=sessionStorage.getItem(API_KEY)||''; }catch{}
+    try{ api=(window.KIDVENTURO_CONFIG?.apiBase||sessionStorage.getItem(API_KEY)||'').replace(/\/$/,''); }catch{}
     if(!api){
       fail('The payment service is not configured yet.');
       return;
     }
+    try{ sessionStorage.setItem(API_KEY,api); }catch{}
 
     const title=document.getElementById('toolbarTitle');
     if(title) title.textContent='Verifying payment…';
