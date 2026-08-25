@@ -1,12 +1,18 @@
 (()=>{
-  const API='https://api.kidventuro.com';
+  const API_KEY='kidventuro:api_base';
   const REF_KEY='kidventuro:checkout_ref';
   const PAID_KEY='kidventuro:paid_ref';
   const statusEl=document.getElementById('status');
   const btn=document.getElementById('continueBtn');
   const help=document.getElementById('help');
   let ref='';
-  try{ref=sessionStorage.getItem(REF_KEY)||JSON.parse(sessionStorage.getItem('kidventuro:booklet')||'{}').kv_ref||'';}catch{}
+  let api='';
+
+  try{
+    ref=sessionStorage.getItem(REF_KEY)||JSON.parse(sessionStorage.getItem('kidventuro:booklet')||'{}').kv_ref||'';
+    api=(window.KIDVENTURO_CONFIG?.apiBase||sessionStorage.getItem(API_KEY)||'').replace(/\/$/,'');
+    if(api) sessionStorage.setItem(API_KEY,api);
+  }catch{}
 
   if(!ref){
     statusEl.textContent='We could not find this checkout session.';
@@ -15,15 +21,22 @@
     return;
   }
 
+  if(!api){
+    statusEl.textContent='Payment verification is not configured yet.';
+    statusEl.className='status error';
+    help.textContent='The Kidventuro payment backend still needs its Cloudflare Worker URL.';
+    return;
+  }
+
   const openBook=()=>{ window.location.href='booklet.html'; };
   btn.addEventListener('click',openBook);
 
   let tries=0;
-  const maxTries=24;
+  const maxTries=30;
   const poll=async()=>{
     tries++;
     try{
-      const r=await fetch(`${API}/entitlement/status?ref=${encodeURIComponent(ref)}`,{cache:'no-store',credentials:'omit'});
+      const r=await fetch(`${api}/entitlement/status?ref=${encodeURIComponent(ref)}`,{cache:'no-store',credentials:'omit'});
       const data=await r.json().catch(()=>({}));
       if(r.ok&&data.paid===true){
         try{sessionStorage.setItem(PAID_KEY,ref);}catch{}
@@ -31,6 +44,12 @@
         statusEl.className='status ok';
         btn.classList.remove('hidden');
         help.textContent='Your personalized adventure is ready to open.';
+        return;
+      }
+      if(data.refunded===true){
+        statusEl.textContent='This order has been refunded.';
+        statusEl.className='status error';
+        help.textContent='The adventure is no longer available for this order.';
         return;
       }
     }catch{}
