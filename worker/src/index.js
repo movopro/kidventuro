@@ -73,24 +73,47 @@ async function readDiagnostic(env) {
   try { return JSON.parse(raw); } catch { return null; }
 }
 
-function cleanPersonalization(input) {
+function cleanChild(input) {
   const name = String(input?.name || '').trim().slice(0, 20);
   const age = Number(input?.age);
+  const interest = String(input?.interest || '').trim().slice(0, 40);
+  if (!name || !Number.isInteger(age) || age < 4 || age > 12 || !interest) return null;
+  return { name, age: String(age), interest };
+}
+
+function cleanPersonalization(input) {
+  const product = String(input?.product || 'adventure').trim().toLowerCase();
   const days = Number(input?.days);
   const destination = String(input?.destination || '').trim().slice(0, 40);
-  const interest = String(input?.interest || '').trim().slice(0, 40);
   const lang = input?.lang === 'bg' ? 'bg' : 'en';
-  const product = String(input?.product || 'adventure').trim().toLowerCase();
 
-  if (!name || !Number.isInteger(age) || age < 4 || age > 12) return null;
+  if (!validProduct(product)) return null;
   if (![2, 3, 4, 5, 7].includes(days)) return null;
-  if (!destination || !interest || !validProduct(product)) return null;
+  if (!destination) return null;
 
+  if (product === 'family') {
+    if (!Array.isArray(input?.children) || input.children.length < 1 || input.children.length > 3) return null;
+    const children = input.children.map(cleanChild);
+    if (children.some(child => !child)) return null;
+    const first = children[0];
+    return {
+      product,
+      destination,
+      days: String(days),
+      lang,
+      children,
+      name: first.name,
+      age: first.age,
+      interest: first.interest,
+      created_at: new Date().toISOString()
+    };
+  }
+
+  const child = cleanChild(input);
+  if (!child) return null;
   return {
-    name,
-    age: String(age),
+    ...child,
     destination,
-    interest,
     days: String(days),
     lang,
     product,
