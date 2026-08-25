@@ -49,6 +49,13 @@
       kv_ref:ref,
       saved_at:Date.now()
     };
+    if(product==='family'&&Array.isArray(personalization.children)){
+      session.children=personalization.children.slice(0,3).map(child=>({
+        name:child.name,
+        age:child.age,
+        interest:child.interest
+      }));
+    }
     try{
       sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));
       sessionStorage.setItem(REF_KEY,ref);
