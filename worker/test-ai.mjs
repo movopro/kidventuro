@@ -28,6 +28,12 @@ const familySession={
 }
 
 {
+  const schema=__test.enrichmentSchema;
+  assert.equal(schema.additionalProperties,false);
+  assert.deepEqual(schema.required,['destination_hook','interest_mission','family_mission','reflection_prompt']);
+}
+
+{
   const env={ENTITLEMENTS:new MemoryKV()};
   const result=await getAiEnrichment(ref,familySession,env);
   assert.equal(result.ai,false);
@@ -60,6 +66,13 @@ const familySession={
     assert.ok(first.content.family_mission.includes('explorer'));
     for(const name of ['Emma','Leo','Mia']) assert.equal(captured.includes(name),false,`OpenAI request leaked child name ${name}`);
 
+    const requestBody=JSON.parse(captured);
+    assert.equal(requestBody.store,false,'OpenAI response storage must be disabled for this enrichment request');
+    assert.equal(requestBody.reasoning?.effort,'none','Microcopy generation should avoid unnecessary reasoning tokens');
+    assert.equal(requestBody.text?.format?.type,'json_schema','AI response should use Structured Outputs');
+    assert.equal(requestBody.text?.format?.strict,true,'AI response schema should be strict');
+    assert.equal(requestBody.text?.verbosity,'low');
+
     const second=await getAiEnrichment(ref,familySession,env);
     assert.equal(second.ai,true);
     assert.equal(second.cached,true);
@@ -69,4 +82,4 @@ const familySession={
   }
 }
 
-console.log('AI privacy, fallback and cache tests passed');
+console.log('AI privacy, structured-output, fallback and cache tests passed');
