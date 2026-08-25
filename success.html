@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#fff8ef" />
+  <title>Payment confirmation — Kidventuro</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body{min-height:100vh;display:grid;place-items:center;padding:24px;background:#fff8ef}
+    .success-card{width:min(660px,100%);background:white;border:1px solid #e8e2d8;border-radius:28px;padding:42px;box-shadow:0 20px 60px rgba(42,54,51,.12);text-align:center}
+    .success-mark{width:72px;height:72px;border-radius:22px;margin:0 auto 22px;display:grid;place-items:center;background:#dff4ea;font-size:34px}
+    .success-card h1{font-size:clamp(2.2rem,7vw,4rem);line-height:.95;margin-bottom:16px}
+    .success-card p{color:#65736f;max-width:520px;margin:0 auto 18px}
+    .status{margin:24px 0;padding:16px;border-radius:16px;background:#fff8ef;font-weight:800}
+    .status.ok{background:#dff4ea}.status.error{background:#ffe3dc}
+    .small{font-size:.86rem}.hidden{display:none!important}
+  </style>
+</head>
+<body>
+  <main class="success-card">
+    <div class="success-mark">✈️</div>
+    <span class="eyebrow">KIDVENTURO</span>
+    <h1>Confirming your adventure…</h1>
+    <p>We’re checking the payment confirmation securely before opening the personalized book.</p>
+    <div id="status" class="status">Waiting for payment confirmation…</div>
+    <button id="continueBtn" class="btn btn-primary hidden" type="button">Open my adventure →</button>
+    <p id="help" class="small">This can take a few seconds after checkout. If it does not confirm, keep this tab open and use the button again from the Lemon Squeezy confirmation screen.</p>
+  </main>
+  <script src="success.js"></script>
+</body>
+</html>
