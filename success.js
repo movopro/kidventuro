@@ -31,8 +31,49 @@
   const openBook=()=>{ window.location.href='booklet.html'; };
   btn.addEventListener('click',openBook);
 
+  const showDiagnostic=async()=>{
+    statusEl.textContent='Payment has not been confirmed yet.';
+    statusEl.className='status error';
+    try{
+      const r=await fetch(`${api}/health`,{cache:'no-store',credentials:'omit'});
+      const health=await r.json().catch(()=>({}));
+      if(!r.ok||health.ok!==true){
+        help.textContent='The payment verification service is unavailable. Please try again shortly.';
+        return;
+      }
+      if(health.storage!==true){
+        help.textContent='Payment storage is not configured. Kidventuro support needs to check the Cloudflare KV binding.';
+        return;
+      }
+      if(health.webhook_secret!==true){
+        help.textContent='The Lemon Squeezy webhook secret is missing from the payment service.';
+        return;
+      }
+      const last=health.last_webhook;
+      if(!last){
+        help.textContent='No signed Lemon Squeezy webhook has reached Kidventuro yet. In Test mode, make sure the webhook was created in Lemon Squeezy Test mode and uses this Worker URL.';
+        return;
+      }
+      if(last.ref_hint&&last.ref_hint!==ref.slice(-8)){
+        help.textContent='The payment service received a webhook, but it belongs to a different checkout session. Restart checkout from Kidventuro in this browser and try again.';
+        return;
+      }
+      const messages={
+        ignored_missing_or_invalid_ref:'Lemon Squeezy reached Kidventuro, but the checkout did not include the Kidventuro reference. Restart checkout from kidventuro.com and try again.',
+        ignored_unexpected_product:'The webhook was received but did not match the Kidventuro Adventure product.',
+        ignored_unexpected_variant:'The webhook was received but the Lemon Squeezy variant did not match the configured Adventure variant.',
+        ignored_order_not_paid:'The webhook was received, but Lemon Squeezy did not report the order as paid.',
+        entitlement_refunded:'This order has been refunded, so the adventure cannot be opened.',
+        entitlement_created:'The payment webhook was accepted. Refresh this page once; Cloudflare KV may need a few more seconds to propagate.'
+      };
+      help.textContent=messages[last.result]||`Lemon Squeezy webhook received (${last.event||'unknown event'}), but it did not unlock this adventure.`;
+    }catch{
+      help.textContent='Could not load payment diagnostics. Refresh this page and try again.';
+    }
+  };
+
   let tries=0;
-  const maxTries=30;
+  const maxTries=24;
   const poll=async()=>{
     tries++;
     try{
@@ -54,9 +95,7 @@
       }
     }catch{}
     if(tries>=maxTries){
-      statusEl.textContent='Payment confirmation is taking longer than expected.';
-      statusEl.className='status error';
-      help.textContent='If the order succeeded, refresh this page after checking the webhook in Lemon Squeezy. Your checkout session is still saved in this browser.';
+      await showDiagnostic();
       return;
     }
     setTimeout(poll,2500);
