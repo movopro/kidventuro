@@ -1,10 +1,10 @@
 {
   "name": "kidventuro-api",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "test": "node test-webhook.mjs",
+    "test": "node test-webhook.mjs && node test-ai.mjs && node ../test-catalog.mjs",
     "check": "wrangler deploy --dry-run",
     "deploy": "wrangler deploy"
   },
