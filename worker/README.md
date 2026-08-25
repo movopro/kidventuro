@@ -1,6 +1,6 @@
 # Kidventuro payment backend (Cloudflare Worker)
 
-This Worker verifies Lemon Squeezy webhooks and stores short-lived purchase entitlements in Cloudflare KV.
+This Worker verifies Lemon Squeezy webhooks, stores short-lived purchase entitlements and temporarily stores checkout personalization in Cloudflare KV.
 
 ## Current deployment
 
@@ -36,36 +36,45 @@ Do **not** commit the secret value to GitHub. Local `.env` and `.dev.vars` files
 
 ## Public endpoints
 
-- `GET https://kidventuro-api.m-oreshkov.workers.dev/health`
-- `POST https://kidventuro-api.m-oreshkov.workers.dev/webhooks/lemonsqueezy`
-- `GET https://kidventuro-api.m-oreshkov.workers.dev/entitlement/status?ref=...`
+- `GET /health`
+- `POST /checkout/session`
+- `POST /webhooks/lemonsqueezy`
+- `GET /entitlement/status?ref=...`
+- `GET /fulfillment?ref=...`
+- `GET /fulfillment?order=...`
+
+`POST /checkout/session` only accepts browser requests with the Kidventuro production origin and stores the minimum personalization fields under a random `kv_ref` for up to 7 days.
+
+`GET /fulfillment` returns personalization only after a verified paid entitlement exists. The order form allows recovery after checkout opens in a different tab or from an order-confirmation link.
 
 A correctly configured `/health` response shows:
 
 - `storage: true`
 - `webhook_secret: true`
 
+The endpoint also exposes privacy-safe diagnostics about the most recent webhook result. It never returns the signing secret or full personalization.
+
 ## Lemon Squeezy webhook
 
-In Lemon Squeezy Settings → Webhooks create the webhook in the same mode you are testing (Test mode first):
+In Lemon Squeezy Settings → Webhooks create the webhook in the same mode you are testing:
 
 - Callback URL: `https://kidventuro-api.m-oreshkov.workers.dev/webhooks/lemonsqueezy`
 - Signing secret: exactly the same value stored in Cloudflare as `LEMONSQUEEZY_WEBHOOK_SECRET`
 - Events: `order_created`, `order_refunded`
 
-Lemon Squeezy test-mode and live-mode webhooks are separate. Configure Test mode first and repeat for Live mode before launch.
+Lemon Squeezy Test-mode and Live-mode webhooks are separate. Repeat the configuration for Live mode before public launch.
 
-## Product confirmation button
+## Product confirmation / receipt link
 
-Set the Kidventuro Adventure confirmation button URL to:
+Recommended link:
 
-`https://kidventuro.com/success.html`
+`https://kidventuro.com/success.html?order=[order_identifier]`
 
-Button text:
+Recommended button text:
 
 `Create my adventure`
 
-The browser retains only the opaque `kv_ref` needed to match checkout with the entitlement. Child personalization does not need to be sent to Lemon Squeezy.
+The `[order_identifier]` link variable lets Kidventuro recover the verified `kv_ref` after payment without putting child personalization in the URL.
 
 ## Frontend API URL
 
@@ -73,7 +82,7 @@ The repository root `runtime-config.js` is configured to use:
 
 `https://kidventuro-api.m-oreshkov.workers.dev`
 
-Both the success page and the booklet payment gate use this value.
+The success page and booklet payment gate use this payment backend.
 
 ## Optional production hardening
 
@@ -81,9 +90,11 @@ The Worker supports an optional `EXPECTED_VARIANT_ID` runtime variable. Once the
 
 ## Security model
 
-- Lemon Squeezy receives only an opaque `kv_ref` custom checkout value.
+- Lemon Squeezy receives only an opaque `kv_ref` custom checkout value plus a product marker.
+- Child personalization remains with Kidventuro and expires from checkout storage after up to 7 days.
 - The Worker verifies `X-Signature` with HMAC-SHA256 before trusting the webhook.
 - Only `paid` orders create an entitlement.
-- Entitlements expire from KV after 30 days.
+- Order-to-reference mappings and entitlements expire after up to 30 days.
+- Refund webhooks revoke access.
 - `booklet.html` verifies the entitlement against the Worker before loading generator scripts.
 - The current generator remains public client-side JavaScript. This is an MVP purchase gate, not DRM. Stronger protection would move final generation or protected assets server-side.
