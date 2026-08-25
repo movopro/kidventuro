@@ -11,24 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Check JavaScript syntax
         run: |
           set -e
-          for file in *.js worker/src/*.js; do
-            echo "Checking $file"
-            node --check "$file"
-          done
+          find . -name '*.js' -not -path './node_modules/*' -print0 | xargs -0 -n1 node --check
       - name: Check required launch files
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
           required = [
-              'index.html','styles.css','app.js','checkout.js','success.html','success.js',
-              'booklet.html','booklet-v2.js','booklet-session.js',
+              'index.html','styles.css','app.js','checkout.js','runtime-config.js',
+              'success.html','success.js','booklet.html','booklet-v2.js','booklet-session.js',
               'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js',
               'age-core.js','age-pages.js','age-final.js','trip-days.js',
               'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME',
-              'worker/src/index.js','worker/wrangler.toml','worker/README.md'
+              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
@@ -36,6 +37,14 @@ jobs:
           cname=Path('CNAME').read_text(encoding='utf-8').strip()
           if cname != 'kidventuro.com':
               raise SystemExit(f'Unexpected CNAME: {cname}')
+          if Path('worker/wrangler.toml').exists():
+              raise SystemExit('Obsolete worker/wrangler.toml is still present')
+          config=json.loads(Path('worker/wrangler.jsonc').read_text(encoding='utf-8'))
+          if config.get('name') != 'kidventuro-api':
+              raise SystemExit('Unexpected Worker name')
+          bindings=config.get('kv_namespaces',[])
+          if not any(x.get('binding')=='ENTITLEMENTS' for x in bindings):
+              raise SystemExit('ENTITLEMENTS KV binding is missing')
           index=Path('index.html').read_text(encoding='utf-8')
           if 'site-enhance.js' in index or 'booklet.js' in index:
               raise SystemExit('Obsolete script reference found in index.html')
@@ -45,13 +54,16 @@ jobs:
           if '/checkout/buy/' not in checkout or 'checkout[custom][kv_ref]' not in checkout:
               raise SystemExit('Lemon Squeezy checkout integration is incomplete')
           booklet=Path('booklet.html').read_text(encoding='utf-8')
-          if 'booklet-session.js' not in booklet or 'booklet-v2.js' not in booklet:
-              raise SystemExit('Booklet script chain is incomplete')
+          if 'runtime-config.js' not in booklet or 'booklet-session.js' not in booklet:
+              raise SystemExit('Booklet payment gate is incomplete')
+          if 'booklet-v2.js' in booklet:
+              raise SystemExit('Generator must not load before entitlement verification')
+          success=Path('success.html').read_text(encoding='utf-8')
+          if 'runtime-config.js' not in success or 'success.js' not in success:
+              raise SystemExit('Payment success page is incomplete')
           worker=Path('worker/src/index.js').read_text(encoding='utf-8')
-          if 'X-Signature' not in worker or 'LEMONSQUEEZY_WEBHOOK_SECRET' not in worker:
-              raise SystemExit('Webhook signature verification is incomplete')
-          success=Path('success.js').read_text(encoding='utf-8')
-          if 'api.kidventuro.com' not in success or 'entitlement/status' not in success:
-              raise SystemExit('Success entitlement polling is incomplete')
+          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS']:
+              if marker not in worker:
+                  raise SystemExit(f'Worker validation marker missing: {marker}')
           print('Static checks passed')
           PY
