@@ -5,6 +5,10 @@
   "compatibility_date": "2026-08-25",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
+  "keep_vars": true,
+  "secrets": {
+    "required": ["LEMONSQUEEZY_WEBHOOK_SECRET"]
+  },
   "kv_namespaces": [
     {
       "binding": "ENTITLEMENTS"
