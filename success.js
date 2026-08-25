@@ -37,7 +37,9 @@
     const personalization=data?.personalization;
     if(!data?.ref||!personalization) return false;
     ref=data.ref;
+    const product=data.product||personalization.product||'adventure';
     const session={
+      product,
       name:personalization.name,
       age:personalization.age,
       destination:personalization.destination,
@@ -57,10 +59,11 @@
   };
 
   const showReady=data=>{
-    statusEl.textContent=data.test_mode?'Test payment confirmed ✓':'Payment confirmed ✓';
+    const label=data.product==='mini'?'Mini':data.product==='family'?'Family':'Adventure';
+    statusEl.textContent=data.test_mode?`Test ${label} payment confirmed ✓`:`${label} payment confirmed ✓`;
     statusEl.className='status ok';
     btn.classList.remove('hidden');
-    help.textContent='Your personalized adventure is ready to open.';
+    help.textContent='Your personalized Kidventuro product is ready to open.';
   };
 
   const showDiagnostic=async()=>{
@@ -96,13 +99,14 @@
       }
       const messages={
         ignored_missing_or_invalid_ref:'The checkout did not include the Kidventuro reference. Restart checkout from kidventuro.com.',
-        ignored_unexpected_product:'The webhook was received but did not match the Kidventuro Adventure product.',
-        ignored_unexpected_variant:'The webhook was received but the Lemon Squeezy variant did not match the configured Adventure variant.',
+        ignored_unexpected_product:'The webhook was received but did not match a configured Kidventuro product.',
+        ignored_checkout_session_product_mismatch:'The paid product did not match the Kidventuro checkout session. Restart checkout from kidventuro.com.',
+        ignored_unexpected_variant:'The webhook was received but its Lemon Squeezy variant did not match the configured product.',
         ignored_order_not_paid:'The webhook was received, but Lemon Squeezy did not report the order as paid.',
-        entitlement_refunded:'This order has been refunded, so the adventure cannot be opened.',
+        entitlement_refunded:'This order has been refunded, so the product cannot be opened.',
         entitlement_created:'The payment webhook was accepted. Refresh this page once; Cloudflare KV may need a few more seconds to propagate.'
       };
-      help.textContent=messages[last.result]||`Lemon Squeezy webhook received (${last.event||'unknown event'}), but it did not unlock this adventure.`;
+      help.textContent=messages[last.result]||`Lemon Squeezy webhook received (${last.event||'unknown event'}), but it did not unlock this purchase.`;
     }catch{
       help.textContent='Could not load payment diagnostics. Refresh this page and try again.';
     }
@@ -124,13 +128,13 @@
       if(data.refunded===true){
         statusEl.textContent='This order has been refunded.';
         statusEl.className='status error';
-        help.textContent='The adventure is no longer available for this order.';
+        help.textContent='The Kidventuro product is no longer available for this order.';
         return;
       }
       if(data.reason==='personalization_expired'){
         statusEl.textContent='Payment confirmed, but personalization has expired.';
         statusEl.className='status error';
-        help.textContent='Contact hello@kidventuro.com with your order identifier so we can help recreate the adventure.';
+        help.textContent='Contact hello@kidventuro.com with your order identifier so we can help recreate the product.';
         return;
       }
     }catch{}
