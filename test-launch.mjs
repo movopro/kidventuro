@@ -2,16 +2,18 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 
 const read=path=>readFile(new URL(path,import.meta.url),'utf8');
-const [index,runtime,checkout,polish,success,privacy,terms,refunds,worker]=await Promise.all([
-  read('./index.html'),read('./runtime-config.js'),read('./checkout.js'),read('./launch-polish.js'),
-  read('./success.js'),read('./privacy.html'),read('./terms.html'),read('./refunds.html'),read('./worker/src/index.js')
+const [index,runtime,analytics,checkout,polish,success,booklet,privacy,terms,refunds,worker,workerAnalytics]=await Promise.all([
+  read('./index.html'),read('./runtime-config.js'),read('./analytics.js'),read('./checkout.js'),read('./launch-polish.js'),
+  read('./success.js'),read('./booklet-session.js'),read('./privacy.html'),read('./terms.html'),read('./refunds.html'),
+  read('./worker/src/index.js'),read('./worker/src/analytics.js')
 ]);
 
-for(const file of ['runtime-config.js','app.js','checkout.js','launch-polish.js']){
+for(const file of ['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js']){
   assert.ok(index.includes(`<script src="${file}"></script>`),`${file} must be loaded by index.html`);
 }
-const scriptOrder=['runtime-config.js','app.js','checkout.js','launch-polish.js'].map(x=>index.indexOf(`<script src="${x}"></script>`));
-assert.deepEqual([...scriptOrder].sort((a,b)=>a-b),scriptOrder,'landing scripts must load runtime config before checkout logic');
+const scriptOrder=['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js'].map(x=>index.indexOf(`<script src="${x}"></script>`));
+assert.deepEqual([...scriptOrder].sort((a,b)=>a-b),scriptOrder,'landing scripts must load runtime config and analytics before checkout logic');
+assert.ok(index.includes('launch.css'),'conversion-focused launch stylesheet must be loaded');
 
 assert.ok(index.includes('50 DESTINATIONS'),'base landing HTML must advertise all 50 destinations');
 assert.equal(index.includes('25 DESTINATIONS'),false,'stale 25-destination launch copy must stay removed');
@@ -29,15 +31,21 @@ const knownTestIds=[
 for(const product of ['mini','adventure','family']){
   assert.match(runtime,new RegExp(`${product}:'https:\\/\\/kidventuro\\.lemonsqueezy\\.com\\/checkout\\/buy\\/[a-z0-9-]+'`,'i'),`${product} checkout URL must be configured centrally`);
 }
-if(isTest){
-  for(const id of knownTestIds) assert.ok(runtime.includes(id),'Test mode must use the known Test checkout URLs');
-}
-if(isLive){
-  for(const id of knownTestIds) assert.equal(runtime.includes(id),false,'Live mode must never contain a known Test checkout URL');
-}
+if(isTest){for(const id of knownTestIds) assert.ok(runtime.includes(id),'Test mode must use the known Test checkout URLs');}
+if(isLive){for(const id of knownTestIds) assert.equal(runtime.includes(id),false,'Live mode must never contain a known Test checkout URL');}
+
 assert.equal(checkout.includes('lemonsqueezy.com/checkout/buy/'),false,'checkout URLs must not be duplicated inside checkout.js');
 assert.ok(checkout.includes('runtime.checkoutUrls'));
 assert.ok(checkout.includes('runtime.checkoutMode'));
+assert.ok(checkout.includes("KidventuroAnalytics?.track('checkout_clicked'"),'checkout intent must be tracked without child data');
+
+for(const marker of ['page_view','preview_generated','sample_opened','pricing_viewed','checkout_clicked','print_clicked']){
+  assert.ok(analytics.includes(marker),`frontend analytics event missing: ${marker}`);
+}
+for(const forbidden of ['childName','childAge','kv_ref','order_identifier','email']){
+  assert.equal(analytics.includes(forbidden),false,`frontend analytics must not read personal/purchase identifiers: ${forbidden}`);
+}
+assert.ok(booklet.includes("KidventuroAnalytics?.track('booklet_opened'"),'verified booklet opens must be tracked');
 
 assert.ok(polish.includes('TEST MODE • No real payment is taken'),'Test mode must be visible to visitors');
 assert.ok(polish.includes('printable books are currently generated in English'),'current product language must be disclosed');
@@ -52,22 +60,25 @@ for(const [name,doc] of [['privacy',privacy],['terms',terms],['refunds',refunds]
   assert.ok(doc.includes('generated in English'),`${name} policy must disclose current printable language`);
   assert.ok(doc.includes('26 August 2026'),`${name} English policy update date must be current`);
 }
+assert.ok(privacy.includes('Aggregate analytics'),'privacy notice must disclose aggregate analytics');
+assert.ok(privacy.includes('does not create an analytics cookie'),'privacy notice must explain cookie-free funnel tracking');
 assert.ok(refunds.includes('Kidventuro Mini, Adventure and Family'),'delivery policy must cover all three products');
 
 for(const marker of [
-  "const RELEASE = '2026-08-26.5'",
+  "const RELEASE = '2026-08-26.6'",
   "const BOOKLET_LANGUAGE = 'en'",
-  'BODY_LIMITS',
-  'checkout_ref_already_used',
-  'checkout_ref_conflict',
-  'ignored_ref_refunded',
-  'ignored_refund_order_mismatch',
-  'const orderSubtotal = Number(attrs.subtotal)',
-  'orderSubtotal !== expectedPrice',
-  "url.pathname === '/diagnostics'",
-  'LEMONSQUEEZY_WEBHOOK_SECRET_LIVE'
+  'BODY_LIMITS','checkout_ref_already_used','checkout_ref_conflict','ignored_ref_refunded','ignored_refund_order_mismatch',
+  'const orderSubtotal = Number(attrs.subtotal)','orderSubtotal !== expectedPrice',"url.pathname === '/diagnostics'",
+  "url.pathname === '/analytics/event'",'trackAnalytics','payment_confirmed','payment_refunded','LEMONSQUEEZY_WEBHOOK_SECRET_LIVE'
 ]) assert.ok(worker.includes(marker),`Worker launch safeguard missing: ${marker}`);
 assert.ok(worker.indexOf("event === 'order_refunded'")<worker.indexOf('const checkoutSession = await readCheckoutSession'), 'refund handling must not depend on temporary checkout personalization');
 assert.equal(worker.includes('itemPrice !== expectedPrice'),false,'tax-adjusted Lemon item price must not be used as the base package-price guard');
 
-console.log('Launch-readiness copy, configuration, recovery, VAT-safe payment lifecycle and policy regression checks passed');
+for(const marker of ['CLIENT_EVENTS','SERVER_EVENTS','writeDataPoint','indexes:[name]','doubles:[1','Origin']){
+  assert.ok(workerAnalytics.includes(marker),`Analytics collector safeguard missing: ${marker}`);
+}
+for(const forbidden of ['name:body','age:body','kv_ref','order_id','email']){
+  assert.equal(workerAnalytics.includes(forbidden),false,`analytics collector must not map PII field: ${forbidden}`);
+}
+
+console.log('Launch-readiness, analytics privacy, recovery, VAT-safe payment lifecycle and policy regression checks passed');
