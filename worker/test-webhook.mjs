@@ -67,9 +67,9 @@ async function webhook(eventName, status='paid', product='adventure', price=PRIC
   return worker.fetch(request, env);
 }
 
-async function status() {
-  const request = new Request(`https://example.workers.dev/entitlement/status?ref=${encodeURIComponent(ref)}`);
-  const response = await worker.fetch(request, env);
+async function status(targetRef=ref,targetEnv=env) {
+  const request = new Request(`https://example.workers.dev/entitlement/status?ref=${encodeURIComponent(targetRef)}`);
+  const response = await worker.fetch(request, targetEnv);
   return { response, body: await response.json() };
 }
 
@@ -87,6 +87,27 @@ async function aiEnrichment(targetRef=ref,targetEnv=env){
   });
   const response=await worker.fetch(request,targetEnv);
   return {response,body:await response.json()};
+}
+
+async function registerSession(targetEnv,targetRef,product='adventure'){
+  const request=new Request('https://example.workers.dev/checkout/session',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Origin':'https://kidventuro.com'},
+    body:JSON.stringify({ref:targetRef,product,name:'Sam',age:'8',destination:'Paris',interest:'art',days:'4',lang:'en'})
+  });
+  return worker.fetch(request,targetEnv);
+}
+
+async function sendSignedOrder(targetEnv,{targetRef,identifier,product='adventure',variantId,price=990,testMode=true,status='paid',event='order_created'}){
+  const payload={
+    meta:{event_name:event,custom_data:{kv_ref:targetRef,product}},
+    data:{id:`order-${identifier}`,attributes:{identifier,status,currency:'EUR',test_mode:testMode,first_order_item:{variant_id:variantId,price,test_mode:testMode}}}
+  };
+  const raw=JSON.stringify(payload);
+  const request=new Request('https://example.workers.dev/webhooks/lemonsqueezy',{
+    method:'POST',headers:{'Content-Type':'application/json','X-Signature':sign(raw)},body:raw
+  });
+  return worker.fetch(request,targetEnv);
 }
 
 {
@@ -142,6 +163,7 @@ async function aiEnrichment(targetRef=ref,targetEnv=env){
   assert.equal(result.body.paid, true, 'paid order should unlock');
   assert.equal(result.body.test_mode, true);
   assert.equal(result.body.product, 'adventure');
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:test:adventure'),'987654','first paid Test Adventure should learn its numeric variant');
 
   const byRef = await fulfillment(`ref=${encodeURIComponent(ref)}`);
   assert.equal(byRef.response.status, 200);
@@ -159,6 +181,35 @@ async function aiEnrichment(targetRef=ref,targetEnv=env){
   assert.equal(ai.response.status,200,'paid orders may request optional AI enrichment');
   assert.equal(ai.body.ai,false,'without an OpenAI key the deterministic fallback must remain active');
   assert.equal(ai.body.reason,'not_configured');
+}
+
+{
+  const secondRef='22222222-3333-4444-8555-666666666666';
+  const session=await registerSession(env,secondRef);
+  assert.equal(session.status,200);
+  const wrongVariant=await sendSignedOrder(env,{targetRef:secondRef,identifier:'bbbbbbbb-cccc-4ddd-8eee-ffffffffffff',variantId:777777,testMode:true});
+  assert.equal(wrongVariant.status,200);
+  assert.equal((await wrongVariant.json()).ignored,'unexpected_variant','a different Test variant must be rejected after auto-lock');
+  const secondStatus=await status(secondRef);
+  assert.equal(secondStatus.body.paid,false,'wrong Test variant must not unlock');
+}
+
+{
+  const liveRef='33333333-4444-4555-8666-777777777777';
+  const session=await registerSession(env,liveRef);
+  assert.equal(session.status,200);
+  const liveOrder=await sendSignedOrder(env,{targetRef:liveRef,identifier:'cccccccc-dddd-4eee-8fff-aaaaaaaaaaaa',variantId:222222,testMode:false});
+  assert.equal(liveOrder.status,200,'Live mode should have its own independent variant lock');
+  assert.equal((await liveOrder.json()).ok,true);
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:adventure'),'222222');
+  const liveStatus=await status(liveRef);
+  assert.equal(liveStatus.body.paid,true);
+  assert.equal(liveStatus.body.test_mode,false);
+
+  const healthResponse=await worker.fetch(new Request('https://example.workers.dev/health'),env);
+  const health=await healthResponse.json();
+  assert.equal(health.variant_locks.test.adventure,true);
+  assert.equal(health.variant_locks.live.adventure,true);
 }
 
 {
@@ -218,6 +269,7 @@ async function aiEnrichment(targetRef=ref,targetEnv=env){
   });
   const webhookResponse=await worker.fetch(webhookRequest,familyEnv);
   assert.equal(webhookResponse.status,200);
+  assert.equal(await familyEnv.ENTITLEMENTS.get('variant_lock:test:family'),'123456','Family should learn its own Test variant');
 
   const fulfillResponse=await worker.fetch(new Request(`https://example.workers.dev/fulfillment?order=${encodeURIComponent(familyOrder)}`),familyEnv);
   const family=await fulfillResponse.json();
@@ -228,4 +280,4 @@ async function aiEnrichment(targetRef=ref,targetEnv=env){
   assert.equal(family.personalization.destination,'Paris');
 }
 
-console.log('Product-aware webhook, price guard, input whitelist, recovery, AI gating and Family fulfillment tests passed');
+console.log('Product-aware webhook, price guard, auto variant locking, input whitelist, recovery, AI gating and Family fulfillment tests passed');
