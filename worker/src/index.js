@@ -1,6 +1,7 @@
 import {getAiEnrichment} from './ai.js';
+import {handleAnalyticsEvent, trackAnalytics} from './analytics.js';
 
-const RELEASE = '2026-08-26.5';
+const RELEASE = '2026-08-26.6';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const BOOKLET_LANGUAGE = 'en';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
@@ -245,6 +246,12 @@ async function handleCheckoutSession(request, env) {
     JSON.stringify(personalization),
     { expirationTtl: TTL.checkout }
   );
+  trackAnalytics(env, 'checkout_registered', {
+    product: personalization.product,
+    path: '/',
+    lang: payload?.lang === 'bg' ? 'bg' : 'en',
+    country: request.cf?.country || ''
+  });
 
   return json({ ok: true, product: personalization.product });
 }
@@ -296,6 +303,11 @@ async function handleRefund({ env, payload, ref, product, variantId, orderStatus
   if (validOrderIdentifier(orderIdentifier)) {
     await env.ENTITLEMENTS.put(orderKey(orderIdentifier), ref, { expirationTtl: TTL.entitlement });
   }
+  trackAnalytics(env, 'payment_refunded', {
+    product,
+    amount: Number(existing.subtotal || 0) / 100,
+    mode: testMode ? 'test' : 'live'
+  });
   await diag('entitlement_refunded');
   return json({ ok: true });
 }
@@ -455,6 +467,11 @@ async function handleWebhook(request, env) {
   if (validOrderIdentifier(orderIdentifier)) {
     await env.ENTITLEMENTS.put(orderKey(orderIdentifier), ref, { expirationTtl: TTL.entitlement });
   }
+  trackAnalytics(env, 'payment_confirmed', {
+    product,
+    amount: orderSubtotal / 100,
+    mode: testMode ? 'test' : 'live'
+  });
   await diag('entitlement_created');
   return json({ ok: true });
 }
@@ -568,6 +585,7 @@ export default {
         service: 'kidventuro-api',
         release: RELEASE,
         storage: Boolean(env.ENTITLEMENTS),
+        analytics: Boolean(env.ANALYTICS),
         webhook_secret: Boolean(testSecret),
         webhook_secret_test: Boolean(testSecret),
         webhook_secret_live: Boolean(liveSecret),
@@ -580,6 +598,7 @@ export default {
         variant_locks: await variantLockSummary(env)
       });
     }
+    if (url.pathname === '/analytics/event' && request.method === 'POST') return handleAnalyticsEvent(request, env);
     if (url.pathname === '/checkout/session' && request.method === 'POST') return handleCheckoutSession(request, env);
     if (url.pathname === '/webhooks/lemonsqueezy' && request.method === 'POST') return handleWebhook(request, env);
     if (url.pathname === '/entitlement/status' && request.method === 'GET') return handleStatus(url, env);
