@@ -17,6 +17,12 @@
       "binding": "ENTITLEMENTS"
     }
   ],
+  "analytics_engine_datasets": [
+    {
+      "binding": "ANALYTICS",
+      "dataset": "kidventuro_funnel"
+    }
+  ],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
