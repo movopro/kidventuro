@@ -42,6 +42,8 @@ async function sendWebhook(env,{
   event='order_created',
   status='paid',
   price=PRICES[product],
+  subtotal=price,
+  itemPrice=price,
   currency='EUR',
   variantId=987654,
   testMode=true,
@@ -55,8 +57,9 @@ async function sendWebhook(env,{
         identifier,
         status,
         currency,
+        subtotal,
         test_mode:testMode,
-        first_order_item:{variant_id:variantId,price,test_mode:testMode}
+        first_order_item:{variant_id:variantId,price:itemPrice,test_mode:testMode}
       }
     }
   };
@@ -127,7 +130,7 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal(hugeResponse.status,413,'oversized checkout bodies must be rejected');
 }
 
-// Core Test-mode Adventure lifecycle.
+// Core Test-mode Adventure lifecycle, including VAT-safe price validation.
 {
   const env=makeEnv();
   const ref='21111111-2222-4333-8444-555555555555';
@@ -151,13 +154,18 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal(pending.response.status,200);
   assert.equal((await status(env,ref)).body.paid,false,'pending order must not unlock');
 
-  const paid=await sendWebhook(env,{ref,identifier,dataId:'12345',variantId:987654});
-  assert.equal(paid.response.status,200);
+  // Lemon Squeezy can report first_order_item.price including tax while subtotal remains the configured base product price.
+  const paid=await sendWebhook(env,{ref,identifier,dataId:'12345',variantId:987654,subtotal:990,itemPrice:1188});
+  assert.equal(paid.response.status,200,'VAT-adjusted item price must not block a valid €9.90 base-price order');
+  assert.equal(paid.body.ok,true);
   const paidStatus=await status(env,ref);
   assert.equal(paidStatus.body.paid,true);
   assert.equal(paidStatus.body.test_mode,true);
   assert.equal(paidStatus.body.product,'adventure');
   assert.equal(await env.ENTITLEMENTS.get('variant_lock:test:adventure'),'987654');
+  const entitlement=JSON.parse(await env.ENTITLEMENTS.get(`entitlement:${ref}`));
+  assert.equal(entitlement.subtotal,990);
+  assert.equal(entitlement.item_price,1188);
 
   const byRef=await fulfillment(env,`ref=${encodeURIComponent(ref)}`);
   assert.equal(byRef.response.status,200);
@@ -173,7 +181,7 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal(ai.body.ai,false,'AI must fall back cleanly when OPENAI_API_KEY is absent');
   assert.equal(ai.body.reason,'not_configured');
 
-  const duplicate=await sendWebhook(env,{ref,identifier,dataId:'12345',variantId:987654});
+  const duplicate=await sendWebhook(env,{ref,identifier,dataId:'12345',variantId:987654,subtotal:990,itemPrice:1188});
   assert.equal(duplicate.response.status,200);
   assert.equal(duplicate.body.duplicate,true,'replayed order_created for the same order should be idempotent');
 
@@ -183,7 +191,7 @@ async function aiEnrichment(env,ref,bodyExtra={}){
 
   const health=await worker.fetch(new Request('https://example.workers.dev/health'),env);
   const healthBody=await health.json();
-  assert.equal(healthBody.release,'2026-08-26.4');
+  assert.equal(healthBody.release,'2026-08-26.5');
   assert.equal(healthBody.booklet_language,'en');
   assert.equal(Object.hasOwn(healthBody,'last_webhook'),false,'public health must not expose webhook-specific diagnostics');
   assert.equal(healthBody.variant_locks.test.adventure,true);
@@ -210,7 +218,7 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal((await status(env,secondRef)).body.paid,false);
 }
 
-// Family price guard + 3-child fulfillment.
+// Family base-price guard + 3-child fulfillment.
 {
   const env=makeEnv();
   const ref='49999999-8888-4777-8666-555555555555';
@@ -223,11 +231,12 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   const checkout=await registerSession(env,{ref,product:'family',destination:'Paris',days:'5',children});
   assert.equal(checkout.response.status,200);
 
-  const underpaid=await sendWebhook(env,{ref,identifier:'underpaid-family-order',product:'family',price:590,variantId:333333});
-  assert.equal(underpaid.body.ignored,'unexpected_price','Mini-priced payment must never unlock Family');
+  const underpaid=await sendWebhook(env,{ref,identifier:'underpaid-family-order',product:'family',subtotal:590,itemPrice:590,variantId:333333});
+  assert.equal(underpaid.body.ignored,'unexpected_price','Mini base subtotal must never unlock Family');
 
-  const paid=await sendWebhook(env,{ref,identifier,product:'family',price:1490,variantId:444444,dataId:'family-paid'});
+  const paid=await sendWebhook(env,{ref,identifier,product:'family',subtotal:1490,itemPrice:1788,variantId:444444,dataId:'family-paid'});
   assert.equal(paid.response.status,200);
+  assert.equal(paid.body.ok,true,'tax-adjusted Family item price must be accepted when base subtotal is €14.90');
   assert.equal(await env.ENTITLEMENTS.get('variant_lock:test:family'),'444444');
   const fulfilled=await fulfillment(env,`order=${encodeURIComponent(identifier)}`);
   assert.equal(fulfilled.response.status,200);
@@ -236,20 +245,27 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal(fulfilled.body.personalization.children[1].name,'Leo');
 }
 
-// Refund must revoke access even after temporary personalization has expired/deleted.
+// Refund must be bound to the original Lemon order and must work after temporary personalization expires.
 {
   const env=makeEnv();
   const ref='51111111-2222-4333-8444-555555555555';
   const identifier='refund-after-expiry-order';
   await registerSession(env,{ref});
-  await sendWebhook(env,{ref,identifier,dataId:'refund-data',variantId:555555});
+  await sendWebhook(env,{ref,identifier,dataId:'refund-data',variantId:555555,subtotal:990,itemPrice:1188});
+  assert.equal((await status(env,ref)).body.paid,true);
+
+  const forged=await sendWebhook(env,{
+    ref,identifier,dataId:'different-order-id',event:'order_refunded',status:'refunded',variantId:555555,subtotal:990,itemPrice:1188
+  });
+  assert.equal(forged.body.ignored,'refund_order_mismatch','refund for another Lemon order must not revoke this ref');
   assert.equal((await status(env,ref)).body.paid,true);
 
   await env.ENTITLEMENTS.delete(`checkout_session:${ref}`);
   const refund=await sendWebhook(env,{
-    ref,identifier,dataId:'refund-data',event:'order_refunded',status:'refunded',variantId:555555
+    ref,identifier,dataId:'refund-data',event:'order_refunded',status:'refunded',variantId:555555,subtotal:990,itemPrice:1188
   });
   assert.equal(refund.response.status,200,'refund should not depend on temporary personalization');
+  assert.equal(refund.body.ok,true);
   const refunded=await status(env,ref);
   assert.equal(refunded.body.paid,false);
   assert.equal(refunded.body.refunded,true);
@@ -323,4 +339,4 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal(response.status,413);
 }
 
-console.log('Hardened product, refund, replay, price, variant, mode-secret, diagnostics and request-size tests passed');
+console.log('VAT-safe subtotal, product, refund binding, replay, variant, mode-secret, diagnostics and request-size tests passed');
