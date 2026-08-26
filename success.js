@@ -6,13 +6,15 @@
   const statusEl=document.getElementById('status');
   const btn=document.getElementById('continueBtn');
   const help=document.getElementById('help');
-  const order=new URLSearchParams(location.search).get('order')||'';
+  const order=(new URLSearchParams(location.search).get('order')||'').trim();
   const checkoutMode=window.KIDVENTURO_CONFIG?.checkoutMode==='live'?'live':'test';
   let ref='';
   let api='';
 
   try{
-    ref=sessionStorage.getItem(REF_KEY)||JSON.parse(sessionStorage.getItem(SESSION_KEY)||'{}').kv_ref||'';
+    // A receipt/confirmation order identifier describes the exact order being opened.
+    // Do not let a stale browser ref from a previous purchase override it.
+    if(!order) ref=sessionStorage.getItem(REF_KEY)||JSON.parse(sessionStorage.getItem(SESSION_KEY)||'{}').kv_ref||'';
     api=(window.KIDVENTURO_CONFIG?.apiBase||sessionStorage.getItem(API_KEY)||'').replace(/\/$/,'');
     if(api) sessionStorage.setItem(API_KEY,api);
   }catch{}
@@ -71,7 +73,7 @@
     statusEl.textContent=data.test_mode?`Test ${label} payment confirmed ✓`:`${label} payment confirmed ✓`;
     statusEl.className='status ok';
     btn.classList.remove('hidden');
-    help.textContent='Your personalized Kidventuro product is ready to open.';
+    help.textContent='Your personalized Kidventuro product is ready to open. The printable book is currently generated in English.';
   };
 
   const showDiagnostic=async()=>{
@@ -88,34 +90,26 @@
         help.textContent='Payment storage is not configured. Kidventuro support needs to check the Cloudflare KV binding.';
         return;
       }
-      if(checkoutMode==='live'){
-        if(health.webhook_secret_live!==true||health.ready_live!==true){
-          help.textContent='Live payment verification is not fully configured yet. Kidventuro support needs to check the Live Lemon Squeezy webhook secret.';
-          return;
-        }
-      }else if((health.webhook_secret_test??health.webhook_secret)!==true){
-        help.textContent='The Test Lemon Squeezy webhook secret is missing from the payment service.';
+      if(checkoutMode==='live'&&health.ready_live!==true){
+        help.textContent='Live payment verification is not fully configured yet. Kidventuro support needs to check the Live Lemon Squeezy webhook secret.';
         return;
       }
-      const last=health.last_webhook;
-      if(!last){
-        help.textContent=`No Lemon Squeezy ${checkoutMode==='live'?'Live':'Test'} webhook has reached Kidventuro yet. Check the webhook mode and callback URL.`;
+      if(checkoutMode==='test'&&health.ready_test!==true){
+        help.textContent='Test payment verification is not fully configured yet. Kidventuro support needs to check the Test Lemon Squeezy webhook secret.';
         return;
       }
-      if(last.result==='rejected_invalid_signature'){
-        help.textContent='Lemon Squeezy reached Kidventuro, but the webhook signing secret does not match Cloudflare.';
+
+      // Detailed webhook diagnostics are intentionally scoped to the opaque checkout ref
+      // and are no longer exposed by the public health endpoint.
+      if(!ref){
+        help.textContent='The payment service is available, but this order has not been matched yet. Refresh once; if it still does not confirm, contact hello@kidventuro.com with the order identifier.';
         return;
       }
-      if(last.result==='rejected_wrong_mode_signature'){
-        help.textContent='The webhook was signed with the secret for the wrong Lemon Squeezy environment (Test vs Live).';
-        return;
-      }
-      if(last.result==='rejected_live_secret_missing'){
-        help.textContent='A Live payment reached Kidventuro, but the separate Live webhook secret is not configured.';
-        return;
-      }
-      if(ref&&last.ref_hint&&last.ref_hint!==ref.slice(-8)){
-        help.textContent='The payment service received a webhook, but it belongs to a different checkout session.';
+      const d=await fetch(`${api}/diagnostics?ref=${encodeURIComponent(ref)}`,{cache:'no-store',credentials:'omit'});
+      const diag=await d.json().catch(()=>({}));
+      const last=diag?.last;
+      if(!d.ok||!last){
+        help.textContent='No matching accepted Lemon Squeezy webhook has been recorded for this checkout yet. Refresh once, then contact support if it remains pending.';
         return;
       }
       const messages={
@@ -125,8 +119,14 @@
         ignored_unexpected_price:'The paid Lemon Squeezy item price or currency did not match this Kidventuro package. Check the product price and checkout link.',
         ignored_unexpected_variant:'The webhook was received but its Lemon Squeezy variant did not match the locked product variant.',
         ignored_order_not_paid:'The webhook was received, but Lemon Squeezy did not report the order as paid.',
+        ignored_ref_already_used:'This checkout reference was already used by a different paid order. Restart checkout from kidventuro.com.',
+        ignored_ref_refunded:'This checkout reference belongs to an order that was already refunded and cannot be reactivated.',
+        ignored_refund_unknown_entitlement:'A refund webhook was received for a checkout that has no stored paid entitlement.',
+        rejected_wrong_mode_signature:'The Lemon Squeezy webhook reached the wrong Test/Live signing-secret path.',
+        rejected_live_secret_missing:'Live checkout reached Kidventuro, but the Live webhook secret is not configured.',
         entitlement_refunded:'This order has been refunded, so the product cannot be opened.',
-        entitlement_created:'The payment webhook was accepted. Refresh this page once; Cloudflare KV may need a few more seconds to propagate.'
+        entitlement_created:'The payment webhook was accepted. Refresh this page once; Cloudflare KV may need a few more seconds to propagate.',
+        entitlement_already_exists:'The payment was already accepted. Refresh this page to reopen the product.'
       };
       help.textContent=messages[last.result]||`Lemon Squeezy webhook received (${last.event||'unknown event'}), but it did not unlock this purchase.`;
     }catch{
@@ -139,7 +139,7 @@
   const poll=async()=>{
     tries++;
     try{
-      const query=ref?`ref=${encodeURIComponent(ref)}`:`order=${encodeURIComponent(order)}`;
+      const query=order?`order=${encodeURIComponent(order)}`:`ref=${encodeURIComponent(ref)}`;
       const r=await fetch(`${api}/fulfillment?${query}`,{cache:'no-store',credentials:'omit'});
       const data=await r.json().catch(()=>({}));
 
