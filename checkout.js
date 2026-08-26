@@ -1,21 +1,25 @@
 (()=>{
   const expansionReady=import('./site-expansion.js').catch(err=>console.warn('Kidventuro destination expansion unavailable',err));
+  const runtime=window.KIDVENTURO_CONFIG||{};
+  const checkoutUrls=runtime.checkoutUrls||{};
   const PRODUCTS={
     mini:{
       price:'€5.90',
-      checkoutUrl:'https://kidventuro.lemonsqueezy.com/checkout/buy/b68dbe91-5c2d-4ede-b9b6-a1e9625627be'
+      checkoutUrl:checkoutUrls.mini||''
     },
     adventure:{
       price:'€9.90',
-      checkoutUrl:'https://kidventuro.lemonsqueezy.com/checkout/buy/002731fe-1735-4287-8223-450d8ef41202'
+      checkoutUrl:checkoutUrls.adventure||''
     },
     family:{
       price:'€14.90',
-      checkoutUrl:'https://kidventuro.lemonsqueezy.com/checkout/buy/e49470c6-bd0e-4533-a206-c254fa84908f'
+      checkoutUrl:checkoutUrls.family||''
     }
   };
-  const API='https://kidventuro-api.m-oreshkov.workers.dev';
+  const API=String(runtime.apiBase||'').replace(/\/$/,'');
+  const CHECKOUT_MODE=runtime.checkoutMode==='live'?'live':'test';
   const SESSION_KEY='kidventuro:booklet';
+  document.body.dataset.checkoutMode=CHECKOUT_MODE;
 
   const makeRef=()=>{
     if(window.crypto&&typeof window.crypto.randomUUID==='function') return window.crypto.randomUUID();
@@ -61,6 +65,7 @@
   };
 
   const registerCheckoutSession=async data=>{
+    if(!API) throw new Error('api_not_configured');
     const payload={
       ref:data.kv_ref,
       product:data.product,
@@ -239,7 +244,7 @@
     familyButton.addEventListener('click',openFamilyCheckout);
   }
 
-  window.KidventuroCheckout={start:(product,e)=>startCheckout(product,e),products:PRODUCTS};
+  window.KidventuroCheckout={start:(product,e)=>startCheckout(product,e),products:PRODUCTS,mode:CHECKOUT_MODE};
 
   try{
     translations.en.openBooklet='Unlock full adventure — €9.90 →';
@@ -250,8 +255,8 @@
     translations.bg.tryPreview='Вземи Mini — €5.90';
     translations.en.tryPreview2='Get Family — €14.90';
     translations.bg.tryPreview2='Вземи Family — €14.90';
-    translations.en.pricingNote='Secure one-time checkout. Personalized digital delivery after payment.';
-    translations.bg.pricingNote='Сигурно еднократно плащане. Персонализирана дигитална доставка след плащане.';
+    translations.en.pricingNote='Secure one-time checkout. Personalized digital delivery after payment. No subscription.';
+    translations.bg.pricingNote='Сигурно еднократно плащане. Персонализирана дигитална доставка след плащане. Без абонамент.';
     applyLanguage();
   }catch(e){console.warn('Kidventuro checkout labels unavailable',e);}
 })();
