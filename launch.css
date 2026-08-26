@@ -1,0 +1,21 @@
+.use-cases-section{background:#fffdf9}
+.use-case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1180px;margin:0 auto}
+.use-case{background:#fff;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 12px 32px rgba(42,54,51,.055)}
+.use-case-icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--mint);font-size:1.45rem;margin-bottom:22px}
+.use-case:nth-child(2) .use-case-icon{background:var(--blue)}
+.use-case:nth-child(3) .use-case-icon{background:var(--yellow)}
+.use-case:nth-child(4) .use-case-icon{background:var(--pink)}
+.use-case h3{font-size:1.15rem;letter-spacing:-.025em;margin-bottom:8px}
+.use-case p{color:var(--muted);font-size:.92rem;margin:0}
+.purchase-trust{display:grid;grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto 34px;border:1px solid var(--line);border-radius:20px;background:#fff;overflow:hidden}
+.purchase-trust div{padding:17px 18px;text-align:center;font-size:.82rem;font-weight:850;color:var(--ink)}
+.purchase-trust div+div{border-left:1px solid var(--line)}
+.purchase-trust span{display:block;color:var(--teal);font-size:.68rem;letter-spacing:.08em;margin-bottom:4px}
+.price-card .best-for{display:block;margin:1px 0 16px;color:var(--muted);font-size:.76rem;font-weight:750}
+.price-card.featured .best-for{color:#aebfbb}
+.price-card .btn{margin-top:4px}
+.hero-proof{margin-top:14px;color:var(--muted);font-size:.78rem;font-weight:700}
+.hero-proof strong{color:var(--ink)}
+.faq-grid details:last-child{grid-column:auto}
+@media(max-width:950px){.use-case-grid{grid-template-columns:repeat(2,1fr)}.purchase-trust{grid-template-columns:repeat(2,1fr)}.purchase-trust div:nth-child(3){border-left:0;border-top:1px solid var(--line)}.purchase-trust div:nth-child(4){border-top:1px solid var(--line)}}
+@media(max-width:600px){.use-case-grid{grid-template-columns:1fr}.purchase-trust{grid-template-columns:1fr}.purchase-trust div+div,.purchase-trust div:nth-child(3),.purchase-trust div:nth-child(4){border-left:0;border-top:1px solid var(--line)}.hero-proof{line-height:1.45}}
