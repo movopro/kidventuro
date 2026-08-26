@@ -1,6 +1,6 @@
 import {getAiEnrichment} from './ai.js';
 
-const RELEASE = '2026-08-26.1';
+const RELEASE = '2026-08-26.2';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
 const PRODUCT_PRICES_EUR_CENTS = Object.freeze({ mini: 590, adventure: 990, family: 1490 });
@@ -52,9 +52,11 @@ async function verifySignature(rawBody, signature, secret) {
 const entitlementKey = ref => `entitlement:${ref}`;
 const checkoutSessionKey = ref => `checkout_session:${ref}`;
 const orderKey = identifier => `order_ref:${identifier}`;
+const variantLockKey = (testMode, product) => `variant_lock:${testMode ? 'test' : 'live'}:${product}`;
 const diagnosticKey = 'diagnostic:last_webhook';
 const validRef = ref => /^[a-f0-9-]{24,64}$/i.test(ref);
 const validOrderIdentifier = value => /^[a-z0-9-]{8,80}$/i.test(value);
+const validVariantId = value => /^\d+$/.test(String(value || ''));
 const validProduct = value => ALLOWED_PRODUCTS.has(String(value || '').trim().toLowerCase());
 const refHint = ref => validRef(ref) ? ref.slice(-8) : '';
 
@@ -62,6 +64,19 @@ function expectedVariantFor(product, env) {
   if (product === 'mini') return env.EXPECTED_VARIANT_MINI || '';
   if (product === 'family') return env.EXPECTED_VARIANT_FAMILY || '';
   return env.EXPECTED_VARIANT_ADVENTURE || env.EXPECTED_VARIANT_ID || '';
+}
+
+async function variantLockSummary(env) {
+  const summary = { test: {}, live: {} };
+  for (const testMode of [true, false]) {
+    const bucket = testMode ? summary.test : summary.live;
+    for (const product of ALLOWED_PRODUCTS) {
+      const configured = String(expectedVariantFor(product, env) || '');
+      const learned = configured || !env.ENTITLEMENTS ? '' : String(await env.ENTITLEMENTS.get(variantLockKey(testMode, product)) || '');
+      bucket[product] = Boolean(configured || learned);
+    }
+  }
+  return summary;
 }
 
 async function saveDiagnostic(env, data) {
@@ -235,8 +250,15 @@ async function handleWebhook(request, env) {
     return json({ ok: true, ignored: 'unexpected_price' });
   }
 
-  const expectedVariant = expectedVariantFor(product, env);
-  if (expectedVariant && variantId !== String(expectedVariant)) {
+  if (!validVariantId(variantId)) {
+    await diag('ignored_unexpected_variant');
+    return json({ ok: true, ignored: 'unexpected_variant' });
+  }
+
+  const configuredVariant = String(expectedVariantFor(product, env) || '');
+  const learnedVariant = configuredVariant ? '' : String(await env.ENTITLEMENTS.get(variantLockKey(testMode, product)) || '');
+  const expectedVariant = configuredVariant || learnedVariant;
+  if (expectedVariant && variantId !== expectedVariant) {
     await diag('ignored_unexpected_variant');
     return json({ ok: true, ignored: 'unexpected_variant' });
   }
@@ -245,6 +267,10 @@ async function handleWebhook(request, env) {
     if (orderStatus !== 'paid') {
       await diag('ignored_order_not_paid');
       return json({ ok: true, ignored: 'order_not_paid' });
+    }
+
+    if (!configuredVariant && !learnedVariant) {
+      await env.ENTITLEMENTS.put(variantLockKey(testMode, product), variantId);
     }
 
     const record = {
@@ -387,6 +413,7 @@ export default {
         ai_configured: Boolean(env.OPENAI_API_KEY),
         ai_model: String(env.OPENAI_MODEL || 'gpt-5.6-luna'),
         products: [...ALLOWED_PRODUCTS],
+        variant_locks: await variantLockSummary(env),
         last_webhook: lastWebhook
       });
     }
