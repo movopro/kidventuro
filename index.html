@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kidventuro creates personalized printable travel adventure books for kids. Turn every family trip into games, discoveries and memories." />
+  <meta name="description" content="Kidventuro creates personalized printable travel adventure books for kids ages 4–12, with 50 destinations and three digital packages." />
   <meta name="robots" content="index,follow" />
   <meta name="referrer" content="no-referrer" />
   <meta name="theme-color" content="#fff8ef" />
   <meta property="og:title" content="Kidventuro — Turn every trip into an adventure" />
-  <meta property="og:description" content="Personalized printable travel adventure books for kids." />
+  <meta property="og:description" content="Personalized printable travel adventure books for kids ages 4–12." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kidventuro" />
   <meta property="og:url" content="https://kidventuro.com/" />
+  <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://kidventuro.com/" />
   <title>Kidventuro — Personalized travel adventures for kids</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -21,7 +22,7 @@
   <header class="site-header">
     <a href="#top" class="brand" aria-label="Kidventuro home"><span class="brand-mark">K</span><span class="brand-word">Kidventuro</span></a>
     <nav class="nav" aria-label="Main navigation"><a href="#how" data-i18n="navHow">How it works</a><a href="#destinations" data-i18n="navDestinations">Destinations</a><a href="#pricing" data-i18n="navPricing">Pricing</a></nav>
-    <div class="header-actions"><button id="languageToggle" class="lang-btn" type="button" aria-label="Switch language">BG</button><a href="#create" class="btn btn-small" data-i18n="navCreate">Create a book</a></div>
+    <div class="header-actions"><button id="languageToggle" class="lang-btn" type="button" aria-label="Превключи на български">BG</button><a href="#create" class="btn btn-small" data-i18n="navCreate">Create a book</a></div>
   </header>
 
   <main id="top">
@@ -48,7 +49,7 @@
           <label><span data-i18n="labelDestination">Destination</span><select id="destination"><option value="Rome" selected>Rome 🇮🇹</option></select></label>
           <label><span data-i18n="labelInterest">What do they love?</span><select id="interest"><option value="dinosaurs" selected>Dinosaurs 🦖</option></select></label>
           <button class="btn btn-primary full" type="submit" data-i18n="generateBtn">Generate my preview</button>
-          <small class="form-note" data-i18n="formNote">Demo only — no child account is created. Use a first name or nickname only.</small>
+          <small class="form-note" data-i18n="formNote">No child account is created. Use a first name or nickname only. Personalization is stored temporarily only to create and deliver the adventure.</small>
         </form>
 
         <article id="previewCard" class="preview-card" aria-live="polite">
@@ -66,12 +67,12 @@
       <div class="section-head"><span class="eyebrow" data-i18n="howEyebrow">HOW IT WORKS</span><h2 data-i18n="howTitle">From “Are we there yet?” to “What’s next?”</h2></div>
       <div class="steps">
         <article class="step"><span class="step-num">1</span><div class="step-icon">🧒</div><h3 data-i18n="step1Title">Tell us about your explorer</h3><p data-i18n="step1Text">Name, age, trip length, destination and the things they love.</p></article>
-        <article class="step"><span class="step-num">2</span><div class="step-icon">✨</div><h3 data-i18n="step2Title">We build the adventure</h3><p data-i18n="step2Text">Games, missions, facts and activities adapt to age, interests, destination and trip length.</p></article>
+        <article class="step"><span class="step-num">2</span><div class="step-icon">✨</div><h3 data-i18n="step2Title">We build the adventure</h3><p data-i18n="step2Text">Games, missions and activities adapt to age, interests, destination and trip length. Paid books can also receive a privacy-reduced AI enhancement.</p></article>
         <article class="step"><span class="step-num">3</span><div class="step-icon">🖨️</div><h3 data-i18n="step3Title">Print, pack, explore</h3><p data-i18n="step3Text">Save the book as PDF and bring it on the plane, train or road trip.</p></article>
       </div>
     </section>
 
-    <section id="destinations" class="dest-section"><div class="section-head left"><span class="eyebrow" data-i18n="destEyebrow">25 DESTINATIONS</span><h2 data-i18n="destTitle">25 destinations. Thousands of possible adventures.</h2></div><div class="destination-grid"></div></section>
+    <section id="destinations" class="dest-section"><div class="section-head left"><span class="eyebrow" data-i18n="destEyebrow">50 DESTINATIONS</span><h2 data-i18n="destTitle">50 destinations. Thousands of possible adventures.</h2></div><div class="destination-grid"></div></section>
 
     <section id="sample" class="sample-section">
       <div class="sample-copy"><span class="eyebrow" data-i18n="sampleEyebrow">WHAT'S INSIDE</span><h2 data-i18n="sampleTitle">Less screen time. More “I found it!”</h2><p data-i18n="sampleText">Each book mixes quiet travel activities with missions that make children notice the real destination around them.</p><ul><li data-i18n="sample1">Travel bingo & scavenger hunts</li><li data-i18n="sample2">Age-adapted puzzles and challenges</li><li data-i18n="sample3">Local words, food and fun facts</li><li data-i18n="sample4">Drawing, journaling and memory pages</li><li data-i18n="sample5">Personalized explorer certificate</li></ul><button id="printSample" class="btn btn-secondary" type="button" data-i18n="printSample">Print demo page</button></div>
@@ -81,19 +82,19 @@
     <section id="pricing" class="pricing-section">
       <div class="section-head"><span class="eyebrow" data-i18n="pricingEyebrow">SIMPLE PRICING</span><h2 data-i18n="pricingTitle">One small purchase. One much better trip.</h2></div>
       <div class="pricing-grid">
-        <article class="price-card"><span class="price-kicker">MINI</span><h3>€5.90</h3><p data-i18n="miniDesc">A quick travel pack for the journey.</p><ul><li data-i18n="mini1">10 printable pages</li><li data-i18n="mini2">Personalized cover</li><li data-i18n="mini3">Travel games & puzzles</li></ul><a href="#create" class="btn btn-ghost full" data-i18n="tryPreview">Try preview</a></article>
+        <article class="price-card"><span class="price-kicker">MINI</span><h3>€5.90</h3><p data-i18n="miniDesc">A quick travel pack for the journey.</p><ul><li data-i18n="mini1">10 printable pages</li><li data-i18n="mini2">Personalized cover</li><li data-i18n="mini3">Travel games & puzzles</li></ul><a href="#create" class="btn btn-ghost full" data-i18n="tryPreview">Get Mini — €5.90</a></article>
         <article class="price-card featured"><span class="popular" data-i18n="mostPopular">MOST POPULAR</span><span class="price-kicker">ADVENTURE</span><h3>€9.90</h3><p data-i18n="advDesc">The full Kidventuro experience.</p><ul><li data-i18n="adv1">25–28 printable pages</li><li data-i18n="adv2">Destination missions</li><li data-i18n="adv3">Age, interest & trip-length adapted</li><li data-i18n="adv4">Explorer certificate</li></ul><a href="#checkout" class="btn btn-primary full" data-i18n="createPreview">Get Adventure — €9.90</a></article>
-        <article class="price-card"><span class="price-kicker">FAMILY</span><h3>€14.90</h3><p data-i18n="familyDesc">One adventure for up to three children.</p><ul><li data-i18n="family1">Up to 3 kids</li><li data-i18n="family2">Age-adapted activities</li><li data-i18n="family3">Shared family missions</li></ul><a href="#create" class="btn btn-ghost full" data-i18n="tryPreview2">Try preview</a></article>
+        <article class="price-card"><span class="price-kicker">FAMILY</span><h3>€14.90</h3><p data-i18n="familyDesc">One adventure for up to three children.</p><ul><li data-i18n="family1">Up to 3 kids</li><li data-i18n="family2">Age-adapted activities</li><li data-i18n="family3">Shared family missions</li></ul><a href="#create" class="btn btn-ghost full" data-i18n="tryPreview2">Get Family — €14.90</a></article>
       </div>
-      <p class="pricing-note" data-i18n="pricingNote">Secure checkout connected. Paid delivery is being tested before public launch.</p>
+      <p class="pricing-note" data-i18n="pricingNote">Secure one-time checkout. Personalized digital delivery after payment. No subscription.</p>
     </section>
 
     <section class="faq-section">
       <div class="section-head left"><span class="eyebrow">FAQ</span><h2 data-i18n="faqTitle">A few parent questions.</h2></div>
       <div class="faq-grid">
-        <details open><summary data-i18n="faq1q">Is this a physical book?</summary><p data-i18n="faq1a">No. Kidventuro is a digital printable adventure.</p></details>
-        <details><summary data-i18n="faq2q">Do I need to create an account?</summary><p data-i18n="faq2a">No child account is required for the MVP.</p></details>
-        <details><summary data-i18n="faq3q">What personal information do you need?</summary><p data-i18n="faq3a">Only minimum personalization details are used.</p></details>
+        <details open><summary data-i18n="faq1q">Is this a physical book?</summary><p data-i18n="faq1a">No. Kidventuro is a digital printable adventure. Open it after payment, then use Print / Save as PDF.</p></details>
+        <details><summary data-i18n="faq2q">Do I need to create an account?</summary><p data-i18n="faq2a">No. No child account is needed. An adult completes the secure checkout.</p></details>
+        <details><summary data-i18n="faq3q">What personal information do you need?</summary><p data-i18n="faq3a">We use only a first name or nickname, age, destination, interest and trip length. Child names and exact ages are not sent to the AI provider.</p></details>
         <details><summary data-i18n="faq4q">Who is responsible for travel safety?</summary><p data-i18n="faq4a">An adult must supervise the child and decide whether each mission is appropriate.</p></details>
       </div>
     </section>
@@ -119,7 +120,9 @@
     </div>
   </div>
 
+  <script src="runtime-config.js"></script>
   <script src="app.js"></script>
   <script src="checkout.js"></script>
+  <script src="launch-polish.js"></script>
 </body>
 </html>
