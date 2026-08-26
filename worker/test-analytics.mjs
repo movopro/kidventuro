@@ -1,9 +1,20 @@
 import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
 import {handleAnalyticsEvent,trackAnalytics} from './src/analytics.js';
 
 class CaptureAnalytics{
   constructor(){this.points=[];}
   writeDataPoint(point){this.points.push(point);}
+}
+
+{
+  const client=await readFile(new URL('../analytics.js',import.meta.url),'utf8');
+  assert.ok(client.includes("https://static.cloudflareinsights.com/beacon.min.js"),'Cloudflare Web Analytics beacon must stay enabled');
+  assert.ok(client.includes("823a0ee660884dec9ecfad5650f38e4e"),'Cloudflare Web Analytics token must stay configured');
+  assert.ok(client.includes("location.hostname==='kidventuro.com'"),'Cloudflare beacon must be limited to the public Kidventuro hostname');
+  assert.equal(client.includes('childName'),false,'analytics client must not read child name fields');
+  assert.equal(client.includes('childAge'),false,'analytics client must not read child age fields');
+  assert.equal(client.includes('kv_ref'),false,'analytics client must not send checkout refs');
 }
 
 {
@@ -64,4 +75,4 @@ class CaptureAnalytics{
   assert.equal(analytics.points.length,0);
 }
 
-console.log('Privacy-safe analytics event and PII exclusion tests passed');
+console.log('Cloudflare Web Analytics beacon, privacy-safe funnel events and PII exclusion tests passed');
