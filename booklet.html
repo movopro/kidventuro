@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex,nofollow,noarchive" />
   <meta name="referrer" content="no-referrer" />
-  <title>Kidventuro Adventure Book</title>
+  <meta name="theme-color" content="#fff8ef" />
+  <title>Kidventuro Printable Adventure</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="booklet.css" />
   <link rel="stylesheet" href="age-adapt.css" />
+  <style>
+    .book-save-note{margin:0;padding:7px 14px;text-align:center;background:#fff3cf;color:#20312f;font:700 12px/1.35 system-ui,sans-serif;border-bottom:1px solid #eadcae}
+    @media print{.book-save-note{display:none!important}}
+  </style>
 </head>
 <body>
   <header class="book-toolbar no-print">
     <a class="toolbar-brand" href="index.html"><span>K</span> Kidventuro</a>
-    <div class="toolbar-copy"><strong id="toolbarTitle">Verifying payment…</strong><small>Personalized printable adventure • A4</small></div>
-    <div class="toolbar-actions"><button id="backBtn" class="btn ghost" type="button">← Edit details</button><button id="printBtn" class="btn primary" type="button">Print / Save PDF</button></div>
+    <div class="toolbar-copy"><strong id="toolbarTitle">Verifying payment…</strong><small>Personalized printable adventure • English • A4</small></div>
+    <div class="toolbar-actions"><button id="backBtn" class="btn ghost" type="button">← Back to Kidventuro</button><button id="printBtn" class="btn primary" type="button">Print / Save PDF</button></div>
   </header>
+  <p class="book-save-note no-print">Your personalized delivery is temporary. Save a PDF copy when your adventure is ready.</p>
 
   <main id="book" class="book" aria-live="polite"></main>
 
