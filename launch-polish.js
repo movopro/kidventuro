@@ -67,8 +67,7 @@
         if(translations.bg) translations.bg[key]=bg;
       }
     }catch{}
-    const el=document.querySelector(`[data-i18n="${key}"]`);
-    if(el) el.textContent=isBg()?bg:en;
+    document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el=>el.textContent=isBg()?bg:en);
   }
 
   function localizeSelects(){
@@ -141,14 +140,64 @@
     const toggle=document.getElementById('languageToggle');
     if(toggle) toggle.setAttribute('aria-label',bg?'Switch to English':'Превключи на български');
 
+    setI18n('heroSub',
+      'Personalized travel activities that keep kids busy on the journey and curious once you arrive.',
+      'Персонализирани занимания, които държат децата ангажирани по пътя и любопитни, когато пристигнете.');
+    setI18n('heroSample','See what\'s inside','Виж какво има вътре');
+    setI18n('trust1','50 destinations','50 дестинации');
+    setI18n('trust2','Print at home','Печат у дома');
+    setI18n('trust3','Made for ages 4–12','За деца 4–12 г.');
+    setI18n('trust4','One-time purchase','Еднократна покупка');
+    setI18n('heroProof','No app. No subscription. Save as PDF, print it and pack it with the snacks.','Без приложение. Без абонамент. Запази като PDF, принтирай и сложи книжката при нещата за пътуването.');
+    const proof=document.querySelector('[data-i18n="heroProof"]');
+    if(proof){
+      proof.innerHTML=bg
+        ? '<strong>Без приложение. Без абонамент.</strong> Запази като PDF, принтирай и сложи книжката при нещата за пътуването.'
+        : '<strong>No app. No subscription.</strong> Save as PDF, print it and pack it with the snacks.';
+    }
+
+    setI18n('createSub','Choose the child, destination and trip. See the idea before you buy anything.','Избери детето, дестинацията и пътуването. Виж идеята преди да купиш.');
+    setI18n('step2Text','Activities adapt to the child\'s age, interests, destination and trip length, so the book feels made for this trip.','Заниманията се адаптират към възрастта, интересите, дестинацията и дните, така че книжката да е направена за точно това пътуване.');
+    setI18n('step3Text','Save the book as PDF, print it and bring it on the plane, train or road trip.','Запази книжката като PDF, принтирай я и я вземи в самолета, влака или колата.');
+
+    setI18n('useEyebrow','MADE FOR REAL TRAVEL DAYS','ЗА ИСТИНСКИ ПЪТУВАНИЯ');
+    setI18n('useTitle','Useful long before the museum gift shop.','Полезна много преди магазина за сувенири.');
+    setI18n('useSub','Kidventuro gives children something to do when travel is slow — and something to look for when the adventure starts.','Kidventuro дава на децата занимание, когато пътуването е бавно — и неща за откриване, когато приключението започне.');
+    setI18n('use1Title','Getting there','По пътя');
+    setI18n('use1Text','Bingo, puzzles and quiet pages for flights, trains and long drives.','Бинго, пъзели и спокойни занимания за самолети, влакове и дълги пътувания с кола.');
+    setI18n('use2Title','The waiting bits','Докато чакате');
+    setI18n('use2Text','Something useful to pull out at the gate, hotel lobby or restaurant table.','Полезно занимание за гейта, хотелското фоайе или масата в ресторанта.');
+    setI18n('use3Title','Exploring the city','Докато разглеждате');
+    setI18n('use3Text','Scavenger hunts and observation missions that get kids looking up at the place around them.','Мисии за откриване и наблюдение, които карат децата да гледат истинския град около тях.');
+    setI18n('use4Title','Remembering the trip','След пътуването');
+    setI18n('use4Text','Drawing, journal and certificate pages turn the booklet into a simple travel keepsake.','Страници за рисуване, дневник и сертификат превръщат книжката в малък спомен от пътуването.');
+
     setI18n('destEyebrow','50 DESTINATIONS','50 ДЕСТИНАЦИИ');
     setI18n('destTitle','50 destinations. Thousands of possible adventures.','50 дестинации. Хиляди възможни приключения.');
     setI18n('formNote',
       'No child account is created. Use a first name or nickname only. Personalization is stored temporarily only to create and deliver the adventure.',
       'Не се създава детски профил. Използвай само първо име или прякор. Персонализацията се пази временно само за създаване и доставка на приключението.');
+
+    setI18n('pricingTitle','Pick the version that fits the trip.','Избери версията, която пасва на пътуването.');
+    setI18n('pricingSub','One-time purchase. Digital delivery. No subscription and nothing to ship.','Еднократна покупка. Дигитална доставка. Без абонамент и без доставка на физически продукт.');
+    setI18n('buyTrust1Top','DIGITAL','ДИГИТАЛНО');
+    setI18n('buyTrust1','Ready after payment','Готово след плащане');
+    setI18n('buyTrust2Top','ONE-TIME','ЕДНОКРАТНО');
+    setI18n('buyTrust2','No subscription','Без абонамент');
+    setI18n('buyTrust3Top','PRINTABLE','ЗА ПЕЧАТ');
+    setI18n('buyTrust3','A4 • Save as PDF','A4 • Запази като PDF');
+    setI18n('buyTrust4Top','PERSONAL','ПЕРСОНАЛНО');
+    setI18n('buyTrust4','Made for your trip','За твоето пътуване');
+    setI18n('miniDesc','A compact pack for the journey or a short city break.','Компактен пакет за самото пътуване или кратък city break.');
+    setI18n('miniBest','Best for: a quick screen-free activity pack','Най-подходящ за: бърз пакет без екран');
+    setI18n('advDesc','The complete trip companion for one child.','Пълният спътник за пътуването на едно дете.');
+    setI18n('advBest','Best for: most family city trips','Най-подходящ за: повечето семейни градски пътувания');
+    setI18n('familyDesc','One shared adventure for up to three children.','Едно общо приключение за до три деца.');
+    setI18n('familyBest','Best for: siblings or children travelling together','Най-подходящ за: братя, сестри или деца, които пътуват заедно');
     setI18n('pricingNote',
       'Secure one-time checkout. Personalized digital delivery after payment. No subscription.',
       'Сигурно еднократно плащане. Персонализирана дигитална доставка след плащане. Без абонамент.');
+
     setI18n('faq1a',
       'No. Kidventuro is a digital printable adventure. Open it after payment, then use Print / Save as PDF.',
       'Не. Kidventuro е дигитално приключение за печат. Отвори го след плащане и използвай Print / Save as PDF.');
@@ -158,6 +207,8 @@
     setI18n('faq3a',
       'We use only a first name or nickname, age, destination, interest and trip length. Child names and exact ages are not sent to the AI provider.',
       'Използваме само първо име или прякор, възраст, дестинация, интерес и дни. Имената и точната възраст на детето не се изпращат към AI доставчика.');
+    setI18n('faq5q','How quickly do I get the book?','Колко бързо получавам книжката?');
+    setI18n('faq5a','After a successful payment, Kidventuro opens the personalized printable book so you can save it as a PDF or print it.','След успешно плащане Kidventuro отваря персонализираната книжка, за да я запазиш като PDF или да я принтираш.');
 
     localizeSelects();
     localizeFamilyDialog();
@@ -171,7 +222,6 @@
     }
   }
 
-  // Only advertise products as purchasable to search engines once the site is explicitly in Live mode.
   if(mode==='live'&&allCheckoutUrls&&!document.getElementById('kidventuroStructuredData')){
     const jsonLd=document.createElement('script');
     jsonLd.id='kidventuroStructuredData';
