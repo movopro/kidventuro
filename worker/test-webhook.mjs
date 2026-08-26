@@ -9,15 +9,17 @@ class MemoryKV {
 }
 
 const secret = 'test-secret-1234567890';
+const liveSecret = 'live-secret-0987654321';
 const ref = '11111111-2222-4333-8444-555555555555';
 const orderIdentifier = 'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee';
 const PRICES={mini:590,adventure:990,family:1490};
 const env = {
   LEMONSQUEEZY_WEBHOOK_SECRET: secret,
+  LEMONSQUEEZY_WEBHOOK_SECRET_LIVE: liveSecret,
   ENTITLEMENTS: new MemoryKV()
 };
 
-const sign = raw => crypto.createHmac('sha256', secret).update(raw).digest('hex');
+const sign = (raw,key=secret) => crypto.createHmac('sha256', key).update(raw).digest('hex');
 
 async function checkoutSession(product='adventure', overrides={}) {
   const request = new Request('https://example.workers.dev/checkout/session', {
@@ -98,14 +100,15 @@ async function registerSession(targetEnv,targetRef,product='adventure'){
   return worker.fetch(request,targetEnv);
 }
 
-async function sendSignedOrder(targetEnv,{targetRef,identifier,product='adventure',variantId,price=990,testMode=true,status='paid',event='order_created'}){
+async function sendSignedOrder(targetEnv,{targetRef,identifier,product='adventure',variantId,price=990,testMode=true,status='paid',event='order_created',signingSecret}){
   const payload={
     meta:{event_name:event,custom_data:{kv_ref:targetRef,product}},
     data:{id:`order-${identifier}`,attributes:{identifier,status,currency:'EUR',test_mode:testMode,first_order_item:{variant_id:variantId,price,test_mode:testMode}}}
   };
   const raw=JSON.stringify(payload);
+  const key=signingSecret || (testMode ? secret : liveSecret);
   const request=new Request('https://example.workers.dev/webhooks/lemonsqueezy',{
-    method:'POST',headers:{'Content-Type':'application/json','X-Signature':sign(raw)},body:raw
+    method:'POST',headers:{'Content-Type':'application/json','X-Signature':sign(raw,key)},body:raw
   });
   return worker.fetch(request,targetEnv);
 }
@@ -198,8 +201,13 @@ async function sendSignedOrder(targetEnv,{targetRef,identifier,product='adventur
   const liveRef='33333333-4444-4555-8666-777777777777';
   const session=await registerSession(env,liveRef);
   assert.equal(session.status,200);
+
+  const wrongModeSignature=await sendSignedOrder(env,{targetRef:liveRef,identifier:'wrong-mode-live-order',variantId:222222,testMode:false,signingSecret:secret});
+  assert.equal(wrongModeSignature.status,401,'Live payload signed with Test secret must be rejected');
+  assert.equal((await wrongModeSignature.json()).error,'invalid_signature');
+
   const liveOrder=await sendSignedOrder(env,{targetRef:liveRef,identifier:'cccccccc-dddd-4eee-8fff-aaaaaaaaaaaa',variantId:222222,testMode:false});
-  assert.equal(liveOrder.status,200,'Live mode should have its own independent variant lock');
+  assert.equal(liveOrder.status,200,'Live mode should accept only the Live signing secret');
   assert.equal((await liveOrder.json()).ok,true);
   assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:adventure'),'222222');
   const liveStatus=await status(liveRef);
@@ -208,8 +216,22 @@ async function sendSignedOrder(targetEnv,{targetRef,identifier,product='adventur
 
   const healthResponse=await worker.fetch(new Request('https://example.workers.dev/health'),env);
   const health=await healthResponse.json();
+  assert.equal(health.webhook_secret_test,true);
+  assert.equal(health.webhook_secret_live,true);
+  assert.equal(health.ready_test,true);
+  assert.equal(health.ready_live,true);
   assert.equal(health.variant_locks.test.adventure,true);
   assert.equal(health.variant_locks.live.adventure,true);
+}
+
+{
+  const noLiveEnv={LEMONSQUEEZY_WEBHOOK_SECRET:secret,ENTITLEMENTS:new MemoryKV()};
+  const noLiveRef='44444444-5555-4666-8777-888888888888';
+  const session=await registerSession(noLiveEnv,noLiveRef);
+  assert.equal(session.status,200);
+  const response=await sendSignedOrder(noLiveEnv,{targetRef:noLiveRef,identifier:'live-without-live-secret',variantId:333333,testMode:false,signingSecret:secret});
+  assert.equal(response.status,503,'Live orders must fail closed when Live webhook secret is not configured');
+  assert.equal((await response.json()).error,'live_server_not_configured');
 }
 
 {
@@ -280,4 +302,4 @@ async function sendSignedOrder(targetEnv,{targetRef,identifier,product='adventur
   assert.equal(family.personalization.destination,'Paris');
 }
 
-console.log('Product-aware webhook, price guard, auto variant locking, input whitelist, recovery, AI gating and Family fulfillment tests passed');
+console.log('Product-aware webhook, separate Test/Live secrets, price guard, auto variant locking, input whitelist, recovery, AI gating and Family fulfillment tests passed');
