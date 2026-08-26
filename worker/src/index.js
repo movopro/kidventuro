@@ -1,6 +1,6 @@
 import {getAiEnrichment} from './ai.js';
 
-const RELEASE = '2026-08-26.4';
+const RELEASE = '2026-08-26.5';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const BOOKLET_LANGUAGE = 'en';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
@@ -124,6 +124,7 @@ async function saveDiagnostic(env, data) {
     product: String(data.product || ''),
     variant_id: String(data.variant_id || ''),
     currency: String(data.currency || ''),
+    subtotal: Number.isFinite(Number(data.subtotal)) ? Number(data.subtotal) : null,
     item_price: Number.isFinite(Number(data.item_price)) ? Number(data.item_price) : null,
     test_mode: Boolean(data.test_mode),
     signature_present: Boolean(data.signature_present),
@@ -248,7 +249,7 @@ async function handleCheckoutSession(request, env) {
   return json({ ok: true, product: personalization.product });
 }
 
-async function handleRefund({ env, payload, ref, product, variantId, orderStatus, orderIdentifier, orderCurrency, itemPrice, testMode, diag }) {
+async function handleRefund({ env, payload, ref, product, variantId, orderStatus, orderIdentifier, orderCurrency, orderSubtotal, testMode, diag }) {
   const existing = await readEntitlement(ref, env);
   if (!existing) {
     await diag('ignored_refund_unknown_entitlement');
@@ -257,6 +258,15 @@ async function handleRefund({ env, payload, ref, product, variantId, orderStatus
   if (existing.product !== product) {
     await diag('ignored_checkout_session_product_mismatch');
     return json({ ok: true, ignored: 'product_mismatch' });
+  }
+  const eventOrderId = String(payload?.data?.id || '');
+  if (existing.order_id && eventOrderId !== String(existing.order_id)) {
+    await diag('ignored_refund_order_mismatch');
+    return json({ ok: true, ignored: 'refund_order_mismatch' });
+  }
+  if (existing.order_identifier && orderIdentifier !== String(existing.order_identifier)) {
+    await diag('ignored_refund_order_mismatch');
+    return json({ ok: true, ignored: 'refund_order_mismatch' });
   }
   if (typeof existing.test_mode === 'boolean' && existing.test_mode !== testMode) {
     await diag('ignored_refund_mode_mismatch');
@@ -270,7 +280,7 @@ async function handleRefund({ env, payload, ref, product, variantId, orderStatus
     await diag('ignored_unexpected_price');
     return json({ ok: true, ignored: 'unexpected_price' });
   }
-  if (Number.isInteger(itemPrice) && Number.isInteger(Number(existing.item_price)) && itemPrice !== Number(existing.item_price)) {
+  if (Number.isInteger(orderSubtotal) && Number.isInteger(Number(existing.subtotal)) && orderSubtotal !== Number(existing.subtotal)) {
     await diag('ignored_unexpected_price');
     return json({ ok: true, ignored: 'unexpected_price' });
   }
@@ -327,6 +337,7 @@ async function handleWebhook(request, env) {
   const orderStatus = String(attrs.status || '').toLowerCase();
   const orderIdentifier = String(attrs.identifier || '').trim();
   const orderCurrency = String(attrs.currency || '').trim().toUpperCase();
+  const orderSubtotal = Number(attrs.subtotal);
   const itemPrice = Number(orderItem.price);
   const testMode = Boolean(attrs.test_mode ?? orderItem.test_mode ?? payload?.meta?.test_mode);
 
@@ -338,6 +349,7 @@ async function handleWebhook(request, env) {
     product,
     variant_id: variantId,
     currency: orderCurrency,
+    subtotal: orderSubtotal,
     item_price: itemPrice,
     test_mode: testMode,
     signature_present: true,
@@ -369,7 +381,7 @@ async function handleWebhook(request, env) {
   }
 
   if (event === 'order_refunded') {
-    return handleRefund({ env, payload, ref, product, variantId, orderStatus, orderIdentifier, orderCurrency, itemPrice, testMode, diag });
+    return handleRefund({ env, payload, ref, product, variantId, orderStatus, orderIdentifier, orderCurrency, orderSubtotal, testMode, diag });
   }
   if (event !== 'order_created') {
     await diag(`ignored_${event || 'unknown_event'}`);
@@ -383,7 +395,7 @@ async function handleWebhook(request, env) {
   }
 
   const expectedPrice = PRODUCT_PRICES_EUR_CENTS[product];
-  if (orderCurrency !== 'EUR' || !Number.isInteger(itemPrice) || itemPrice !== expectedPrice) {
+  if (orderCurrency !== 'EUR' || !Number.isInteger(orderSubtotal) || orderSubtotal !== expectedPrice || !Number.isInteger(itemPrice) || itemPrice <= 0) {
     await diag('ignored_unexpected_price');
     return json({ ok: true, ignored: 'unexpected_price' });
   }
@@ -433,6 +445,7 @@ async function handleWebhook(request, env) {
     order_identifier: orderIdentifier,
     variant_id: variantId,
     currency: orderCurrency,
+    subtotal: orderSubtotal,
     item_price: itemPrice,
     test_mode: testMode,
     created_at: new Date().toISOString()
