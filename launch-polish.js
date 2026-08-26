@@ -6,6 +6,17 @@
   document.body.dataset.checkoutMode=mode;
   document.body.dataset.checkoutReady=allCheckoutUrls?'true':'false';
 
+  const bgInterests={
+    dinosaurs:'Динозаври 🦖',space:'Космос 🚀',animals:'Животни 🐾',football:'Футбол ⚽',art:'Изкуство 🎨',
+    mysteries:'Загадки 🔎',castles:'Замъци и рицари 🏰',science:'Наука 🧪',vehicles:'Превозни средства 🚗',nature:'Природа 🌿',
+    food:'Храна и готвене 🍳',music:'Музика 🎵',superheroes:'Супергерои 🦸',history:'История 📜',ocean:'Океан и морски живот 🐠',trains:'Влакове 🚆'
+  };
+  const enInterests={
+    dinosaurs:'Dinosaurs 🦖',space:'Space 🚀',animals:'Animals 🐾',football:'Football ⚽',art:'Art 🎨',mysteries:'Mysteries 🔎',
+    castles:'Castles & knights 🏰',science:'Science 🧪',vehicles:'Vehicles 🚗',nature:'Nature 🌿',food:'Food & cooking 🍳',music:'Music 🎵',
+    superheroes:'Superheroes 🦸',history:'History 📜',ocean:'Ocean & sea life 🐠',trains:'Trains 🚆'
+  };
+
   const style=document.createElement('style');
   style.textContent=`
     .kv-test-banner{position:sticky;top:0;z-index:9999;padding:9px 16px;text-align:center;background:#20312f;color:#fff;font-size:12px;font-weight:900;letter-spacing:.04em}
@@ -60,6 +71,60 @@
     if(el) el.textContent=isBg()?bg:en;
   }
 
+  function localizeSelects(){
+    const bg=isBg();
+    const interest=document.getElementById('interest');
+    if(interest){
+      [...interest.options].forEach(option=>{
+        const label=(bg?bgInterests:enInterests)[option.value];
+        if(label) option.textContent=label;
+      });
+    }
+    const days=document.getElementById('tripDays');
+    if(days){
+      [...days.options].forEach(option=>{
+        option.textContent=bg?`${option.value} дни`:`${option.value} days`;
+      });
+    }
+  }
+
+  function setLabelText(label,text){
+    if(!label) return;
+    const node=[...label.childNodes].find(n=>n.nodeType===Node.TEXT_NODE);
+    if(node) node.nodeValue=text;
+  }
+
+  function localizeFamilyDialog(){
+    const dialog=document.getElementById('familyCheckoutDialog');
+    if(!dialog) return;
+    const bg=isBg();
+    const h2=dialog.querySelector('h2');
+    const sub=dialog.querySelector('.kv-family-sub');
+    const close=dialog.querySelector('.kv-family-close');
+    const cancel=dialog.querySelector('.kv-family-cancel');
+    const submit=dialog.querySelector('button[type="submit"]');
+    if(h2) h2.textContent=bg?'Създай семейното приключение':'Build your family adventure';
+    if(sub) sub.textContent=bg?'Добави до три деца. Дестинацията и дните се взимат от основната форма. Книжката се генерира на английски.':'Add up to three children. Destination and trip length come from the main form. The printable book is generated in English.';
+    if(close) close.setAttribute('aria-label',bg?'Затвори':'Close');
+    if(cancel) cancel.textContent=bg?'Отказ':'Cancel';
+    if(submit) submit.textContent=bg?'Към Family плащане — €14.90':'Continue to Family checkout — €14.90';
+    [...dialog.querySelectorAll('.kv-family-child')].forEach((card,i)=>{
+      const legend=card.querySelector('legend');
+      if(legend) legend.textContent=bg?`Дете ${i+1}${i===0?' *':' (по избор)'}`:`Child ${i+1}${i===0?' *':' (optional)'}`;
+      const labels=card.querySelectorAll('label');
+      setLabelText(labels[0],bg?'Име / прякор':'Name / nickname');
+      setLabelText(labels[1],bg?'Възраст':'Age');
+      setLabelText(labels[2],bg?'Интерес':'Interest');
+      const select=card.querySelector('.kv-child-interest');
+      if(select){
+        [...select.options].forEach(option=>{
+          const label=(bg?bgInterests:enInterests)[option.value];
+          if(label) option.textContent=label;
+        });
+      }
+    });
+  }
+
   function refresh(){
     const bg=isBg();
     if(banner) banner.textContent=bg?'ТЕСТОВ РЕЖИМ • Не се извършва реално плащане':'TEST MODE • No real payment is taken';
@@ -94,6 +159,9 @@
       'We use only a first name or nickname, age, destination, interest and trip length. Child names and exact ages are not sent to the AI provider.',
       'Използваме само първо име или прякор, възраст, дестинация, интерес и дни. Имената и точната възраст на детето не се изпращат към AI доставчика.');
 
+    localizeSelects();
+    localizeFamilyDialog();
+
     if(!allCheckoutUrls){
       document.querySelectorAll('.price-card a, #openBooklet').forEach(el=>{
         el.classList.add('kv-unavailable');
@@ -123,4 +191,7 @@
 
   refresh();
   document.getElementById('languageToggle')?.addEventListener('click',()=>queueMicrotask(refresh));
+  document.addEventListener('click',event=>{
+    if(event.target.closest('a[href="#checkout-family"]')) setTimeout(localizeFamilyDialog,0);
+  });
 })();
