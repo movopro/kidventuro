@@ -7,6 +7,7 @@
   const btn=document.getElementById('continueBtn');
   const help=document.getElementById('help');
   const order=new URLSearchParams(location.search).get('order')||'';
+  const checkoutMode=window.KIDVENTURO_CONFIG?.checkoutMode==='live'?'live':'test';
   let ref='';
   let api='';
 
@@ -87,17 +88,30 @@
         help.textContent='Payment storage is not configured. Kidventuro support needs to check the Cloudflare KV binding.';
         return;
       }
-      if(health.webhook_secret!==true){
-        help.textContent='The Lemon Squeezy webhook secret is missing from the payment service.';
+      if(checkoutMode==='live'){
+        if(health.webhook_secret_live!==true||health.ready_live!==true){
+          help.textContent='Live payment verification is not fully configured yet. Kidventuro support needs to check the Live Lemon Squeezy webhook secret.';
+          return;
+        }
+      }else if((health.webhook_secret_test??health.webhook_secret)!==true){
+        help.textContent='The Test Lemon Squeezy webhook secret is missing from the payment service.';
         return;
       }
       const last=health.last_webhook;
       if(!last){
-        help.textContent='No Lemon Squeezy webhook has reached Kidventuro yet. Check the webhook mode and callback URL.';
+        help.textContent=`No Lemon Squeezy ${checkoutMode==='live'?'Live':'Test'} webhook has reached Kidventuro yet. Check the webhook mode and callback URL.`;
         return;
       }
       if(last.result==='rejected_invalid_signature'){
         help.textContent='Lemon Squeezy reached Kidventuro, but the webhook signing secret does not match Cloudflare.';
+        return;
+      }
+      if(last.result==='rejected_wrong_mode_signature'){
+        help.textContent='The webhook was signed with the secret for the wrong Lemon Squeezy environment (Test vs Live).';
+        return;
+      }
+      if(last.result==='rejected_live_secret_missing'){
+        help.textContent='A Live payment reached Kidventuro, but the separate Live webhook secret is not configured.';
         return;
       }
       if(ref&&last.ref_hint&&last.ref_hint!==ref.slice(-8)){
@@ -109,7 +123,7 @@
         ignored_unexpected_product:'The webhook was received but did not match a configured Kidventuro product.',
         ignored_checkout_session_product_mismatch:'The paid product did not match the Kidventuro checkout session. Restart checkout from kidventuro.com.',
         ignored_unexpected_price:'The paid Lemon Squeezy item price or currency did not match this Kidventuro package. Check the product price and checkout link.',
-        ignored_unexpected_variant:'The webhook was received but its Lemon Squeezy variant did not match the configured product.',
+        ignored_unexpected_variant:'The webhook was received but its Lemon Squeezy variant did not match the locked product variant.',
         ignored_order_not_paid:'The webhook was received, but Lemon Squeezy did not report the order as paid.',
         entitlement_refunded:'This order has been refunded, so the product cannot be opened.',
         entitlement_created:'The payment webhook was accepted. Refresh this page once; Cloudflare KV may need a few more seconds to propagate.'
