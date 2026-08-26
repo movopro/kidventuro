@@ -103,8 +103,8 @@
     }
   }
 
-  // Lightweight structured product metadata for search engines that execute JavaScript.
-  if(!document.getElementById('kidventuroStructuredData')){
+  // Only advertise products as purchasable to search engines once the site is explicitly in Live mode.
+  if(mode==='live'&&allCheckoutUrls&&!document.getElementById('kidventuroStructuredData')){
     const jsonLd=document.createElement('script');
     jsonLd.id='kidventuroStructuredData';
     jsonLd.type='application/ld+json';
