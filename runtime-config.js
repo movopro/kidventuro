@@ -1,3 +1,9 @@
 window.KIDVENTURO_CONFIG={
-  apiBase:'https://kidventuro-api.m-oreshkov.workers.dev'
+  apiBase:'https://kidventuro-api.m-oreshkov.workers.dev',
+  checkoutMode:'test',
+  checkoutUrls:{
+    mini:'https://kidventuro.lemonsqueezy.com/checkout/buy/b68dbe91-5c2d-4ede-b9b6-a1e9625627be',
+    adventure:'https://kidventuro.lemonsqueezy.com/checkout/buy/002731fe-1735-4287-8223-450d8ef41202',
+    family:'https://kidventuro.lemonsqueezy.com/checkout/buy/e49470c6-bd0e-4533-a206-c254fa84908f'
+  }
 };
