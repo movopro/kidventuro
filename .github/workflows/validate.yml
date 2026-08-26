@@ -28,14 +28,15 @@ jobs:
 
           required = [
               'package.json',
-              'index.html','styles.css','app.js','checkout.js','site-expansion.js','launch-polish.js',
+              'index.html','styles.css','launch.css','app.js','analytics.js','checkout.js','site-expansion.js','launch-polish.js',
               'runtime-config.js','test-checkout-safety.mjs','test-launch.mjs',
               'success.html','success.js','booklet.html','booklet-v2.js','booklet-session.js',
               'mini-mode.js','family-mode.js','ai-mode.js',
               'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','test-catalog.mjs',
               'age-core.js','age-pages.js','age-final.js','trip-days.js',
               'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME',
-              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/src/ai.js','worker/test-webhook.mjs','worker/test-ai.mjs'
+              'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/src/ai.js','worker/src/analytics.js',
+              'worker/test-webhook.mjs','worker/test-ai.mjs','worker/test-analytics.mjs'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
@@ -53,7 +54,7 @@ jobs:
 
           worker_pkg=json.loads(Path('worker/package.json').read_text(encoding='utf-8'))
           test_script=worker_pkg.get('scripts',{}).get('test','')
-          for marker in ['test-webhook.mjs','test-ai.mjs','test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs']:
+          for marker in ['test-webhook.mjs','test-ai.mjs','test-analytics.mjs','test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs']:
               if marker not in test_script:
                   raise SystemExit(f'Worker npm test is missing regression suite: {marker}')
 
@@ -70,6 +71,9 @@ jobs:
           bindings=config.get('kv_namespaces',[])
           if not any(x.get('binding')=='ENTITLEMENTS' for x in bindings):
               raise SystemExit('ENTITLEMENTS KV binding is missing')
+          analytics_bindings=config.get('analytics_engine_datasets',[])
+          if not any(x.get('binding')=='ANALYTICS' and x.get('dataset')=='kidventuro_funnel' for x in analytics_bindings):
+              raise SystemExit('Kidventuro Analytics Engine binding is missing')
 
           runtime=Path('runtime-config.js').read_text(encoding='utf-8')
           if 'https://kidventuro-api.m-oreshkov.workers.dev' not in runtime:
@@ -91,7 +95,7 @@ jobs:
           index=Path('index.html').read_text(encoding='utf-8')
           if 'site-enhance.js' in index or 'booklet.js' in index:
               raise SystemExit('Obsolete script reference found in index.html')
-          scripts=['runtime-config.js','app.js','checkout.js','launch-polish.js']
+          scripts=['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js']
           positions=[]
           for script in scripts:
               marker=f'<script src="{script}"></script>'
@@ -100,29 +104,37 @@ jobs:
                   raise SystemExit(f'Landing page is missing script: {script}')
               positions.append(pos)
           if positions != sorted(positions):
-              raise SystemExit('Landing scripts are in an unsafe order; runtime config must load before checkout')
+              raise SystemExit('Landing scripts are in an unsafe order; runtime config and analytics must load before checkout')
           if '25 DESTINATIONS' in index or 'MVP' in index:
               raise SystemExit('Stale customer-facing launch copy found in index.html')
+
+          analytics=Path('analytics.js').read_text(encoding='utf-8')
+          for marker in ['page_view','preview_generated','sample_opened','pricing_viewed','checkout_clicked','booklet_opened','print_clicked','/analytics/event']:
+              if marker not in analytics and marker != 'booklet_opened':
+                  raise SystemExit(f'Frontend analytics marker missing: {marker}')
+          for forbidden in ['childName','childAge','kv_ref','order_identifier','email']:
+              if forbidden in analytics:
+                  raise SystemExit(f'Frontend analytics must not read PII/purchase identifier: {forbidden}')
 
           checkout=Path('checkout.js').read_text(encoding='utf-8')
           if 'lemonsqueezy.com/checkout/buy/' in checkout:
               raise SystemExit('Checkout URLs must stay centralized in runtime-config.js')
-          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children",'site-expansion.js','runtime.checkoutUrls','runtime.checkoutMode']:
+          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children",'site-expansion.js','runtime.checkoutUrls','runtime.checkoutMode',"KidventuroAnalytics?.track('checkout_clicked'"]:
               if marker not in checkout:
                   raise SystemExit(f'Checkout validation marker missing: {marker}')
 
           booklet=Path('booklet.html').read_text(encoding='utf-8')
-          if 'runtime-config.js' not in booklet or 'booklet-session.js' not in booklet:
-              raise SystemExit('Booklet payment gate is incomplete')
+          if 'runtime-config.js' not in booklet or 'analytics.js' not in booklet or 'booklet-session.js' not in booklet:
+              raise SystemExit('Booklet payment/analytics gate is incomplete')
           if 'booklet-v2.js' in booklet:
               raise SystemExit('Generator must not load before entitlement verification')
           gate=Path('booklet-session.js').read_text(encoding='utf-8')
-          for marker in ['mini-mode.js','family-mode.js','status.product','catalog-4.js','catalog-5.js','/ai/enrich','ai-mode.js']:
+          for marker in ['mini-mode.js','family-mode.js','status.product','catalog-4.js','catalog-5.js','/ai/enrich','ai-mode.js',"KidventuroAnalytics?.track('booklet_opened'"]:
               if marker not in gate:
-                  raise SystemExit(f'Product/AI gate marker missing: {marker}')
+                  raise SystemExit(f'Product/AI/analytics gate marker missing: {marker}')
 
           success=Path('success.html').read_text(encoding='utf-8')
-          if 'runtime-config.js' not in success or 'success.js' not in success:
+          if 'runtime-config.js' not in success or 'analytics.js' not in success or 'success.js' not in success:
               raise SystemExit('Payment success page is incomplete')
           success_js=Path('success.js').read_text(encoding='utf-8')
           for marker in ['personalization.children','checkoutMode','ready_live','rejected_wrong_mode_signature','rejected_live_secret_missing','/diagnostics?ref=','const query=order?']:
@@ -135,12 +147,18 @@ jobs:
           for marker in [
               'X-Signature','order_created','order_refunded','ENTITLEMENTS','ALLOWED_PRODUCTS','/ai/enrich','OPENAI_API_KEY',
               'variant_lock:','PRODUCT_PRICES_EUR_CENTS','LEMONSQUEEZY_WEBHOOK_SECRET_LIVE','ready_live','BODY_LIMITS',
-              "BOOKLET_LANGUAGE = 'en'",'/diagnostics','checkout_ref_already_used','checkout_ref_conflict','ignored_ref_refunded'
+              "BOOKLET_LANGUAGE = 'en'",'/diagnostics','checkout_ref_already_used','checkout_ref_conflict','ignored_ref_refunded',
+              '/analytics/event','trackAnalytics','payment_confirmed','payment_refunded'
           ]:
               if marker not in worker:
                   raise SystemExit(f'Worker launch safeguard missing: {marker}')
           if worker.find("event === 'order_refunded'") > worker.find('const checkoutSession = await readCheckoutSession'):
               raise SystemExit('Refund handling incorrectly depends on temporary checkout personalization')
+
+          analytics_worker=Path('worker/src/analytics.js').read_text(encoding='utf-8')
+          for marker in ['CLIENT_EVENTS','SERVER_EVENTS','writeDataPoint','indexes:[name]','doubles:[1','Origin']:
+              if marker not in analytics_worker:
+                  raise SystemExit(f'Analytics collector safeguard missing: {marker}')
 
           privacy=Path('privacy.html').read_text(encoding='utf-8')
           terms=Path('terms.html').read_text(encoding='utf-8')
@@ -150,6 +168,8 @@ jobs:
                   raise SystemExit(f'{name} policy is not synchronized with launch language/date')
           if 'OpenAI' not in privacy or 'AI-assisted personalization' not in privacy:
               raise SystemExit('Privacy notice is not synchronized with AI flow')
+          if 'Aggregate analytics' not in privacy or 'does not create an analytics cookie' not in privacy:
+              raise SystemExit('Privacy notice is not synchronized with analytics flow')
           if 'Kidventuro Mini, Adventure and Family' not in refunds:
               raise SystemExit('Refund/delivery policy does not cover all products')
           if 'being tested before' in refunds:
@@ -158,7 +178,7 @@ jobs:
           print('Static launch checks passed')
           PY
 
-      - name: Test signed payments, AI, catalog and launch flows
+      - name: Test signed payments, AI, analytics, catalog and launch flows
         working-directory: worker
         run: npm test
 
