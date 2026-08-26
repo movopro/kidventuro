@@ -1,5 +1,18 @@
 (()=>{
   const runtime=window.KIDVENTURO_CONFIG||{};
+  const CLOUDFLARE_WEB_ANALYTICS_TOKEN='823a0ee660884dec9ecfad5650f38e4e';
+
+  // Cloudflare Web Analytics: aggregate page/performance analytics without a Kidventuro visitor ID.
+  // Load it only on the public Kidventuro hostname and never duplicate the beacon.
+  if((location.hostname==='kidventuro.com'||location.hostname==='www.kidventuro.com')
+    && !document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')){
+    const beacon=document.createElement('script');
+    beacon.type='module';
+    beacon.src='https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.dataset.cfBeacon=JSON.stringify({token:CLOUDFLARE_WEB_ANALYTICS_TOKEN});
+    document.head.appendChild(beacon);
+  }
+
   const API=String(runtime.apiBase||'').replace(/\/$/,'');
   if(!API) return;
 
