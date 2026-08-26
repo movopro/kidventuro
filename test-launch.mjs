@@ -2,9 +2,9 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 
 const read=path=>readFile(new URL(path,import.meta.url),'utf8');
-const [index,runtime,analytics,checkout,polish,success,booklet,privacy,terms,refunds,worker,workerAnalytics]=await Promise.all([
+const [index,runtime,analytics,checkout,polish,successHtml,success,bookletHtml,booklet,privacy,terms,refunds,notFound,worker,workerAnalytics]=await Promise.all([
   read('./index.html'),read('./runtime-config.js'),read('./analytics.js'),read('./checkout.js'),read('./launch-polish.js'),
-  read('./success.js'),read('./booklet-session.js'),read('./privacy.html'),read('./terms.html'),read('./refunds.html'),
+  read('./success.html'),read('./success.js'),read('./booklet.html'),read('./booklet-session.js'),read('./privacy.html'),read('./terms.html'),read('./refunds.html'),read('./404.html'),
   read('./worker/src/index.js'),read('./worker/src/analytics.js')
 ]);
 
@@ -47,6 +47,15 @@ for(const forbidden of ['childName','childAge','kv_ref','order_identifier','emai
 }
 assert.ok(booklet.includes("KidventuroAnalytics?.track('booklet_opened'"),'verified booklet opens must be tracked');
 
+const cfToken='823a0ee660884dec9ecfad5650f38e4e';
+assert.ok(analytics.includes(cfToken),'Cloudflare Web Analytics token must stay configured');
+assert.ok(analytics.includes('https://static.cloudflareinsights.com/beacon.min.js'),'Cloudflare Web Analytics beacon loader is missing');
+for(const [name,html] of [['index',index],['success',successHtml],['booklet',bookletHtml],['privacy',privacy],['terms',terms],['refunds',refunds],['404',notFound]]){
+  assert.ok(html.includes('analytics.js'),`${name} must load analytics.js`);
+  assert.ok(html.includes('runtime-config.js'),`${name} must load runtime-config.js before analytics`);
+  assert.ok(html.indexOf('runtime-config.js')<html.indexOf('analytics.js'),`${name} must load runtime config before analytics`);
+}
+
 assert.ok(polish.includes('TEST MODE • No real payment is taken'),'Test mode must be visible to visitors');
 assert.ok(polish.includes('printable books are currently generated in English'),'current product language must be disclosed');
 assert.ok(polish.includes('application/ld+json'),'product structured metadata must be emitted in Live mode');
@@ -61,6 +70,7 @@ for(const [name,doc] of [['privacy',privacy],['terms',terms],['refunds',refunds]
   assert.ok(doc.includes('26 August 2026'),`${name} English policy update date must be current`);
 }
 assert.ok(privacy.includes('Aggregate analytics'),'privacy notice must disclose aggregate analytics');
+assert.ok(privacy.includes('Cloudflare Web Analytics'),'privacy notice must disclose Cloudflare Web Analytics');
 assert.ok(privacy.includes('does not create an analytics cookie'),'privacy notice must explain cookie-free funnel tracking');
 assert.ok(refunds.includes('Kidventuro Mini, Adventure and Family'),'delivery policy must cover all three products');
 
@@ -81,4 +91,4 @@ for(const forbidden of ['name:body','age:body','kv_ref','order_id','email']){
   assert.equal(workerAnalytics.includes(forbidden),false,`analytics collector must not map PII field: ${forbidden}`);
 }
 
-console.log('Launch-readiness, analytics privacy, recovery, VAT-safe payment lifecycle and policy regression checks passed');
+console.log('Launch-readiness, Cloudflare Web Analytics, analytics privacy, recovery, VAT-safe payment lifecycle and policy regression checks passed');
