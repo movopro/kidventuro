@@ -1,5 +1,6 @@
 import {getAiEnrichment} from './ai.js';
 
+const RELEASE = '2026-08-26.1';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
 const PRODUCT_PRICES_EUR_CENTS = Object.freeze({ mini: 590, adventure: 990, family: 1490 });
@@ -380,6 +381,7 @@ export default {
       return json({
         ok: true,
         service: 'kidventuro-api',
+        release: RELEASE,
         storage: Boolean(env.ENTITLEMENTS),
         webhook_secret: Boolean(env.LEMONSQUEEZY_WEBHOOK_SECRET),
         ai_configured: Boolean(env.OPENAI_API_KEY),
