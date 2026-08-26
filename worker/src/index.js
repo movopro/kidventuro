@@ -2,6 +2,18 @@ import {getAiEnrichment} from './ai.js';
 
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
+const PRODUCT_PRICES_EUR_CENTS = Object.freeze({ mini: 590, adventure: 990, family: 1490 });
+const ALLOWED_DESTINATIONS = new Set([
+  'Rome','Paris','London','Barcelona','Dubai','Amsterdam','Vienna','Prague','Berlin','Lisbon',
+  'Athens','Istanbul','New York','Orlando','Tokyo','Kyoto','Singapore','Sydney','Copenhagen','Budapest',
+  'Venice','Florence','Madrid','Bangkok','Reykjavik','Munich','Salzburg','Zurich','Brussels','Bruges',
+  'Dublin','Edinburgh','Stockholm','Oslo','Helsinki','Milan','Naples','Seville','Valencia','Porto',
+  'Nice','Dubrovnik','Krakow','Warsaw','Bucharest','Sofia','Abu Dhabi','Seoul','Hong Kong','Kuala Lumpur'
+]);
+const ALLOWED_INTERESTS = new Set([
+  'dinosaurs','space','animals','football','art','mysteries','castles','science',
+  'vehicles','nature','food','music','superheroes','history','ocean','trains'
+]);
 
 const responseHeaders = {
   'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
@@ -61,6 +73,8 @@ async function saveDiagnostic(env, data) {
     ref_hint: String(data.ref_hint || ''),
     product: String(data.product || ''),
     variant_id: String(data.variant_id || ''),
+    currency: String(data.currency || ''),
+    item_price: Number.isFinite(Number(data.item_price)) ? Number(data.item_price) : null,
     test_mode: Boolean(data.test_mode),
     signature_present: Boolean(data.signature_present),
     result: String(data.result || '')
@@ -79,7 +93,7 @@ function cleanChild(input) {
   const name = String(input?.name || '').trim().slice(0, 20);
   const age = Number(input?.age);
   const interest = String(input?.interest || '').trim().slice(0, 40);
-  if (!name || !Number.isInteger(age) || age < 4 || age > 12 || !interest) return null;
+  if (!name || !Number.isInteger(age) || age < 4 || age > 12 || !ALLOWED_INTERESTS.has(interest)) return null;
   return { name, age: String(age), interest };
 }
 
@@ -91,7 +105,7 @@ function cleanPersonalization(input) {
 
   if (!validProduct(product)) return null;
   if (![2, 3, 4, 5, 7].includes(days)) return null;
-  if (!destination) return null;
+  if (!ALLOWED_DESTINATIONS.has(destination)) return null;
 
   if (product === 'family') {
     if (!Array.isArray(input?.children) || input.children.length < 1 || input.children.length > 3) return null;
@@ -181,7 +195,9 @@ async function handleWebhook(request, env) {
   const variantId = String(orderItem.variant_id || '');
   const orderStatus = String(attrs.status || '').toLowerCase();
   const orderIdentifier = String(attrs.identifier || '').trim();
-  const testMode = Boolean(attrs.test_mode ?? payload?.meta?.test_mode);
+  const orderCurrency = String(attrs.currency || '').trim().toUpperCase();
+  const itemPrice = Number(orderItem.price);
+  const testMode = Boolean(attrs.test_mode ?? orderItem.test_mode ?? payload?.meta?.test_mode);
 
   const diag = result => saveDiagnostic(env, {
     event,
@@ -190,6 +206,8 @@ async function handleWebhook(request, env) {
     ref_hint: refHint(ref),
     product,
     variant_id: variantId,
+    currency: orderCurrency,
+    item_price: itemPrice,
     test_mode: testMode,
     signature_present: true,
     result
@@ -210,6 +228,12 @@ async function handleWebhook(request, env) {
     return json({ ok: true, ignored: 'checkout_session_product_mismatch' });
   }
 
+  const expectedPrice = PRODUCT_PRICES_EUR_CENTS[product];
+  if (orderCurrency !== 'EUR' || !Number.isInteger(itemPrice) || itemPrice !== expectedPrice) {
+    await diag('ignored_unexpected_price');
+    return json({ ok: true, ignored: 'unexpected_price' });
+  }
+
   const expectedVariant = expectedVariantFor(product, env);
   if (expectedVariant && variantId !== String(expectedVariant)) {
     await diag('ignored_unexpected_variant');
@@ -228,6 +252,8 @@ async function handleWebhook(request, env) {
       order_id: String(payload?.data?.id || ''),
       order_identifier: orderIdentifier,
       variant_id: variantId,
+      currency: orderCurrency,
+      item_price: itemPrice,
       test_mode: testMode,
       created_at: new Date().toISOString()
     };
@@ -247,7 +273,7 @@ async function handleWebhook(request, env) {
   if (event === 'order_refunded') {
     await env.ENTITLEMENTS.put(
       entitlementKey(ref),
-      JSON.stringify({ paid: false, refunded: true, product, variant_id: variantId, updated_at: new Date().toISOString() }),
+      JSON.stringify({ paid: false, refunded: true, product, variant_id: variantId, currency: orderCurrency, item_price: itemPrice, updated_at: new Date().toISOString() }),
       { expirationTtl: 60 * 60 * 24 * 30 }
     );
     if (validOrderIdentifier(orderIdentifier)) {
