@@ -154,7 +154,6 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal(pending.response.status,200);
   assert.equal((await status(env,ref)).body.paid,false,'pending order must not unlock');
 
-  // Lemon Squeezy can report first_order_item.price including tax while subtotal remains the configured base product price.
   const paid=await sendWebhook(env,{ref,identifier,dataId:'12345',variantId:987654,subtotal:990,itemPrice:1188});
   assert.equal(paid.response.status,200,'VAT-adjusted item price must not block a valid €9.90 base-price order');
   assert.equal(paid.body.ok,true);
@@ -191,7 +190,7 @@ async function aiEnrichment(env,ref,bodyExtra={}){
 
   const health=await worker.fetch(new Request('https://example.workers.dev/health'),env);
   const healthBody=await health.json();
-  assert.equal(healthBody.release,'2026-08-26.5');
+  assert.equal(healthBody.release,'2026-08-26.6');
   assert.equal(healthBody.booklet_language,'en');
   assert.equal(Object.hasOwn(healthBody,'last_webhook'),false,'public health must not expose webhook-specific diagnostics');
   assert.equal(healthBody.variant_locks.test.adventure,true);
