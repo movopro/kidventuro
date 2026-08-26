@@ -108,6 +108,7 @@
         ignored_missing_or_invalid_ref:'The checkout did not include the Kidventuro reference. Restart checkout from kidventuro.com.',
         ignored_unexpected_product:'The webhook was received but did not match a configured Kidventuro product.',
         ignored_checkout_session_product_mismatch:'The paid product did not match the Kidventuro checkout session. Restart checkout from kidventuro.com.',
+        ignored_unexpected_price:'The paid Lemon Squeezy item price or currency did not match this Kidventuro package. Check the product price and checkout link.',
         ignored_unexpected_variant:'The webhook was received but its Lemon Squeezy variant did not match the configured product.',
         ignored_order_not_paid:'The webhook was received, but Lemon Squeezy did not report the order as paid.',
         entitlement_refunded:'This order has been refunded, so the product cannot be opened.',
