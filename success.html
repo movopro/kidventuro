@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
   <meta name="referrer" content="no-referrer" />
   <meta name="theme-color" content="#fff8ef" />
   <title>Payment confirmation — Kidventuro</title>
@@ -18,6 +18,7 @@
     .status{margin:24px 0;padding:16px;border-radius:16px;background:#fff8ef;font-weight:800}
     .status.ok{background:#dff4ea}.status.error{background:#ffe3dc}
     .small{font-size:.86rem}.hidden{display:none!important}
+    .delivery-note{margin-top:20px!important;padding-top:16px;border-top:1px solid #e8e2d8}
   </style>
 </head>
 <body>
@@ -25,10 +26,11 @@
     <div class="success-mark">✈️</div>
     <span class="eyebrow">KIDVENTURO</span>
     <h1>Confirming your adventure…</h1>
-    <p>We’re checking the payment confirmation securely before opening the personalized book.</p>
-    <div id="status" class="status">Waiting for payment confirmation…</div>
+    <p>We’re securely matching this order to the personalized Kidventuro product before opening it.</p>
+    <div id="status" class="status" role="status" aria-live="polite">Waiting for payment confirmation…</div>
     <button id="continueBtn" class="btn btn-primary hidden" type="button">Open my adventure →</button>
-    <p id="help" class="small">This can take a few seconds after checkout. If it does not confirm, keep this tab open and use the button again from the Lemon Squeezy confirmation screen.</p>
+    <p id="help" class="small">This normally takes only a few seconds. Keep this page open while payment confirmation arrives.</p>
+    <p class="small delivery-note">The current printable product is in English. After opening it, use <strong>Print / Save PDF</strong> to keep your copy.</p>
   </main>
   <script src="runtime-config.js"></script>
   <script src="success.js"></script>
