@@ -25,10 +25,6 @@
     return [...bytes].map(b=>b.toString(16).padStart(2,'0')).join('');
   };
 
-  const readExisting=()=>{
-    try{return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'{}')||{};}catch{return {};}
-  };
-
   const mainValues=()=>({
     name:(document.getElementById('childName')?.value||'').trim().slice(0,20),
     age:document.getElementById('childAge')?.value||'7',
@@ -40,8 +36,8 @@
 
   const saveCheckoutSession=(product='adventure',familyChildren=null)=>{
     if(!PRODUCTS[product]) throw new Error('invalid_product');
-    const existing=readExisting();
-    const ref=(existing.product===product&&existing.kv_ref)?existing.kv_ref:makeRef();
+    // A checkout reference is single-use. Never reuse a ref that may already have a paid entitlement.
+    const ref=makeRef();
     const main=mainValues();
 
     const data={product,...main,kv_ref:ref,saved_at:Date.now()};
@@ -56,6 +52,8 @@
     }
 
     try{
+      sessionStorage.removeItem('kidventuro:paid_ref');
+      sessionStorage.removeItem('kidventuro:ai');
       sessionStorage.setItem(SESSION_KEY,JSON.stringify(data));
       sessionStorage.setItem('kidventuro:checkout_ref',ref);
     }catch(e){console.warn('Kidventuro checkout session could not be stored',e);}
