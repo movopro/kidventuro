@@ -51,7 +51,7 @@ jobs:
               raise SystemExit('Cloudflare dashboard runtime vars are not preserved')
           required_secrets=config.get('secrets',{}).get('required',[])
           if 'LEMONSQUEEZY_WEBHOOK_SECRET' not in required_secrets:
-              raise SystemExit('Lemon Squeezy webhook secret is not declared as required')
+              raise SystemExit('Test Lemon Squeezy webhook secret is not declared as required')
           if config.get('vars',{}).get('OPENAI_MODEL') != 'gpt-5.6-luna':
               raise SystemExit('Expected OpenAI model configuration is missing')
           bindings=config.get('kv_namespaces',[])
@@ -93,10 +93,11 @@ jobs:
           if 'runtime-config.js' not in success or 'success.js' not in success:
               raise SystemExit('Payment success page is incomplete')
           success_js=Path('success.js').read_text(encoding='utf-8')
-          if 'personalization.children' not in success_js:
-              raise SystemExit('Family recovery is missing from success flow')
+          for marker in ['personalization.children','checkoutMode','webhook_secret_live','ready_live','rejected_wrong_mode_signature','rejected_live_secret_missing']:
+              if marker not in success_js:
+                  raise SystemExit(f'Success diagnostics marker missing: {marker}')
           worker=Path('worker/src/index.js').read_text(encoding='utf-8')
-          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS','ALLOWED_PRODUCTS','input.children','/ai/enrich','OPENAI_API_KEY','variant_lock:','PRODUCT_PRICES_EUR_CENTS']:
+          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS','ALLOWED_PRODUCTS','input.children','/ai/enrich','OPENAI_API_KEY','variant_lock:','PRODUCT_PRICES_EUR_CENTS','LEMONSQUEEZY_WEBHOOK_SECRET_LIVE','ready_live','webhook_secret_live']:
               if marker not in worker:
                   raise SystemExit(f'Worker validation marker missing: {marker}')
           privacy=Path('privacy.html').read_text(encoding='utf-8')
