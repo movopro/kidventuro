@@ -3,18 +3,9 @@
   const runtime=window.KIDVENTURO_CONFIG||{};
   const checkoutUrls=runtime.checkoutUrls||{};
   const PRODUCTS={
-    mini:{
-      price:'€5.90',
-      checkoutUrl:checkoutUrls.mini||''
-    },
-    adventure:{
-      price:'€9.90',
-      checkoutUrl:checkoutUrls.adventure||''
-    },
-    family:{
-      price:'€14.90',
-      checkoutUrl:checkoutUrls.family||''
-    }
+    mini:{price:'€5.90',checkoutUrl:checkoutUrls.mini||''},
+    adventure:{price:'€9.90',checkoutUrl:checkoutUrls.adventure||''},
+    family:{price:'€14.90',checkoutUrl:checkoutUrls.family||''}
   };
   const API=String(runtime.apiBase||'').replace(/\/$/,'');
   const CHECKOUT_MODE=runtime.checkoutMode==='live'?'live':'test';
@@ -40,10 +31,8 @@
 
   const saveCheckoutSession=(product='adventure',familyChildren=null)=>{
     if(!PRODUCTS[product]) throw new Error('invalid_product');
-    // A checkout reference is single-use. Never reuse a ref that may already have a paid entitlement.
     const ref=makeRef();
     const main=mainValues();
-
     const data={product,...main,kv_ref:ref,saved_at:Date.now()};
     if(product==='family'){
       if(!Array.isArray(familyChildren)||familyChildren.length<1||familyChildren.length>3) throw new Error('family_children_required');
@@ -54,7 +43,6 @@
     }else if(!main.name){
       throw new Error('name_required');
     }
-
     try{
       sessionStorage.removeItem('kidventuro:paid_ref');
       sessionStorage.removeItem('kidventuro:ai');
@@ -66,24 +54,10 @@
 
   const registerCheckoutSession=async data=>{
     if(!API) throw new Error('api_not_configured');
-    const payload={
-      ref:data.kv_ref,
-      product:data.product,
-      name:data.name,
-      age:data.age,
-      destination:data.destination,
-      interest:data.interest,
-      days:data.days,
-      lang:data.lang
-    };
+    const payload={ref:data.kv_ref,product:data.product,name:data.name,age:data.age,destination:data.destination,interest:data.interest,days:data.days,lang:data.lang};
     if(data.product==='family') payload.children=data.children;
-
     const r=await fetch(`${API}/checkout/session`,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      credentials:'omit',
-      cache:'no-store',
-      body:JSON.stringify(payload)
+      method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',cache:'no-store',body:JSON.stringify(payload)
     });
     const body=await r.json().catch(()=>({}));
     if(!r.ok||body.ok!==true) throw new Error(body.error||'checkout_session_failed');
@@ -110,6 +84,7 @@
         trigger.textContent=document.documentElement.lang==='bg'?'Подготвяме плащането…':'Preparing secure checkout…';
       }
       const data=saveCheckoutSession(product,familyChildren);
+      window.KidventuroAnalytics?.track('checkout_clicked',{product});
       await registerCheckoutSession(data);
       window.location.assign(buildCheckoutUrl(data.kv_ref,product));
     }catch(err){
@@ -117,21 +92,16 @@
       alert(document.documentElement.lang==='bg'
         ? 'Не успяхме да подготвим сигурното плащане. Провери въведените данни и опитай отново.'
         : 'We could not prepare the secure checkout. Check the details and try again.');
-      if(trigger){
-        trigger.removeAttribute('aria-busy');
-        trigger.textContent=originalText;
-      }
+      if(trigger){trigger.removeAttribute('aria-busy');trigger.textContent=originalText;}
     }
   };
 
   const familyDialog=()=>{
     let dialog=document.getElementById('familyCheckoutDialog');
     if(dialog) return dialog;
-
     const ageOptions=document.getElementById('childAge')?.innerHTML||'<option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>';
     const interestOptions=document.getElementById('interest')?.innerHTML||'<option value="dinosaurs">Dinosaurs</option>';
     const main=mainValues();
-
     dialog=document.createElement('dialog');
     dialog.id='familyCheckoutDialog';
     dialog.innerHTML=`
@@ -154,7 +124,6 @@
         </div>
       </form>`;
     document.body.appendChild(dialog);
-
     const style=document.createElement('style');
     style.textContent=`
       #familyCheckoutDialog{width:min(920px,94vw);border:0;border-radius:26px;padding:0;box-shadow:0 30px 90px #20312f55;color:#20312f}
@@ -167,7 +136,6 @@
       @media(max-width:760px){.kv-family-grid{grid-template-columns:1fr}.kv-family-form{padding:22px 16px}.kv-family-form h2{font-size:24px}}
     `;
     document.head.appendChild(style);
-
     const childCards=[...dialog.querySelectorAll('.kv-family-child')];
     childCards[0].querySelector('.kv-child-name').value=main.name;
     childCards[0].querySelector('.kv-child-age').value=main.age;
@@ -185,15 +153,8 @@
     const children=[];
     cards.forEach((card,i)=>{
       const name=(card.querySelector('.kv-child-name').value||'').trim().slice(0,20);
-      if(!name){
-        if(i===0) throw new Error('first_child_required');
-        return;
-      }
-      children.push({
-        name,
-        age:card.querySelector('.kv-child-age').value,
-        interest:card.querySelector('.kv-child-interest').value
-      });
+      if(!name){if(i===0) throw new Error('first_child_required');return;}
+      children.push({name,age:card.querySelector('.kv-child-age').value,interest:card.querySelector('.kv-child-interest').value});
     });
     if(children.length<1||children.length>3) throw new Error('family_children_required');
     return children;
@@ -230,19 +191,9 @@
   const miniButton=cards[0]?.querySelector('a');
   const adventureButton=cards[1]?.querySelector('a');
   const familyButton=cards[2]?.querySelector('a');
-
-  if(miniButton){
-    miniButton.setAttribute('href','#checkout-mini');
-    miniButton.addEventListener('click',e=>startCheckout('mini',e));
-  }
-  if(adventureButton){
-    adventureButton.setAttribute('href','#checkout-adventure');
-    adventureButton.addEventListener('click',e=>startCheckout('adventure',e));
-  }
-  if(familyButton){
-    familyButton.setAttribute('href','#checkout-family');
-    familyButton.addEventListener('click',openFamilyCheckout);
-  }
+  if(miniButton){miniButton.setAttribute('href','#checkout-mini');miniButton.addEventListener('click',e=>startCheckout('mini',e));}
+  if(adventureButton){adventureButton.setAttribute('href','#checkout-adventure');adventureButton.addEventListener('click',e=>startCheckout('adventure',e));}
+  if(familyButton){familyButton.setAttribute('href','#checkout-family');familyButton.addEventListener('click',openFamilyCheckout);}
 
   window.KidventuroCheckout={start:(product,e)=>startCheckout(product,e),products:PRODUCTS,mode:CHECKOUT_MODE};
 
