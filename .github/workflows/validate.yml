@@ -25,7 +25,7 @@ jobs:
           from pathlib import Path
           required = [
               'package.json',
-              'index.html','styles.css','app.js','checkout.js','site-expansion.js','runtime-config.js',
+              'index.html','styles.css','app.js','checkout.js','site-expansion.js','runtime-config.js','test-checkout-safety.mjs',
               'success.html','success.js','booklet.html','booklet-v2.js','booklet-session.js',
               'mini-mode.js','family-mode.js','ai-mode.js',
               'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','test-catalog.mjs',
@@ -60,20 +60,24 @@ jobs:
           runtime=Path('runtime-config.js').read_text(encoding='utf-8')
           if 'https://kidventuro-api.m-oreshkov.workers.dev' not in runtime:
               raise SystemExit('Frontend API URL is not configured')
+          if "checkoutMode:'test'" not in runtime and "checkoutMode:'live'" not in runtime:
+              raise SystemExit('Checkout mode is not explicitly configured')
+          checkout_ids=[
+              'b68dbe91-5c2d-4ede-b9b6-a1e9625627be',
+              '002731fe-1735-4287-8223-450d8ef41202',
+              'e49470c6-bd0e-4533-a206-c254fa84908f'
+          ]
+          if "checkoutMode:'test'" in runtime and any(cid not in runtime for cid in checkout_ids):
+              raise SystemExit('One or more Test-mode Lemon Squeezy checkout URLs are missing from runtime config')
           index=Path('index.html').read_text(encoding='utf-8')
           if 'site-enhance.js' in index or 'booklet.js' in index:
               raise SystemExit('Obsolete script reference found in index.html')
           if 'checkout.js' not in index:
               raise SystemExit('Checkout integration is not loaded by index.html')
           checkout=Path('checkout.js').read_text(encoding='utf-8')
-          checkout_ids=[
-              'b68dbe91-5c2d-4ede-b9b6-a1e9625627be',
-              '002731fe-1735-4287-8223-450d8ef41202',
-              'e49470c6-bd0e-4533-a206-c254fa84908f'
-          ]
-          if any(cid not in checkout for cid in checkout_ids):
-              raise SystemExit('One or more Lemon Squeezy product checkout URLs are missing')
-          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children",'site-expansion.js']:
+          if 'lemonsqueezy.com/checkout/buy/' in checkout:
+              raise SystemExit('Checkout URLs must stay centralized in runtime-config.js')
+          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children",'site-expansion.js','runtime.checkoutUrls','runtime.checkoutMode']:
               if marker not in checkout:
                   raise SystemExit(f'Checkout validation marker missing: {marker}')
           booklet=Path('booklet.html').read_text(encoding='utf-8')
@@ -92,7 +96,7 @@ jobs:
           if 'personalization.children' not in success_js:
               raise SystemExit('Family recovery is missing from success flow')
           worker=Path('worker/src/index.js').read_text(encoding='utf-8')
-          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS','ALLOWED_PRODUCTS','input.children','/ai/enrich','OPENAI_API_KEY']:
+          for marker in ['X-Signature','order_created','order_refunded','attrs.status','ENTITLEMENTS','ALLOWED_PRODUCTS','input.children','/ai/enrich','OPENAI_API_KEY','variant_lock:','PRODUCT_PRICES_EUR_CENTS']:
               if marker not in worker:
                   raise SystemExit(f'Worker validation marker missing: {marker}')
           privacy=Path('privacy.html').read_text(encoding='utf-8')
