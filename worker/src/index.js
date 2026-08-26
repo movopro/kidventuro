@@ -1,6 +1,6 @@
 import {getAiEnrichment} from './ai.js';
 
-const RELEASE = '2026-08-26.2';
+const RELEASE = '2026-08-26.3';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
 const PRODUCT_PRICES_EUR_CENTS = Object.freeze({ mini: 590, adventure: 990, family: 1490 });
@@ -59,6 +59,8 @@ const validOrderIdentifier = value => /^[a-z0-9-]{8,80}$/i.test(value);
 const validVariantId = value => /^\d+$/.test(String(value || ''));
 const validProduct = value => ALLOWED_PRODUCTS.has(String(value || '').trim().toLowerCase());
 const refHint = ref => validRef(ref) ? ref.slice(-8) : '';
+const testWebhookSecret = env => String(env.LEMONSQUEEZY_WEBHOOK_SECRET_TEST || env.LEMONSQUEEZY_WEBHOOK_SECRET || '');
+const liveWebhookSecret = env => String(env.LEMONSQUEEZY_WEBHOOK_SECRET_LIVE || '');
 
 function expectedVariantFor(product, env) {
   if (product === 'mini') return env.EXPECTED_VARIANT_MINI || '';
@@ -181,13 +183,16 @@ async function readCheckoutSession(ref, env) {
 }
 
 async function handleWebhook(request, env) {
-  if (!env.LEMONSQUEEZY_WEBHOOK_SECRET) return json({ ok: false, error: 'server_not_configured' }, 503);
+  const testSecret = testWebhookSecret(env);
+  const liveSecret = liveWebhookSecret(env);
+  if (!testSecret && !liveSecret) return json({ ok: false, error: 'server_not_configured' }, 503);
   if (!env.ENTITLEMENTS) return json({ ok: false, error: 'storage_not_configured' }, 503);
 
   const rawBody = await request.text();
   const signature = request.headers.get('X-Signature') || '';
-  const valid = await verifySignature(rawBody, signature, env.LEMONSQUEEZY_WEBHOOK_SECRET);
-  if (!valid) {
+  const matchedTest = testSecret ? await verifySignature(rawBody, signature, testSecret) : false;
+  const matchedLive = liveSecret ? await verifySignature(rawBody, signature, liveSecret) : false;
+  if (!matchedTest && !matchedLive) {
     await saveDiagnostic(env, {
       signature_present: Boolean(signature),
       result: signature ? 'rejected_invalid_signature' : 'rejected_missing_signature'
@@ -228,6 +233,21 @@ async function handleWebhook(request, env) {
     signature_present: true,
     result
   });
+
+  if (testMode && !matchedTest) {
+    await diag('rejected_wrong_mode_signature');
+    return json({ ok: false, error: 'invalid_signature' }, 401);
+  }
+  if (!testMode) {
+    if (!liveSecret) {
+      await diag('rejected_live_secret_missing');
+      return json({ ok: false, error: 'live_server_not_configured' }, 503);
+    }
+    if (!matchedLive) {
+      await diag('rejected_wrong_mode_signature');
+      return json({ ok: false, error: 'invalid_signature' }, 401);
+    }
+  }
 
   if (!validRef(ref)) {
     await diag('ignored_missing_or_invalid_ref');
@@ -404,12 +424,18 @@ export default {
 
     if (url.pathname === '/health' && request.method === 'GET') {
       const lastWebhook = await readDiagnostic(env);
+      const testSecret = testWebhookSecret(env);
+      const liveSecret = liveWebhookSecret(env);
       return json({
         ok: true,
         service: 'kidventuro-api',
         release: RELEASE,
         storage: Boolean(env.ENTITLEMENTS),
-        webhook_secret: Boolean(env.LEMONSQUEEZY_WEBHOOK_SECRET),
+        webhook_secret: Boolean(testSecret),
+        webhook_secret_test: Boolean(testSecret),
+        webhook_secret_live: Boolean(liveSecret),
+        ready_test: Boolean(env.ENTITLEMENTS && testSecret),
+        ready_live: Boolean(env.ENTITLEMENTS && liveSecret),
         ai_configured: Boolean(env.OPENAI_API_KEY),
         ai_model: String(env.OPENAI_MODEL || 'gpt-5.6-luna'),
         products: [...ALLOWED_PRODUCTS],
