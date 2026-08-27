@@ -44,18 +44,22 @@ window.KIDVENTURO_CONFIG={
     return promise;
   };
 
+  // Keep this source declaration before the Spanish module: destination cards must be linked
+  // only after the expanded 50-destination catalog is available.
+  const DESTINATION_LINKS_SRC='destination-links.js?v=20260827-1';
+  const SPANISH_SRC='spanish.js';
   const wantsSpanish=()=>new URLSearchParams(location.search).get('lang')==='es';
-  const loadSpanish=()=>load('spanish.js').catch(error=>console.error('Kidventuro Spanish module failed',error));
+  const loadSpanish=()=>load(SPANISH_SRC).catch(error=>console.error('Kidventuro Spanish module failed',error));
 
   document.addEventListener('DOMContentLoaded',()=>{
     if(!document.getElementById('previewForm'))return;
 
     // Expand the core 25-card catalog first. Link enhancement follows only after those cards exist.
     // Spanish is not part of the critical path and is fetched only when requested or when the
-    // language control is used, avoiding an unnecessary ~14 KB script on most first visits.
+    // language control is used, avoiding an unnecessary script on most first visits.
     load('site-expansion.js')
       .then(()=>{
-        const jobs=[load('destination-links.js?v=20260827-1')];
+        const jobs=[load(DESTINATION_LINKS_SRC)];
         if(wantsSpanish())jobs.push(loadSpanish());
         return Promise.all(jobs);
       })
