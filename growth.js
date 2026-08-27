@@ -116,18 +116,25 @@
 
   const syncHubLink=()=>{
     const link=qs('[data-destination-guides]');
-    if(!link)return;
+    if(!link)return false;
     const lang=document.documentElement.lang;
-    link.href=lang==='es'?'/es/destinos/':'/destinations/';
-    link.textContent=lang==='bg'
+    const href=lang==='es'?'/es/destinos/':'/destinations/';
+    const text=lang==='bg'
       ?'Разгледай всички 50 гидове с занимания →'
       :lang==='es'
         ?'Ver las 50 guías de actividades →'
         :'Browse all 50 destination activity guides →';
+    if(link.getAttribute('href')!==href)link.setAttribute('href',href);
+    if(link.textContent!==text)link.textContent=text;
+    return true;
   };
   const hubHead=qs('#destinations .section-head');
-  if(hubHead&&'MutationObserver' in window){
-    new MutationObserver(syncHubLink).observe(hubHead,{childList:true,subtree:true});
+  if(hubHead&&'MutationObserver' in window&&!qs('[data-destination-guides]')){
+    const observer=new MutationObserver(()=>{
+      if(!syncHubLink())return;
+      observer.disconnect();
+    });
+    observer.observe(hubHead,{childList:true,subtree:true});
   }
 
   shareCard.querySelector('.kv-share-button').addEventListener('click',async event=>{
@@ -154,7 +161,14 @@
     if(create)observer.observe(create);
     if(pricing)observer.observe(pricing);
   }
-  addEventListener('scroll',toggleSticky,{passive:true});
+  let scrollFrame=0;
+  addEventListener('scroll',()=>{
+    if(scrollFrame)return;
+    scrollFrame=requestAnimationFrame(()=>{
+      scrollFrame=0;
+      toggleSticky();
+    });
+  },{passive:true});
   qs('#destination')?.addEventListener('change',refresh);
   qs('#previewForm')?.addEventListener('submit',()=>setTimeout(()=>{
     refresh();

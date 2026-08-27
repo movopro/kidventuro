@@ -10,7 +10,8 @@ window.KIDVENTURO_CONFIG={
 };
 
 (()=>{
-  if(location.pathname==='/'||location.pathname==='/index.html'){
+  const storefront=location.pathname==='/'||location.pathname==='/index.html';
+  if(storefront){
     // The canonical storefront always opens in English. Other languages are opt-in.
     try{localStorage.removeItem('kidventuro:lang');}catch{}
     const alternates=[
@@ -24,18 +25,50 @@ window.KIDVENTURO_CONFIG={
       link.rel='alternate';link.hreflang=lang;link.href=href;document.head.appendChild(link);
     });
   }
-  const load=src=>new Promise((resolve,reject)=>{
-    if(document.querySelector(`script[data-kv-module="${src}"]`))return resolve();
-    const s=document.createElement('script');
-    s.src=src;s.defer=true;s.dataset.kvModule=src;s.onload=resolve;s.onerror=reject;document.body.appendChild(s);
-  });
+
+  const loaded=new Map();
+  const load=src=>{
+    if(loaded.has(src))return loaded.get(src);
+    const existing=document.querySelector(`script[data-kv-module="${src}"]`);
+    if(existing)return Promise.resolve();
+    const promise=new Promise((resolve,reject)=>{
+      const s=document.createElement('script');
+      s.src=src;
+      s.async=true;
+      s.dataset.kvModule=src;
+      s.onload=resolve;
+      s.onerror=reject;
+      document.body.appendChild(s);
+    });
+    loaded.set(src,promise);
+    return promise;
+  };
+
+  // Preserve the required enhancement order while keeping Spanish out of the default critical path.
+  const SITE_EXPANSION_SRC='site-expansion.js';
+  const DESTINATION_LINKS_SRC='destination-links.js?v=20260827-1';
+  const SPANISH_SRC='spanish.js';
+  const wantsSpanish=()=>new URLSearchParams(location.search).get('lang')==='es';
+  const loadSpanish=()=>load(SPANISH_SRC).catch(error=>console.error('Kidventuro Spanish module failed',error));
+
   document.addEventListener('DOMContentLoaded',()=>{
     if(!document.getElementById('previewForm'))return;
-    // site-expansion.js brings the storefront to the exact 50 destinations supported by the paid generator.
-    // Keep future destination experiments out of production until backend catalog support is added and tested.
-    load('site-expansion.js')
-      .then(()=>load('destination-links.js?v=20260827-1'))
-      .then(()=>load('spanish.js'))
+
+    // Expand the core 25-card catalog first. Link enhancement follows only after those cards exist.
+    // Spanish is not part of the critical path and is fetched only when requested or when the
+    // language control is used, avoiding an unnecessary script on most first visits.
+    load(SITE_EXPANSION_SRC)
+      .then(()=>{
+        const jobs=[load(DESTINATION_LINKS_SRC)];
+        if(wantsSpanish())jobs.push(loadSpanish());
+        return Promise.all(jobs);
+      })
       .catch(error=>console.error('Kidventuro enhancement module failed',error));
+
+    if(!wantsSpanish()){
+      document.getElementById('languageToggle')?.addEventListener('click',()=>{
+        loadSpanish();
+      },{once:true});
+    }
   },{once:true});
 })();
