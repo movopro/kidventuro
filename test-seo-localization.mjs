@@ -2,14 +2,15 @@ import assert from 'node:assert/strict';
 import {readFile,readdir} from 'node:fs/promises';
 
 const read=path=>readFile(new URL(path,import.meta.url),'utf8');
-const [runtime,links,spanish,sitemap,hub,esHome,esHub,enRome,esRome,robots,enPageRuntime,esPageRuntime]=await Promise.all([
+const [runtime,links,spanish,sitemap,hub,esHome,esHub,enRome,esRome,robots,enPageRuntime,esPageRuntime,rootPackage,safeGenerator]=await Promise.all([
   read('./runtime-config.js'),read('./destination-links.js'),read('./spanish.js'),read('./sitemap.xml'),
   read('./destinations/index.html'),read('./es/index.html'),read('./es/destinos/index.html'),
   read('./destinations/rome.html'),read('./es/destinos/rome.html'),read('./robots.txt'),
-  read('./destinations/page.js'),read('./es/destinos/page-es.js')
+  read('./destinations/page.js'),read('./es/destinos/page-es.js'),read('./package.json'),read('./scripts/generate-supported-destination-pages.mjs')
 ]);
 
 for(const marker of ['site-expansion.js','destination-links.js','spanish.js']) assert.ok(runtime.includes(marker),`runtime enhancement loader missing: ${marker}`);
+assert.equal(runtime.includes("load('site-expansion-2.js')"),false,'unsupported 100-destination expansion must never load in production');
 assert.ok(runtime.indexOf('site-expansion.js')<runtime.indexOf('destination-links.js'));
 assert.ok(runtime.indexOf('destination-links.js')<runtime.indexOf('spanish.js'));
 assert.ok(links.includes("document.createElement('a')"),'destination cards must become crawlable anchor links');
@@ -35,6 +36,7 @@ for(const slug of expected){
   assert.ok(sitemap.includes(`https://kidventuro.com/es/destinos/${slug}.html`),`Spanish sitemap URL missing: ${slug}`);
   assert.ok(robots.includes(`Allow: /destinations/${slug}.html`),`robots allow missing for English destination: ${slug}`);
   assert.ok(robots.includes(`Allow: /es/destinos/${slug}.html`),`robots allow missing for Spanish destination: ${slug}`);
+  assert.ok(safeGenerator.includes(`'${slug}'`),`safe SEO generator missing supported slug: ${slug}`);
 }
 
 const extractHubSlugs=doc=>[...doc.matchAll(/href="([a-z0-9-]+)\.html"/g)].map(match=>match[1]);
@@ -51,7 +53,12 @@ assert.ok(robots.includes('Disallow: /es/destinos/'),'unsupported Spanish destin
 assert.ok(enPageRuntime.includes("robots.content='noindex,nofollow'"),'English unsupported destination runtime must fail closed');
 assert.ok(esPageRuntime.includes("robots.content='noindex,nofollow'"),'Spanish unsupported destination runtime must fail closed');
 
+const pkg=JSON.parse(rootPackage);
+assert.equal(pkg.scripts?.['generate-seo'],'node scripts/generate-supported-destination-pages.mjs','SEO generation must use the supported-destination wrapper');
+assert.equal(safeGenerator.includes("'auckland'"),false,'unsupported future destination must not enter safe SEO generator scope');
+assert.ok(safeGenerator.includes('supported.length'),'safe SEO generator must report its scoped catalog');
+
 assert.ok(sitemap.includes('https://kidventuro.com/es/'),'Spanish landing page missing from sitemap');
 assert.ok(sitemap.includes('https://kidventuro.com/es/destinos/'),'Spanish destination hub missing from sitemap');
 assert.ok(esHome.includes('los libros imprimibles de la versión actual se generan en inglés'),'Spanish landing must disclose current printable language');
-console.log('SEO discovery is aligned to the 50 supported destinations with hreflang, sitemap and crawl guards');
+console.log('SEO discovery, runtime expansion and regeneration are aligned to the 50 supported destinations');
