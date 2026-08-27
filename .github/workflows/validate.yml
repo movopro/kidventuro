@@ -24,6 +24,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import re
           from pathlib import Path
 
           required = [
@@ -84,11 +85,11 @@ jobs:
           scripts=['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js']
           positions=[]
           for script in scripts:
-              marker=f'<script src="{script}"></script>'
-              pos=index.find(marker)
-              if pos < 0:
+              pattern=rf'<script src="{re.escape(script)}(?:\\?[^"]*)?"></script>'
+              match=re.search(pattern,index)
+              if not match:
                   raise SystemExit(f'Landing page is missing script: {script}')
-              positions.append(pos)
+              positions.append(match.start())
           if positions != sorted(positions):
               raise SystemExit('Landing scripts are in an unsafe order')
 
