@@ -114,6 +114,22 @@
     sticky.querySelector('span').textContent=t.stickyPrice;
   };
 
+  const syncHubLink=()=>{
+    const link=qs('[data-destination-guides]');
+    if(!link)return;
+    const lang=document.documentElement.lang;
+    link.href=lang==='es'?'/es/destinos/':'/destinations/';
+    link.textContent=lang==='bg'
+      ?'Разгледай всички 50 гидове с занимания →'
+      :lang==='es'
+        ?'Ver las 50 guías de actividades →'
+        :'Browse all 50 destination activity guides →';
+  };
+  const hubHead=qs('#destinations .section-head');
+  if(hubHead&&'MutationObserver' in window){
+    new MutationObserver(syncHubLink).observe(hubHead,{childList:true,subtree:true});
+  }
+
   shareCard.querySelector('.kv-share-button').addEventListener('click',async event=>{
     const t=words[isBg()?'bg':'en'];
     const payload={title:'Kidventuro',text:t.shareMessage(destination()),url:shareUrl()};
@@ -144,6 +160,10 @@
     refresh();
     shareCard.classList.add('is-ready');
   },0));
-  qs('#languageToggle')?.addEventListener('click',()=>queueMicrotask(refresh));
+  qs('#languageToggle')?.addEventListener('click',()=>queueMicrotask(()=>{
+    refresh();
+    syncHubLink();
+  }));
   refresh();
+  syncHubLink();
 })();
