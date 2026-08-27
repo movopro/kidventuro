@@ -6,6 +6,7 @@ on:
     paths:
       - '**.html'
       - '**.js'
+      - '**.mjs'
       - '**.css'
       - 'sitemap.xml'
       - 'robots.txt'
