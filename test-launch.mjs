@@ -8,7 +8,13 @@ const [index,runtime,analytics,checkout,polish,successHtml,success,bookletHtml,b
   read('./worker/src/index.js'),read('./worker/src/analytics.js')
 ]);
 
-const scriptPosition=file=>index.search(new RegExp(`<script src="${file.replaceAll('.','\\\\.')}(?:\\\\?[^"]*)?"></script>`));
+const scriptPosition=file=>{
+  const prefix=`<script src="${file}`;
+  const pos=index.indexOf(prefix);
+  if(pos<0) return -1;
+  const next=index[pos+prefix.length];
+  return next==='"'||next==='?'?pos:-1;
+};
 for(const file of ['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js']){
   assert.ok(scriptPosition(file)>=0,`${file} must be loaded by index.html`);
 }
