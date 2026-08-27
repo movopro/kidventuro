@@ -50,11 +50,13 @@
     script.async=true;
     script.src=`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
     document.head.appendChild(script);
-  }else if(publicHost&&!gtmId&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId)&&!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${tagId}"]`)){
-    const script=document.createElement('script');
-    script.async=true;
-    script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(tagId)}`;
-    document.head.appendChild(script);
+  }else if(publicHost&&!gtmId&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId)){
+    if(!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${tagId}"]`)){
+      const script=document.createElement('script');
+      script.async=true;
+      script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(tagId)}`;
+      document.head.appendChild(script);
+    }
     const gtag=(...args)=>window.dataLayer.push(args);
     window.gtag=window.gtag||gtag;
     window.gtag('js',new Date());
