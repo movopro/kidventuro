@@ -2,6 +2,21 @@
 
 Use this only after Lemon Squeezy store activation.
 
+## Current live status — 27 August 2026
+
+- Lemon Squeezy store: Live
+- Website checkout mode: Live
+- Worker release: `2026-08-26.6`
+- Worker `ready_live`: true
+- Storage: true
+- Analytics Engine: true
+- AI configured: true
+- Live Adventure checkout: verified with a real paid order
+- Live Adventure fulfillment: verified end-to-end
+- Live Adventure variant lock: true
+- Live Mini variant lock: pending first successful Live Mini order
+- Live Family variant lock: pending first successful Live Family order
+
 ## 1. Lemon Squeezy Live products
 
 - In Test mode, copy Mini, Adventure and Family to Live mode.
@@ -43,66 +58,83 @@ Open:
 
 `https://kidventuro-api.m-oreshkov.workers.dev/health`
 
-Expected before first Live purchase:
+Expected for the current Live deployment:
 
 - `release`: `2026-08-26.6`
 - `storage`: `true`
 - `analytics`: `true`
-- `webhook_secret_test`: `true`
 - `webhook_secret_live`: `true`
-- `ready_test`: `true`
 - `ready_live`: `true`
 - `ai_configured`: `true`
 - `ai_model`: `gpt-5.6-luna`
 - `booklet_language`: `en`
 
-Live variant locks may still be `false` before the first successful Live order for each product. That is expected.
+Test webhook readiness may be false in the Live-only production Worker. That is acceptable.
 
-## 4. Collect Live checkout URLs
+Live variant locks become true after the first successful Live order for each product.
 
-For each Live product use Share and copy its `/checkout/buy/...` URL. Live products have new IDs and new checkout URLs.
+## 4. Live checkout URLs
 
-Required URLs:
-- Mini Live checkout URL
-- Adventure Live checkout URL
-- Family Live checkout URL
+Current Live hosted checkout URLs:
 
-Only these three URLs are safe to send for the website update. Do not send webhook secrets.
+- Mini: `https://kidventuro.lemonsqueezy.com/checkout/buy/74e8d656-faf0-4f7c-b1f2-cd7ca744452e`
+- Adventure: `https://kidventuro.lemonsqueezy.com/checkout/buy/07073f00-e652-456f-a6d0-cce68312711d`
+- Family: `https://kidventuro.lemonsqueezy.com/checkout/buy/88e6cea2-aa8c-4c29-b04e-4a0c23730f12`
+
+The public website must remain the normal customer entry point so the Kidventuro checkout session and opaque reference are created before Lemon Squeezy checkout.
 
 ## 5. Website switch
 
-After the three Live URLs are available:
+Completed:
 
-- Replace the Test checkout URLs in `runtime-config.js`.
-- Change `checkoutMode` from `test` to `live`.
-- Run the complete validation suite.
-- Confirm GitHub Pages deployment succeeds.
-
-Do not send public traffic before those checks pass.
+- Test checkout URLs replaced with the three Live checkout URLs.
+- `checkoutMode` changed from `test` to `live`.
+- Complete validation suite passed.
+- GitHub Pages deployment passed.
 
 ## 6. First real Live order
 
-Use the public website, not a manually copied Lemon checkout link, so the Kidventuro checkout session and custom reference are created correctly.
+Completed for Adventure.
 
-Start with Adventure.
+Verified:
+- Real Lemon Squeezy Live payment completed.
+- Payment webhook created the entitlement.
+- Success/recovery flow delivered the personalized Adventure.
+- Live Adventure variant lock is now true.
+- Worker remains `ready_live: true`.
 
-Verify:
-- Lemon order is paid and in Live mode.
-- Live `order_created` webhook returns HTTP 200.
-- Confirmation button opens Kidventuro `success.html`.
-- Payment verification succeeds.
-- Correct Adventure opens.
-- AI/fallback content renders.
+## 7. Remaining product smoke tests
+
+Mini and Family still need one successful Live order each if we want their variant locks pre-learned before customer traffic.
+
+For each product verify:
+- Correct product and final price on checkout.
+- Paid Live order.
+- `order_created` webhook HTTP 200.
+- Correct Kidventuro product opens.
 - Print / Save PDF works.
-- Analytics records the checkout and verified payment.
+- `/health` changes the matching `variant_locks.live` value to true.
 
-Never use Test card numbers in Live mode.
+If avoiding extra platform fees is more important than pre-locking, Mini and Family can be allowed to lock automatically on their first real customer order; all other product, currency, subtotal, checkout-session and signed-webhook guards still apply.
 
-## 7. Refund test
+## 8. Refund test
 
-After the first Live delivery works, a controlled refund can be used to verify `order_refunded` and entitlement revocation. Lemon Squeezy platform fees are not refunded, so do this only once if needed.
+A controlled refund can be used to verify `order_refunded` and entitlement revocation. Lemon Squeezy platform fees are not refunded, so do this only once if needed.
 
-## 8. Before public promotion
+After refund verify:
+- `order_refunded` webhook returns HTTP 200.
+- The entitlement is marked refunded and no longer opens.
+- Analytics records `payment_refunded`.
+
+## 9. Analytics checks
+
+Cloudflare Web Analytics:
+- Use for visits, page views, referrers, geography and Web Vitals.
+
+Analytics Engine dataset: `kidventuro_funnel`
+- Use for `page_view`, `preview_generated`, `pricing_viewed`, `checkout_clicked`, `checkout_registered`, `payment_confirmed`, `booklet_opened`, `print_clicked` and `payment_refunded`.
+
+## 10. Before public promotion
 
 - Confirm `hello@kidventuro.com` can receive email.
 - Publish the correct legal operator/trader identity once determined.
