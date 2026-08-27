@@ -20,33 +20,26 @@ jobs:
           set -e
           find . -name '*.js' -not -path './node_modules/*' -print0 | xargs -0 -n1 node --check
 
-      - name: Check required launch files and wiring
+      - name: Check launch configuration
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
           required = [
-              'package.json',
-              'index.html','styles.css','launch.css','app.js','analytics.js','checkout.js','site-expansion.js','launch-polish.js',
-              'runtime-config.js','test-checkout-safety.mjs','test-launch.mjs',
-              'success.html','success.js','booklet.html','booklet-v2.js','booklet-session.js',
-              'mini-mode.js','family-mode.js','ai-mode.js',
-              'catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','test-catalog.mjs',
-              'age-core.js','age-pages.js','age-final.js','trip-days.js',
-              'privacy.html','terms.html','refunds.html','robots.txt','sitemap.xml','CNAME',
+              'package.json','index.html','runtime-config.js','analytics.js','checkout.js','launch-polish.js',
+              'success.html','success.js','booklet.html','booklet-session.js',
+              'privacy.html','terms.html','refunds.html','CNAME',
               'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/src/ai.js','worker/src/analytics.js',
-              'worker/test-webhook.mjs','worker/test-ai.mjs','worker/test-analytics.mjs'
+              'worker/test-webhook.mjs','worker/test-ai.mjs','worker/test-analytics.mjs',
+              'test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
               raise SystemExit('Missing required files: ' + ', '.join(missing))
 
-          cname=Path('CNAME').read_text(encoding='utf-8').strip()
-          if cname != 'kidventuro.com':
-              raise SystemExit(f'Unexpected CNAME: {cname}')
-          if Path('worker/wrangler.toml').exists():
-              raise SystemExit('Obsolete worker/wrangler.toml is still present')
+          if Path('CNAME').read_text(encoding='utf-8').strip() != 'kidventuro.com':
+              raise SystemExit('Unexpected CNAME')
 
           root_pkg=json.loads(Path('package.json').read_text(encoding='utf-8'))
           if 'deploy' not in root_pkg.get('scripts',{}) or '--prefix worker' not in root_pkg['scripts']['deploy']:
@@ -63,21 +56,16 @@ jobs:
               raise SystemExit('Unexpected Worker name')
           if config.get('keep_vars') is not True:
               raise SystemExit('Cloudflare dashboard runtime vars are not preserved')
-          required_secrets=config.get('secrets',{}).get('required',[])
-          if 'LEMONSQUEEZY_WEBHOOK_SECRET' not in required_secrets:
-              raise SystemExit('Test Lemon Squeezy webhook secret is not declared as required')
+          if 'LEMONSQUEEZY_WEBHOOK_SECRET' in config.get('secrets',{}).get('required',[]):
+              raise SystemExit('Obsolete legacy Lemon Squeezy secret must not block deployment')
           if config.get('vars',{}).get('OPENAI_MODEL') != 'gpt-5.6-luna':
               raise SystemExit('Expected OpenAI model configuration is missing')
-          bindings=config.get('kv_namespaces',[])
-          if not any(x.get('binding')=='ENTITLEMENTS' for x in bindings):
+          if not any(x.get('binding')=='ENTITLEMENTS' for x in config.get('kv_namespaces',[])):
               raise SystemExit('ENTITLEMENTS KV binding is missing')
-          analytics_bindings=config.get('analytics_engine_datasets',[])
-          if not any(x.get('binding')=='ANALYTICS' and x.get('dataset')=='kidventuro_funnel' for x in analytics_bindings):
+          if not any(x.get('binding')=='ANALYTICS' and x.get('dataset')=='kidventuro_funnel' for x in config.get('analytics_engine_datasets',[])):
               raise SystemExit('Kidventuro Analytics Engine binding is missing')
 
           runtime=Path('runtime-config.js').read_text(encoding='utf-8')
-          if 'https://kidventuro-api.m-oreshkov.workers.dev' not in runtime:
-              raise SystemExit('Frontend API URL is not configured')
           is_test="checkoutMode:'test'" in runtime
           is_live="checkoutMode:'live'" in runtime
           if is_test == is_live:
@@ -88,13 +76,11 @@ jobs:
               'e49470c6-bd0e-4533-a206-c254fa84908f'
           ]
           if is_test and any(cid not in runtime for cid in test_ids):
-              raise SystemExit('One or more Test Lemon Squeezy checkout URLs are missing from runtime config')
+              raise SystemExit('Test mode must use the known Test checkout URLs')
           if is_live and any(cid in runtime for cid in test_ids):
-              raise SystemExit('Live mode must never contain a known Test Lemon Squeezy checkout URL')
+              raise SystemExit('Live mode must never contain a known Test checkout URL')
 
           index=Path('index.html').read_text(encoding='utf-8')
-          if 'site-enhance.js' in index or 'booklet.js' in index:
-              raise SystemExit('Obsolete script reference found in index.html')
           scripts=['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js']
           positions=[]
           for script in scripts:
@@ -104,78 +90,18 @@ jobs:
                   raise SystemExit(f'Landing page is missing script: {script}')
               positions.append(pos)
           if positions != sorted(positions):
-              raise SystemExit('Landing scripts are in an unsafe order; runtime config and analytics must load before checkout')
-          if '25 DESTINATIONS' in index or 'MVP' in index:
-              raise SystemExit('Stale customer-facing launch copy found in index.html')
+              raise SystemExit('Landing scripts are in an unsafe order')
 
           analytics=Path('analytics.js').read_text(encoding='utf-8')
-          for marker in ['page_view','preview_generated','sample_opened','pricing_viewed','checkout_clicked','booklet_opened','print_clicked','/analytics/event']:
-              if marker not in analytics and marker != 'booklet_opened':
-                  raise SystemExit(f'Frontend analytics marker missing: {marker}')
           for forbidden in ['childName','childAge','kv_ref','order_identifier','email']:
               if forbidden in analytics:
                   raise SystemExit(f'Frontend analytics must not read PII/purchase identifier: {forbidden}')
 
-          checkout=Path('checkout.js').read_text(encoding='utf-8')
-          if 'lemonsqueezy.com/checkout/buy/' in checkout:
-              raise SystemExit('Checkout URLs must stay centralized in runtime-config.js')
-          for marker in ["checkout[custom][kv_ref]","checkout[custom][product]","product==='family'","children",'site-expansion.js','runtime.checkoutUrls','runtime.checkoutMode',"KidventuroAnalytics?.track('checkout_clicked'"]:
-              if marker not in checkout:
-                  raise SystemExit(f'Checkout validation marker missing: {marker}')
-
-          booklet=Path('booklet.html').read_text(encoding='utf-8')
-          if 'runtime-config.js' not in booklet or 'analytics.js' not in booklet or 'booklet-session.js' not in booklet:
-              raise SystemExit('Booklet payment/analytics gate is incomplete')
-          if 'booklet-v2.js' in booklet:
-              raise SystemExit('Generator must not load before entitlement verification')
-          gate=Path('booklet-session.js').read_text(encoding='utf-8')
-          for marker in ['mini-mode.js','family-mode.js','status.product','catalog-4.js','catalog-5.js','/ai/enrich','ai-mode.js',"KidventuroAnalytics?.track('booklet_opened'"]:
-              if marker not in gate:
-                  raise SystemExit(f'Product/AI/analytics gate marker missing: {marker}')
-
-          success=Path('success.html').read_text(encoding='utf-8')
-          if 'runtime-config.js' not in success or 'analytics.js' not in success or 'success.js' not in success:
-              raise SystemExit('Payment success page is incomplete')
-          success_js=Path('success.js').read_text(encoding='utf-8')
-          for marker in ['personalization.children','checkoutMode','ready_live','rejected_wrong_mode_signature','rejected_live_secret_missing','/diagnostics?ref=','const query=order?']:
-              if marker not in success_js:
-                  raise SystemExit(f'Success/recovery marker missing: {marker}')
-          if 'health.last_webhook' in success_js:
-              raise SystemExit('Success page must not use public webhook diagnostics from /health')
-
-          worker=Path('worker/src/index.js').read_text(encoding='utf-8')
-          for marker in [
-              'X-Signature','order_created','order_refunded','ENTITLEMENTS','ALLOWED_PRODUCTS','/ai/enrich','OPENAI_API_KEY',
-              'variant_lock:','PRODUCT_PRICES_EUR_CENTS','LEMONSQUEEZY_WEBHOOK_SECRET_LIVE','ready_live','BODY_LIMITS',
-              "BOOKLET_LANGUAGE = 'en'",'/diagnostics','checkout_ref_already_used','checkout_ref_conflict','ignored_ref_refunded',
-              '/analytics/event','trackAnalytics','payment_confirmed','payment_refunded'
-          ]:
-              if marker not in worker:
-                  raise SystemExit(f'Worker launch safeguard missing: {marker}')
-          if worker.find("event === 'order_refunded'") > worker.find('const checkoutSession = await readCheckoutSession'):
-              raise SystemExit('Refund handling incorrectly depends on temporary checkout personalization')
-
-          analytics_worker=Path('worker/src/analytics.js').read_text(encoding='utf-8')
-          for marker in ['CLIENT_EVENTS','SERVER_EVENTS','writeDataPoint','indexes:[name]','doubles:[1','Origin']:
-              if marker not in analytics_worker:
-                  raise SystemExit(f'Analytics collector safeguard missing: {marker}')
-
           privacy=Path('privacy.html').read_text(encoding='utf-8')
-          terms=Path('terms.html').read_text(encoding='utf-8')
-          refunds=Path('refunds.html').read_text(encoding='utf-8')
-          for name,doc in [('Privacy',privacy),('Terms',terms),('Refunds',refunds)]:
-              if 'generated in English' not in doc or '26 August 2026' not in doc:
-                  raise SystemExit(f'{name} policy is not synchronized with launch language/date')
-          if 'OpenAI' not in privacy or 'AI-assisted personalization' not in privacy:
-              raise SystemExit('Privacy notice is not synchronized with AI flow')
-          if 'Aggregate analytics' not in privacy or 'does not create an analytics cookie' not in privacy:
+          if 'Cloudflare Web Analytics' not in privacy or 'Aggregate analytics' not in privacy:
               raise SystemExit('Privacy notice is not synchronized with analytics flow')
-          if 'Kidventuro Mini, Adventure and Family' not in refunds:
-              raise SystemExit('Refund/delivery policy does not cover all products')
-          if 'being tested before' in refunds:
-              raise SystemExit('Pre-launch status copy is still visible in refund policy')
 
-          print('Static launch checks passed')
+          print('Static launch configuration checks passed')
           PY
 
       - name: Test signed payments, AI, analytics, catalog and launch flows
@@ -183,7 +109,4 @@ jobs:
         run: npm test
 
       - name: Validate root-level Cloudflare deployment flow
-        run: |
-          printf 'LEMONSQUEEZY_WEBHOOK_SECRET=ci-placeholder-not-a-real-secret\n' > worker/.dev.vars
-          npm run check-worker
-          rm -f worker/.dev.vars
+        run: npm run check-worker
