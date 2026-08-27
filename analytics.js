@@ -3,7 +3,7 @@
   const CLOUDFLARE_WEB_ANALYTICS_TOKEN='823a0ee660884dec9ecfad5650f38e4e';
   const publicHost=location.hostname==='kidventuro.com'||location.hostname==='www.kidventuro.com';
 
-  // Google measurement layer. No child name, exact age, checkout reference, email or order ID is pushed.
+  // Google measurement layer. No child identity, exact age, checkout reference or order identifier is pushed.
   window.dataLayer=window.dataLayer||[];
   const google=runtime.google||{};
   const gtmId=String(google.gtmId||'').trim();
@@ -71,7 +71,6 @@
       mode:runtime.checkoutMode==='live'?'live':'test'
     };
 
-    // Privacy-safe Google dataLayer events. These can be mapped in GTM to GA4/Google Ads later.
     window.dataLayer.push({
       event:`kidventuro_${event}`,
       kidventuro_event:event,
