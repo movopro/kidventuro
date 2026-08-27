@@ -1,7 +1,7 @@
 window.KIDVENTURO_CONFIG={
   apiBase:'https://kidventuro-api.m-oreshkov.workers.dev',
   checkoutMode:'live',
-  google:{gtmId:'',tagId:''},
+  google:{gtmId:'',tagId:'G-77YBK1S40E'},
   checkoutUrls:{
     mini:'https://kidventuro.lemonsqueezy.com/checkout/buy/74e8d656-faf0-4f7c-b1f2-cd7ca744452e',
     adventure:'https://kidventuro.lemonsqueezy.com/checkout/buy/07073f00-e652-456f-a6d0-cce68312711d',
