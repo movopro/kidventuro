@@ -23,7 +23,7 @@
     const a=document.createElement('a');
     a.href='/destinations/';
     a.dataset.destinationGuides='';
-    a.textContent='Browse all 50 destination activity guides →';
+    a.textContent='Browse all 100 destination activity guides →';
     a.style.cssText='font-weight:800;color:inherit;text-decoration:underline;text-underline-offset:3px';
     p.appendChild(a);
     head.appendChild(p);

@@ -32,6 +32,7 @@ window.KIDVENTURO_CONFIG={
   document.addEventListener('DOMContentLoaded',()=>{
     if(!document.getElementById('previewForm'))return;
     load('site-expansion.js')
+      .then(()=>load('site-expansion-2.js'))
       .then(()=>load('destination-links.js'))
       .then(()=>load('spanish.js'))
       .catch(error=>console.error('Kidventuro enhancement module failed',error));

@@ -3,7 +3,7 @@
   const SESSION_KEY='kidventuro:booklet';
   const PAID_KEY='kidventuro:paid_ref';
   const allowed=['name','age','destination','interest','days','lang'];
-  const catalogScripts=['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js'];
+  const catalogScripts=['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','catalog-6.js'];
   const adventureScripts=['booklet-v2.js','age-core.js','age-pages.js','age-final.js','trip-days.js'];
 
   const fail=(message)=>{
