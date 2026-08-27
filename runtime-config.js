@@ -34,7 +34,7 @@ window.KIDVENTURO_CONFIG={
     // site-expansion.js brings the storefront to the exact 50 destinations supported by the paid generator.
     // Keep future destination experiments out of production until backend catalog support is added and tested.
     load('site-expansion.js')
-      .then(()=>load('destination-links.js'))
+      .then(()=>load('destination-links.js?v=20260827-1'))
       .then(()=>load('spanish.js'))
       .catch(error=>console.error('Kidventuro enhancement module failed',error));
   },{once:true});
