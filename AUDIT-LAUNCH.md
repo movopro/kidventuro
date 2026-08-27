@@ -4,17 +4,19 @@
 
 Full pre-social review of the public storefront, checkout safety, fulfillment architecture, localization, destination SEO, indexing setup, analytics/privacy posture and launch conversion path.
 
-## Fixed in this pass
+## Fixed in this audit
 
 - Fixed a production mismatch where the landing page advertised 50 destinations while only the first 25 were loaded into the interactive selector/grid. The existing `site-expansion.js` is now loaded before destination-link and Spanish enhancement modules.
-- Added crawlable destination links from the landing-page destination cards and a visible link to the complete destination guide hub.
-- Added exactly 50 destination SEO URLs under `/destinations/` using a shared maintainable page shell and centralized destination data.
-- Added unique rendered title, description, canonical, H1, destination copy, CTA and WebPage structured data for every destination URL.
-- Expanded `sitemap.xml` to cover the home page, destination hub, all 50 destination pages, Spanish landing page, Spanish destination hub and legal pages.
+- Added crawlable `<a href>` destination links from the landing-page cards and a visible link to the complete destination guide hub.
+- Added exactly 50 English destination SEO URLs under `/destinations/` using a shared maintainable page shell and centralized destination data.
+- Added exactly 50 separate Spanish destination SEO URLs under `/es/destinos/` instead of using URL fragments or locale-adaptive-only destination content.
+- Added bidirectional EN/ES `hreflang` plus `x-default` on destination detail pages and language hubs.
+- Added destination-specific rendered title, description, canonical, H1, content, CTA and WebPage structured data for every English and Spanish destination URL.
+- Expanded `sitemap.xml` to 107 public URLs: home, English hub + 50 English destinations, Spanish home + Spanish hub + 50 Spanish destinations, and the three legal pages.
 - Added a dedicated Spanish acquisition landing page at `/es/` and a Spanish destination hub at `/es/destinos/`.
 - Added Spanish storefront/ordering localization for the interactive home flow, including pricing, FAQ, interests, trip length and Family checkout dialog.
-- Kept the product-language disclosure explicit in Spanish: the current printable Mini, Adventure and Family books are generated in English.
-- Added regression tests that fail if the 50 destination pages, crawlable links, Spanish disclosures or sitemap coverage regress.
+- Kept the Spanish product-language disclosure explicit: the current printable Mini, Adventure and Family books are generated in English.
+- Added regression tests that fail if the 50+50 destination pages, crawlable links, language pairs, Spanish disclosures or sitemap coverage regress.
 - Preserved all current Live Lemon Squeezy checkout URLs, EUR prices and payment-safety guards.
 
 ## Verified / already strong
@@ -38,14 +40,15 @@ Full pre-social review of the public storefront, checkout safety, fulfillment ar
 - Complete the final old-link check for the controlled refunded Adventure order to verify that the old fulfillment link no longer grants access.
 - Observe the first real Mini and Family Live purchases so their automatic Live variant locks are learned and verified.
 - Google Analytics 4 is optional for launch and is not currently connected to GSC Wizard; Cloudflare analytics already covers the launch funnel.
+- The sitemap is live and tracked in GSC Wizard, but Google Search Console currently reports no sitemap submission through its Sitemaps API view; submit `https://kidventuro.com/sitemap.xml` once in the Search Console Sitemaps screen if it is not already present there.
 - Monitor Lemon Squeezy orders/webhooks and support email closely for the first external purchases.
 
 ## SEO launch notes
 
-- Important destination pages now have direct crawlable `<a href>` paths from the storefront and from a static 50-destination hub.
-- The sitemap explicitly lists all acquisition URLs.
-- The Spanish acquisition experience has dedicated canonical URLs rather than relying only on locale-adaptive content.
-- Destination detail pages use one shared shell for maintainability but generate destination-specific metadata, headings and copy from the URL-specific data record.
+- Important destination pages now have direct crawlable anchor paths from the storefront and from static English/Spanish 50-destination hubs.
+- The sitemap explicitly lists every English and Spanish acquisition URL.
+- Spanish acquisition pages use dedicated URLs and bidirectional hreflang pairs rather than relying only on language detection, query parameters or fragments.
+- Destination detail pages share maintainable shells but generate URL-specific metadata, headings and copy from a central destination record.
 - Search Console can take time to discover and crawl a new domain; indexing lag is not a reason to delay sales traffic.
 
 ## Conversion audit
