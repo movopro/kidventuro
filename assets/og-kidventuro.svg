@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8ef"/>
+      <stop offset="1" stop-color="#eaf6f2"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#20312f" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1080" cy="90" r="160" fill="#f7c66d" opacity=".55"/>
+  <path d="M0 540 C240 470 380 610 640 540 S1000 470 1200 535 V630 H0Z" fill="#d9efe7"/>
+  <path d="M0 585 C260 525 420 650 700 575 S1020 540 1200 590 V630 H0Z" fill="#b9ded3"/>
+
+  <g transform="translate(66 58)">
+    <rect width="54" height="54" rx="17" fill="#df6c42"/>
+    <text x="27" y="38" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="32" font-weight="900" fill="#fff">K</text>
+    <text x="70" y="39" font-family="DejaVu Sans,Arial,sans-serif" font-size="30" font-weight="800" fill="#20312f">Kidventuro</text>
+  </g>
+
+  <g transform="translate(66 160)">
+    <text y="0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="900" letter-spacing="4" fill="#df6c42">PERSONALIZED • PRINTABLE</text>
+    <text y="74" font-family="DejaVu Sans,Arial,sans-serif" font-size="50" font-weight="900" fill="#20312f">TURN EVERY TRIP</text>
+    <text y="140" font-family="DejaVu Sans,Arial,sans-serif" font-size="50" font-weight="900" fill="#20312f">INTO AN <tspan fill="#df6c42">ADVENTURE.</tspan></text>
+    <text y="196" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#526762">Travel activity books made for kids ages 4–12.</text>
+    <g transform="translate(0 240)">
+      <rect width="175" height="44" rx="22" fill="#20312f"/>
+      <text x="87" y="29" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="800" fill="#fff">50 DESTINATIONS</text>
+      <rect x="190" width="146" height="44" rx="22" fill="#fff" stroke="#d9cbbc"/>
+      <text x="263" y="29" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="800" fill="#20312f">FROM €5.90</text>
+      <rect x="351" width="190" height="44" rx="22" fill="#fff" stroke="#d9cbbc"/>
+      <text x="446" y="29" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="800" fill="#20312f">NO SUBSCRIPTION</text>
+    </g>
+  </g>
+
+  <g transform="translate(790 145) rotate(5)" filter="url(#shadow)">
+    <rect x="-28" y="26" width="322" height="360" rx="22" fill="#fff" stroke="#eadfd2" transform="rotate(-8 120 190)"/>
+    <rect width="322" height="360" rx="22" fill="#fffaf3" stroke="#d9cbbc" stroke-width="2"/>
+    <rect x="28" y="28" width="48" height="48" rx="15" fill="#df6c42"/>
+    <text x="52" y="62" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="28" font-weight="900" fill="#fff">K</text>
+    <text x="28" y="112" font-family="DejaVu Sans,Arial,sans-serif" font-size="13" font-weight="900" letter-spacing="2" fill="#df6c42">MY TRAVEL ADVENTURE</text>
+    <text x="28" y="180" font-family="DejaVu Sans,Arial,sans-serif" font-size="54" font-weight="900" fill="#20312f">ROME</text>
+    <text x="28" y="218" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="700" fill="#526762">Made for your explorer</text>
+    <path d="M28 270 C90 220 168 318 290 246" fill="none" stroke="#2f8067" stroke-width="5" stroke-linecap="round" stroke-dasharray="4 14"/>
+    <circle cx="284" cy="248" r="11" fill="#df6c42"/>
+    <text x="28" y="326" font-family="DejaVu Sans,Arial,sans-serif" font-size="13" font-weight="900" letter-spacing="1.4" fill="#20312f">PLAY • DISCOVER • REMEMBER</text>
+  </g>
+
+  <text x="66" y="586" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="800" fill="#20312f">kidventuro.com</text>
+</svg>

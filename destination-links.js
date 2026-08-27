@@ -18,15 +18,23 @@
 
   function addHubLink(){
     const head=document.querySelector('#destinations .section-head');
-    if(!head||head.querySelector('[data-destination-guides]'))return;
-    const p=document.createElement('p');
-    const a=document.createElement('a');
-    a.href='/destinations/';
-    a.dataset.destinationGuides='';
-    a.textContent='Browse all 100 destination activity guides →';
-    a.style.cssText='font-weight:800;color:inherit;text-decoration:underline;text-underline-offset:3px';
-    p.appendChild(a);
-    head.appendChild(p);
+    if(!head)return;
+    let a=head.querySelector('[data-destination-guides]');
+    if(!a){
+      const p=document.createElement('p');
+      a=document.createElement('a');
+      a.dataset.destinationGuides='';
+      a.style.cssText='font-weight:800;color:inherit;text-decoration:underline;text-underline-offset:3px';
+      p.appendChild(a);
+      head.appendChild(p);
+    }
+    const lang=document.documentElement.lang;
+    a.href=lang==='es'?'/es/destinos/':'/destinations/';
+    a.textContent=lang==='bg'
+      ?'Разгледай всички 50 гидове с занимания →'
+      :lang==='es'
+        ?'Ver las 50 guías de actividades →'
+        :'Browse all 50 destination activity guides →';
   }
 
   function applyDestinationFromQuery(){

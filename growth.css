@@ -1,0 +1,118 @@
+.kv-share-card{
+  width:min(940px,100%);
+  margin:26px auto 0;
+  padding:20px 22px;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  border:1px solid #e8ded1;
+  border-radius:22px;
+  background:linear-gradient(135deg,#fffdf8 0%,#f5fbf9 100%);
+  box-shadow:0 14px 34px #20312f0d;
+}
+.kv-share-card.is-ready{animation:kv-share-ready .55s ease both}
+.kv-share-icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  color:#fff;
+  background:#df6c42;
+  font-size:25px;
+  font-weight:900;
+  box-shadow:0 9px 20px #df6c4233;
+}
+.kv-share-copy{min-width:0}
+.kv-share-kicker{
+  display:block;
+  margin-bottom:4px;
+  color:#df6c42;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.13em;
+}
+.kv-share-copy h3{margin:0 0 4px;color:#20312f;font-size:20px}
+.kv-share-copy p{margin:0;color:#65736f;font-size:13px;line-height:1.5}
+.kv-share-actions{display:flex;gap:9px;align-items:center}
+.kv-share-actions .btn{white-space:nowrap;padding:11px 15px;font-size:12px}
+
+.kv-assurance{
+  width:min(760px,100%);
+  margin:22px auto 0;
+  padding:18px 20px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  text-align:left;
+  color:#20312f;
+  border:1px solid #bfe0d5;
+  border-radius:18px;
+  background:#eff9f5;
+}
+.kv-assurance-icon{
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#fff;
+  background:#2f8067;
+  font-weight:900;
+}
+.kv-assurance h3{margin:0 0 4px;font-size:17px}
+.kv-assurance p{margin:0 0 6px;color:#526762;font-size:13px;line-height:1.5}
+.kv-assurance small{color:#2f6e5b;font-size:11px;font-weight:800}
+.kv-assurance a{margin-left:5px;color:#20312f;font-size:11px;font-weight:900;text-decoration:underline}
+
+.kv-sticky-cta{
+  position:fixed;
+  z-index:70;
+  left:50%;
+  bottom:16px;
+  width:min(460px,calc(100% - 24px));
+  padding:13px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  color:#fff;
+  background:#20312f;
+  border:1px solid #ffffff2b;
+  border-radius:999px;
+  box-shadow:0 14px 36px #20312f47;
+  text-decoration:none;
+  transform:translate(-50%,calc(100% + 38px));
+  opacity:0;
+  pointer-events:none;
+  transition:transform .28s ease,opacity .28s ease;
+}
+.kv-sticky-cta.is-visible{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.kv-sticky-cta strong{font-size:13px}
+.kv-sticky-cta span{color:#ffd7bc;font-size:12px;font-weight:900}
+
+@keyframes kv-share-ready{
+  0%{transform:translateY(6px);box-shadow:0 0 0 0 #df6c4200}
+  50%{box-shadow:0 0 0 7px #df6c4212}
+  100%{transform:translateY(0);box-shadow:0 14px 34px #20312f0d}
+}
+@media(max-width:760px){
+  .kv-share-card{grid-template-columns:auto 1fr;padding:18px}
+  .kv-share-actions{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+  .kv-share-actions .btn{text-align:center}
+}
+@media(max-width:480px){
+  .kv-share-card{grid-template-columns:1fr}
+  .kv-share-icon{width:42px;height:42px}
+  .kv-share-actions{grid-column:auto;grid-template-columns:1fr}
+  .kv-assurance{padding:16px}
+}
+@media(min-width:900px){
+  .kv-sticky-cta{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .kv-share-card.is-ready{animation:none}
+  .kv-sticky-cta{transition:none}
+}
