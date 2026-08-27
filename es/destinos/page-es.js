@@ -1,7 +1,18 @@
 (()=>{
   const slug=location.pathname.split('/').pop().replace(/\.html$/,'');
+  const supported=new Set(['rome','paris','london','barcelona','dubai','amsterdam','vienna','prague','berlin','lisbon','athens','istanbul','new-york','orlando','tokyo','kyoto','singapore','sydney','copenhagen','budapest','venice','florence','madrid','bangkok','reykjavik','munich','salzburg','zurich','brussels','bruges','dublin','edinburgh','stockholm','oslo','helsinki','milan','naples','seville','valencia','porto','nice','dubrovnik','krakow','warsaw','bucharest','sofia','abu-dhabi','seoul','hong-kong','kuala-lumpur']);
+  const robots=document.querySelector('meta[name="robots"]');
+  if(!supported.has(slug)){
+    if(robots)robots.content='noindex,nofollow';
+    location.replace('/es/destinos/');
+    return;
+  }
   const data=window.KIDVENTURO_DESTINATION_SEO?.[slug];
-  if(!data){location.replace('/es/destinos/');return;}
+  if(!data){
+    if(robots)robots.content='noindex,nofollow';
+    location.replace('/es/destinos/');
+    return;
+  }
   const city=data.name;
   const plain=data.es.replaceAll(' • ',', ');
   document.title=`${city}: actividades de viaje para niños | Kidventuro`;
