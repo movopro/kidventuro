@@ -108,3 +108,7 @@ After the first Live delivery works, a controlled refund can be used to verify `
 - Publish the correct legal operator/trader identity once determined.
 - Keep the printable-product language disclosure (English-only v1).
 - Keep analytics and webhook monitoring enabled.
+
+## Deployment troubleshooting
+
+If Cloudflare shows a failed deployment that still references the old required secret `LEMONSQUEEZY_WEBHOOK_SECRET`, do not retry that historical deployment. Start a fresh build from the latest `main` commit instead. The current Worker configuration intentionally has no `secrets.required` entry; Test and Live webhook secrets are managed in the Cloudflare Dashboard and preserved by `keep_vars: true`.
