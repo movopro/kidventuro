@@ -1,11 +1,33 @@
 (()=>{
   const runtime=window.KIDVENTURO_CONFIG||{};
   const CLOUDFLARE_WEB_ANALYTICS_TOKEN='823a0ee660884dec9ecfad5650f38e4e';
+  const publicHost=location.hostname==='kidventuro.com'||location.hostname==='www.kidventuro.com';
+
+  // Google measurement layer. No child name, exact age, checkout reference, email or order ID is pushed.
+  window.dataLayer=window.dataLayer||[];
+  const google=runtime.google||{};
+  const gtmId=String(google.gtmId||'').trim();
+  const tagId=String(google.tagId||'').trim();
+
+  if(publicHost&&/^GTM-[A-Z0-9]+$/i.test(gtmId)&&!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${gtmId}"]`)){
+    window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+    const script=document.createElement('script');
+    script.async=true;
+    script.src=`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
+    document.head.appendChild(script);
+  }else if(publicHost&&!gtmId&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId)&&!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${tagId}"]`)){
+    const script=document.createElement('script');
+    script.async=true;
+    script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(tagId)}`;
+    document.head.appendChild(script);
+    const gtag=(...args)=>window.dataLayer.push(args);
+    window.gtag=window.gtag||gtag;
+    window.gtag('js',new Date());
+    window.gtag('config',tagId,{send_page_view:false});
+  }
 
   // Cloudflare Web Analytics: aggregate page/performance analytics without a Kidventuro visitor ID.
-  // Load it only on the public Kidventuro hostname and never duplicate the beacon.
-  if((location.hostname==='kidventuro.com'||location.hostname==='www.kidventuro.com')
-    && !document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')){
+  if(publicHost&&!document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')){
     const beacon=document.createElement('script');
     beacon.type='module';
     beacon.src='https://static.cloudflareinsights.com/beacon.min.js';
@@ -48,6 +70,33 @@
       referrer,
       mode:runtime.checkoutMode==='live'?'live':'test'
     };
+
+    // Privacy-safe Google dataLayer events. These can be mapped in GTM to GA4/Google Ads later.
+    window.dataLayer.push({
+      event:`kidventuro_${event}`,
+      kidventuro_event:event,
+      product:payload.product,
+      page_path:payload.path,
+      language:payload.lang,
+      traffic_source:payload.source,
+      traffic_medium:payload.medium,
+      traffic_campaign:payload.campaign,
+      external_referrer:payload.referrer,
+      checkout_mode:payload.mode
+    });
+
+    if(!gtmId&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId)&&typeof window.gtag==='function'){
+      window.gtag('event',event,{
+        product:payload.product,
+        page_path:payload.path,
+        language:payload.lang,
+        traffic_source:payload.source,
+        traffic_medium:payload.medium,
+        traffic_campaign:payload.campaign,
+        checkout_mode:payload.mode
+      });
+    }
+
     fetch(`${API}/analytics/event`,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
