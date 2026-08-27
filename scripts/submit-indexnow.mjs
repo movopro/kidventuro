@@ -1,6 +1,6 @@
 import {readFile} from 'node:fs/promises';
 
-const key='2c90b7f61ea325c3cc3976cc93fd7008';
+const key='7796f6542f9867816f62cbddd7990cc0';
 const host='kidventuro.com';
 const sitemap=await readFile(new URL('../sitemap.xml',import.meta.url),'utf8');
 const urls=[...new Set([
