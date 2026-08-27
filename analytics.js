@@ -3,6 +3,33 @@
   const CLOUDFLARE_WEB_ANALYTICS_TOKEN='823a0ee660884dec9ecfad5650f38e4e';
   const publicHost=location.hostname==='kidventuro.com'||location.hostname==='www.kidventuro.com';
 
+  // Keep rendered destination hubs aligned with the 50 destinations the paid generator actually supports.
+  const hubPath=location.pathname.replace(/index\.html$/,'');
+  if(hubPath==='/destinations/'||hubPath==='/es/destinos/'){
+    document.querySelectorAll('.seo-grid>.seo-card').forEach((card,index)=>{if(index>=50)card.remove();});
+    const spanish=hubPath==='/es/destinos/';
+    document.title=spanish?'50 destinos: actividades de viaje para niños | Kidventuro':'50 travel activity guides for kids | Kidventuro';
+    const desc=document.querySelector('meta[name="description"]');
+    if(desc)desc.content=spanish
+      ?'Explora 50 destinos compatibles con actividades de viaje personalizadas e imprimibles para niños de 4 a 12 años.'
+      :'Explore 50 supported family destinations with personalized printable travel activities and scavenger hunts for kids ages 4–12.';
+    const ogTitle=document.querySelector('meta[property="og:title"]');
+    if(ogTitle)ogTitle.content=document.title;
+    const ogDesc=document.querySelector('meta[property="og:description"]');
+    if(ogDesc)ogDesc.content=spanish
+      ?'Explora 50 destinos Kidventuro con actividades familiares imprimibles y misiones.'
+      :'Explore 50 Kidventuro destinations with printable family travel activities and missions.';
+    const kicker=document.querySelector('.seo-kicker');
+    if(kicker)kicker.textContent=spanish?'50 destinos compatibles':'50 supported destinations';
+    if(!document.getElementById('kidventuroDestinationHubSchema')){
+      const schema=document.createElement('script');
+      schema.id='kidventuroDestinationHubSchema';
+      schema.type='application/ld+json';
+      schema.textContent=JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage',name:document.title,url:location.origin+hubPath,isPartOf:{'@type':'WebSite',name:'Kidventuro',url:'https://kidventuro.com/'}});
+      document.head.appendChild(schema);
+    }
+  }
+
   // Google measurement layer. No child identity, exact age, checkout reference or order identifier is pushed.
   window.dataLayer=window.dataLayer||[];
   const google=runtime.google||{};
