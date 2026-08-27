@@ -11,11 +11,13 @@ Use this only after Lemon Squeezy store activation.
 - Storage: true
 - Analytics Engine: true
 - AI configured: true
+- Support email `hello@kidventuro.com`: receiving mail verified
 - Live Adventure checkout: verified with a real paid order
 - Live Adventure fulfillment: verified end-to-end
 - Live Adventure variant lock: true
 - Live Mini variant lock: pending first successful Live Mini order
 - Live Family variant lock: pending first successful Live Family order
+- Controlled Adventure refund test: pending
 
 ## 1. Lemon Squeezy Live products
 
@@ -119,12 +121,23 @@ If avoiding extra platform fees is more important than pre-locking, Mini and Fam
 
 ## 8. Refund test
 
-A controlled refund can be used to verify `order_refunded` and entitlement revocation. Lemon Squeezy platform fees are not refunded, so do this only once if needed.
+Use the first real Adventure launch-test order for one controlled full refund.
+
+In Lemon Squeezy Live mode:
+- Open `Orders`.
+- Open the Adventure launch-test order.
+- Choose `Refund`.
+- Use a full refund for the complete order amount.
+- Confirm the refund.
 
 After refund verify:
 - `order_refunded` webhook returns HTTP 200.
-- The entitlement is marked refunded and no longer opens.
-- Analytics records `payment_refunded`.
+- The same success/booklet link no longer grants access.
+- The entitlement is marked refunded.
+- Analytics records `payment_refunded` for `adventure` in `live` mode.
+- The Adventure variant lock remains true; refunds must not remove the learned Live variant lock.
+
+Do this only once. Platform/payment processing fees may not be returned depending on Lemon Squeezy policy.
 
 ## 9. Analytics checks
 
@@ -134,9 +147,25 @@ Cloudflare Web Analytics:
 Analytics Engine dataset: `kidventuro_funnel`
 - Use for `page_view`, `preview_generated`, `pricing_viewed`, `checkout_clicked`, `checkout_registered`, `payment_confirmed`, `booklet_opened`, `print_clicked` and `payment_refunded`.
 
+Refund verification query:
+
+```sql
+SELECT
+  blob1 AS event,
+  blob2 AS product,
+  blob10 AS mode,
+  SUM(_sample_interval) AS events,
+  SUM(double2 * _sample_interval) AS amount_eur
+FROM kidventuro_funnel
+WHERE timestamp > NOW() - INTERVAL '1' DAY
+  AND blob1 IN ('payment_confirmed','payment_refunded')
+GROUP BY event, product, mode
+ORDER BY event, product;
+```
+
 ## 10. Before public promotion
 
-- Confirm `hello@kidventuro.com` can receive email.
+- Support email receiving test completed.
 - Publish the correct legal operator/trader identity once determined.
 - Keep the printable-product language disclosure (English-only v1).
 - Keep analytics and webhook monitoring enabled.
