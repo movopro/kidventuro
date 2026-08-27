@@ -11,6 +11,8 @@ window.KIDVENTURO_CONFIG={
 
 (()=>{
   if(location.pathname==='/'||location.pathname==='/index.html'){
+    // The canonical storefront always opens in English. Other languages are opt-in.
+    try{localStorage.removeItem('kidventuro:lang');}catch{}
     const alternates=[
       ['en','https://kidventuro.com/'],
       ['es','https://kidventuro.com/es/'],
