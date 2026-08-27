@@ -17,7 +17,9 @@ Use this only after Lemon Squeezy store activation.
 - Live Adventure variant lock: true
 - Live Mini variant lock: pending first successful Live Mini order
 - Live Family variant lock: pending first successful Live Family order
-- Controlled Adventure refund test: pending
+- Controlled Adventure full refund: submitted
+- Live `order_refunded` webhook delivery: HTTP 200 verified
+- Refund entitlement revocation: final old-link verification pending
 
 ## 1. Lemon Squeezy Live products
 
@@ -107,9 +109,9 @@ Verified:
 
 ## 7. Remaining product smoke tests
 
-Mini and Family still need one successful Live order each if we want their variant locks pre-learned before customer traffic.
+Mini and Family can be allowed to lock automatically on their first real customer orders to avoid extra launch-test cost. All other product, currency, subtotal, checkout-session and signed-webhook guards remain active.
 
-For each product verify:
+For the first real Mini and Family order, verify:
 - Correct product and final price on checkout.
 - Paid Live order.
 - `order_created` webhook HTTP 200.
@@ -117,27 +119,17 @@ For each product verify:
 - Print / Save PDF works.
 - `/health` changes the matching `variant_locks.live` value to true.
 
-If avoiding extra platform fees is more important than pre-locking, Mini and Family can be allowed to lock automatically on their first real customer order; all other product, currency, subtotal, checkout-session and signed-webhook guards still apply.
-
 ## 8. Refund test
 
-Use the first real Adventure launch-test order for one controlled full refund.
+Controlled full refund of the Adventure launch-test order has been submitted.
 
-In Lemon Squeezy Live mode:
-- Open `Orders`.
-- Open the Adventure launch-test order.
-- Choose `Refund`.
-- Use a full refund for the complete order amount.
-- Confirm the refund.
+Verified so far:
+- `order_refunded` webhook delivery returned HTTP 200.
 
-After refund verify:
-- `order_refunded` webhook returns HTTP 200.
+Final verification still required:
 - The same success/booklet link no longer grants access.
-- The entitlement is marked refunded.
 - Analytics records `payment_refunded` for `adventure` in `live` mode.
-- The Adventure variant lock remains true; refunds must not remove the learned Live variant lock.
-
-Do this only once. Platform/payment processing fees may not be returned depending on Lemon Squeezy policy.
+- The Adventure variant lock remains true.
 
 ## 9. Analytics checks
 
