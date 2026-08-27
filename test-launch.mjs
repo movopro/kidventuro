@@ -8,10 +8,11 @@ const [index,runtime,analytics,checkout,polish,successHtml,success,bookletHtml,b
   read('./worker/src/index.js'),read('./worker/src/analytics.js')
 ]);
 
+const scriptPosition=file=>index.search(new RegExp(`<script src="${file.replaceAll('.','\\\\.')}(?:\\\\?[^"]*)?"></script>`));
 for(const file of ['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js']){
-  assert.ok(index.includes(`<script src="${file}"></script>`),`${file} must be loaded by index.html`);
+  assert.ok(scriptPosition(file)>=0,`${file} must be loaded by index.html`);
 }
-const scriptOrder=['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js'].map(x=>index.indexOf(`<script src="${x}"></script>`));
+const scriptOrder=['runtime-config.js','analytics.js','app.js','checkout.js','launch-polish.js'].map(scriptPosition);
 assert.deepEqual([...scriptOrder].sort((a,b)=>a-b),scriptOrder,'landing scripts must load runtime config and analytics before checkout logic');
 assert.ok(index.includes('launch.css'),'conversion-focused launch stylesheet must be loaded');
 
