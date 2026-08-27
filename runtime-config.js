@@ -44,8 +44,8 @@ window.KIDVENTURO_CONFIG={
     return promise;
   };
 
-  // Keep this source declaration before the Spanish module: destination cards must be linked
-  // only after the expanded 50-destination catalog is available.
+  // Preserve the required enhancement order while keeping Spanish out of the default critical path.
+  const SITE_EXPANSION_SRC='site-expansion.js';
   const DESTINATION_LINKS_SRC='destination-links.js?v=20260827-1';
   const SPANISH_SRC='spanish.js';
   const wantsSpanish=()=>new URLSearchParams(location.search).get('lang')==='es';
@@ -57,7 +57,7 @@ window.KIDVENTURO_CONFIG={
     // Expand the core 25-card catalog first. Link enhancement follows only after those cards exist.
     // Spanish is not part of the critical path and is fetched only when requested or when the
     // language control is used, avoiding an unnecessary script on most first visits.
-    load('site-expansion.js')
+    load(SITE_EXPANSION_SRC)
       .then(()=>{
         const jobs=[load(DESTINATION_LINKS_SRC)];
         if(wantsSpanish())jobs.push(loadSpanish());
