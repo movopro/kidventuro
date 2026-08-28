@@ -1,0 +1,25 @@
+{
+  "timezone": "Europe/Sofia",
+  "language": "en",
+  "siteUrl": "https://kidventuro.com/",
+  "openaiModel": "gpt-5-nano",
+  "pinterestBoardName": "Family Travel with Kids",
+  "retentionDays": 45,
+  "slots": {
+    "morning": 9,
+    "evening": 18
+  },
+  "brand": {
+    "ink": "#20312f",
+    "muted": "#65736f",
+    "cream": "#fff8ef",
+    "paper": "#fffdf9",
+    "orange": "#ff7d4d",
+    "orangeDark": "#e95e2d",
+    "teal": "#2b7a78",
+    "mint": "#dff4ea",
+    "yellow": "#ffd96a",
+    "blue": "#dfeeff",
+    "pink": "#ffe3dc"
+  }
+}

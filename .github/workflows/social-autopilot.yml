@@ -1,0 +1,109 @@
+name: Kidventuro social autopilot
+
+on:
+  schedule:
+    # Two local slots (09:17 and 18:17 Europe/Sofia), with both UTC
+    # candidates so daylight-saving changes need no manual maintenance.
+    # The second run in each hour is an automatic retry. Per-slot markers make
+    # successful retries a no-op and keep partial failures from duplicating posts.
+    - cron: '17,47 6,7,15,16 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: Content slot
+        required: true
+        default: morning
+        type: choice
+        options:
+          - morning
+          - evening
+      dry_run:
+        description: Render a preview without publishing or using paid APIs
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kidventuro-social-autopilot
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out Kidventuro
+        uses: actions/checkout@v4
+
+      - name: Select the local-time slot
+        id: gate
+        env:
+          FORCE_SLOT: ${{ github.event_name == 'workflow_dispatch' && inputs.slot || '' }}
+        run: node social-autopilot/src/gate.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Check zero-touch configuration
+        if: steps.gate.outputs.should_run == 'true' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        id: preflight
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: node social-autopilot/src/preflight.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node.js
+        if: steps.gate.outputs.should_run == 'true' && (inputs.dry_run == true || steps.preflight.outputs.configured == 'true')
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore renderer cache
+        if: steps.gate.outputs.should_run == 'true' && (inputs.dry_run == true || steps.preflight.outputs.configured == 'true')
+        id: renderer-cache
+        uses: actions/cache@v4
+        with:
+          path: social-autopilot/node_modules
+          key: ${{ runner.os }}-node22-social-${{ hashFiles('social-autopilot/package.json') }}
+
+      - name: Install renderer
+        if: steps.gate.outputs.should_run == 'true' && (inputs.dry_run == true || steps.preflight.outputs.configured == 'true') && steps.renderer-cache.outputs.cache-hit != 'true'
+        working-directory: social-autopilot
+        run: npm install --no-audit --no-fund
+
+      - name: Verify autopilot
+        if: steps.gate.outputs.should_run == 'true' && (inputs.dry_run == true || steps.preflight.outputs.configured == 'true')
+        working-directory: social-autopilot
+        run: npm test
+
+      - name: Publish automatically
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        env:
+          SOCIAL_SLOT: ${{ steps.gate.outputs.slot }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          PINTEREST_BOARD_NAME: ${{ vars.PINTEREST_BOARD_NAME }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ vars.BUFFER_INSTAGRAM_CHANNEL_ID }}
+          BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
+          BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
+        run: node social-autopilot/src/run.mjs --slot "$SOCIAL_SLOT"
+
+      - name: Render manual preview
+        if: steps.gate.outputs.should_run == 'true' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
+        env:
+          SOCIAL_SLOT: ${{ steps.gate.outputs.slot }}
+        run: node social-autopilot/src/run.mjs --force --dry-run --slot "$SOCIAL_SLOT"
+
+      - name: Save preview artifact
+        if: steps.gate.outputs.should_run == 'true' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: kidventuro-social-preview-${{ steps.gate.outputs.slot }}
+          path: social-autopilot/preview/
+          retention-days: 7

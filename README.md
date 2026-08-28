@@ -154,6 +154,7 @@ Not launch blockers:
 - `privacy.html`, `terms.html`, `refunds.html`, `legal.css` — policy pages
 - `test-catalog.mjs`, `test-checkout-safety.mjs`, `test-launch.mjs` — frontend/catalog/launch regression tests
 - `worker/` — Cloudflare Worker payment, fulfillment, diagnostics and AI backend
+- `social-autopilot/` and `.github/workflows/social-autopilot.yml` — twice-daily Instagram, Pinterest and TikTok content generation and automatic publishing; activation steps are in `social-autopilot/SETUP-BG.md`
 
 ## Security model
 
