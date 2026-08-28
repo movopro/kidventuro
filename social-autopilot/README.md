@@ -8,7 +8,7 @@ Flow:
 2. One low-cost OpenAI Responses API call creates platform-specific copy and short visual text.
 3. If OpenAI is missing or unavailable, a deterministic local generator keeps publishing.
 4. Sharp renders branded Instagram and Pinterest JPEGs.
-5. FFmpeg renders a four-slide, 9:16 H.264 TikTok video.
+5. FFmpeg renders a four-slide, 9:16 H.264 TikTok video and embeds an alternating original instrumental excerpt.
 6. Cloudinary Free stores the public media and small idempotency markers.
 7. Buffer Free publishes automatically to the three connected channels.
 8. Duplicate checks and per-platform markers prevent normal reruns from reposting the same slot.
@@ -16,6 +16,8 @@ Flow:
 10. A second run 30 minutes later completes only missing platforms after a transient failure.
 
 The live destination data is read from `destinations/destination-data.js`, so the content rotation stays aligned with the Kidventuro catalog. The system never sends child names or customer data to OpenAI.
+
+The two original instrumentals in `assets/audio/` alternate strictly between consecutive morning and evening posts. Each slot gets a deterministic excerpt start, so later posts use different parts of the tracks while retries reproduce the same media.
 
 Required GitHub Actions secrets:
 

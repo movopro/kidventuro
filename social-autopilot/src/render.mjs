@@ -1,9 +1,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import sharp from 'sharp';
 import ffmpegPath from 'ffmpeg-static';
 import { ensureDirectory, wrapText, xmlEscape } from './utils.mjs';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const autopilotRoot = path.resolve(here, '..');
 
 function textLines(lines, x, y, options = {}) {
   const {
@@ -96,6 +101,22 @@ function runFfmpeg(argumentsList) {
   });
 }
 
+export function selectAudioClip(slotKey, config) {
+  const tracks = config.audio?.tracks || [];
+  if (tracks.length < 2) throw new Error('At least two audio tracks are required');
+
+  const slot = slotKey.split('-').at(-1);
+  const slotIndex = Object.keys(config.slots).indexOf(slot);
+  if (slotIndex < 0) throw new Error(`Unknown content slot in ${slotKey}`);
+
+  const digest = createHash('sha256').update(slotKey).digest();
+  const rangeMilliseconds = Math.max(1, Math.floor((config.audio.excerptStartRangeSeconds || 60) * 1000));
+  return {
+    track: tracks[slotIndex % tracks.length],
+    startSeconds: (digest.readUInt32BE(0) % rangeMilliseconds) / 1000
+  };
+}
+
 export async function renderAssets({ content, outputDirectory, config }) {
   await ensureDirectory(outputDirectory);
   const instagramPath = path.join(outputDirectory, 'instagram.jpg');
@@ -133,19 +154,34 @@ export async function renderAssets({ content, outputDirectory, config }) {
   const escapePath = (value) => value.replaceAll("'", "'\\''");
   const concat = slidePaths.flatMap((slidePath) => [`file '${escapePath(slidePath)}'`, 'duration 2.2']).concat(`file '${escapePath(slidePaths.at(-1))}'`).join('\n');
   await fs.writeFile(concatPath, concat, 'utf8');
+  const audioClip = selectAudioClip(content.slotKey, config);
+  const audioPath = path.join(autopilotRoot, 'assets', 'audio', audioClip.track);
+  await fs.access(audioPath);
+  const videoDuration = config.audio.videoDurationSeconds || 8.8;
+  const fadeDuration = config.audio.fadeSeconds || 0.6;
+  const fadeOutStart = Math.max(0, videoDuration - fadeDuration);
+  const targetLoudness = config.audio.targetLoudnessLufs || -16;
   await runFfmpeg([
     '-y',
     '-f', 'concat',
     '-safe', '0',
     '-i', concatPath,
-    '-vf', 'fps=30,format=yuv420p',
+    '-ss', audioClip.startSeconds.toFixed(3),
+    '-stream_loop', '-1',
+    '-i', audioPath,
+    '-filter_complex', `[0:v]fps=30,format=yuv420p[video];[1:a]loudnorm=I=${targetLoudness}:TP=-2:LRA=7,afade=t=in:st=0:d=${fadeDuration},afade=t=out:st=${fadeOutStart}:d=${fadeDuration}[audio]`,
+    '-map', '[video]',
+    '-map', '[audio]',
+    '-t', String(videoDuration),
     '-c:v', 'libx264',
     '-preset', 'medium',
     '-crf', '24',
+    '-c:a', 'aac',
+    '-b:a', '128k',
+    '-ar', '48000',
     '-movflags', '+faststart',
-    '-an',
     videoPath
   ]);
 
-  return { instagramPath, pinterestPath, videoPath, slidePaths };
+  return { instagramPath, pinterestPath, videoPath, slidePaths, audioClip };
 }

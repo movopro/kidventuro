@@ -9,6 +9,13 @@
     "morning": 9,
     "evening": 18
   },
+  "audio": {
+    "tracks": ["1.mp3", "2.mp3"],
+    "excerptStartRangeSeconds": 60,
+    "videoDurationSeconds": 8.8,
+    "fadeSeconds": 0.6,
+    "targetLoudnessLufs": -16
+  },
   "brand": {
     "ink": "#20312f",
     "muted": "#65736f",
