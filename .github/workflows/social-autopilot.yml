@@ -92,7 +92,7 @@ jobs:
           BUFFER_INSTAGRAM_CHANNEL_ID: ${{ vars.BUFFER_INSTAGRAM_CHANNEL_ID }}
           BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
           BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
-        run: node social-autopilot/src/run.mjs --slot "$SOCIAL_SLOT"
+        run: node social-autopilot/src/run.mjs --slot "$SOCIAL_SLOT" ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
 
       - name: Render manual preview
         if: steps.gate.outputs.should_run == 'true' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
