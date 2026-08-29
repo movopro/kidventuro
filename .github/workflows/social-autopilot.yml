@@ -2,11 +2,11 @@ name: Kidventuro social autopilot
 
 on:
   schedule:
-    # Two local slots (09:17 and 18:17 Europe/Sofia), with both UTC
-    # candidates so daylight-saving changes need no manual maintenance.
-    # The second run in each hour is an automatic retry. Per-slot markers make
-    # successful retries a no-op and keep partial failures from duplicating posts.
-    - cron: '17,47 6,7,15,16 * * *'
+    # Morning and evening are separate cron groups so a delayed GitHub Actions
+    # run still knows which local slot it belongs to. Both UTC candidates cover
+    # Europe/Sofia daylight-saving changes; the second minute is an automatic retry.
+    - cron: '17,47 6,7 * * *'
+    - cron: '17,47 15,16 * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -42,6 +42,7 @@ jobs:
         id: gate
         env:
           FORCE_SLOT: ${{ github.event_name == 'workflow_dispatch' && inputs.slot || '' }}
+          SCHEDULE_EXPR: ${{ github.event.schedule }}
         run: node social-autopilot/src/gate.mjs >> "$GITHUB_OUTPUT"
 
       - name: Check zero-touch configuration
@@ -92,7 +93,7 @@ jobs:
           BUFFER_INSTAGRAM_CHANNEL_ID: ${{ vars.BUFFER_INSTAGRAM_CHANNEL_ID }}
           BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
           BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
-        run: node social-autopilot/src/run.mjs --slot "$SOCIAL_SLOT" ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+        run: node social-autopilot/src/run.mjs --force --slot "$SOCIAL_SLOT"
 
       - name: Render manual preview
         if: steps.gate.outputs.should_run == 'true' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
