@@ -71,9 +71,15 @@ if (forcedSlot) {
 }
 
 if (scheduleExpr) {
-  // A frequent watchdog is more reliable than exact-time GitHub cron jobs, which
-  // can be delayed for hours. Only the earliest due, incomplete slot proceeds.
-  if (scheduleExpr !== '23,53 * * * *') {
+  // Frequent independent watchdog schedules are more reliable than exact-time GitHub
+  // cron jobs. Only the earliest due, incomplete slot proceeds, preserving idempotency.
+  const acceptedSchedules = new Set([
+    '8 * * * *',
+    '23 * * * *',
+    '38 * * * *',
+    '53 * * * *'
+  ]);
+  if (!acceptedSchedules.has(scheduleExpr)) {
     emit(null);
     console.error(`Unknown scheduled cron expression: ${scheduleExpr}`);
     process.exit(0);
