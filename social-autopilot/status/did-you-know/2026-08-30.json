@@ -1,0 +1,45 @@
+{
+  "updatedAt": "2026-08-30T12:38:11.586Z",
+  "series": "did-you-know",
+  "event": "push",
+  "slot": "morning",
+  "slotKey": "2026-08-30-did-you-know-morning",
+  "dateKey": "2026-08-30",
+  "preflightConfigured": "true",
+  "publishOutcome": "success",
+  "details": {
+    "startedAt": "2026-08-30T12:37:03.042Z",
+    "slot": "morning",
+    "slotKey": "2026-08-30-did-you-know-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-08-30T12:37:03.042Z",
+    "outcome": "pending",
+    "platforms": {
+      "instagram": {
+        "postId": "6a9423f5fd31f7e50b6f9d1c",
+        "status": "sent",
+        "sentAt": "2026-08-30T12:37:19.255Z",
+        "externalLink": "https://www.instagram.com/p/DcqhzJTm3_F/",
+        "source": "created"
+      },
+      "pinterest": {
+        "postId": "6a942400f7f5d8f78d18d744",
+        "status": "sent",
+        "sentAt": "2026-08-30T12:37:21.703Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644648866201",
+        "source": "created"
+      },
+      "tiktok": {
+        "postId": "6a942403e7e04684c6fb7c4f",
+        "status": "sending",
+        "sentAt": null,
+        "externalLink": null,
+        "source": "created"
+      }
+    },
+    "generator": "curated-did-you-know",
+    "theme": "Did you know? Norway",
+    "postVariant": null,
+    "finishedAt": "2026-08-30T12:38:11.527Z"
+  }
+}
