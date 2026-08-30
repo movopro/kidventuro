@@ -8,6 +8,7 @@ const config = JSON.parse(fs.readFileSync(path.join(autopilotRoot, 'config.json'
 let forcedSlot = process.env.FORCE_SLOT?.trim();
 let forcedSlotKey = '';
 let postVariant = '';
+let contentDateOffsetDays = '';
 const recoveryTrigger = process.env.RECOVERY_TRIGGER?.trim();
 const scheduleExpr = process.env.SCHEDULE_EXPR?.trim();
 const now = new Date();
@@ -25,11 +26,12 @@ const localHour = Number(new Intl.DateTimeFormat('en-GB', {
   hourCycle: 'h23'
 }).format(now));
 
-const emit = (slot, slotKeyOverride = '', variant = '') => {
+const emit = (slot, slotKeyOverride = '', variant = '', dateOffsetDays = '') => {
   console.log(`should_run=${slot ? 'true' : 'false'}`);
   console.log(`slot=${slot || 'none'}`);
   console.log(`slot_key=${slot ? (slotKeyOverride || `${localDate}-${slot}`) : 'none'}`);
   console.log(`post_variant=${variant || ''}`);
+  console.log(`content_date_offset_days=${dateOffsetDays || ''}`);
 };
 
 const slotIsComplete = (slot) => {
@@ -54,12 +56,17 @@ if (!forcedSlot && recoveryTrigger) {
   forcedSlot = String(trigger.slot || '').trim();
   forcedSlotKey = String(trigger.slotKey || '').trim();
   postVariant = String(trigger.postVariant || '').trim();
+  contentDateOffsetDays = String(trigger.contentDateOffsetDays ?? '').trim();
 }
 
 if (forcedSlot) {
   if (!(forcedSlot in config.slots)) throw new Error(`Unknown slot: ${forcedSlot}`);
   if (forcedSlotKey && !/^[a-zA-Z0-9._-]+$/.test(forcedSlotKey)) throw new Error(`Unsafe forced slot key: ${forcedSlotKey}`);
-  emit(forcedSlot, forcedSlotKey, postVariant);
+  if (contentDateOffsetDays) {
+    const parsedOffset = Number(contentDateOffsetDays);
+    if (!Number.isInteger(parsedOffset) || Math.abs(parsedOffset) > 365) throw new Error(`Invalid content date offset: ${contentDateOffsetDays}`);
+  }
+  emit(forcedSlot, forcedSlotKey, postVariant, contentDateOffsetDays);
   process.exit(0);
 }
 
