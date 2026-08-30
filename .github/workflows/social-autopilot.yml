@@ -22,9 +22,12 @@ on:
         required: true
         default: true
         type: boolean
+  push:
+    paths:
+      - social-autopilot/recovery-trigger.json
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: kidventuro-social-autopilot
@@ -42,11 +45,12 @@ jobs:
         id: gate
         env:
           FORCE_SLOT: ${{ github.event_name == 'workflow_dispatch' && inputs.slot || '' }}
+          RECOVERY_TRIGGER: ${{ github.event_name == 'push' && 'social-autopilot/recovery-trigger.json' || '' }}
           SCHEDULE_EXPR: ${{ github.event.schedule }}
         run: node social-autopilot/src/gate.mjs >> "$GITHUB_OUTPUT"
 
       - name: Check zero-touch configuration
-        if: steps.gate.outputs.should_run == 'true' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        if: steps.gate.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.dry_run == false)
         id: preflight
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
@@ -80,9 +84,12 @@ jobs:
         run: npm test
 
       - name: Publish automatically
-        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        id: live_publish
+        continue-on-error: true
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.dry_run == false)
         env:
           SOCIAL_SLOT: ${{ steps.gate.outputs.slot }}
+          SOCIAL_RESULT_PATH: social-autopilot/status/run-result.json
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
@@ -94,6 +101,48 @@ jobs:
           BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
           BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
         run: node social-autopilot/src/run.mjs --force --slot "$SOCIAL_SLOT"
+
+      - name: Record live autopilot status
+        if: always() && steps.gate.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.dry_run == false)
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SLOT: ${{ steps.gate.outputs.slot }}
+          PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
+          PUBLISH_OUTCOME: ${{ steps.live_publish.outcome }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const resultPath = 'social-autopilot/status/run-result.json';
+          let details = null;
+          if (fs.existsSync(resultPath)) {
+            details = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
+          }
+          const status = {
+            updatedAt: new Date().toISOString(),
+            event: process.env.EVENT_NAME,
+            slot: process.env.SLOT || null,
+            preflightConfigured: process.env.PREFLIGHT_CONFIGURED || 'false',
+            publishOutcome: process.env.PUBLISH_OUTCOME || 'skipped',
+            details
+          };
+          fs.mkdirSync('social-autopilot/status', { recursive: true });
+          fs.writeFileSync('social-autopilot/status/latest.json', `${JSON.stringify(status, null, 2)}\n`);
+          NODE
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add social-autopilot/status/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record social autopilot status [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Fail incomplete live publish
+        if: always() && steps.gate.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.dry_run == false) && (steps.preflight.outputs.configured != 'true' || steps.live_publish.outcome != 'success')
+        run: |
+          echo "Kidventuro live publishing did not complete successfully. Check social-autopilot/status/latest.json."
+          exit 1
 
       - name: Render manual preview
         if: steps.gate.outputs.should_run == 'true' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
