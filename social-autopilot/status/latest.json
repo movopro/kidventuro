@@ -1,41 +1,41 @@
 {
-  "updatedAt": "2026-08-30T09:28:37.650Z",
+  "updatedAt": "2026-08-30T09:30:13.564Z",
   "event": "push",
   "slot": "morning",
   "slotKey": "2026-08-30-test-now-2-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-30T09:27:32.983Z",
+    "startedAt": "2026-08-30T09:30:12.440Z",
     "slot": "morning",
     "slotKey": "2026-08-30-test-now-2-morning",
-    "outcome": "pending",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a93f78b94904b3a23e45dcf",
         "status": "sent",
         "sentAt": "2026-08-30T09:27:45.592Z",
         "externalLink": "https://www.instagram.com/p/DcqMHG3laZX/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a93f79324c2007a00464a11",
         "status": "sent",
         "sentAt": "2026-08-30T09:27:49.678Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648856550",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a93f7964322eea1c976f9be",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-08-30T09:29:34.978Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7679754091873963296",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Dublin: Liffey bridge hunt",
     "postVariant": "Fresh family-travel idea from Kidventuro ✨",
-    "finishedAt": "2026-08-30T09:28:37.592Z"
+    "finishedAt": "2026-08-30T09:30:13.517Z"
   }
 }
