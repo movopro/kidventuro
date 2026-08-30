@@ -40,6 +40,12 @@ const requestedSlotKey = option('--slot-key') || process.env.SOCIAL_SLOT_KEY?.tr
 const slotKey = requestedSlotKey || `${dateKey}-${slot}`;
 if (!/^[a-zA-Z0-9._-]+$/.test(slotKey)) throw new Error(`Unsafe social slot key: ${slotKey}`);
 const postVariant = process.env.SOCIAL_POST_VARIANT?.trim();
+const contentDateOffsetRaw = process.env.SOCIAL_CONTENT_DATE_OFFSET_DAYS?.trim();
+const contentDateOffsetDays = contentDateOffsetRaw ? Number(contentDateOffsetRaw) : 0;
+if (!Number.isInteger(contentDateOffsetDays) || Math.abs(contentDateOffsetDays) > 365) {
+  throw new Error(`Invalid social content date offset: ${contentDateOffsetRaw}`);
+}
+const contentDate = new Date(now.getTime() + contentDateOffsetDays * 86_400_000);
 const outputDirectory = path.join(autopilotRoot, dryRun ? 'preview' : '.tmp', slotKey);
 await ensureDirectory(outputDirectory);
 
@@ -51,6 +57,8 @@ const runReport = {
   startedAt: now.toISOString(),
   slot,
   slotKey,
+  contentDateOffsetDays,
+  contentDate: contentDate.toISOString(),
   outcome: 'running',
   platforms: {}
 };
@@ -103,13 +111,15 @@ if (!content) {
   content = await generateContent({
     destinations,
     slot,
-    date: now,
+    date: contentDate,
     config,
     apiKey: process.env.OPENAI_API_KEY?.trim(),
     useAi: !dryRun || flag('--live-ai')
   });
   content.slotKey = slotKey;
   content.createdAt = now.toISOString();
+  content.contentDate = contentDate.toISOString();
+  content.contentDateOffsetDays = contentDateOffsetDays;
   content = applyPostVariant(content);
   if (!dryRun) await cloudinary.putJson(contentStateId, content);
 } else if (postVariant && content.postVariant !== postVariant) {
