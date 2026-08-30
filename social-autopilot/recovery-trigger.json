@@ -1,5 +1,5 @@
 {
   "slot": "morning",
-  "nonce": "recovery-2026-08-30-morning-v1",
-  "reason": "Recover missed scheduled posts on Instagram, Pinterest and TikTok"
+  "nonce": "recovery-2026-08-30-morning-v2",
+  "reason": "Verify recovered morning delivery and retry only any platform still missing"
 }
