@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BufferClient, instagramInput, pinterestInput, tiktokInput } from './buffer.mjs';
+import { BufferClient, instagramInput, isCompleteOrInFlight, pinterestInput, tiktokInput } from './buffer.mjs';
 import { CloudinaryStore } from './cloudinary.mjs';
 import { generateContent } from './content.mjs';
 import { loadDestinations } from './destinations.mjs';
@@ -67,15 +67,6 @@ const persistReport = async () => {
   await ensureDirectory(path.dirname(resultPath));
   await fs.writeFile(resultPath, JSON.stringify(runReport, null, 2), 'utf8');
 };
-
-const pendingGraceMs = 20 * 60 * 1000;
-const isFreshPending = (post) => {
-  if (!post || !['scheduled', 'sending'].includes(post.status)) return false;
-  const timestamp = post.updatedAt || post.createdAt || post.dueAt;
-  const milliseconds = timestamp ? new Date(timestamp).getTime() : 0;
-  return Number.isFinite(milliseconds) && milliseconds > 0 && Date.now() - milliseconds < pendingGraceMs;
-};
-const isCompleteOrFresh = (post) => post?.status === 'sent' || isFreshPending(post);
 
 const applyPostVariant = (content) => {
   if (!postVariant || content.postVariant === postVariant) return content;
@@ -160,7 +151,7 @@ const verifiedMarkers = {};
 for (const [platform, marker] of Object.entries(existingMarkers)) {
   if (!marker?.postId) continue;
   const current = await buffer.getPost(marker.postId);
-  if (isCompleteOrFresh(current)) {
+  if (isCompleteOrInFlight(current)) {
     verifiedMarkers[platform] = current;
     runReport.platforms[platform] = {
       postId: current.id,
@@ -244,13 +235,13 @@ for (const [platform, post] of Object.entries(posts)) {
     text: post.input.text
   });
 
-  let published = isCompleteOrFresh(matching) ? matching : null;
+  let published = isCompleteOrInFlight(matching) ? matching : null;
   let recoveredExistingPost = Boolean(published);
   if (!published) {
     if (matching?.status === 'error') {
       console.warn(`${platform}: recent Buffer post ${matching.id} is in error; creating a replacement`);
     } else if (matching) {
-      console.warn(`${platform}: recent Buffer post ${matching.id} is stale (${matching.status}); creating a replacement`);
+      console.warn(`${platform}: recent Buffer post ${matching.id} cannot be recovered (${matching.status}); creating a replacement`);
     }
     published = await buffer.createPost(post.input);
     recoveredExistingPost = false;
@@ -262,7 +253,7 @@ for (const [platform, post] of Object.entries(posts)) {
 
   if (!observed) throw new Error(`${platform}: Buffer post ${published.id} disappeared after creation`);
   if (observed.status === 'error') throw new Error(`${platform}: Buffer reported publishing error for ${observed.id}`);
-  if (!isCompleteOrFresh(observed)) {
+  if (!isCompleteOrInFlight(observed)) {
     throw new Error(`${platform}: Buffer post ${observed.id} remained in unexpected status ${observed.status}`);
   }
 

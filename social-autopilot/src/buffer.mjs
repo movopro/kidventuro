@@ -3,6 +3,10 @@ import { fetchWithRetry } from './utils.mjs';
 const endpoint = 'https://api.buffer.com';
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+export function isCompleteOrInFlight(post) {
+  return post?.status === 'sent' || ['scheduled', 'sending'].includes(post?.status);
+}
+
 export class BufferClient {
   constructor(apiKey) {
     this.apiKey = apiKey;

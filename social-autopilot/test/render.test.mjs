@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { isCompleteOrInFlight } from '../src/buffer.mjs';
 import { selectAudioClip } from '../src/render.mjs';
 
 const config = {
@@ -29,4 +30,14 @@ test('excerpt selection is stable for retries and changes between dates', () => 
   assert.deepEqual(first, retry);
   assert.notEqual(first.startSeconds, nextDay.startSeconds);
   assert.ok(first.startSeconds >= 0 && first.startSeconds < 60);
+});
+
+test('old in-flight Buffer posts remain recoverable without creating duplicates', () => {
+  const oldTimestamp = '2020-01-01T00:00:00.000Z';
+
+  assert.equal(isCompleteOrInFlight({ status: 'sending', updatedAt: oldTimestamp }), true);
+  assert.equal(isCompleteOrInFlight({ status: 'scheduled', updatedAt: oldTimestamp }), true);
+  assert.equal(isCompleteOrInFlight({ status: 'sent', updatedAt: oldTimestamp }), true);
+  assert.equal(isCompleteOrInFlight({ status: 'error', updatedAt: oldTimestamp }), false);
+  assert.equal(isCompleteOrInFlight(null), false);
 });

@@ -109,5 +109,11 @@ jobs:
         working-directory: worker
         run: npm test
 
+      - name: Test social publishing gates, content, renderer and duplicate protection
+        working-directory: social-autopilot
+        run: |
+          npm install --no-audit --no-fund
+          npm test
+
       - name: Validate root-level Cloudflare deployment flow
         run: npm run check-worker
