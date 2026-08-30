@@ -40,6 +40,32 @@ const slotKey = `${dateKey}-${slot}`;
 const outputDirectory = path.join(autopilotRoot, dryRun ? 'preview' : '.tmp', slotKey);
 await ensureDirectory(outputDirectory);
 
+const requestedResultPath = process.env.SOCIAL_RESULT_PATH?.trim();
+const resultPath = requestedResultPath
+  ? (path.isAbsolute(requestedResultPath) ? requestedResultPath : path.resolve(repositoryRoot, requestedResultPath))
+  : null;
+const runReport = {
+  startedAt: now.toISOString(),
+  slot,
+  slotKey,
+  outcome: 'running',
+  platforms: {}
+};
+const persistReport = async () => {
+  if (!resultPath) return;
+  await ensureDirectory(path.dirname(resultPath));
+  await fs.writeFile(resultPath, JSON.stringify(runReport, null, 2), 'utf8');
+};
+
+const pendingGraceMs = 20 * 60 * 1000;
+const isFreshPending = (post) => {
+  if (!post || !['scheduled', 'sending'].includes(post.status)) return false;
+  const timestamp = post.updatedAt || post.createdAt || post.dueAt;
+  const milliseconds = timestamp ? new Date(timestamp).getTime() : 0;
+  return Number.isFinite(milliseconds) && milliseconds > 0 && Date.now() - milliseconds < pendingGraceMs;
+};
+const isCompleteOrFresh = (post) => post?.status === 'sent' || isFreshPending(post);
+
 const destinations = await loadDestinations(repositoryRoot);
 let cloudinary;
 if (!dryRun) {
@@ -57,10 +83,6 @@ const markerIds = Object.fromEntries(['instagram', 'pinterest', 'tiktok'].map((p
 const existingMarkers = dryRun ? {} : Object.fromEntries(await Promise.all(
   Object.entries(markerIds).map(async ([platform, markerId]) => [platform, await cloudinary.getJson(markerId)])
 ));
-if (!dryRun && Object.values(existingMarkers).every((marker) => marker?.postId)) {
-  console.log(`Kidventuro social slot already complete: ${slotKey}`);
-  process.exit(0);
-}
 
 const contentStateId = `kidventuro-social/state/${slotKey}/content.json`;
 let content = dryRun ? null : await cloudinary.getJson(contentStateId);
@@ -77,22 +99,23 @@ if (!content) {
   content.createdAt = now.toISOString();
   if (!dryRun) await cloudinary.putJson(contentStateId, content);
 }
-
-const assets = await renderAssets({ content, outputDirectory, config });
-await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
+runReport.generator = content.generator;
+runReport.theme = content.theme;
 
 if (dryRun) {
+  const assets = await renderAssets({ content, outputDirectory, config });
+  await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
+  runReport.outcome = 'preview';
+  runReport.assets = {
+    instagram: assets.instagramPath,
+    pinterest: assets.pinterestPath,
+    tiktok: assets.videoPath
+  };
+  await persistReport();
   console.log(`Preview created in ${outputDirectory}`);
   console.log(JSON.stringify({ slotKey, generator: content.generator, theme: content.theme }, null, 2));
   process.exit(0);
 }
-
-const mediaPrefix = `kidventuro-social/media/${slotKey}`;
-const [instagramUrl, pinterestUrl, videoUrl] = await Promise.all([
-  cloudinary.uploadFile({ filePath: assets.instagramPath, publicId: `${mediaPrefix}/instagram`, resourceType: 'image' }),
-  cloudinary.uploadFile({ filePath: assets.pinterestPath, publicId: `${mediaPrefix}/pinterest`, resourceType: 'image' }),
-  cloudinary.uploadFile({ filePath: assets.videoPath, publicId: `${mediaPrefix}/short-video`, resourceType: 'video' })
-]);
 
 const buffer = new BufferClient(requiredEnv('BUFFER_API_KEY'));
 const boardName = process.env.PINTEREST_BOARD_NAME?.trim() || config.pinterestBoardName;
@@ -104,6 +127,47 @@ const setup = await buffer.discover({
     tiktok: process.env.BUFFER_TIKTOK_CHANNEL_ID?.trim()
   }
 });
+
+const verifiedMarkers = {};
+for (const [platform, marker] of Object.entries(existingMarkers)) {
+  if (!marker?.postId) continue;
+  const current = await buffer.getPost(marker.postId);
+  if (isCompleteOrFresh(current)) {
+    verifiedMarkers[platform] = current;
+    runReport.platforms[platform] = {
+      postId: current.id,
+      status: current.status,
+      sentAt: current.sentAt || null,
+      externalLink: current.externalLink || null,
+      source: 'verified-marker'
+    };
+  } else {
+    console.warn(`${platform}: stale marker ${marker.postId} has Buffer status ${current?.status || 'missing'}; retrying`);
+    runReport.platforms[platform] = {
+      postId: marker.postId,
+      status: current?.status || 'missing',
+      source: 'stale-marker-retry'
+    };
+  }
+}
+
+if (Object.keys(verifiedMarkers).length === Object.keys(markerIds).length) {
+  runReport.outcome = Object.values(verifiedMarkers).every((post) => post.status === 'sent') ? 'sent' : 'pending';
+  runReport.finishedAt = new Date().toISOString();
+  await persistReport();
+  console.log(`Kidventuro social slot already verified: ${slotKey}`);
+  process.exit(0);
+}
+
+const assets = await renderAssets({ content, outputDirectory, config });
+await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
+
+const mediaPrefix = `kidventuro-social/media/${slotKey}`;
+const [instagramUrl, pinterestUrl, videoUrl] = await Promise.all([
+  cloudinary.uploadFile({ filePath: assets.instagramPath, publicId: `${mediaPrefix}/instagram`, resourceType: 'image' }),
+  cloudinary.uploadFile({ filePath: assets.pinterestPath, publicId: `${mediaPrefix}/pinterest`, resourceType: 'image' }),
+  cloudinary.uploadFile({ filePath: assets.videoPath, publicId: `${mediaPrefix}/short-video`, resourceType: 'video' })
+]);
 
 const campaign = encodeURIComponent(slotKey);
 const destinationUrl = `${config.siteUrl}?utm_source=pinterest&utm_medium=organic&utm_campaign=social_autopilot&utm_content=${campaign}`;
@@ -140,26 +204,59 @@ const posts = {
 
 for (const [platform, post] of Object.entries(posts)) {
   const markerId = markerIds[platform];
-  const marker = existingMarkers[platform];
-  if (marker?.postId) {
-    console.log(`${platform}: already published as ${marker.postId}`);
+  const verified = verifiedMarkers[platform];
+  if (verified) {
+    console.log(`${platform}: verified as ${verified.status} (${verified.id})`);
     continue;
   }
-  const existing = await buffer.matchingRecentPost({
+
+  const matching = await buffer.matchingRecentPost({
     organizationId: setup.organizationId,
     channelId: post.channelId,
     text: post.input.text
   });
-  const published = existing || await buffer.createPost(post.input);
+
+  let published = isCompleteOrFresh(matching) ? matching : null;
+  let recoveredExistingPost = Boolean(published);
+  if (!published) {
+    if (matching?.status === 'error') {
+      console.warn(`${platform}: recent Buffer post ${matching.id} is in error; creating a replacement`);
+    } else if (matching) {
+      console.warn(`${platform}: recent Buffer post ${matching.id} is stale (${matching.status}); creating a replacement`);
+    }
+    published = await buffer.createPost(post.input);
+    recoveredExistingPost = false;
+  }
+
+  const observed = published.status === 'sent'
+    ? published
+    : await buffer.waitForPost(published.id);
+
+  if (!observed) throw new Error(`${platform}: Buffer post ${published.id} disappeared after creation`);
+  if (observed.status === 'error') throw new Error(`${platform}: Buffer reported publishing error for ${observed.id}`);
+  if (!isCompleteOrFresh(observed)) {
+    throw new Error(`${platform}: Buffer post ${observed.id} remained in unexpected status ${observed.status}`);
+  }
+
   await cloudinary.putJson(markerId, {
     platform,
-    postId: published.id,
-    status: published.status,
+    postId: observed.id,
+    status: observed.status,
     slotKey,
     recordedAt: new Date().toISOString(),
-    recoveredExistingPost: Boolean(existing)
+    sentAt: observed.sentAt || null,
+    externalLink: observed.externalLink || null,
+    recoveredExistingPost
   });
-  console.log(`${platform}: published as ${published.id}`);
+  runReport.platforms[platform] = {
+    postId: observed.id,
+    status: observed.status,
+    sentAt: observed.sentAt || null,
+    externalLink: observed.externalLink || null,
+    source: recoveredExistingPost ? 'recovered-buffer-post' : 'created'
+  };
+  await persistReport();
+  console.log(`${platform}: Buffer status ${observed.status} as ${observed.id}`);
 }
 
 const oldDate = new Date(now.getTime() - config.retentionDays * 86_400_000);
@@ -175,4 +272,7 @@ for (const oldSlot of Object.keys(config.slots)) {
   ]);
 }
 
-console.log(`Kidventuro social slot complete: ${slotKey}`);
+runReport.outcome = Object.values(runReport.platforms).every((platform) => platform.status === 'sent') ? 'sent' : 'pending';
+runReport.finishedAt = new Date().toISOString();
+await persistReport();
+console.log(`Kidventuro social slot complete: ${slotKey} (${runReport.outcome})`);
