@@ -36,7 +36,10 @@ if (!force && localHour !== config.slots[slot]) {
 }
 
 const dateKey = localDateKey(now, config.timezone);
-const slotKey = `${dateKey}-${slot}`;
+const requestedSlotKey = option('--slot-key') || process.env.SOCIAL_SLOT_KEY?.trim();
+const slotKey = requestedSlotKey || `${dateKey}-${slot}`;
+if (!/^[a-zA-Z0-9._-]+$/.test(slotKey)) throw new Error(`Unsafe social slot key: ${slotKey}`);
+const postVariant = process.env.SOCIAL_POST_VARIANT?.trim();
 const outputDirectory = path.join(autopilotRoot, dryRun ? 'preview' : '.tmp', slotKey);
 await ensureDirectory(outputDirectory);
 
@@ -65,6 +68,16 @@ const isFreshPending = (post) => {
   return Number.isFinite(milliseconds) && milliseconds > 0 && Date.now() - milliseconds < pendingGraceMs;
 };
 const isCompleteOrFresh = (post) => post?.status === 'sent' || isFreshPending(post);
+
+const applyPostVariant = (content) => {
+  if (!postVariant || content.postVariant === postVariant) return content;
+  const updated = structuredClone(content);
+  if (updated.instagram?.caption) updated.instagram.caption = `${updated.instagram.caption}\n\n${postVariant}`;
+  if (updated.pinterest?.description) updated.pinterest.description = `${updated.pinterest.description}\n\n${postVariant}`;
+  if (updated.tiktok?.caption) updated.tiktok.caption = `${updated.tiktok.caption}\n\n${postVariant}`;
+  updated.postVariant = postVariant;
+  return updated;
+};
 
 const destinations = await loadDestinations(repositoryRoot);
 let cloudinary;
@@ -97,10 +110,15 @@ if (!content) {
   });
   content.slotKey = slotKey;
   content.createdAt = now.toISOString();
+  content = applyPostVariant(content);
+  if (!dryRun) await cloudinary.putJson(contentStateId, content);
+} else if (postVariant && content.postVariant !== postVariant) {
+  content = applyPostVariant(content);
   if (!dryRun) await cloudinary.putJson(contentStateId, content);
 }
 runReport.generator = content.generator;
 runReport.theme = content.theme;
+runReport.postVariant = content.postVariant || null;
 
 if (dryRun) {
   const assets = await renderAssets({ content, outputDirectory, config });
