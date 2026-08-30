@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-08-30T12:54:13.301Z",
+  "updatedAt": "2026-08-30T12:55:42.988Z",
   "event": "push",
   "slot": "evening",
   "slotKey": "2026-08-30-extra-now-3-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-30T12:53:07.581Z",
+    "startedAt": "2026-08-30T12:55:42.144Z",
     "slot": "evening",
     "slotKey": "2026-08-30-extra-now-3-evening",
     "contentDateOffsetDays": -31,
-    "contentDate": "2026-07-30T12:53:07.581Z",
-    "outcome": "pending",
+    "contentDate": "2026-07-30T12:55:42.144Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9427ba94904b3a23e7ea88",
         "status": "sent",
         "sentAt": "2026-08-30T12:53:22.506Z",
         "externalLink": "https://www.instagram.com/p/Dcqjo4aleJA/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9427c3d076c0e5835b38df",
         "status": "sent",
         "sentAt": "2026-08-30T12:53:25.038Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648867364",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9427c6fd31f7e50b6fcc6e",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-08-30T12:55:10.078Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7679807069322562848",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Petra: Ancient façade detective",
     "postVariant": "A new screen-free family travel idea from Kidventuro ✨",
-    "finishedAt": "2026-08-30T12:54:13.248Z"
+    "finishedAt": "2026-08-30T12:55:42.935Z"
   }
 }
