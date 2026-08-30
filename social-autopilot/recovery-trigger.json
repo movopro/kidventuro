@@ -1,5 +1,7 @@
 {
   "slot": "morning",
-  "nonce": "recovery-2026-08-30-morning-v2",
-  "reason": "Verify recovered morning delivery and retry only any platform still missing"
+  "slotKey": "2026-08-30-test-now-1",
+  "postVariant": "Fresh family-travel idea from Kidventuro ✨",
+  "nonce": "test-post-2026-08-30-v1",
+  "reason": "One-off live publishing test without consuming morning or evening scheduled slots"
 }
