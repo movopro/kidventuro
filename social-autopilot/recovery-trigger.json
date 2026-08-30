@@ -1,8 +1,8 @@
 {
-  "slot": "morning",
-  "slotKey": "2026-08-30-extra-now-1-morning",
-  "contentDateOffsetDays": 17,
-  "postVariant": "A fresh screen-free family travel idea from Kidventuro ✨",
-  "nonce": "extra-post-2026-08-30-v3",
-  "reason": "Recheck TikTok delivery for the same one-off post without creating any duplicates"
+  "slot": "evening",
+  "slotKey": "2026-08-30-extra-now-3-evening",
+  "contentDateOffsetDays": -31,
+  "postVariant": "A new screen-free family travel idea from Kidventuro ✨",
+  "nonce": "extra-post-2026-08-30-slow-video-v1",
+  "reason": "Publish one isolated post now to verify slower TikTok pacing and audio without consuming the scheduled evening slot"
 }
