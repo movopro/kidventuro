@@ -12,7 +12,8 @@
   "audio": {
     "tracks": ["1.mp3", "2.mp3"],
     "excerptStartRangeSeconds": 60,
-    "videoDurationSeconds": 8.8,
+    "slideDurationSeconds": 3.2,
+    "videoDurationSeconds": 12.8,
     "fadeSeconds": 0.6,
     "targetLoudnessLufs": -16
   },
