@@ -152,12 +152,16 @@ export async function renderAssets({ content, outputDirectory, config }) {
 
   const concatPath = path.join(outputDirectory, 'slides.txt');
   const escapePath = (value) => value.replaceAll("'", "'\\''");
-  const concat = slidePaths.flatMap((slidePath) => [`file '${escapePath(slidePath)}'`, 'duration 2.2']).concat(`file '${escapePath(slidePaths.at(-1))}'`).join('\n');
+  const slideDuration = Number(config.audio?.slideDurationSeconds) || 3.2;
+  const concat = slidePaths
+    .flatMap((slidePath) => [`file '${escapePath(slidePath)}'`, `duration ${slideDuration}`])
+    .concat(`file '${escapePath(slidePaths.at(-1))}'`)
+    .join('\n');
   await fs.writeFile(concatPath, concat, 'utf8');
   const audioClip = selectAudioClip(content.slotKey, config);
   const audioPath = path.join(autopilotRoot, 'assets', 'audio', audioClip.track);
   await fs.access(audioPath);
-  const videoDuration = config.audio.videoDurationSeconds || 8.8;
+  const videoDuration = Number(config.audio?.videoDurationSeconds) || Number((slidePaths.length * slideDuration).toFixed(1));
   const fadeDuration = config.audio.fadeSeconds || 0.6;
   const fadeOutStart = Math.max(0, videoDuration - fadeDuration);
   const targetLoudness = config.audio.targetLoudnessLufs || -16;
