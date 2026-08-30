@@ -1,0 +1,142 @@
+name: Kidventuro Did You Know autopilot
+
+on:
+  schedule:
+    # Hourly watchdog. The gate publishes once per day after 14:00 Europe/Sofia
+    # and skips all later runs once the daily post is confirmed sent.
+    - cron: '37 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - social-autopilot/did-you-know-trigger.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kidventuro-did-you-know-autopilot
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out Kidventuro
+        uses: actions/checkout@v4
+
+      - name: Select daily Did You Know slot
+        id: gate
+        env:
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
+          RECOVERY_TRIGGER: ${{ github.event_name == 'push' && 'social-autopilot/did-you-know-trigger.json' || '' }}
+        run: node social-autopilot/src/did-you-know-gate.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Check zero-touch configuration
+        if: steps.gate.outputs.should_run == 'true'
+        id: preflight
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: node social-autopilot/src/preflight.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node.js
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore renderer cache
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true'
+        id: renderer-cache
+        uses: actions/cache@v4
+        with:
+          path: social-autopilot/node_modules
+          key: ${{ runner.os }}-node22-social-${{ hashFiles('social-autopilot/package.json') }}
+
+      - name: Install renderer
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true' && steps.renderer-cache.outputs.cache-hit != 'true'
+        working-directory: social-autopilot
+        run: npm install --no-audit --no-fund
+
+      - name: Verify Did You Know automation
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true'
+        working-directory: social-autopilot
+        run: npm test
+
+      - name: Prepare curated Did You Know content
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true'
+        env:
+          SOCIAL_SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
+          DID_YOU_KNOW_SOURCE_DATE: ${{ steps.gate.outputs.source_date }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: node social-autopilot/src/prepare-did-you-know.mjs
+
+      - name: Publish Did You Know automatically
+        id: live_publish
+        continue-on-error: true
+        if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true'
+        env:
+          SOCIAL_SLOT: ${{ steps.gate.outputs.slot }}
+          SOCIAL_SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
+          SOCIAL_RESULT_PATH: social-autopilot/status/did-you-know/run-result.json
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          PINTEREST_BOARD_NAME: ${{ vars.PINTEREST_BOARD_NAME }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ vars.BUFFER_INSTAGRAM_CHANNEL_ID }}
+          BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
+          BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
+        run: node social-autopilot/src/run.mjs --force --slot "$SOCIAL_SLOT"
+
+      - name: Record Did You Know status
+        if: always() && steps.gate.outputs.should_run == 'true'
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SLOT: ${{ steps.gate.outputs.slot }}
+          SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
+          DATE_KEY: ${{ steps.gate.outputs.date_key }}
+          PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
+          PUBLISH_OUTCOME: ${{ steps.live_publish.outcome }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const resultPath = 'social-autopilot/status/did-you-know/run-result.json';
+          let details = null;
+          if (fs.existsSync(resultPath)) details = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
+          const status = {
+            updatedAt: new Date().toISOString(),
+            series: 'did-you-know',
+            event: process.env.EVENT_NAME,
+            slot: process.env.SLOT || null,
+            slotKey: process.env.SLOT_KEY || details?.slotKey || null,
+            dateKey: process.env.DATE_KEY || null,
+            preflightConfigured: process.env.PREFLIGHT_CONFIGURED || 'false',
+            publishOutcome: process.env.PUBLISH_OUTCOME || 'skipped',
+            details
+          };
+          fs.mkdirSync('social-autopilot/status/did-you-know', { recursive: true });
+          const body = `${JSON.stringify(status, null, 2)}\n`;
+          fs.writeFileSync('social-autopilot/status/did-you-know/latest.json', body);
+          if (status.dateKey) fs.writeFileSync(`social-autopilot/status/did-you-know/${status.dateKey}.json`, body);
+          NODE
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add social-autopilot/status/did-you-know/latest.json
+          if [ -n "${DATE_KEY}" ]; then git add "social-autopilot/status/did-you-know/${DATE_KEY}.json"; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Did You Know social status [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Fail incomplete Did You Know publish
+        if: always() && steps.gate.outputs.should_run == 'true' && (steps.preflight.outputs.configured != 'true' || steps.live_publish.outcome != 'success')
+        run: |
+          echo "Kidventuro Did You Know publishing did not complete successfully."
+          exit 1
