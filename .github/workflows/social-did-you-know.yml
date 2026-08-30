@@ -2,9 +2,12 @@ name: Kidventuro Did You Know autopilot
 
 on:
   schedule:
-    # Twice-hourly watchdog. The gate publishes once per day after 14:00 Europe/Sofia
-    # and skips all later runs once the daily post is confirmed sent.
-    - cron: '7,37 * * * *'
+    # Four independent watchdog checks per hour. The gate publishes once per day
+    # after 14:00 Europe/Sofia and skips later checks once delivery is confirmed sent.
+    - cron: '7 * * * *'
+    - cron: '22 * * * *'
+    - cron: '37 * * * *'
+    - cron: '52 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -135,8 +138,23 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Fail incomplete Did You Know publish
-        if: always() && steps.gate.outputs.should_run == 'true' && (steps.preflight.outputs.configured != 'true' || steps.live_publish.outcome != 'success')
+      - name: Verify complete Did You Know delivery
+        if: always() && steps.gate.outputs.should_run == 'true'
+        env:
+          PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
+          LIVE_PUBLISH_OUTCOME: ${{ steps.live_publish.outcome }}
         run: |
-          echo "Kidventuro Did You Know publishing did not complete successfully."
-          exit 1
+          node <<'NODE'
+          const fs = require('node:fs');
+          const resultPath = 'social-autopilot/status/did-you-know/run-result.json';
+          let details = null;
+          if (fs.existsSync(resultPath)) details = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
+          const complete = process.env.PREFLIGHT_CONFIGURED === 'true'
+            && process.env.LIVE_PUBLISH_OUTCOME === 'success'
+            && details?.outcome === 'sent';
+          if (!complete) {
+            console.error(`Did You Know delivery incomplete: preflight=${process.env.PREFLIGHT_CONFIGURED}, publish=${process.env.LIVE_PUBLISH_OUTCOME}, outcome=${details?.outcome || 'missing'}`);
+            process.exit(1);
+          }
+          console.log('Did You Know is confirmed sent on all configured platforms.');
+          NODE
