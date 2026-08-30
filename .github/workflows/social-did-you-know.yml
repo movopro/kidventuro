@@ -2,9 +2,9 @@ name: Kidventuro Did You Know autopilot
 
 on:
   schedule:
-    # Hourly watchdog. The gate publishes once per day after 14:00 Europe/Sofia
+    # Twice-hourly watchdog. The gate publishes once per day after 14:00 Europe/Sofia
     # and skips all later runs once the daily post is confirmed sent.
-    - cron: '37 * * * *'
+    - cron: '7,37 * * * *'
   workflow_dispatch:
   push:
     paths:
