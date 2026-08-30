@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T12:39:05.958Z",
+  "updatedAt": "2026-08-30T12:40:48.781Z",
   "series": "did-you-know",
   "event": "push",
   "slot": "morning",
@@ -8,12 +8,12 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-30T12:39:05.310Z",
+    "startedAt": "2026-08-30T12:40:47.748Z",
     "slot": "morning",
     "slotKey": "2026-08-30-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-08-30T12:39:05.310Z",
-    "outcome": "pending",
+    "contentDate": "2026-08-30T12:40:47.748Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9423f5fd31f7e50b6f9d1c",
@@ -31,15 +31,15 @@
       },
       "tiktok": {
         "postId": "6a942403e7e04684c6fb7c4f",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
+        "status": "sent",
+        "sentAt": "2026-08-30T12:39:07.546Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7679802938369330464",
         "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Norway",
     "postVariant": null,
-    "finishedAt": "2026-08-30T12:39:05.911Z"
+    "finishedAt": "2026-08-30T12:40:48.735Z"
   }
 }
