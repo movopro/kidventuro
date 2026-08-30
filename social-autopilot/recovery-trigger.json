@@ -1,7 +1,7 @@
 {
   "slot": "morning",
-  "slotKey": "2026-08-30-test-now-1",
+  "slotKey": "2026-08-30-test-now-2-morning",
   "postVariant": "Fresh family-travel idea from Kidventuro ✨",
-  "nonce": "test-post-2026-08-30-v1",
+  "nonce": "test-post-2026-08-30-v2",
   "reason": "One-off live publishing test without consuming morning or evening scheduled slots"
 }
