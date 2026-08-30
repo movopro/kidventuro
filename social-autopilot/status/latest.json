@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-08-30T17:55:03.738Z",
-  "event": "push",
+  "updatedAt": "2026-08-30T20:41:41.253Z",
+  "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-08-30-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-30T17:53:56.570Z",
+    "startedAt": "2026-08-30T20:41:40.300Z",
     "slot": "evening",
     "slotKey": "2026-08-30-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-08-30T17:53:56.570Z",
-    "outcome": "pending",
+    "contentDate": "2026-08-30T20:41:40.300Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a946e3b94904b3a23edd01f",
         "status": "sent",
         "sentAt": "2026-08-30T17:54:10.377Z",
         "externalLink": "https://www.instagram.com/p/DcrGEN7CWdU/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a946e4494904b3a23edd05f",
         "status": "sent",
         "sentAt": "2026-08-30T17:54:13.633Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648888414",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a946e47d58664eabd7a086b",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-08-30T17:55:59.598Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7679884591087357216",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Marrakech: Souk colour hunt",
     "postVariant": null,
-    "finishedAt": "2026-08-30T17:55:03.691Z"
+    "finishedAt": "2026-08-30T20:41:41.208Z"
   }
 }
