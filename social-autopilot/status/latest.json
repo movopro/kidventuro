@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2026-08-30T09:16:22.600Z",
+  "event": "push",
+  "slot": "morning",
+  "preflightConfigured": "true",
+  "publishOutcome": "success",
+  "details": {
+    "startedAt": "2026-08-30T09:15:17.465Z",
+    "slot": "morning",
+    "slotKey": "2026-08-30-morning",
+    "outcome": "pending",
+    "platforms": {
+      "instagram": {
+        "postId": "6a93f4ab883d90b51c46c9fa",
+        "status": "sent",
+        "sentAt": "2026-08-30T09:15:31.621Z",
+        "externalLink": "https://www.instagram.com/p/DcqKtTrleeI/",
+        "source": "created"
+      },
+      "pinterest": {
+        "postId": "6a93f4b5f7f5d8f78d151e3d",
+        "status": "sent",
+        "sentAt": "2026-08-30T09:15:33.909Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644648855942",
+        "source": "created"
+      },
+      "tiktok": {
+        "postId": "6a93f4b794904b3a23e434b6",
+        "status": "sending",
+        "sentAt": null,
+        "externalLink": null,
+        "source": "created"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Dublin: Liffey bridge hunt",
+    "finishedAt": "2026-08-30T09:16:22.546Z"
+  }
+}
