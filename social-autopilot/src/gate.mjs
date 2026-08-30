@@ -4,8 +4,17 @@ import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(fs.readFileSync(path.join(here, '..', 'config.json'), 'utf8'));
-const forcedSlot = process.env.FORCE_SLOT?.trim();
+let forcedSlot = process.env.FORCE_SLOT?.trim();
+const recoveryTrigger = process.env.RECOVERY_TRIGGER?.trim();
 const scheduleExpr = process.env.SCHEDULE_EXPR?.trim();
+
+if (!forcedSlot && recoveryTrigger) {
+  const triggerPath = path.isAbsolute(recoveryTrigger)
+    ? recoveryTrigger
+    : path.resolve(process.cwd(), recoveryTrigger);
+  const trigger = JSON.parse(fs.readFileSync(triggerPath, 'utf8'));
+  forcedSlot = String(trigger.slot || '').trim();
+}
 
 if (forcedSlot) {
   if (!(forcedSlot in config.slots)) throw new Error(`Unknown slot: ${forcedSlot}`);
