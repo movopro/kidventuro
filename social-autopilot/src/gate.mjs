@@ -6,6 +6,8 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const autopilotRoot = path.resolve(here, '..');
 const config = JSON.parse(fs.readFileSync(path.join(autopilotRoot, 'config.json'), 'utf8'));
 let forcedSlot = process.env.FORCE_SLOT?.trim();
+let forcedSlotKey = '';
+let postVariant = '';
 const recoveryTrigger = process.env.RECOVERY_TRIGGER?.trim();
 const scheduleExpr = process.env.SCHEDULE_EXPR?.trim();
 const now = new Date();
@@ -23,10 +25,11 @@ const localHour = Number(new Intl.DateTimeFormat('en-GB', {
   hourCycle: 'h23'
 }).format(now));
 
-const emit = (slot) => {
+const emit = (slot, slotKeyOverride = '', variant = '') => {
   console.log(`should_run=${slot ? 'true' : 'false'}`);
   console.log(`slot=${slot || 'none'}`);
-  console.log(`slot_key=${slot ? `${localDate}-${slot}` : 'none'}`);
+  console.log(`slot_key=${slot ? (slotKeyOverride || `${localDate}-${slot}`) : 'none'}`);
+  console.log(`post_variant=${variant || ''}`);
 };
 
 const slotIsComplete = (slot) => {
@@ -49,11 +52,14 @@ if (!forcedSlot && recoveryTrigger) {
     : path.resolve(process.cwd(), recoveryTrigger);
   const trigger = JSON.parse(fs.readFileSync(triggerPath, 'utf8'));
   forcedSlot = String(trigger.slot || '').trim();
+  forcedSlotKey = String(trigger.slotKey || '').trim();
+  postVariant = String(trigger.postVariant || '').trim();
 }
 
 if (forcedSlot) {
   if (!(forcedSlot in config.slots)) throw new Error(`Unknown slot: ${forcedSlot}`);
-  emit(forcedSlot);
+  if (forcedSlotKey && !/^[a-zA-Z0-9._-]+$/.test(forcedSlotKey)) throw new Error(`Unsafe forced slot key: ${forcedSlotKey}`);
+  emit(forcedSlot, forcedSlotKey, postVariant);
   process.exit(0);
 }
 
