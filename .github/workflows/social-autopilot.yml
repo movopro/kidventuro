@@ -87,6 +87,8 @@ jobs:
         if: steps.gate.outputs.should_run == 'true' && steps.preflight.outputs.configured == 'true' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.dry_run == false)
         env:
           SOCIAL_SLOT: ${{ steps.gate.outputs.slot }}
+          SOCIAL_SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
+          SOCIAL_POST_VARIANT: ${{ steps.gate.outputs.post_variant }}
           SOCIAL_RESULT_PATH: social-autopilot/status/run-result.json
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
