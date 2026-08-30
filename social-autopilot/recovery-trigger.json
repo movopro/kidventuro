@@ -1,8 +1,6 @@
 {
   "slot": "evening",
-  "slotKey": "2026-08-30-extra-now-3-evening",
-  "contentDateOffsetDays": -31,
-  "postVariant": "A new screen-free family travel idea from Kidventuro ✨",
-  "nonce": "extra-post-2026-08-30-slow-video-v2",
-  "reason": "Verify the same isolated post and TikTok delivery without creating duplicates"
+  "slotKey": "2026-08-30-evening",
+  "nonce": "recover-canonical-evening-2026-08-30-v1",
+  "reason": "One-time recovery for today's missing canonical evening slot after hardening the scheduled watchdog"
 }
