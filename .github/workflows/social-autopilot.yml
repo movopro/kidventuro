@@ -2,11 +2,9 @@ name: Kidventuro social autopilot
 
 on:
   schedule:
-    # Morning and evening are separate cron groups so a delayed GitHub Actions
-    # run still knows which local slot it belongs to. Both UTC candidates cover
-    # Europe/Sofia daylight-saving changes; the second minute is an automatic retry.
-    - cron: '17,47 6,7 * * *'
-    - cron: '17,47 15,16 * * *'
+    # GitHub scheduled jobs can be delayed substantially. A twice-hourly watchdog
+    # lets the gate recover the earliest due, incomplete local slot when any run lands.
+    - cron: '23,53 * * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -107,12 +105,12 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
           SLOT: ${{ steps.gate.outputs.slot }}
+          SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
           PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
           PUBLISH_OUTCOME: ${{ steps.live_publish.outcome }}
         run: |
           node <<'NODE'
           const fs = require('node:fs');
-          const path = require('node:path');
           const resultPath = 'social-autopilot/status/run-result.json';
           let details = null;
           if (fs.existsSync(resultPath)) {
@@ -122,16 +120,24 @@ jobs:
             updatedAt: new Date().toISOString(),
             event: process.env.EVENT_NAME,
             slot: process.env.SLOT || null,
+            slotKey: process.env.SLOT_KEY || details?.slotKey || null,
             preflightConfigured: process.env.PREFLIGHT_CONFIGURED || 'false',
             publishOutcome: process.env.PUBLISH_OUTCOME || 'skipped',
             details
           };
           fs.mkdirSync('social-autopilot/status', { recursive: true });
-          fs.writeFileSync('social-autopilot/status/latest.json', `${JSON.stringify(status, null, 2)}\n`);
+          const body = `${JSON.stringify(status, null, 2)}\n`;
+          fs.writeFileSync('social-autopilot/status/latest.json', body);
+          if (status.slotKey && status.slotKey !== 'none') {
+            fs.writeFileSync(`social-autopilot/status/${status.slotKey}.json`, body);
+          }
           NODE
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add social-autopilot/status/latest.json
+          if [ -n "${SLOT_KEY}" ] && [ "${SLOT_KEY}" != "none" ]; then
+            git add "social-autopilot/status/${SLOT_KEY}.json"
+          fi
           if ! git diff --cached --quiet; then
             git commit -m "Record social autopilot status [skip ci]"
             git pull --rebase origin main
