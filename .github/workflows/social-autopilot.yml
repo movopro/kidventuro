@@ -89,6 +89,7 @@ jobs:
           SOCIAL_SLOT: ${{ steps.gate.outputs.slot }}
           SOCIAL_SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
           SOCIAL_POST_VARIANT: ${{ steps.gate.outputs.post_variant }}
+          SOCIAL_CONTENT_DATE_OFFSET_DAYS: ${{ steps.gate.outputs.content_date_offset_days }}
           SOCIAL_RESULT_PATH: social-autopilot/status/run-result.json
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
