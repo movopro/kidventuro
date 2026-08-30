@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-30T09:38:33.754Z",
+  "updatedAt": "2026-08-30T09:39:15.656Z",
   "event": "push",
   "slot": "morning",
   "slotKey": "2026-08-30-extra-now-1-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-30T09:37:29.727Z",
+    "startedAt": "2026-08-30T09:39:13.506Z",
     "slot": "morning",
     "slotKey": "2026-08-30-extra-now-1-morning",
     "contentDateOffsetDays": 17,
-    "contentDate": "2026-09-16T09:37:29.727Z",
+    "contentDate": "2026-09-16T09:39:13.506Z",
     "outcome": "pending",
     "platforms": {
       "instagram": {
@@ -18,26 +18,26 @@
         "status": "sent",
         "sentAt": "2026-08-30T09:37:43.734Z",
         "externalLink": "https://www.instagram.com/p/DcqNP9Jlqkf/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a93f9e9883d90b51c4723c2",
         "status": "sent",
         "sentAt": "2026-08-30T09:37:46.145Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648856979",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a93f9eae7e04684c6f82a69",
         "status": "sending",
         "sentAt": null,
         "externalLink": null,
-        "source": "created"
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Osaka: Castle detail detective",
     "postVariant": "A fresh screen-free family travel idea from Kidventuro ✨",
-    "finishedAt": "2026-08-30T09:38:33.700Z"
+    "finishedAt": "2026-08-30T09:39:15.614Z"
   }
 }
