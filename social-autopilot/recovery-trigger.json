@@ -1,7 +1,8 @@
 {
   "slot": "morning",
-  "slotKey": "2026-08-30-test-now-2-morning",
-  "postVariant": "Fresh family-travel idea from Kidventuro ✨",
-  "nonce": "test-post-2026-08-30-v3",
-  "reason": "Verify one-off live publishing test without creating duplicates"
+  "slotKey": "2026-08-30-extra-now-1-morning",
+  "contentDateOffsetDays": 17,
+  "postVariant": "A fresh screen-free family travel idea from Kidventuro ✨",
+  "nonce": "extra-post-2026-08-30-v1",
+  "reason": "Publish a different one-off post now without consuming scheduled morning or evening slots"
 }
