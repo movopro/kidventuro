@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-08-31T06:02:34.044Z",
+  "updatedAt": "2026-08-31T08:59:34.644Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-08-31-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-31T06:00:59.180Z",
+    "startedAt": "2026-08-31T08:59:32.919Z",
     "slot": "morning",
     "slotKey": "2026-08-31-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-08-31T06:00:59.180Z",
-    "outcome": "pending",
+    "contentDate": "2026-08-31T08:59:32.919Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9518a2f1bd800ccf2f4f87",
         "status": "sent",
         "sentAt": "2026-08-31T06:01:41.275Z",
         "externalLink": "https://www.instagram.com/p/DcsZUITlTgI/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9518c8cbb943e673093408",
         "status": "sent",
         "sentAt": "2026-08-31T06:01:45.633Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648927538",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9518cacbb943e673093436",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-08-31T06:03:31.951Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680072054049131808",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Dubai: Skyline spotter",
     "postVariant": null,
-    "finishedAt": "2026-08-31T06:02:33.987Z"
+    "finishedAt": "2026-08-31T08:59:34.593Z"
   }
 }
