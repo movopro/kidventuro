@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-08-31T17:17:37.622Z",
+  "updatedAt": "2026-08-31T19:57:41.209Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-08-31-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-31T17:16:28.614Z",
+    "startedAt": "2026-08-31T19:57:39.645Z",
     "slot": "evening",
     "slotKey": "2026-08-31-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-08-31T17:16:28.614Z",
-    "outcome": "pending",
+    "contentDate": "2026-08-31T19:57:39.645Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a95b6f4459a28441dbaa1d9",
         "status": "sent",
         "sentAt": "2026-08-31T17:16:44.826Z",
         "externalLink": "https://www.instagram.com/p/Dctmkylibvd/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a95b6fe8a958c827f6f9415",
         "status": "sent",
         "sentAt": "2026-08-31T17:16:48.156Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648964464",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a95b70173f619a586fdbf79",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-08-31T17:18:34.042Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680246021754047777",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Dubrovnik: Adriatic detail hunt",
     "postVariant": null,
-    "finishedAt": "2026-08-31T17:17:37.569Z"
+    "finishedAt": "2026-08-31T19:57:41.161Z"
   }
 }
