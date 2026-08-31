@@ -1,45 +1,45 @@
 {
-  "updatedAt": "2026-08-31T11:26:55.385Z",
+  "updatedAt": "2026-08-31T13:35:48.914Z",
   "series": "did-you-know",
-  "event": "push",
+  "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-08-31-did-you-know-evening",
   "dateKey": "2026-08-31",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-08-31T11:25:43.059Z",
+    "startedAt": "2026-08-31T13:35:47.411Z",
     "slot": "evening",
     "slotKey": "2026-08-31-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-08-31T11:25:43.059Z",
-    "outcome": "pending",
+    "contentDate": "2026-08-31T13:35:47.411Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9564bdde5c508aef3f8b4f",
         "status": "sent",
         "sentAt": "2026-08-31T11:25:59.745Z",
         "externalLink": "https://www.instagram.com/p/Dcs-bfunDV2/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9564cd3322ce9dc8c4600b",
         "status": "sent",
         "sentAt": "2026-08-31T11:26:07.135Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644648942688",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9564d043fa5fe3c3809f30",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-08-31T11:27:51.870Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680155643742833952",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Finland",
     "postVariant": null,
-    "finishedAt": "2026-08-31T11:26:55.335Z"
+    "finishedAt": "2026-08-31T13:35:48.869Z"
   }
 }
