@@ -1,7 +1,7 @@
 {
-  "slot": "morning",
-  "slotKey": "2026-08-30-did-you-know-morning",
-  "sourceDate": "2026-08-30T12:35:00Z",
-  "nonce": "did-you-know-2026-08-30-verify-3",
-  "reason": "Final verification of the existing TikTok Did You Know post without creating duplicates"
+  "slot": "evening",
+  "slotKey": "2026-08-31-did-you-know-evening",
+  "sourceDate": "2026-08-31T11:22:00Z",
+  "nonce": "did-you-know-2026-08-31-recovery-1",
+  "reason": "Recover the missing scheduled Did You Know post for 2026-08-31 without changing the normal schedule"
 }
