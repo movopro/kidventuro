@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-01T12:00:26.632Z",
+  "updatedAt": "2026-09-01T14:47:39.170Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-01T11:59:10.577Z",
+    "startedAt": "2026-09-01T14:47:38.017Z",
     "slot": "evening",
     "slotKey": "2026-09-01-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-01T11:59:10.577Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-01T14:47:38.017Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a96be16e7c5c4f00fd94c60",
         "status": "sent",
         "sentAt": "2026-09-01T11:59:27.904Z",
         "externalLink": "https://www.instagram.com/p/DcvnDrAm3jZ/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a96be22b4313d549ca31e97",
         "status": "sent",
         "sentAt": "2026-09-01T11:59:31.382Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649022040",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a96be258955451bba9c1591",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-01T12:01:04.227Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680535464222248225",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Kyoto: Bamboo pattern hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-01T12:00:26.579Z"
+    "finishedAt": "2026-09-01T14:47:39.120Z"
   }
 }
