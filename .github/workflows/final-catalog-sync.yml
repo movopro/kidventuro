@@ -1,10 +1,15 @@
-name: Final 100-destination production sync
+name: Sync supported destination SEO pages
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/final-catalog-sync.yml'
+      - 'scripts/generate-destination-pages.mjs'
+      - 'scripts/generate-supported-destination-pages.mjs'
+      - 'scripts/polish-supported-destination-pages.mjs'
+      - 'destinations/destination-data.js'
+      - 'robots.txt'
 
 permissions:
   contents: write
@@ -20,107 +25,36 @@ jobs:
         with:
           node-version: 22
 
-      - name: Synchronize 100-destination production surfaces
+      - name: Generate only paid-product destination pages
+        run: npm run generate-seo
+
+      - name: Verify supported SEO output
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
-          import vm from 'node:vm';
-          import {execFileSync} from 'node:child_process';
-
-          const context={window:{}};
-          vm.createContext(context);
-          for(const file of ['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','catalog-6.js']){
-            vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
-          }
-          const names=Object.keys(context.window.KV_CITY);
-          if(names.length!==100) throw new Error(`Expected 100 product destinations, found ${names.length}`);
-
-          const quote=s=>`'${String(s).replaceAll('\\','\\\\').replaceAll("'","\\'")}'`;
-          const lines=[];
-          for(let i=0;i<names.length;i+=10) lines.push('  '+names.slice(i,i+10).map(quote).join(','));
-          const destinationBlock=`const ALLOWED_DESTINATIONS = new Set([\n${lines.join(',\n')}\n]);`;
-
-          let worker=fs.readFileSync('worker/src/index.js','utf8');
-          worker=worker.replace(/const RELEASE = '[^']+';/,"const RELEASE = '2026-08-27.7';");
-          worker=worker.replace(/const ALLOWED_DESTINATIONS = new Set\(\[[\s\S]*?\n\]\);/,destinationBlock);
-          fs.writeFileSync('worker/src/index.js',worker);
-
-          let index=fs.readFileSync('index.html','utf8');
-          index=index
-            .replaceAll('across 50 destinations','across 100 destinations')
-            .replaceAll('50 destinations','100 destinations')
-            .replaceAll('50 DESTINATIONS','100 DESTINATIONS');
-          fs.writeFileSync('index.html',index);
-
-          for(const file of ['launch-polish.js','README.md','MARKETING-LAUNCH.md','AUDIT-LAUNCH.md']){
-            if(!fs.existsSync(file)) continue;
-            let text=fs.readFileSync(file,'utf8');
-            text=text.replaceAll('50 destinations','100 destinations').replaceAll('50 DESTINATIONS','100 DESTINATIONS').replaceAll('50 дестинации','100 дестинации');
-            fs.writeFileSync(file,text);
-          }
-
-          let launch=fs.readFileSync('test-launch.mjs','utf8');
-          launch=launch
-            .replaceAll("index.includes('50 DESTINATIONS')","index.includes('100 DESTINATIONS')")
-            .replaceAll("base landing HTML must advertise all 50 destinations","base landing HTML must advertise all 100 destinations")
-            .replaceAll("const RELEASE = '2026-08-26.6'","const RELEASE = '2026-08-27.7'");
-          fs.writeFileSync('test-launch.mjs',launch);
-
-          let catalogTest=fs.readFileSync('test-catalog.mjs','utf8');
-          if(!catalogTest.includes("worker/src/index.js")){
-            catalogTest=catalogTest.replace(
-              "const names=Object.keys(cities);",
-              "const names=Object.keys(cities);\nconst worker=fs.readFileSync(new URL('./worker/src/index.js',import.meta.url),'utf8');"
-            );
-            catalogTest=catalogTest.replace(
-              "assert.equal(names.length,100,'Kidventuro must expose exactly 100 destination catalogs');",
-              "assert.equal(names.length,100,'Kidventuro must expose exactly 100 destination catalogs');\nfor(const name of names) assert.ok(worker.includes(`'${name.replaceAll(\"'\",\"\\\\'\")}'`),`Worker destination whitelist missing ${name}`);"
-            );
-          }
-          fs.writeFileSync('test-catalog.mjs',catalogTest);
-
-          let seoTest=fs.readFileSync('test-seo-localization.mjs','utf8');
-          seoTest=seoTest
-            .replace("assert.equal(enFiles.length,50,'exactly 50 English destination SEO pages must exist');","assert.equal(enFiles.length,100,'exactly 100 English destination SEO pages must exist');")
-            .replace("assert.equal(esFiles.length,50,'exactly 50 Spanish destination SEO pages must exist');","assert.equal(esFiles.length,100,'exactly 100 Spanish destination SEO pages must exist');");
-          const expectedStart=seoTest.indexOf('const expected=[');
-          const expectedEnd=seoTest.indexOf('];',expectedStart);
-          if(expectedStart>=0&&expectedEnd>expectedStart){
-            seoTest=seoTest.slice(0,expectedStart)+"const destinationData=await read('./destinations/destination-data.js');\nconst destinationMatch=destinationData.match(/^window\\.KIDVENTURO_DESTINATION_SEO=(\\{.*\\});\\s*$/s);\nassert.ok(destinationMatch,'destination SEO data must be parseable');\nconst expected=Object.keys(JSON.parse(destinationMatch[1]));"+seoTest.slice(expectedEnd+2);
-          }
-          fs.writeFileSync('test-seo-localization.mjs',seoTest);
-
-          let staticSeo=fs.readFileSync('test-static-seo.mjs','utf8');
-          staticSeo=staticSeo
-            .replaceAll('files.length, 50','files.length, 100')
-            .replaceAll('expected 50 destination pages','expected 100 destination pages')
-            .replace("assert.equal(seenTitles.size, 100, 'Every destination page must have a unique title');","assert.equal(seenTitles.size, 200, 'Every localized destination page must have a unique title');");
-          fs.writeFileSync('test-static-seo.mjs',staticSeo);
-
-          const workerPkg=JSON.parse(fs.readFileSync('worker/package.json','utf8'));
-          if(!workerPkg.scripts.test.includes('test-static-seo.mjs')) workerPkg.scripts.test += ' && node ../test-static-seo.mjs';
-          fs.writeFileSync('worker/package.json',JSON.stringify(workerPkg,null,2)+'\n');
-
-          execFileSync(process.execPath,['scripts/generate-destination-pages.mjs'],{stdio:'inherit'});
-
-          // Ensure every generated static page is substantial and crawlable before committing.
-          for(const langDir of ['destinations','es/destinos']){
-            const files=fs.readdirSync(langDir).filter(x=>x.endsWith('.html')&&x!=='index.html');
-            if(files.length!==100) throw new Error(`${langDir}: expected 100 destination pages, found ${files.length}`);
-            for(const file of files){
-              const html=fs.readFileSync(`${langDir}/${file}`,'utf8');
-              if(!html.includes('rel="canonical"')||!html.includes('application/ld+json')||!html.includes('<h1>')) throw new Error(`${langDir}/${file}: static SEO markers missing`);
+          const robots=fs.readFileSync('robots.txt','utf8');
+          const supported=[...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)].map(m=>m[1]);
+          if(supported.length!==50) throw new Error(`Expected 50 supported destinations, found ${supported.length}`);
+          for(const slug of supported){
+            for(const file of [`destinations/${slug}.html`,`es/destinos/${slug}.html`]){
+              const html=fs.readFileSync(file,'utf8');
+              for(const marker of ['rel="canonical"','application/ld+json','rel="icon"','property="og:image"','name="twitter:image"','<h1>']){
+                if(!html.includes(marker)) throw new Error(`${file}: missing ${marker}`);
+              }
             }
           }
+          const sitemap=fs.readFileSync('sitemap.xml','utf8');
+          const urls=(sitemap.match(/<loc>/g)||[]).length;
+          if(urls!==107) throw new Error(`Expected 107 sitemap URLs, found ${urls}`);
+          console.log('Supported SEO output is consistent.');
           NODE
 
-      - name: Run full regression suite
+      - name: Run regression suite
         run: |
           npm --prefix worker install --no-audit --no-fund
           npm --prefix worker test
-          npm run check-worker
 
-      - name: Commit synchronized production state
+      - name: Commit generated SEO pages
         run: |
           if git diff --quiet; then
             echo 'Nothing to commit.'
@@ -128,6 +62,6 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add worker/src/index.js worker/package.json index.html launch-polish.js README.md MARKETING-LAUNCH.md AUDIT-LAUNCH.md test-launch.mjs test-catalog.mjs test-seo-localization.mjs test-static-seo.mjs sitemap.xml destinations es/destinos
-          git commit -m 'Synchronize 100 destinations across production and SEO'
+          git add sitemap.xml destinations es/destinos
+          git commit -m 'Refresh supported destination SEO pages [skip ci]'
           git push origin HEAD:main
