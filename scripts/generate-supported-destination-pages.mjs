@@ -18,6 +18,8 @@ await writeFile(dataPath,temporary,'utf8');
 try{
   const generator=pathToFileURL(path.join(root,'scripts','generate-destination-pages.mjs')).href;
   await import(`${generator}?supported=${Date.now()}`);
+  const polisher=pathToFileURL(path.join(root,'scripts','polish-supported-destination-pages.mjs')).href;
+  await import(`${polisher}?supported=${Date.now()}`);
 }finally{
   await writeFile(dataPath,source,'utf8');
 }
