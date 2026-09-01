@@ -4,7 +4,9 @@ import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const robots = await readFile(path.join(root, 'robots.txt'), 'utf8');
-const supported = [...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)].map(match => match[1]);
+const supported = [...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)]
+  .map(match => match[1])
+  .filter(slug => slug !== 'index');
 
 if (supported.length !== 50) {
   throw new Error(`Expected 50 supported destinations from robots.txt, found ${supported.length}`);
