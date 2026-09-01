@@ -33,7 +33,7 @@ jobs:
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const robots=fs.readFileSync('robots.txt','utf8');
-          const supported=[...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)].map(m=>m[1]);
+          const supported=[...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)].map(m=>m[1]).filter(slug=>slug!=='index');
           if(supported.length!==50) throw new Error(`Expected 50 supported destinations, found ${supported.length}`);
           for(const slug of supported){
             for(const file of [`destinations/${slug}.html`,`es/destinos/${slug}.html`]){
