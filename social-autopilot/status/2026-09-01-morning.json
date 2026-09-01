@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-01T06:55:38.372Z",
+  "updatedAt": "2026-09-01T09:57:45.840Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-01-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-01T06:54:27.504Z",
+    "startedAt": "2026-09-01T09:57:43.425Z",
     "slot": "morning",
     "slotKey": "2026-09-01-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-01T06:54:27.504Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-01T09:57:43.425Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9676ac36807ba17ea5eae1",
         "status": "sent",
         "sentAt": "2026-09-01T06:54:44.415Z",
         "externalLink": "https://www.instagram.com/p/DcvEL9pFiKJ/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9676b59ffb57a8b98b0b9d",
         "status": "sent",
         "sentAt": "2026-09-01T06:54:48.515Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649007979",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9676babb80a3a4c99e7d91",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-01T06:56:33.748Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680456807038455072",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Bali: Temple-gate shape hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-01T06:55:38.319Z"
+    "finishedAt": "2026-09-01T09:57:45.796Z"
   }
 }
