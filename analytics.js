@@ -43,6 +43,10 @@
   const google=runtime.google||{};
   const gtmId=String(google.gtmId||'').trim();
   const tagId=String(google.tagId||'').trim();
+  const pageLanguage=()=>{
+    const lang=String(document.documentElement.lang||'en').toLowerCase().split('-')[0];
+    return ['en','es','bg'].includes(lang)?lang:'en';
+  };
 
   if(publicHost&&/^GTM-[A-Z0-9]+$/i.test(gtmId)&&!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${gtmId}"]`)){
     window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
@@ -104,7 +108,7 @@
       event,
       product:['mini','adventure','family'].includes(extra.product)?extra.product:'',
       path:location.pathname||'/',
-      lang:document.documentElement.lang==='bg'?'bg':'en',
+      lang:pageLanguage(),
       source:attribution.source,
       medium:attribution.medium,
       campaign:attribution.campaign,
