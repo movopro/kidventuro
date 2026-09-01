@@ -16,6 +16,7 @@ const clean=(value,max=80)=>String(value||'')
 
 const cleanProduct=value=>PRODUCTS.has(String(value||'').toLowerCase())?String(value).toLowerCase():'';
 const cleanMode=value=>value==='live'?'live':value==='test'?'test':'';
+const cleanLang=value=>['en','es','bg'].includes(String(value||'').toLowerCase())?String(value).toLowerCase():'';
 const safePath=value=>{
   const path=clean(value,120);
   return /^\/[a-zA-Z0-9._~\-/]*$/.test(path)?path:'';
@@ -28,7 +29,7 @@ export function trackAnalytics(env,event,details={}){
 
   const product=cleanProduct(details.product);
   const path=safePath(details.path);
-  const lang=details.lang==='bg'?'bg':details.lang==='en'?'en':'';
+  const lang=cleanLang(details.lang);
   const source=clean(details.source,64);
   const medium=clean(details.medium,64);
   const campaign=clean(details.campaign,80);
