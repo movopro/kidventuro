@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-02T18:13:30.015Z",
+  "updatedAt": "2026-09-02T18:35:20.583Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-02-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-02T18:12:16.517Z",
+    "startedAt": "2026-09-02T18:35:18.483Z",
     "slot": "evening",
     "slotKey": "2026-09-02-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-02T18:12:16.517Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-02T18:35:18.483Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a986709b40d67a924cdda62",
         "status": "sent",
         "sentAt": "2026-09-02T18:12:33.956Z",
         "externalLink": "https://www.instagram.com/p/Dcy2jSNm4xw/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a986713b40d67a924cddb90",
         "status": "sent",
         "sentAt": "2026-09-02T18:12:38.850Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649115134",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9867194d1de57b78a67911",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-02T18:14:25.223Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7681002599050530081",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Auckland: Volcano-shape hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-02T18:13:29.961Z"
+    "finishedAt": "2026-09-02T18:35:20.545Z"
   }
 }
