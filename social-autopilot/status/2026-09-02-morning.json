@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-02T09:30:32.760Z",
+  "updatedAt": "2026-09-02T09:45:40.972Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-02-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-02T09:29:23.791Z",
+    "startedAt": "2026-09-02T09:45:40.132Z",
     "slot": "morning",
     "slotKey": "2026-09-02-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-02T09:29:23.791Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-02T09:45:40.132Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a97ec7c104ab15147556ccb",
         "status": "sent",
         "sentAt": "2026-09-02T09:29:39.445Z",
         "externalLink": "https://www.instagram.com/p/Dcx6tjMFRR-/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a97ec84c50bfde700b136a5",
         "status": "sent",
         "sentAt": "2026-09-02T09:29:42.201Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649085054",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a97ec88505587464e5b62f1",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-02T09:30:58.302Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680867845038689569",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "San Diego: Ocean animal bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-02T09:30:32.703Z"
+    "finishedAt": "2026-09-02T09:45:40.921Z"
   }
 }
