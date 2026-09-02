@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T11:42:55.731Z",
+  "updatedAt": "2026-09-02T14:23:54.748Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-02T11:41:46.047Z",
+    "startedAt": "2026-09-02T14:23:53.485Z",
     "slot": "morning",
     "slotKey": "2026-09-02-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-02T11:41:46.047Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-02T14:23:53.485Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a980b80738205de5b016a51",
         "status": "sent",
         "sentAt": "2026-09-02T11:42:01.679Z",
         "externalLink": "https://www.instagram.com/p/DcyJ230kS9W/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a980b8b62abddd00b7c5e5d",
         "status": "sent",
         "sentAt": "2026-09-02T11:42:05.072Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649091212",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a980b90738205de5b016b69",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-02T11:43:55.786Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7680901972513262880",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Mexico",
     "postVariant": null,
-    "finishedAt": "2026-09-02T11:42:55.676Z"
+    "finishedAt": "2026-09-02T14:23:54.695Z"
   }
 }
