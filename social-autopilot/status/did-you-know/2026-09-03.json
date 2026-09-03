@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T11:08:30.078Z",
+  "updatedAt": "2026-09-03T11:41:43.239Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-03T11:07:22.563Z",
+    "startedAt": "2026-09-03T11:41:41.634Z",
     "slot": "evening",
     "slotKey": "2026-09-03-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-03T11:07:22.563Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-03T11:41:41.634Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9954f1b638f50b79b7cd0c",
         "status": "sent",
         "sentAt": "2026-09-03T11:07:36.803Z",
         "externalLink": "https://www.instagram.com/p/Dc0qt5mGycS/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9954fa8f5a4f258c3559e9",
         "status": "sent",
         "sentAt": "2026-09-03T11:07:39.475Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649165711",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9954fd7ac89b343be3200d",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-03T11:09:31.122Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7681264149699104033",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Rio de Janeiro: Beach-pattern bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-03T11:08:30.031Z"
+    "finishedAt": "2026-09-03T11:41:43.190Z"
   }
 }
