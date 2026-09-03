@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-03T06:37:39.955Z",
+  "updatedAt": "2026-09-03T09:38:36.203Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-03-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-03T06:36:28.118Z",
+    "startedAt": "2026-09-03T09:38:35.337Z",
     "slot": "morning",
     "slotKey": "2026-09-03-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-03T06:36:28.118Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-03T09:38:35.337Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a991575b513357a056b0a5d",
         "status": "sent",
         "sentAt": "2026-09-03T06:36:45.539Z",
         "externalLink": "https://www.instagram.com/p/Dc0Lt89FdM-/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a99157eb513357a056b0b2e",
         "status": "sent",
         "sentAt": "2026-09-03T06:36:49.883Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649154398",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a991584c8af4de26dda653f",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-03T06:38:35.638Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7681194341905354016",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Salzburg: Fortress detail detective",
     "postVariant": null,
-    "finishedAt": "2026-09-03T06:37:39.904Z"
+    "finishedAt": "2026-09-03T09:38:36.153Z"
   }
 }
