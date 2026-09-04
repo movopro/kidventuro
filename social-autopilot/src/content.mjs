@@ -15,7 +15,13 @@ const pillars = [
   'a playful product use case during a real family trip'
 ];
 
-const interactiveFormats = ['this-or-that', 'guess-the-city'];
+const interactiveFormats = [
+  'this-or-that',
+  'guess-the-city',
+  'myth-or-fact',
+  'three-second-challenge',
+  'emoji-destination'
+];
 
 const schema = {
   type: 'object',
@@ -80,7 +86,9 @@ const schema = {
 
 function interactiveMode(sequence) {
   if (sequence % 4 !== 0) return null;
-  return interactiveFormats[(Math.floor(sequence / 4) - 1) % interactiveFormats.length];
+  const index = Math.floor(sequence / 4) - 1;
+  const normalizedIndex = ((index % interactiveFormats.length) + interactiveFormats.length) % interactiveFormats.length;
+  return interactiveFormats[normalizedIndex];
 }
 
 function selectSeed(destinations, slot, date) {
@@ -99,6 +107,42 @@ function destinationCues(destination) {
     .filter(Boolean)
     .slice(0, 3);
   return [...cues, 'local landmarks', 'street details', 'family discoveries'].slice(0, 3);
+}
+
+function cueEmoji(cue) {
+  const text = String(cue || '').toLowerCase();
+  const rules = [
+    [/pizza|food|cuisine|market|snack|restaurant/, '🍽️'],
+    [/fountain/, '⛲'],
+    [/tower/, '🗼'],
+    [/art|museum|gallery/, '🎨'],
+    [/café|cafe|coffee/, '☕'],
+    [/ancient|ruin|temple|wonder|history|historic/, '🏛️'],
+    [/castle|palace|royal/, '🏰'],
+    [/beach|sea|coast|island|ocean/, '🏖️'],
+    [/mountain|alp|hill|peak/, '🏔️'],
+    [/canal|boat|harbour|harbor|port/, '🚤'],
+    [/bike|cycling|bicycle/, '🚲'],
+    [/animal|wildlife|safari/, '🐾'],
+    [/desert|dune/, '🏜️'],
+    [/snow|winter|ice/, '❄️'],
+    [/forest|nature|park|garden|green/, '🌿'],
+    [/music|dance/, '🎵'],
+    [/train|rail/, '🚆'],
+    [/bridge/, '🌉'],
+    [/skyline|skyscraper|city lights/, '🏙️'],
+    [/volcano/, '🌋'],
+    [/river|lake/, '🌊'],
+    [/chocolate/, '🍫'],
+    [/sun|warm|sunset/, '☀️']
+  ];
+  return rules.find(([pattern]) => pattern.test(text))?.[1] || '🧭';
+}
+
+function emojiClues(destination) {
+  const emojis = destinationCues(destination).map(cueEmoji);
+  const unique = [...new Set(emojis)];
+  return [...unique, '✈️', '🔎', '🗺️'].slice(0, 3);
 }
 
 function interactiveFallbackContent(seed, mode) {
@@ -123,14 +167,109 @@ function interactiveFallbackContent(seed, mode) {
       },
       instagram: {
         caption: `Family travel game: can you guess the destination before the reveal? Three clues, one city, no Googling.\n\nThen turn the real trip into a game with Kidventuro printable travel adventures for ages 4–12.\n\n#FamilyTravel #TravelWithKids #TravelGame #ScreenFreeKids #Kidventuro`,
-        altText: `Kidventuro guess-the-city family travel challenge with three destination clues and a final reveal.`
+        altText: 'Kidventuro guess-the-city family travel challenge with three destination clues and a final reveal.'
       },
       pinterest: {
         title: 'Guess the City: A Screen-Free Family Travel Game',
         description: `A quick family travel guessing game inspired by ${destination.name}. Use three destination clues, make a guess before the reveal, then try a simple observation mission on the real trip. Kidventuro creates personalized printable travel activities for ages 4–12.`
       },
       tiktok: {
-        caption: `Can you guess the city before slide 4? Keep your answer until the reveal. #FamilyTravel #TravelWithKids #TravelGame #ScreenFreeKids #Kidventuro`
+        caption: 'Can you guess the city before slide 4? Keep your answer until the reveal. #FamilyTravel #TravelWithKids #TravelGame #ScreenFreeKids #Kidventuro'
+      },
+      seed: { pillar, destination: destination.name, mission }
+    };
+  }
+
+  if (mode === 'myth-or-fact') {
+    return {
+      generator: 'local-fallback',
+      theme: `Myth or fact: screen-free travel in ${destination.name}`,
+      visual: {
+        instagramHeadline: 'Myth or fact: travel edition',
+        instagramSubhead: 'Do kids need a screen to stay busy during the slow parts of a trip?',
+        pinterestHeadline: 'Myth or fact family travel game',
+        pinterestSubhead: 'A quick screen-free travel prompt parents can try anywhere',
+        slides: [
+          { kicker: 'MYTH OR FACT', headline: 'Kids need a screen to stay busy?', body: 'Pick MYTH or FACT before the answer appears.' },
+          { kicker: 'LOCK IT IN', headline: 'What is your answer?', body: 'Think about airports, restaurants, queues and long travel days.' },
+          { kicker: 'ONE MORE SECOND', headline: 'Myth or fact?', body: 'No changing your answer now.' },
+          { kicker: 'REVEAL', headline: 'MYTH', body: `A tiny mission like ${mission.toLowerCase()} can turn waiting into something to notice and do.` }
+        ]
+      },
+      instagram: {
+        caption: `MYTH OR FACT: kids need a screen to stay busy while travelling?\n\nOur answer: MYTH. A simple observation game, scavenger hunt or printable mission can give them something real to do. Kidventuro builds those activities around destinations like ${destination.name}.\n\n#FamilyTravel #TravelWithKids #MythOrFact #ScreenFreeKids #Kidventuro`,
+        altText: 'Kidventuro myth-or-fact family travel challenge about screen-free activities during travel.'
+      },
+      pinterest: {
+        title: 'Myth or Fact: Do Kids Need Screens While Travelling?',
+        description: `A quick parent-friendly myth-or-fact prompt about screen-free family travel, with a simple mission inspired by ${destination.name}. Kidventuro creates personalized printable travel activities for ages 4–12.`
+      },
+      tiktok: {
+        caption: 'MYTH OR FACT: kids need a screen to stay busy while travelling? Lock in your answer before the reveal. #FamilyTravel #TravelWithKids #MythOrFact #ScreenFreeKids #Kidventuro'
+      },
+      seed: { pillar, destination: destination.name, mission }
+    };
+  }
+
+  if (mode === 'three-second-challenge') {
+    const [cueOne, cueTwo] = destinationCues(destination);
+    return {
+      generator: 'local-fallback',
+      theme: `Three-second challenge: ${destination.name}`,
+      visual: {
+        instagramHeadline: '3-second travel challenge',
+        instagramSubhead: `Quick: name three things you would look for in ${destination.name}.`,
+        pinterestHeadline: '3-second family travel challenge',
+        pinterestSubhead: `A fast observation game inspired by ${destination.name}`,
+        slides: [
+          { kicker: '3-SECOND CHALLENGE', headline: `Going to ${destination.name}?`, body: 'Name three things you would look for there. Ready?' },
+          { kicker: 'GO', headline: '3... 2... 1...', body: 'Say your three answers before the next slide.' },
+          { kicker: 'TIME', headline: `Did you say ${cueOne}?`, body: `Bonus point if ${cueTwo.toLowerCase()} was on your list too.` },
+          { kicker: 'NEXT LEVEL', headline: mission, body: 'Turn your answer into a real-world mini mission on the trip.' }
+        ]
+      },
+      instagram: {
+        caption: `3-SECOND CHALLENGE: name three things you would look for on a family trip to ${destination.name}. Go.\n\nNow make one of them a real scavenger-hunt mission. Kidventuro turns destinations into printable activities for ages 4–12.\n\n#FamilyTravel #TravelWithKids #TravelChallenge #ScreenFreeKids #Kidventuro`,
+        altText: `Kidventuro three-second family travel challenge inspired by ${destination.name}.`
+      },
+      pinterest: {
+        title: `${destination.name} 3-Second Family Travel Challenge`,
+        description: `Try this fast observation game before or during a family trip to ${destination.name}: name three things you would look for, then turn one answer into a real-world mission. Kidventuro creates printable travel activities for ages 4–12.`
+      },
+      tiktok: {
+        caption: `3 seconds: name three things you would look for in ${destination.name}. Ready? #FamilyTravel #TravelWithKids #TravelChallenge #ScreenFreeKids #Kidventuro`
+      },
+      seed: { pillar, destination: destination.name, mission }
+    };
+  }
+
+  if (mode === 'emoji-destination') {
+    const [emojiOne, emojiTwo, emojiThree] = emojiClues(destination);
+    return {
+      generator: 'local-fallback',
+      theme: `Emoji destination: ${destination.name}`,
+      visual: {
+        instagramHeadline: 'Guess the destination by emoji',
+        instagramSubhead: 'Three emoji clues. One destination. Reveal on the final slide.',
+        pinterestHeadline: 'Emoji destination guessing game',
+        pinterestSubhead: 'A quick family travel guessing challenge',
+        slides: [
+          { kicker: 'EMOJI DESTINATION', headline: `${emojiOne}  ${emojiTwo}  ${emojiThree}`, body: 'Which destination do these clues make you think of?' },
+          { kicker: 'NO GOOGLING', headline: `${emojiOne} + ${emojiTwo}`, body: 'Make your first guess now.' },
+          { kicker: 'FINAL CLUE', headline: emojiThree, body: 'Last chance. Lock in your answer.' },
+          { kicker: 'REVEAL', headline: destination.name, body: `Got it? Try ${mission.toLowerCase()} when your family gets there.` }
+        ]
+      },
+      instagram: {
+        caption: `EMOJI DESTINATION: ${emojiOne} ${emojiTwo} ${emojiThree}\n\nCan you guess the place before the reveal? Kidventuro turns destinations like ${destination.name} into printable games and mini missions for ages 4–12.\n\n#FamilyTravel #TravelWithKids #GuessTheDestination #TravelGame #Kidventuro`,
+        altText: `Kidventuro emoji destination guessing game with three clues leading to ${destination.name}.`
+      },
+      pinterest: {
+        title: 'Emoji Destination: A Family Travel Guessing Game',
+        description: `Use three emoji clues to guess ${destination.name} before the reveal, then turn the destination into a real-world observation mission. Kidventuro creates personalized printable travel activities for ages 4–12.`
+      },
+      tiktok: {
+        caption: `${emojiOne} ${emojiTwo} ${emojiThree} — can you guess the destination before slide 4? #FamilyTravel #TravelWithKids #GuessTheDestination #TravelGame #Kidventuro`
       },
       seed: { pillar, destination: destination.name, mission }
     };
@@ -153,14 +292,14 @@ function interactiveFallbackContent(seed, mode) {
     },
     instagram: {
       caption: `THIS OR THAT for your next family trip: A) landmark hunt or B) food hunt?\n\nPick one before reading the comments. Kidventuro turns destinations like ${destination.name} into printable games and mini missions for ages 4–12.\n\n#FamilyTravel #TravelWithKids #ThisOrThat #ScreenFreeKids #Kidventuro`,
-      altText: `Kidventuro this-or-that family travel challenge asking viewers to choose a landmark hunt or food hunt.`
+      altText: 'Kidventuro this-or-that family travel challenge asking viewers to choose a landmark hunt or food hunt.'
     },
     pinterest: {
       title: `${destination.name} Family Travel Game: This or That`,
       description: `Try a simple this-or-that challenge on a family trip to ${destination.name}: landmark hunt or food hunt. A fast screen-free idea that turns waiting and sightseeing into a game. Kidventuro makes personalized printable travel activities for ages 4–12.`
     },
     tiktok: {
-      caption: `A or B? Landmark hunt or food hunt for your next family trip? Pick before you read the comments. #FamilyTravel #TravelWithKids #ThisOrThat #ScreenFreeKids #Kidventuro`
+      caption: 'A or B? Landmark hunt or food hunt for your next family trip? Pick before you read the comments. #FamilyTravel #TravelWithKids #ThisOrThat #ScreenFreeKids #Kidventuro'
     },
     seed: { pillar, destination: destination.name, mission }
   };
@@ -179,7 +318,7 @@ function fallbackContent(seed) {
       instagramHeadline: `Turn ${destination.name} into a game`,
       instagramSubhead: `${mission}. One small mission can change how children see a city.`,
       pinterestHeadline: `${destination.name} with kids`,
-      pinterestSubhead: `A screen-free travel mission children can actually do`,
+      pinterestSubhead: 'A screen-free travel mission children can actually do',
       slides: [
         { kicker: 'FAMILY TRAVEL', headline: `Going to ${destination.name}?`, body: 'Give children a mission before the sightseeing starts.' },
         { kicker: 'MINI MISSION', headline: mission, body: `Look for clues linked to ${destination.en.toLowerCase()}.` },
@@ -238,44 +377,29 @@ function outputText(response) {
     .find((item) => item.type === 'output_text')?.text;
 }
 
+function formatInstruction(mode) {
+  switch (mode) {
+    case 'this-or-that':
+      return 'Interactive format: THIS OR THAT. Slides must be hook, option A, option B, and a clear A-or-B comment prompt.';
+    case 'guess-the-city':
+      return 'Interactive format: GUESS THE CITY. Slides must be hook, clue 1, final clues, and destination reveal. Do not reveal the city before slide 4.';
+    case 'myth-or-fact':
+      return 'Interactive format: MYTH OR FACT. Use a safe, broadly true family-travel statement that does not depend on unverifiable destination facts. Slides must ask, hold the answer, and reveal it on slide 4.';
+    case 'three-second-challenge':
+      return 'Interactive format: 3-SECOND CHALLENGE. Slides must be hook, countdown, quick comparison or hint, and a destination mini-mission. Make the viewer answer before slide 3.';
+    case 'emoji-destination':
+      return 'Interactive format: EMOJI DESTINATION. Use 3 relevant emoji clues, hold the destination name until slide 4, then reveal it. Emojis are required for this format.';
+    default:
+      return 'Standard format: practical hook, activity, benefit, and Kidventuro CTA.';
+  }
+}
+
 export async function generateContent({ destinations, slot, date, config, apiKey, useAi = true }) {
   const seed = selectSeed(destinations, slot, date);
   const mode = interactiveMode(seed.sequence);
   if (!apiKey || !useAi) return normalizeContent(fallbackContent(seed), seed, 'local-fallback');
 
-  const formatInstruction = mode === 'this-or-that'
-    ? 'Interactive format: THIS OR THAT. Slides must be hook, option A, option B, and a clear A-or-B comment prompt.'
-    : mode === 'guess-the-city'
-      ? 'Interactive format: GUESS THE CITY. Slides must be hook, clue 1, final clues, and destination reveal. Do not reveal the city before slide 4.'
-      : 'Standard format: practical hook, activity, benefit, and Kidventuro CTA.';
-
-  const prompt = `Create one English social content package for Kidventuro.
-
-Brand truth:
-- Personalized printable travel activity books for children ages 4–12.
-- Keeps children engaged during journeys and curious at the destination.
-- Printable at home; no app; no subscription; one-time purchase.
-- Includes puzzles, travel bingo, scavenger hunts, observation missions, drawing and memory pages.
-- Site: kidventuro.com.
-
-Today's source data from the Kidventuro catalog:
-- Destination: ${seed.destination.name}
-- Safe destination cues: ${seed.destination.en}
-- Catalog mission: ${seed.mission}
-- Content angle: ${seed.pillar}
-- Slot: ${slot}
-- ${formatInstruction}
-
-Rules:
-- Write distinct platform-native copy for Instagram, Pinterest and TikTok.
-- Do not invent prices, discounts, reviews, statistics, opening hours or safety claims.
-- Do not show or request child personal data.
-- Address parents. Keep the child activity practical and adult-supervised.
-- Use 4–7 specific hashtags in Instagram and TikTok captions, never #fyp.
-- Pinterest title must be search-friendly; description must be useful, not keyword stuffing.
-- Visual headlines must be short. Four video slides must follow the selected format above.
-- For interactive formats, make the viewer choose, guess or comment before the final slide.
-- Avoid emojis in visual text. Avoid generic hype and repeated wording across platforms.`;
+  const prompt = `Create one English social content package for Kidventuro.\n\nBrand truth:\n- Personalized printable travel activity books for children ages 4–12.\n- Keeps children engaged during journeys and curious at the destination.\n- Printable at home; no app; no subscription; one-time purchase.\n- Includes puzzles, travel bingo, scavenger hunts, observation missions, drawing and memory pages.\n- Site: kidventuro.com.\n\nToday's source data from the Kidventuro catalog:\n- Destination: ${seed.destination.name}\n- Safe destination cues: ${seed.destination.en}\n- Catalog mission: ${seed.mission}\n- Content angle: ${seed.pillar}\n- Slot: ${slot}\n- ${formatInstruction(mode)}\n\nRules:\n- Write distinct platform-native copy for Instagram, Pinterest and TikTok.\n- Do not invent prices, discounts, reviews, statistics, opening hours or safety claims.\n- Do not show or request child personal data.\n- Address parents. Keep the child activity practical and adult-supervised.\n- Use 4–7 specific hashtags in Instagram and TikTok captions, never #fyp.\n- Pinterest title must be search-friendly; description must be useful, not keyword stuffing.\n- Visual headlines must be short. Four video slides must follow the selected format above.\n- For interactive formats, make the viewer choose, guess or answer before the final slide.\n- Avoid emojis in visual text except EMOJI DESTINATION, where emoji clues are required.\n- Avoid generic hype and repeated wording across platforms.`;
 
   try {
     const response = await fetchWithRetry('https://api.openai.com/v1/responses', {
