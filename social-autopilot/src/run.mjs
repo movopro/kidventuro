@@ -71,9 +71,6 @@ const persistReport = async () => {
 const applyPostVariant = (content) => {
   if (!postVariant || content.postVariant === postVariant) return content;
   const updated = structuredClone(content);
-  if (updated.instagram?.caption) updated.instagram.caption = `${updated.instagram.caption}\n\n${postVariant}`;
-  if (updated.pinterest?.description) updated.pinterest.description = `${updated.pinterest.description}\n\n${postVariant}`;
-  if (updated.tiktok?.caption) updated.tiktok.caption = `${updated.tiktok.caption}\n\n${postVariant}`;
   updated.postVariant = postVariant;
   return updated;
 };
@@ -120,13 +117,14 @@ if (!content) {
 runReport.generator = content.generator;
 runReport.theme = content.theme;
 runReport.postVariant = content.postVariant || null;
+const isInteractive = content.seed?.format && content.seed.format !== 'standard';
 
 if (dryRun) {
   const assets = await renderAssets({ content, outputDirectory, config });
   await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
   runReport.outcome = 'preview';
   runReport.assets = {
-    instagram: assets.instagramPath,
+    instagram: isInteractive ? assets.videoPath : assets.instagramPath,
     pinterest: assets.pinterestPath,
     tiktok: assets.videoPath
   };
@@ -197,7 +195,9 @@ const posts = {
       channelId: setup.channels.instagram.id,
       text: content.instagram.caption,
       imageUrl: instagramUrl,
-      altText: content.instagram.altText
+      videoUrl,
+      altText: content.instagram.altText,
+      asReel: isInteractive
     })
   },
   pinterest: {
