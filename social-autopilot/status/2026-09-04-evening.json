@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-04T16:31:48.626Z",
+  "updatedAt": "2026-09-04T17:44:52.280Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-04-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-04T16:30:05.585Z",
+    "startedAt": "2026-09-04T17:44:50.706Z",
     "slot": "evening",
     "slotKey": "2026-09-04-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-04T16:30:05.585Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-04T17:44:50.706Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9af216ef3e19024e8dedf4",
         "status": "sent",
         "sentAt": "2026-09-04T16:30:53.279Z",
         "externalLink": "https://www.instagram.com/p/Dc30gdinDjk/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9af2415dff2d1220717765",
         "status": "sent",
         "sentAt": "2026-09-04T16:30:58.796Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649266668",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9af2459e905e8210a93071",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-04T16:32:51.238Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7681718666362178848",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Seville: Orange-tree bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-04T16:31:48.573Z"
+    "finishedAt": "2026-09-04T17:44:52.229Z"
   }
 }
