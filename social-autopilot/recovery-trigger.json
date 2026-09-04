@@ -1,8 +1,8 @@
 {
   "slot": "morning",
-  "slotKey": "manual-2026-09-04-emoji-1",
-  "nonce": "manual-interactive-2026-09-04-emoji-2",
-  "postVariant": "Manual interactive test • 2026-09-04",
-  "contentDateOffsetDays": 0,
-  "reason": "Retry one-off interactive post after adding manual slot-key renderer support"
+  "slotKey": "manual-2026-09-04-redesign-1",
+  "nonce": "manual-redesign-2026-09-04-v1",
+  "postVariant": "Manual redesigned interactive test • 2026-09-04",
+  "contentDateOffsetDays": 2,
+  "reason": "One-off manual publish to preview the slower thumbnail-first interactive renderer outside scheduled slots"
 }
