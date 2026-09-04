@@ -1,8 +1,8 @@
 {
   "slot": "morning",
-  "slotKey": "manual-2026-09-04-wow-2",
-  "nonce": "manual-wow-2026-09-04-v1",
-  "postVariant": "WOW retention-first interactive test • 2026-09-04",
+  "slotKey": "manual-2026-09-04-wow-3",
+  "nonce": "manual-wow-2026-09-04-v2",
+  "postVariant": "wow-v3-internal",
   "contentDateOffsetDays": 4,
-  "reason": "Publish a fresh manual interactive post using the new retention-first design"
+  "reason": "Publish clean retention-first interactive reel with no internal caption markers"
 }
