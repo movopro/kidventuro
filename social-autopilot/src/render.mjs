@@ -53,21 +53,29 @@ function imageSvg({ width, height, headline, subhead, kicker, config, variant })
 
 function interactivePosterSvg({ width, height, headline, subhead, config, variant }) {
   const brand = config.brand;
-  const headlineLines = wrapText(headline, variant === 'pinterest' ? 14 : 15, 3);
-  const subheadLines = wrapText(subhead, variant === 'pinterest' ? 24 : 27, 3);
-  const headlineSize = variant === 'pinterest' ? 100 : 94;
+  const headlineLines = wrapText(headline, variant === 'pinterest' ? 12 : 13, 3);
+  const subheadLines = wrapText(subhead, variant === 'pinterest' ? 22 : 24, 2);
+  const headlineSize = variant === 'pinterest' ? 108 : 104;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-    <rect width="${width}" height="${height}" fill="${brand.ink}"/>
-    <circle cx="${width - 75}" cy="120" r="250" fill="${brand.orange}"/>
-    <circle cx="110" cy="${height - 80}" r="270" fill="${brand.teal}"/>
-    <circle cx="${width - 180}" cy="${height - 220}" r="120" fill="${brand.yellow}" opacity="0.95"/>
-    <path d="M90 ${height - 350} C310 ${height - 520}, 570 ${height - 260}, ${width - 100} ${height - 430}" fill="none" stroke="${brand.paper}" stroke-width="9" stroke-linecap="round" stroke-dasharray="5 26" opacity="0.9"/>
-    ${logo(74, 70, 0.9, true)}
-    <g transform="translate(74 210)"><rect width="330" height="68" rx="34" fill="${brand.yellow}"/><text x="165" y="45" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="900" fill="${brand.ink}">STOP &amp; PLAY</text></g>
-    ${textLines(headlineLines, 74, 440, { size: headlineSize, lineHeight: Math.round(headlineSize * 0.98), weight: 900, fill: brand.paper })}
-    ${textLines(subheadLines, 74, 470 + headlineLines.length * Math.round(headlineSize * 0.98), { size: variant === 'pinterest' ? 40 : 36, lineHeight: 50, weight: 600, fill: '#d8e3e0' })}
-    <g transform="translate(74 ${height - 260})"><rect width="${Math.min(560, width - 148)}" height="102" rx="32" fill="${brand.orange}"/><text x="${Math.min(560, width - 148) / 2}" y="66" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#fff">Can you get it right?</text></g>
-    <text x="74" y="${height - 78}" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="${brand.paper}">kidventuro.com</text>
+    <defs>
+      <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${brand.ink}"/>
+        <stop offset="100%" stop-color="#315a54"/>
+      </linearGradient>
+    </defs>
+    <rect width="${width}" height="${height}" fill="url(#heroBg)"/>
+    <circle cx="${width - 80}" cy="95" r="270" fill="${brand.orange}" opacity="0.96"/>
+    <circle cx="70" cy="${height - 40}" r="300" fill="${brand.teal}" opacity="0.95"/>
+    <circle cx="${width - 170}" cy="${height - 170}" r="135" fill="${brand.yellow}" opacity="0.98"/>
+    <path d="M70 ${height - 355} C330 ${height - 540}, 600 ${height - 270}, ${width - 70} ${height - 455}" fill="none" stroke="#fffdf9" stroke-width="10" stroke-linecap="round" stroke-dasharray="6 30" opacity="0.8"/>
+    ${logo(70, 65, 0.92, true)}
+    <g transform="translate(70 195)"><rect width="390" height="76" rx="38" fill="${brand.yellow}"/><text x="195" y="50" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="900" fill="${brand.ink}">DON'T SCROLL YET</text></g>
+    <g transform="translate(70 315)"><rect width="${width - 140}" height="${Math.min(760, height - 600)}" rx="54" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.18" stroke-width="3"/></g>
+    ${textLines(headlineLines, 94, 500, { size: headlineSize, lineHeight: Math.round(headlineSize * 0.94), weight: 900, fill: brand.paper })}
+    ${textLines(subheadLines, 94, 540 + headlineLines.length * Math.round(headlineSize * 0.94), { size: variant === 'pinterest' ? 42 : 40, lineHeight: 52, weight: 700, fill: '#d8e3e0' })}
+    <g transform="translate(94 ${height - 265})"><rect width="${Math.min(600, width - 188)}" height="112" rx="34" fill="${brand.orange}"/><text x="${Math.min(600, width - 188) / 2}" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="37" font-weight="900" fill="#fff">PLAY → STAY FOR THE REVEAL</text></g>
+    <g transform="translate(${width - 258} ${height - 108})"><circle cx="0" cy="0" r="10" fill="${brand.orange}"/><circle cx="36" cy="0" r="10" fill="#fff" opacity="0.32"/><circle cx="72" cy="0" r="10" fill="#fff" opacity="0.32"/><circle cx="108" cy="0" r="10" fill="#fff" opacity="0.32"/></g>
+    <text x="70" y="${height - 70}" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="${brand.paper}">kidventuro.com</text>
   </svg>`;
 }
 
@@ -75,27 +83,39 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
   const brand = config.brand;
   if (interactive) {
     const isReveal = index === 3;
-    const backgrounds = [brand.ink, brand.cream, brand.mint, brand.teal];
+    const gradientA = [brand.ink, '#fff8ef', '#dff4ee', '#20312f'][index];
+    const gradientB = ['#315a54', '#f1e5d4', '#bfe6da', '#2b7a78'][index];
     const foreground = index === 0 || isReveal ? brand.paper : brand.ink;
     const accent = [brand.orange, brand.teal, brand.orangeDark, brand.yellow][index];
-    const headline = wrapText(slide.headline, 14, 3);
-    const body = wrapText(slide.body, 25, 3);
-    const headlineSize = index === 0 ? 112 : 98;
-    const bodyY = 670 + headline.length * Math.round(headlineSize * 0.98);
+    const headline = wrapText(slide.headline, index === 0 ? 11 : 12, 3);
+    const body = wrapText(slide.body, 22, 2);
+    const headlineSize = index === 0 ? 132 : isReveal ? 138 : 118;
+    const headlineLineHeight = Math.round(headlineSize * 0.92);
+    const bodyY = 690 + headline.length * headlineLineHeight;
+    const pageNumber = `${index + 1}/4`;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-      <rect width="${width}" height="${height}" fill="${backgrounds[index]}"/>
-      <circle cx="950" cy="120" r="270" fill="${accent}" opacity="0.98"/>
-      <circle cx="90" cy="1780" r="310" fill="${index === 0 ? brand.teal : brand.pink}" opacity="0.95"/>
-      <path d="M735 340 C990 520, 680 760, 940 940" fill="none" stroke="${index === 0 ? brand.paper : accent}" stroke-width="12" stroke-linecap="round" stroke-dasharray="6 31" opacity="0.9"/>
-      ${logo(70, 72, 1.0, index === 0 || isReveal)}
-      <g transform="translate(70 310)"><rect width="390" height="72" rx="36" fill="${accent}"/><text x="195" y="47" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" fill="${index === 3 ? brand.ink : '#fff'}">${xmlEscape(slide.kicker.toUpperCase())}</text></g>
-      ${textLines(headline, 70, 560, { size: headlineSize, lineHeight: Math.round(headlineSize * 0.98), weight: 900, fill: foreground })}
-      ${textLines(body, 70, bodyY, { size: 43, lineHeight: 57, weight: 600, fill: index === 0 || isReveal ? '#d8e3e0' : brand.muted })}
-      <g transform="translate(70 1565)">
-        <rect width="470" height="108" rx="34" fill="${accent}"/>
-        <text x="235" y="69" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="900" fill="${index === 3 ? brand.ink : '#fff'}">${index === 0 ? 'PLAY →' : index === 3 ? 'SEE MORE →' : `0${index + 1} / 04`}</text>
+      <defs>
+        <linearGradient id="slideBg${index}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${gradientA}"/>
+          <stop offset="100%" stop-color="${gradientB}"/>
+        </linearGradient>
+      </defs>
+      <rect width="${width}" height="${height}" fill="url(#slideBg${index})"/>
+      <circle cx="960" cy="100" r="290" fill="${accent}" opacity="0.98"/>
+      <circle cx="85" cy="1810" r="330" fill="${index === 0 ? brand.teal : brand.pink}" opacity="0.92"/>
+      ${isReveal ? `<circle cx="870" cy="1490" r="28" fill="${brand.orange}"/><circle cx="955" cy="1570" r="17" fill="${brand.yellow}"/><circle cx="770" cy="1615" r="22" fill="${brand.paper}"/><circle cx="900" cy="1705" r="13" fill="${brand.pink}"/>` : ''}
+      ${logo(66, 64, 0.98, index === 0 || isReveal)}
+      <g transform="translate(785 78)"><rect width="220" height="72" rx="36" fill="${index === 0 || isReveal ? '#ffffff' : brand.ink}" fill-opacity="${index === 0 || isReveal ? 0.14 : 0.08}"/><text x="110" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="${foreground}">${pageNumber}</text></g>
+      <g transform="translate(66 292)"><rect width="${index === 0 ? 500 : 420}" height="82" rx="41" fill="${accent}"/><text x="${index === 0 ? 250 : 210}" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="900" fill="${index === 3 ? brand.ink : '#fff'}">${xmlEscape(slide.kicker.toUpperCase())}</text></g>
+      <g transform="translate(50 430)"><rect width="980" height="880" rx="62" fill="#ffffff" fill-opacity="${index === 0 || isReveal ? 0.075 : 0.62}" stroke="${index === 0 || isReveal ? '#ffffff' : '#20312f'}" stroke-opacity="${index === 0 || isReveal ? 0.14 : 0.06}" stroke-width="3"/></g>
+      ${textLines(headline, 82, 650, { size: headlineSize, lineHeight: headlineLineHeight, weight: 900, fill: foreground })}
+      ${textLines(body, 82, bodyY, { size: 54, lineHeight: 68, weight: 800, fill: index === 0 || isReveal ? '#e6efed' : '#405b57' })}
+      <g transform="translate(66 1485)">
+        <rect width="600" height="132" rx="42" fill="${accent}"/>
+        <text x="300" y="83" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="900" fill="${index === 3 ? brand.ink : '#fff'}">${index === 0 ? 'MAKE YOUR PICK →' : index === 3 ? 'REVEAL ✦' : 'KEEP WATCHING →'}</text>
       </g>
-      ${index === 0 ? `<g transform="translate(650 1450) rotate(-7)"><rect width="300" height="140" rx="36" fill="${brand.yellow}"/><text x="150" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="${brand.ink}">DON'T</text><text x="150" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="${brand.ink}">SCROLL YET</text></g>` : ''}
+      <g transform="translate(66 1725)"><rect width="${(width - 132) * ((index + 1) / 4)}" height="18" rx="9" fill="${accent}"/><rect x="0" y="0" width="${width - 132}" height="18" rx="9" fill="none" stroke="${foreground}" stroke-opacity="0.24" stroke-width="2"/></g>
+      ${index === 0 ? `<g transform="translate(700 1425) rotate(-6)"><rect width="315" height="155" rx="42" fill="${brand.yellow}"/><text x="158" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="${brand.ink}">ANSWER</text><text x="158" y="107" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="${brand.ink}">IN YOUR HEAD</text></g>` : ''}
     </svg>`;
   }
 
@@ -199,7 +219,7 @@ export async function renderAssets({ content, outputDirectory, config }) {
 
   const concatPath = path.join(outputDirectory, 'slides.txt');
   const escapePath = (value) => value.replaceAll("'", "'\\''");
-  const interactiveDurations = [2.8, 2.3, 2.3, 2.6];
+  const interactiveDurations = [4.4, 3.8, 3.8, 4.2];
   const standardDuration = Number(config.audio?.slideDurationSeconds) || 3.2;
   const slideDurations = slidePaths.map((_, index) => isInteractive ? interactiveDurations[index] : standardDuration);
   const concat = slidePaths
@@ -217,10 +237,10 @@ export async function renderAssets({ content, outputDirectory, config }) {
   const fadeDuration = Math.min(config.audio.fadeSeconds || 0.6, Math.max(0.25, videoDuration / 8));
   const fadeOutStart = Math.max(0, videoDuration - fadeDuration);
   const targetLoudness = config.audio.targetLoudnessLufs || -16;
-  const motionXSpeed = isInteractive ? 0.56 : 0.72;
-  const motionYSpeed = isInteractive ? 0.42 : 0.48;
-  const motionAmountX = isInteractive ? 20 : 32;
-  const motionAmountY = isInteractive ? 34 : 54;
+  const motionXSpeed = isInteractive ? 0.24 : 0.72;
+  const motionYSpeed = isInteractive ? 0.18 : 0.48;
+  const motionAmountX = isInteractive ? 10 : 32;
+  const motionAmountY = isInteractive ? 16 : 54;
   await runFfmpeg([
     '-y',
     '-f', 'concat',
