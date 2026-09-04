@@ -1,6 +1,8 @@
 {
-  "slot": "evening",
-  "slotKey": "2026-08-30-evening",
-  "nonce": "recover-canonical-evening-2026-08-30-v1",
-  "reason": "One-time recovery for today's missing canonical evening slot after hardening the scheduled watchdog"
+  "slot": "morning",
+  "slotKey": "manual-2026-09-04-emoji-1",
+  "nonce": "manual-interactive-2026-09-04-emoji-1",
+  "postVariant": "Manual interactive test • 2026-09-04",
+  "contentDateOffsetDays": 0,
+  "reason": "One-off interactive post requested manually; isolated from canonical morning/evening automation slots"
 }
