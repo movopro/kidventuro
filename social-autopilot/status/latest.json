@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-04T06:07:54.537Z",
+  "updatedAt": "2026-09-04T09:31:17.124Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-04-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-04T06:06:42.596Z",
+    "startedAt": "2026-09-04T09:31:15.237Z",
     "slot": "morning",
     "slotKey": "2026-09-04-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-04T06:06:42.596Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-04T09:31:15.237Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9a5ffb3c6201878515b68e",
         "status": "sent",
         "sentAt": "2026-09-04T06:07:00.609Z",
         "externalLink": "https://www.instagram.com/p/Dc2tG2NHBzc/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9a6006d678db73b0a99553",
         "status": "sent",
         "sentAt": "2026-09-04T06:07:04.219Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649230361",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9a600ad678db73b0a99784",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-04T06:08:50.596Z",
+        "externalLink": "https://www.tiktok.com/@kidventuro/video/7681557778875403553?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Rome: Colosseum detective",
     "postVariant": null,
-    "finishedAt": "2026-09-04T06:07:54.484Z"
+    "finishedAt": "2026-09-04T09:31:17.082Z"
   }
 }
