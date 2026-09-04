@@ -63,7 +63,7 @@ function interactivePosterSvg({ width, height, headline, subhead, config, varian
     <circle cx="${width - 180}" cy="${height - 220}" r="120" fill="${brand.yellow}" opacity="0.95"/>
     <path d="M90 ${height - 350} C310 ${height - 520}, 570 ${height - 260}, ${width - 100} ${height - 430}" fill="none" stroke="${brand.paper}" stroke-width="9" stroke-linecap="round" stroke-dasharray="5 26" opacity="0.9"/>
     ${logo(74, 70, 0.9, true)}
-    <g transform="translate(74 210)"><rect width="330" height="68" rx="34" fill="${brand.yellow}"/><text x="165" y="45" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="900" fill="${brand.ink}">STOP & PLAY</text></g>
+    <g transform="translate(74 210)"><rect width="330" height="68" rx="34" fill="${brand.yellow}"/><text x="165" y="45" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="900" fill="${brand.ink}">STOP &amp; PLAY</text></g>
     ${textLines(headlineLines, 74, 440, { size: headlineSize, lineHeight: Math.round(headlineSize * 0.98), weight: 900, fill: brand.paper })}
     ${textLines(subheadLines, 74, 470 + headlineLines.length * Math.round(headlineSize * 0.98), { size: variant === 'pinterest' ? 40 : 36, lineHeight: 50, weight: 600, fill: '#d8e3e0' })}
     <g transform="translate(74 ${height - 260})"><rect width="${Math.min(560, width - 148)}" height="102" rx="32" fill="${brand.orange}"/><text x="${Math.min(560, width - 148) / 2}" y="66" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#fff">Can you get it right?</text></g>
