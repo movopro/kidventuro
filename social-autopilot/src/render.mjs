@@ -105,14 +105,14 @@ export function selectAudioClip(slotKey, config) {
   const tracks = config.audio?.tracks || [];
   if (tracks.length < 2) throw new Error('At least two audio tracks are required');
 
-  const slot = slotKey.split('-').at(-1);
-  const slotIndex = Object.keys(config.slots).indexOf(slot);
-  if (slotIndex < 0) throw new Error(`Unknown content slot in ${slotKey}`);
-
   const digest = createHash('sha256').update(slotKey).digest();
+  const canonicalSlot = slotKey.split('-').at(-1);
+  const canonicalIndex = Object.keys(config.slots).indexOf(canonicalSlot);
+  const trackIndex = canonicalIndex >= 0 ? canonicalIndex : digest.readUInt8(4) % tracks.length;
+
   const rangeMilliseconds = Math.max(1, Math.floor((config.audio.excerptStartRangeSeconds || 60) * 1000));
   return {
-    track: tracks[slotIndex % tracks.length],
+    track: tracks[trackIndex % tracks.length],
     startSeconds: (digest.readUInt32BE(0) % rangeMilliseconds) / 1000
   };
 }
