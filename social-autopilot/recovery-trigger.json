@@ -1,8 +1,8 @@
 {
   "slot": "morning",
   "slotKey": "manual-2026-09-04-redesign-1",
-  "nonce": "manual-redesign-2026-09-04-v1",
+  "nonce": "manual-redesign-2026-09-04-v2",
   "postVariant": "Manual redesigned interactive test • 2026-09-04",
   "contentDateOffsetDays": 2,
-  "reason": "One-off manual publish to preview the slower thumbnail-first interactive renderer outside scheduled slots"
+  "reason": "Retry one-off manual publish after escaping thumbnail SVG text"
 }
