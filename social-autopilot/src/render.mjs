@@ -152,7 +152,8 @@ export async function renderAssets({ content, outputDirectory, config }) {
 
   const concatPath = path.join(outputDirectory, 'slides.txt');
   const escapePath = (value) => value.replaceAll("'", "'\\''");
-  const slideDuration = Number(config.audio?.slideDurationSeconds) || 3.2;
+  const isInteractive = content.seed?.format && content.seed.format !== 'standard';
+  const slideDuration = isInteractive ? 1.6 : (Number(config.audio?.slideDurationSeconds) || 3.2);
   const concat = slidePaths
     .flatMap((slidePath) => [`file '${escapePath(slidePath)}'`, `duration ${slideDuration}`])
     .concat(`file '${escapePath(slidePaths.at(-1))}'`)
@@ -161,10 +162,14 @@ export async function renderAssets({ content, outputDirectory, config }) {
   const audioClip = selectAudioClip(content.slotKey, config);
   const audioPath = path.join(autopilotRoot, 'assets', 'audio', audioClip.track);
   await fs.access(audioPath);
-  const videoDuration = Number(config.audio?.videoDurationSeconds) || Number((slidePaths.length * slideDuration).toFixed(1));
-  const fadeDuration = config.audio.fadeSeconds || 0.6;
+  const videoDuration = isInteractive
+    ? Number((slidePaths.length * slideDuration).toFixed(1))
+    : (Number(config.audio?.videoDurationSeconds) || Number((slidePaths.length * slideDuration).toFixed(1)));
+  const fadeDuration = Math.min(config.audio.fadeSeconds || 0.6, Math.max(0.25, videoDuration / 8));
   const fadeOutStart = Math.max(0, videoDuration - fadeDuration);
   const targetLoudness = config.audio.targetLoudnessLufs || -16;
+  const motionXSpeed = isInteractive ? 1.35 : 0.72;
+  const motionYSpeed = isInteractive ? 1.05 : 0.48;
   await runFfmpeg([
     '-y',
     '-f', 'concat',
@@ -173,7 +178,7 @@ export async function renderAssets({ content, outputDirectory, config }) {
     '-ss', audioClip.startSeconds.toFixed(3),
     '-stream_loop', '-1',
     '-i', audioPath,
-    '-filter_complex', `[0:v]fps=30,format=yuv420p[video];[1:a]loudnorm=I=${targetLoudness}:TP=-2:LRA=7,afade=t=in:st=0:d=${fadeDuration},afade=t=out:st=${fadeOutStart}:d=${fadeDuration}[audio]`,
+    '-filter_complex', `[0:v]fps=30,scale=1160:2062,crop=1080:1920:x='40+32*sin(t*${motionXSpeed})':y='71+54*cos(t*${motionYSpeed})',setsar=1,format=yuv420p[video];[1:a]loudnorm=I=${targetLoudness}:TP=-2:LRA=7,afade=t=in:st=0:d=${fadeDuration},afade=t=out:st=${fadeOutStart}:d=${fadeDuration}[audio]`,
     '-map', '[video]',
     '-map', '[audio]',
     '-t', String(videoDuration),
