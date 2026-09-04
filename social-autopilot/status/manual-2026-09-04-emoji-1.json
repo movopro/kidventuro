@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-04T11:22:53.373Z",
+  "updatedAt": "2026-09-04T11:25:21.283Z",
   "event": "push",
   "slot": "morning",
   "slotKey": "manual-2026-09-04-emoji-1",
   "preflightConfigured": "true",
-  "publishOutcome": "failure",
-  "details": null
+  "publishOutcome": "success",
+  "details": {
+    "startedAt": "2026-09-04T11:24:13.494Z",
+    "slot": "morning",
+    "slotKey": "manual-2026-09-04-emoji-1",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-04T11:24:13.494Z",
+    "outcome": "pending",
+    "platforms": {
+      "instagram": {
+        "postId": "6a9aaa6400f893faf3114ce2",
+        "status": "sent",
+        "sentAt": "2026-09-04T11:24:27.934Z",
+        "externalLink": "https://www.instagram.com/p/Dc3RcLdkYsc/",
+        "source": "created"
+      },
+      "pinterest": {
+        "postId": "6a9aaa6d5dff2d12206a545a",
+        "status": "sent",
+        "sentAt": "2026-09-04T11:24:31.074Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644649245580",
+        "source": "created"
+      },
+      "tiktok": {
+        "postId": "6a9aaa719e905e8210a22fdd",
+        "status": "sending",
+        "sentAt": null,
+        "externalLink": null,
+        "source": "created"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Emoji destination: Rome",
+    "postVariant": "Manual interactive test • 2026-09-04",
+    "finishedAt": "2026-09-04T11:25:21.232Z"
+  }
 }
