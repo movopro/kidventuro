@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-04T11:39:27.755Z",
+  "updatedAt": "2026-09-04T11:50:09.793Z",
   "event": "push",
   "slot": "morning",
   "slotKey": "manual-2026-09-04-redesign-1",
   "preflightConfigured": "true",
-  "publishOutcome": "failure",
-  "details": null
+  "publishOutcome": "success",
+  "details": {
+    "startedAt": "2026-09-04T11:49:02.782Z",
+    "slot": "morning",
+    "slotKey": "manual-2026-09-04-redesign-1",
+    "contentDateOffsetDays": 2,
+    "contentDate": "2026-09-06T11:49:02.782Z",
+    "outcome": "pending",
+    "platforms": {
+      "instagram": {
+        "postId": "6a9ab0365dff2d12206ad30a",
+        "status": "sent",
+        "sentAt": "2026-09-04T11:49:17.994Z",
+        "externalLink": "https://www.instagram.com/p/Dc3USBgm6Aw/",
+        "source": "created"
+      },
+      "pinterest": {
+        "postId": "6a9ab03f3aa9acec7f3d0d14",
+        "status": "sent",
+        "sentAt": "2026-09-04T11:49:21.241Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644649247007",
+        "source": "created"
+      },
+      "tiktok": {
+        "postId": "6a9ab04300f893faf311ce4c",
+        "status": "sending",
+        "sentAt": null,
+        "externalLink": null,
+        "source": "created"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Interactive choice: Hong Kong",
+    "postVariant": "Manual redesigned interactive test • 2026-09-04",
+    "finishedAt": "2026-09-04T11:50:09.722Z"
+  }
 }
