@@ -1,8 +1,8 @@
 {
   "slot": "morning",
-  "slotKey": "manual-2026-09-04-redesign-1",
-  "nonce": "manual-redesign-2026-09-04-v5",
-  "postVariant": "Manual redesigned interactive test • 2026-09-04",
-  "contentDateOffsetDays": 2,
-  "reason": "Duplicate-safe verification retry to confirm TikTok final delivery state"
+  "slotKey": "manual-2026-09-04-wow-2",
+  "nonce": "manual-wow-2026-09-04-v1",
+  "postVariant": "WOW retention-first interactive test • 2026-09-04",
+  "contentDateOffsetDays": 4,
+  "reason": "Publish a fresh manual interactive post using the new retention-first design"
 }
