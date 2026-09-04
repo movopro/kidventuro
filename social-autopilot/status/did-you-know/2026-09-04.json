@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T11:11:42.319Z",
+  "updatedAt": "2026-09-04T11:42:48.641Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-04T11:10:29.674Z",
+    "startedAt": "2026-09-04T11:42:47.369Z",
     "slot": "morning",
     "slotKey": "2026-09-04-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-04T11:10:29.674Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-04T11:42:47.369Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9aa72b9e905e8210a1f520",
         "status": "sent",
         "sentAt": "2026-09-04T11:10:47.240Z",
         "externalLink": "https://www.instagram.com/p/Dc3P3ifEbOh/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9aa73c5dff2d12206a1b8f",
         "status": "sent",
         "sentAt": "2026-09-04T11:10:53.585Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649244769",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9aa73fdaf7c7188fd371de",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-04T11:13:13.572Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7681636217498176801",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Interactive guess: Rome",
     "postVariant": null,
-    "finishedAt": "2026-09-04T11:11:42.269Z"
+    "finishedAt": "2026-09-04T11:42:48.600Z"
   }
 }
