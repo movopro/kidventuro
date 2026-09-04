@@ -229,53 +229,64 @@ for (const [platform, post] of Object.entries(posts)) {
     continue;
   }
 
-  const matching = await buffer.matchingRecentPost({
-    organizationId: setup.organizationId,
-    channelId: post.channelId,
-    text: post.input.text
-  });
+  try {
+    const matching = await buffer.matchingRecentPost({
+      organizationId: setup.organizationId,
+      channelId: post.channelId,
+      text: post.input.text
+    });
 
-  let published = isCompleteOrInFlight(matching) ? matching : null;
-  let recoveredExistingPost = Boolean(published);
-  if (!published) {
-    if (matching?.status === 'error') {
-      console.warn(`${platform}: recent Buffer post ${matching.id} is in error; creating a replacement`);
-    } else if (matching) {
-      console.warn(`${platform}: recent Buffer post ${matching.id} cannot be recovered (${matching.status}); creating a replacement`);
+    let published = isCompleteOrInFlight(matching) ? matching : null;
+    let recoveredExistingPost = Boolean(published);
+    if (!published) {
+      if (matching?.status === 'error') {
+        console.warn(`${platform}: recent Buffer post ${matching.id} is in error; creating a replacement`);
+      } else if (matching) {
+        console.warn(`${platform}: recent Buffer post ${matching.id} cannot be recovered (${matching.status}); creating a replacement`);
+      }
+      published = await buffer.createPost(post.input);
+      recoveredExistingPost = false;
     }
-    published = await buffer.createPost(post.input);
-    recoveredExistingPost = false;
+
+    const observed = published.status === 'sent'
+      ? published
+      : await buffer.waitForPost(published.id);
+
+    if (!observed) throw new Error(`Buffer post ${published.id} disappeared after creation`);
+    if (observed.status === 'error') throw new Error(`Buffer reported publishing error for ${observed.id}`);
+    if (!isCompleteOrInFlight(observed)) {
+      throw new Error(`Buffer post ${observed.id} remained in unexpected status ${observed.status}`);
+    }
+
+    await cloudinary.putJson(markerId, {
+      platform,
+      postId: observed.id,
+      status: observed.status,
+      slotKey,
+      recordedAt: new Date().toISOString(),
+      sentAt: observed.sentAt || null,
+      externalLink: observed.externalLink || null,
+      recoveredExistingPost
+    });
+    runReport.platforms[platform] = {
+      postId: observed.id,
+      status: observed.status,
+      sentAt: observed.sentAt || null,
+      externalLink: observed.externalLink || null,
+      source: recoveredExistingPost ? 'recovered-buffer-post' : 'created'
+    };
+    await persistReport();
+    console.log(`${platform}: Buffer status ${observed.status} as ${observed.id}`);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`${platform}: ${message}`);
+    runReport.platforms[platform] = {
+      status: 'error',
+      error: message,
+      source: 'platform-error'
+    };
+    await persistReport();
   }
-
-  const observed = published.status === 'sent'
-    ? published
-    : await buffer.waitForPost(published.id);
-
-  if (!observed) throw new Error(`${platform}: Buffer post ${published.id} disappeared after creation`);
-  if (observed.status === 'error') throw new Error(`${platform}: Buffer reported publishing error for ${observed.id}`);
-  if (!isCompleteOrInFlight(observed)) {
-    throw new Error(`${platform}: Buffer post ${observed.id} remained in unexpected status ${observed.status}`);
-  }
-
-  await cloudinary.putJson(markerId, {
-    platform,
-    postId: observed.id,
-    status: observed.status,
-    slotKey,
-    recordedAt: new Date().toISOString(),
-    sentAt: observed.sentAt || null,
-    externalLink: observed.externalLink || null,
-    recoveredExistingPost
-  });
-  runReport.platforms[platform] = {
-    postId: observed.id,
-    status: observed.status,
-    sentAt: observed.sentAt || null,
-    externalLink: observed.externalLink || null,
-    source: recoveredExistingPost ? 'recovered-buffer-post' : 'created'
-  };
-  await persistReport();
-  console.log(`${platform}: Buffer status ${observed.status} as ${observed.id}`);
 }
 
 const oldDate = new Date(now.getTime() - config.retentionDays * 86_400_000);
@@ -291,7 +302,10 @@ for (const oldSlot of Object.keys(config.slots)) {
   ]);
 }
 
-runReport.outcome = Object.values(runReport.platforms).every((platform) => platform.status === 'sent') ? 'sent' : 'pending';
+const platformResults = Object.values(runReport.platforms);
+const hasErrors = platformResults.some((platform) => platform.status === 'error');
+const allSent = platformResults.length === Object.keys(posts).length && platformResults.every((platform) => platform.status === 'sent');
+runReport.outcome = allSent ? 'sent' : hasErrors ? 'partial' : 'pending';
 runReport.finishedAt = new Date().toISOString();
 await persistReport();
 console.log(`Kidventuro social slot complete: ${slotKey} (${runReport.outcome})`);
