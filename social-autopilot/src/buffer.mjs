@@ -124,7 +124,10 @@ export class BufferClient {
   }
 }
 
-export function instagramInput({ channelId, text, imageUrl, altText }) {
+export function instagramInput({ channelId, text, imageUrl, videoUrl, altText, asReel = false }) {
+  const assets = asReel
+    ? [{ video: { url: videoUrl, metadata: { thumbnailOffset: 1000 } } }]
+    : [{ image: { url: imageUrl, metadata: { altText } } }];
   return {
     text,
     channelId,
@@ -132,8 +135,14 @@ export function instagramInput({ channelId, text, imageUrl, altText }) {
     mode: 'shareNow',
     needsApproval: false,
     aiAssisted: true,
-    assets: [{ image: { url: imageUrl, metadata: { altText } } }],
-    metadata: { instagram: { type: 'post', shouldShareToFeed: true, isAiGenerated: true } }
+    assets,
+    metadata: {
+      instagram: {
+        type: asReel ? 'reel' : 'post',
+        shouldShareToFeed: true,
+        isAiGenerated: true
+      }
+    }
   };
 }
 
