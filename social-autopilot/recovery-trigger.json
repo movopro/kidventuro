@@ -1,8 +1,8 @@
 {
   "slot": "morning",
   "slotKey": "manual-2026-09-04-redesign-1",
-  "nonce": "manual-redesign-2026-09-04-v3",
+  "nonce": "manual-redesign-2026-09-04-v4",
   "postVariant": "Manual redesigned interactive test • 2026-09-04",
   "contentDateOffsetDays": 2,
-  "reason": "Retry Buffer delivery after transient Instagram publish error"
+  "reason": "Retry manual post after making Instagram, Pinterest and TikTok publish independently"
 }
