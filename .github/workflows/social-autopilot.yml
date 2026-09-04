@@ -151,7 +151,7 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Verify complete live delivery
+      - name: Verify live delivery state
         if: always() && steps.gate.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.dry_run == false)
         env:
           PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
@@ -162,14 +162,22 @@ jobs:
           const resultPath = 'social-autopilot/status/run-result.json';
           let details = null;
           if (fs.existsSync(resultPath)) details = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
-          const complete = process.env.PREFLIGHT_CONFIGURED === 'true'
-            && process.env.LIVE_PUBLISH_OUTCOME === 'success'
-            && details?.outcome === 'sent';
-          if (!complete) {
-            console.error(`Live delivery incomplete: preflight=${process.env.PREFLIGHT_CONFIGURED}, publish=${process.env.LIVE_PUBLISH_OUTCOME}, outcome=${details?.outcome || 'missing'}`);
+
+          const preflightOk = process.env.PREFLIGHT_CONFIGURED === 'true';
+          const publishOk = process.env.LIVE_PUBLISH_OUTCOME === 'success';
+          const outcome = details?.outcome || 'missing';
+          const acceptableOutcome = outcome === 'sent' || outcome === 'pending';
+
+          if (!preflightOk || !publishOk || !acceptableOutcome) {
+            console.error(`Live delivery unhealthy: preflight=${process.env.PREFLIGHT_CONFIGURED}, publish=${process.env.LIVE_PUBLISH_OUTCOME}, outcome=${outcome}`);
             process.exit(1);
           }
-          console.log('All configured platforms are confirmed sent.');
+
+          if (outcome === 'pending') {
+            console.log('Delivery accepted by Buffer and still in flight; a later watchdog run will verify final sent state without creating duplicates.');
+          } else {
+            console.log('All configured platforms are confirmed sent.');
+          }
           NODE
 
       - name: Render manual preview
