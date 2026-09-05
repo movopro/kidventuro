@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-05T06:17:08.928Z",
+  "updatedAt": "2026-09-05T08:58:13.742Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-05-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-05T06:16:00.869Z",
+    "startedAt": "2026-09-05T08:58:12.395Z",
     "slot": "morning",
     "slotKey": "2026-09-05-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-05T06:16:00.869Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-05T08:58:12.395Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9bb3a9dca05898bf4ce3b4",
         "status": "sent",
         "sentAt": "2026-09-05T06:16:17.523Z",
         "externalLink": "https://www.instagram.com/p/Dc5S91Wkeqg/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9bb3b2720c7a42cca5531f",
         "status": "sent",
         "sentAt": "2026-09-05T06:16:19.957Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649315003",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9bb3b59ca05109bed058d9",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-05T06:18:06.030Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7681931254798896416",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Delhi: Market colour bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-05T06:17:08.879Z"
+    "finishedAt": "2026-09-05T08:58:13.693Z"
   }
 }
