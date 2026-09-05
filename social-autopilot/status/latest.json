@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-05T15:59:10.711Z",
+  "updatedAt": "2026-09-05T16:20:53.330Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-05-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-05T15:58:03.199Z",
+    "startedAt": "2026-09-05T16:20:51.734Z",
     "slot": "evening",
     "slotKey": "2026-09-05-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-05T15:58:03.199Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-05T16:20:51.734Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9c3c14529c45912088cfdb",
         "status": "sent",
         "sentAt": "2026-09-05T15:58:18.548Z",
         "externalLink": "https://www.instagram.com/p/Dc6Vk3bloVC/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9c3c1be6524401a657b5be",
         "status": "sent",
         "sentAt": "2026-09-05T15:58:21.028Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649348946",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9c3c1f85ccb3a22c04cfdd",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-05T16:00:07.345Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7682081228031331617",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Istanbul: Dome-and-tower bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-05T15:59:10.667Z"
+    "finishedAt": "2026-09-05T16:20:53.278Z"
   }
 }
