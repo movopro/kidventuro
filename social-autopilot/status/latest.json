@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-06T06:29:32.652Z",
+  "updatedAt": "2026-09-06T09:32:22.896Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-06-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-06T06:27:38.196Z",
+    "startedAt": "2026-09-06T09:32:21.593Z",
     "slot": "morning",
     "slotKey": "2026-09-06-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-06T06:27:38.196Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-06T09:32:21.593Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9d07e56acbdfc9ed97758c",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-06T06:28:45.565Z",
+        "externalLink": "https://www.instagram.com/reel/Dc75GYyiJGy/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9d08186acbdfc9ed9779c0",
         "status": "sent",
         "sentAt": "2026-09-06T06:28:41.754Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649400052",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9d081b6acbdfc9ed977a0b",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-06T06:30:26.664Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7682305492428885280",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Interactive choice: Hong Kong",
     "postVariant": null,
-    "finishedAt": "2026-09-06T06:29:32.602Z"
+    "finishedAt": "2026-09-06T09:32:22.849Z"
   }
 }
