@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-09-06T16:58:47.923Z",
+  "updatedAt": "2026-09-06T17:10:54.009Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-06-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-06T16:58:36.614Z",
+    "startedAt": "2026-09-06T17:10:36.433Z",
     "slot": "evening",
     "slotKey": "2026-09-06-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-06T16:58:36.614Z",
-    "outcome": "partial",
+    "contentDate": "2026-09-06T17:10:36.433Z",
+    "outcome": "sent",
     "platforms": {
       "pinterest": {
         "postId": "6a9d957daf83b6dedf9649dc",
@@ -28,14 +28,16 @@
         "source": "verified-marker"
       },
       "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6a9d9bc505c83fb1f6253067",
-        "source": "platform-error"
+        "postId": "6a9d9e942066ff47cc40a803",
+        "status": "sent",
+        "sentAt": "2026-09-06T17:10:52.417Z",
+        "externalLink": "https://www.instagram.com/p/Dc9CrBPlWhH/",
+        "source": "created"
       }
     },
     "generator": "local-fallback",
     "theme": "Taipei: Night-market symbol bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-06T16:58:47.876Z"
+    "finishedAt": "2026-09-06T17:10:53.957Z"
   }
 }
