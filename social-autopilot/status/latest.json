@@ -1,41 +1,41 @@
 {
-  "updatedAt": "2026-09-06T16:32:48.220Z",
+  "updatedAt": "2026-09-06T16:58:47.923Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-06-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-06T16:31:46.782Z",
+    "startedAt": "2026-09-06T16:58:36.614Z",
     "slot": "evening",
     "slotKey": "2026-09-06-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-06T16:31:46.782Z",
+    "contentDate": "2026-09-06T16:58:36.614Z",
     "outcome": "partial",
     "platforms": {
-      "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6a9d957c6acbdfc9eda3a376",
-        "source": "platform-error"
-      },
       "pinterest": {
         "postId": "6a9d957daf83b6dedf9649dc",
         "status": "sent",
         "sentAt": "2026-09-06T16:31:59.295Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649436890",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9d95816acbdfc9eda3a3ce",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-06T16:34:11.567Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7682461106778000672",
+        "source": "verified-marker"
+      },
+      "instagram": {
+        "status": "error",
+        "error": "Buffer reported publishing error for 6a9d9bc505c83fb1f6253067",
+        "source": "platform-error"
       }
     },
     "generator": "local-fallback",
     "theme": "Taipei: Night-market symbol bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-06T16:32:48.162Z"
+    "finishedAt": "2026-09-06T16:58:47.876Z"
   }
 }
