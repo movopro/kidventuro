@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-07T06:44:43.151Z",
+  "updatedAt": "2026-09-07T10:09:13.921Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-07-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-07T06:43:23.969Z",
+    "startedAt": "2026-09-07T10:09:12.190Z",
     "slot": "morning",
     "slotKey": "2026-09-07-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-07T06:43:23.969Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-07T10:09:12.190Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9e5d18496c1a716731f84a",
         "status": "sent",
         "sentAt": "2026-09-07T06:43:50.708Z",
         "externalLink": "https://www.instagram.com/p/Dc-fsi_lR7k/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9e5d28496c1a716731fa43",
         "status": "sent",
         "sentAt": "2026-09-07T06:43:53.878Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649486963",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9e5d2b1d34c06768f3c2de",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-07T06:45:38.649Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7682680500682509601",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Madrid: Palace gate detective",
     "postVariant": null,
-    "finishedAt": "2026-09-07T06:44:43.097Z"
+    "finishedAt": "2026-09-07T10:09:13.882Z"
   }
 }
