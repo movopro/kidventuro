@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-07T16:25:03.386Z",
+  "updatedAt": "2026-09-07T16:33:35.700Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-07-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-07T16:23:54.676Z",
+    "startedAt": "2026-09-07T16:33:34.184Z",
     "slot": "evening",
     "slotKey": "2026-09-07-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-07T16:23:54.676Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-07T16:33:34.184Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9ee5239cee1c4258b56961",
         "status": "sent",
         "sentAt": "2026-09-07T16:24:11.663Z",
         "externalLink": "https://www.instagram.com/p/Dc_iIC0FhLI/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9ee52d3dda8be93880e5ef",
         "status": "sent",
         "sentAt": "2026-09-07T16:24:14.405Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649516797",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9ee5309cee1c4258b569e1",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-07T16:26:32.119Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7682830109132311840",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Montreal: Mural colour bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-07T16:25:03.326Z"
+    "finishedAt": "2026-09-07T16:33:35.652Z"
   }
 }
