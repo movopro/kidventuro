@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T13:05:39.162Z",
+  "updatedAt": "2026-09-07T16:25:21.963Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-07T13:03:50.782Z",
+    "startedAt": "2026-09-07T16:25:20.323Z",
     "slot": "evening",
     "slotKey": "2026-09-07-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-07T13:03:50.782Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-07T16:25:20.323Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9eb64025d43e37e4b0460b",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-07T13:05:40.711Z",
+        "externalLink": "https://www.instagram.com/p/Dc_LaEQkRny/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9eb67028c03f9ef1bfccbb",
         "status": "sent",
         "sentAt": "2026-09-07T13:04:49.993Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649503000",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9eb673c9b39e21a5bef76e",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-07T13:24:55.408Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7682780563375164704",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Spain",
     "postVariant": null,
-    "finishedAt": "2026-09-07T13:05:39.111Z"
+    "finishedAt": "2026-09-07T16:25:21.911Z"
   }
 }
