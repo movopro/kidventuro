@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-08T12:19:30.466Z",
+  "updatedAt": "2026-09-08T14:27:46.998Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-08T12:18:22.918Z",
+    "startedAt": "2026-09-08T14:27:46.084Z",
     "slot": "morning",
     "slotKey": "2026-09-08-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-08T12:18:22.918Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-08T14:27:46.084Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9ffd17425ad71e4c0a5b2e",
         "status": "sent",
         "sentAt": "2026-09-08T12:18:39.114Z",
         "externalLink": "https://www.instagram.com/p/DdBq0feEY8h/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9ffd200c3decccd6f26e1a",
         "status": "sent",
         "sentAt": "2026-09-08T12:18:41.317Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649579877",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9ffd230c3decccd6f26e54",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-08T12:20:26.965Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683137874945953056",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Portugal",
     "postVariant": null,
-    "finishedAt": "2026-09-08T12:19:30.418Z"
+    "finishedAt": "2026-09-08T14:27:46.947Z"
   }
 }
