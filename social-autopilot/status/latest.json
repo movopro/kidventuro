@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-08T06:31:40.249Z",
+  "updatedAt": "2026-09-08T08:23:33.270Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-08-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-08T06:29:45.565Z",
+    "startedAt": "2026-09-08T08:23:31.468Z",
     "slot": "morning",
     "slotKey": "2026-09-08-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-08T06:29:45.565Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-08T08:23:31.468Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6a9fab68e16bc9fa22fd840f",
         "status": "sent",
         "sentAt": "2026-09-08T06:30:41.198Z",
         "externalLink": "https://www.instagram.com/reel/DdBC8LLCPvL/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6a9fab96d491d891eebeed02",
         "status": "sent",
         "sentAt": "2026-09-08T06:30:47.475Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649562999",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6a9fab99e16bc9fa22fd9040",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-08T06:32:33.597Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683048215347793184",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Interactive guess: Santorini",
     "postVariant": null,
-    "finishedAt": "2026-09-08T06:31:40.206Z"
+    "finishedAt": "2026-09-08T08:23:33.225Z"
   }
 }
