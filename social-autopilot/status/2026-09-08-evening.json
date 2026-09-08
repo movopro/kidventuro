@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-08T16:50:18.239Z",
+  "updatedAt": "2026-09-08T17:38:05.032Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-08-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-08T16:49:05.235Z",
+    "startedAt": "2026-09-08T17:38:02.742Z",
     "slot": "evening",
     "slotKey": "2026-09-08-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-08T16:49:05.235Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-08T17:38:02.742Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa03c8a929bef3a1265c2d1",
         "status": "sent",
         "sentAt": "2026-09-08T16:49:24.909Z",
         "externalLink": "https://www.instagram.com/p/DdCJzW0lvah/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa03c96929bef3a1265c4a2",
         "status": "sent",
         "sentAt": "2026-09-08T16:49:27.717Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649596956",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa03c9abb9e097f56917de6",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-08T16:51:27.448Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683207663508884769",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Oslo: Polar explorer challenge",
     "postVariant": null,
-    "finishedAt": "2026-09-08T16:50:18.186Z"
+    "finishedAt": "2026-09-08T17:38:04.991Z"
   }
 }
