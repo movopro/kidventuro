@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T11:15:11.691Z",
+  "updatedAt": "2026-09-09T11:59:25.487Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,36 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-09T11:14:09.963Z",
+    "startedAt": "2026-09-09T11:59:05.356Z",
     "slot": "evening",
     "slotKey": "2026-09-09-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-09T11:14:09.963Z",
-    "outcome": "partial",
+    "contentDate": "2026-09-09T11:59:05.356Z",
+    "outcome": "sent",
     "platforms": {
-      "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6aa13f8a78008e080a247a92",
-        "source": "platform-error"
-      },
       "pinterest": {
         "postId": "6aa13f8c021e7193123725d3",
         "status": "sent",
         "sentAt": "2026-09-09T11:14:22.019Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649648759",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa13f90bbdeadf036f756ee",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
+        "status": "sent",
+        "sentAt": "2026-09-09T11:16:07.624Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683492398441205025",
+        "source": "verified-marker"
+      },
+      "instagram": {
+        "postId": "6aa14a12c177fec63c854808",
+        "status": "sent",
+        "sentAt": "2026-09-09T11:59:22.836Z",
+        "externalLink": "https://www.instagram.com/p/DdENaJ2lfyM/",
         "source": "created"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Netherlands",
     "postVariant": null,
-    "finishedAt": "2026-09-09T11:15:11.636Z"
+    "finishedAt": "2026-09-09T11:59:25.432Z"
   }
 }
