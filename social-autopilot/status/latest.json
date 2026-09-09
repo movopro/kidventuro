@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-09T06:37:14.044Z",
+  "updatedAt": "2026-09-09T07:05:39.599Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-09-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-09T06:36:06.538Z",
+    "startedAt": "2026-09-09T07:05:37.528Z",
     "slot": "morning",
     "slotKey": "2026-09-09-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-09T06:36:06.538Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-09T07:05:37.528Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa0fe603bd0dd9ef326ff37",
         "status": "sent",
         "sentAt": "2026-09-09T06:36:23.009Z",
         "externalLink": "https://www.instagram.com/p/DdDocmPFkFi/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa0fe68a821ff5ff7111240",
         "status": "sent",
         "sentAt": "2026-09-09T06:36:25.783Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649638145",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa0fe6b3bd0dd9ef3270034",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-09T06:38:11.472Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683420762186796320",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Zanzibar: Spice-market colour hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-09T06:37:13.994Z"
+    "finishedAt": "2026-09-09T07:05:39.553Z"
   }
 }
