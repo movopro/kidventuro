@@ -248,12 +248,21 @@ for (const [platform, post] of Object.entries(posts)) {
       recoveredExistingPost = false;
     }
 
-    const observed = published.status === 'sent'
+    let observed = published.status === 'sent'
       ? published
       : await buffer.waitForPost(published.id);
 
     if (!observed) throw new Error(`Buffer post ${published.id} disappeared after creation`);
-    if (observed.status === 'error') throw new Error(`Buffer reported publishing error for ${observed.id}`);
+    if (observed.status === 'error') {
+      console.warn(`${platform}: Buffer post ${observed.id} failed; retrying once with a replacement`);
+      published = await buffer.createPost(post.input);
+      recoveredExistingPost = false;
+      observed = published.status === 'sent'
+        ? published
+        : await buffer.waitForPost(published.id);
+    }
+    if (!observed) throw new Error(`Buffer replacement post ${published.id} disappeared after creation`);
+    if (observed.status === 'error') throw new Error(`Buffer reported publishing error for ${observed.id} after retry`);
     if (!isCompleteOrInFlight(observed)) {
       throw new Error(`Buffer post ${observed.id} remained in unexpected status ${observed.status}`);
     }
