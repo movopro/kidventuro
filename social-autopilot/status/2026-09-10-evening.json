@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-10T16:39:59.750Z",
+  "updatedAt": "2026-09-10T17:56:05.991Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-10-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-10T16:38:46.925Z",
+    "startedAt": "2026-09-10T17:56:04.960Z",
     "slot": "evening",
     "slotKey": "2026-09-10-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-10T16:38:46.925Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-10T17:56:04.960Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa2dd21e9237f87b7fa92a2",
         "status": "sent",
         "sentAt": "2026-09-10T16:39:06.006Z",
         "externalLink": "https://www.instagram.com/p/DdHSNsfG42y/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa2dd2b465b7ff4aacde36e",
         "status": "sent",
         "sentAt": "2026-09-10T16:39:09.304Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649745808",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa2dd2fe9237f87b7fa9383",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-10T16:40:55.317Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683947179341368608",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Siem Reap: Jungle-shape hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-10T16:39:59.695Z"
+    "finishedAt": "2026-09-10T17:56:05.944Z"
   }
 }
