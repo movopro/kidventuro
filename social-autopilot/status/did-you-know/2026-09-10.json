@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T11:11:50.795Z",
+  "updatedAt": "2026-09-10T14:30:49.996Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-10T11:10:41.107Z",
+    "startedAt": "2026-09-10T14:30:48.530Z",
     "slot": "morning",
     "slotKey": "2026-09-10-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-10T11:10:41.107Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-10T14:30:48.530Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa2903ac0beddb28e75fbcd",
         "status": "sent",
         "sentAt": "2026-09-10T11:10:58.387Z",
         "externalLink": "https://www.instagram.com/p/DdGsqkyFtqs/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa2904459396866022cb3d5",
         "status": "sent",
         "sentAt": "2026-09-10T11:11:01.873Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649724481",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa29047ec78398165667d9e",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-10T11:18:34.964Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683863591631555873",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Austria",
     "postVariant": null,
-    "finishedAt": "2026-09-10T11:11:50.733Z"
+    "finishedAt": "2026-09-10T14:30:49.951Z"
   }
 }
