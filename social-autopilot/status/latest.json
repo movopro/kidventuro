@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-10T06:38:04.852Z",
+  "updatedAt": "2026-09-10T09:35:54.815Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-10-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-10T06:36:12.410Z",
+    "startedAt": "2026-09-10T09:35:52.016Z",
     "slot": "morning",
     "slotKey": "2026-09-10-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-10T06:36:12.410Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-10T09:35:52.016Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa24fe80b049baf39217d24",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-10T06:39:21.769Z",
+        "externalLink": "https://www.instagram.com/reel/DdGNUL7AqOY/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa250190f1041b511f582f1",
         "status": "sent",
         "sentAt": "2026-09-10T06:37:14.541Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649714587",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa2501c90f5f899b4fe253b",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-10T06:39:00.382Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7683792056136846624",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Myth or fact: screen-free travel in Bucharest",
     "postVariant": null,
-    "finishedAt": "2026-09-10T06:38:04.797Z"
+    "finishedAt": "2026-09-10T09:35:54.780Z"
   }
 }
