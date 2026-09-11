@@ -10,7 +10,7 @@
     "evening": 18
   },
   "audio": {
-    "tracks": ["1.mp3", "2.mp3"],
+    "tracks": ["1.mp3", "2.mp3", "SlideBC.mp3", "SoftBC.mp3"],
     "excerptStartRangeSeconds": 60,
     "slideDurationSeconds": 3.2,
     "videoDurationSeconds": 12.8,

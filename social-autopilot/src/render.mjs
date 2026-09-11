@@ -134,7 +134,6 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
     const headlineSize = index === 0 ? 132 : isReveal ? 138 : 118;
     const headlineLineHeight = Math.round(headlineSize * 0.92);
     const bodyY = 690 + headline.length * headlineLineHeight;
-    const pageNumber = `${index + 1}/4`;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
       <defs>
         <linearGradient id="slideBg${index}" x1="0" y1="0" x2="1" y2="1">
@@ -147,7 +146,6 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
       <circle cx="85" cy="1810" r="330" fill="${index === 0 ? brand.teal : brand.pink}" opacity="0.92"/>
       ${isReveal ? `<circle cx="870" cy="1490" r="28" fill="${brand.orange}"/><circle cx="955" cy="1570" r="17" fill="${brand.yellow}"/><circle cx="770" cy="1615" r="22" fill="${brand.paper}"/><circle cx="900" cy="1705" r="13" fill="${brand.pink}"/>` : ''}
       ${logo(66, 64, 0.98, index === 0 || isReveal)}
-      <g transform="translate(785 78)"><rect width="220" height="72" rx="36" fill="${index === 0 || isReveal ? '#ffffff' : brand.ink}" fill-opacity="${index === 0 || isReveal ? 0.14 : 0.08}"/><text x="110" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="${foreground}">${pageNumber}</text></g>
       <g transform="translate(66 292)"><rect width="${index === 0 ? 500 : 420}" height="82" rx="41" fill="${accent}"/><text x="${index === 0 ? 250 : 210}" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="900" fill="${index === 3 ? brand.ink : '#fff'}">${xmlEscape(slide.kicker.toUpperCase())}</text></g>
       <g transform="translate(50 430)"><rect width="980" height="880" rx="62" fill="#ffffff" fill-opacity="${index === 0 || isReveal ? 0.075 : 0.62}" stroke="${index === 0 || isReveal ? '#ffffff' : '#20312f'}" stroke-opacity="${index === 0 || isReveal ? 0.14 : 0.06}" stroke-width="3"/></g>
       ${textLines(headline, 82, 650, { size: headlineSize, lineHeight: headlineLineHeight, weight: 900, fill: foreground })}
@@ -156,7 +154,6 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
         <rect width="600" height="132" rx="42" fill="${accent}"/>
         <text x="300" y="83" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="900" fill="${index === 3 ? brand.ink : '#fff'}">${index === 0 ? 'MAKE YOUR PICK →' : index === 3 ? 'REVEAL ✦' : 'KEEP WATCHING →'}</text>
       </g>
-      <g transform="translate(66 1725)"><rect width="${(width - 132) * ((index + 1) / 4)}" height="18" rx="9" fill="${accent}"/><rect x="0" y="0" width="${width - 132}" height="18" rx="9" fill="none" stroke="${foreground}" stroke-opacity="0.24" stroke-width="2"/></g>
       ${index === 0 ? `<g transform="translate(700 1425) rotate(-6)"><rect width="315" height="155" rx="42" fill="${brand.yellow}"/><text x="158" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="${brand.ink}">ANSWER</text><text x="158" y="107" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="${brand.ink}">IN YOUR HEAD</text></g>` : ''}
       ${premiumFinish(width, height)}
     </svg>`;
@@ -183,7 +180,7 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
     ${textLines([slide.kicker.toUpperCase()], 248, 386, { size: 23, weight: 900, fill: '#fff', anchor: 'middle' })}
     ${textLines(headline, 78, 600, { size: 98, lineHeight: 103, weight: 900, fill: foreground })}
     ${textLines(body, 78, 600 + headline.length * 103 + 85, { size: 43, lineHeight: 57, weight: 500, fill: isDark ? '#d8e3e0' : brand.muted })}
-    <g transform="translate(78 1610)"><rect width="500" height="96" rx="30" fill="${accent}"/><text x="250" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#fff">${index === 3 ? 'kidventuro.com' : `0${index + 1} / 04`}</text></g>
+    <g transform="translate(78 1610)"><rect width="500" height="96" rx="30" fill="${accent}"/><text x="250" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#fff">kidventuro.com</text></g>
     ${premiumFinish(width, height)}
   </svg>`;
 }
@@ -262,39 +259,48 @@ export async function renderAssets({ content, outputDirectory, config }) {
     slidePaths.push(slidePath);
   }
 
-  const concatPath = path.join(outputDirectory, 'slides.txt');
-  const escapePath = (value) => value.replaceAll("'", "'\\''");
   const interactiveDurations = [4.4, 3.8, 3.8, 4.2];
   const standardDuration = Number(config.audio?.slideDurationSeconds) || 3.2;
   const slideDurations = slidePaths.map((_, index) => isInteractive ? interactiveDurations[index] : standardDuration);
-  const concat = slidePaths
-    .flatMap((slidePath, index) => [`file '${escapePath(slidePath)}'`, `duration ${slideDurations[index]}`])
-    .concat(`file '${escapePath(slidePaths.at(-1))}'`)
-    .join('\n');
-  await fs.writeFile(concatPath, concat, 'utf8');
   const audioClip = selectAudioClip(content.slotKey, config);
   const audioPath = path.join(autopilotRoot, 'assets', 'audio', audioClip.track);
   await fs.access(audioPath);
-  const interactiveDuration = slideDurations.reduce((sum, duration) => sum + duration, 0);
-  const videoDuration = isInteractive
-    ? Number(interactiveDuration.toFixed(1))
-    : (Number(config.audio?.videoDurationSeconds) || Number((slidePaths.length * standardDuration).toFixed(1)));
-  const fadeDuration = Math.min(config.audio.fadeSeconds || 0.6, Math.max(0.25, videoDuration / 8));
-  const fadeOutStart = Math.max(0, videoDuration - fadeDuration);
-  const targetLoudness = config.audio.targetLoudnessLufs || -16;
+
+  // Crossfade between slides instead of hard cuts, chained via xfade. Each slide is its
+  // own looped-image input (with a gentle Ken Burns pan) rather than a concat-demuxer
+  // sequence, since the demuxer only supports hard cuts.
+  const transitionDuration = 0.5;
   const motionXSpeed = isInteractive ? 0.24 : 0.72;
   const motionYSpeed = isInteractive ? 0.18 : 0.48;
   const motionAmountX = isInteractive ? 10 : 32;
   const motionAmountY = isInteractive ? 16 : 54;
+  const videoDuration = Number((slideDurations.reduce((sum, d) => sum + d, 0) - (slidePaths.length - 1) * transitionDuration).toFixed(2));
+  const fadeDuration = Math.min(config.audio.fadeSeconds || 0.6, Math.max(0.25, videoDuration / 8));
+  const fadeOutStart = Math.max(0, videoDuration - fadeDuration);
+  const targetLoudness = config.audio.targetLoudnessLufs || -16;
+
+  const perSlideFilters = slidePaths.map((_, index) =>
+    `[${index}:v]fps=30,scale=1160:2062,crop=1080:1920:x='40+${motionAmountX}*sin(t*${motionXSpeed})':y='71+${motionAmountY}*cos(t*${motionYSpeed})',setsar=1,format=yuv420p[v${index}]`
+  );
+  let cumulativeOffset = 0;
+  let previousLabel = 'v0';
+  const xfadeChain = [];
+  for (let index = 1; index < slidePaths.length; index += 1) {
+    cumulativeOffset += slideDurations[index - 1] - transitionDuration;
+    const outLabel = index === slidePaths.length - 1 ? 'video' : `x${index}`;
+    xfadeChain.push(`[${previousLabel}][v${index}]xfade=transition=fade:duration=${transitionDuration}:offset=${cumulativeOffset.toFixed(3)}[${outLabel}]`);
+    previousLabel = outLabel;
+  }
+  const audioFilter = `[${slidePaths.length}:a]loudnorm=I=${targetLoudness}:TP=-2:LRA=7,afade=t=in:st=0:d=${fadeDuration},afade=t=out:st=${fadeOutStart}:d=${fadeDuration}[audio]`;
+  const filterComplex = [...perSlideFilters, ...xfadeChain, audioFilter].join(';');
+
   await runFfmpeg([
     '-y',
-    '-f', 'concat',
-    '-safe', '0',
-    '-i', concatPath,
+    ...slidePaths.flatMap((slidePath, index) => ['-loop', '1', '-t', String(slideDurations[index]), '-i', slidePath]),
     '-ss', audioClip.startSeconds.toFixed(3),
     '-stream_loop', '-1',
     '-i', audioPath,
-    '-filter_complex', `[0:v]fps=30,scale=1160:2062,crop=1080:1920:x='40+${motionAmountX}*sin(t*${motionXSpeed})':y='71+${motionAmountY}*cos(t*${motionYSpeed})',setsar=1,format=yuv420p[video];[1:a]loudnorm=I=${targetLoudness}:TP=-2:LRA=7,afade=t=in:st=0:d=${fadeDuration},afade=t=out:st=${fadeOutStart}:d=${fadeDuration}[audio]`,
+    '-filter_complex', filterComplex,
     '-map', '[video]',
     '-map', '[audio]',
     '-t', String(videoDuration),
