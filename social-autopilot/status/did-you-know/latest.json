@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T11:12:37.828Z",
+  "updatedAt": "2026-09-11T14:36:13.864Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-11T11:11:24.842Z",
+    "startedAt": "2026-09-11T14:36:10.752Z",
     "slot": "evening",
     "slotKey": "2026-09-11-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-11T11:11:24.842Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-11T14:36:10.752Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa3e1ea4ac55a0b109d945e",
         "status": "sent",
         "sentAt": "2026-09-11T11:11:44.540Z",
         "externalLink": "https://www.instagram.com/p/DdJRjKxFaOa/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa3e1f221b07441ffa79cb7",
         "status": "sent",
         "sentAt": "2026-09-11T11:11:47.816Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649801122",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa3e1f6a3aa88881a3298ff",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-11T11:13:35.255Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7684233907549605152",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "3 Fun Facts About Canada",
     "postVariant": null,
-    "finishedAt": "2026-09-11T11:12:37.778Z"
+    "finishedAt": "2026-09-11T14:36:13.813Z"
   }
 }
