@@ -398,6 +398,10 @@ async function generateWithOllama(prompt) {
   const baseUrl = process.env.OLLAMA_BASE_URL?.trim();
   if (!baseUrl) return null;
   const model = process.env.OLLAMA_CHAT_MODEL?.trim() || 'qwen2.5:3b-instruct';
+  // Constrained JSON-schema decoding on modest local hardware can be dramatically
+  // slower than a plain reply, or effectively stall. One attempt with a hard timeout,
+  // so a slow/stuck local model always falls through to OpenAI/local-fallback instead
+  // of hanging the whole scheduled run.
   const response = await fetchWithRetry(`${baseUrl}/api/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -407,8 +411,9 @@ async function generateWithOllama(prompt) {
       format: schema,
       stream: false,
       options: { temperature: 0.7 }
-    })
-  }, 2);
+    }),
+    signal: AbortSignal.timeout(30_000)
+  }, 1);
   if (!response.ok) throw new Error(`Ollama HTTP ${response.status}`);
   const body = await response.json();
   const text = body?.message?.content;
@@ -423,12 +428,17 @@ export async function generateContent({ destinations, slot, date, config, apiKey
 
   const prompt = `Create one English social content package for Kidventuro.\n\nBrand truth:\n- Personalized printable travel activity books for children ages 4–12.\n- Keeps children engaged during journeys and curious at the destination.\n- Printable at home; no app; no subscription; one-time purchase.\n- Includes puzzles, travel bingo, scavenger hunts, observation missions, drawing and memory pages.\n- Site: kidventuro.com.\n\nToday's source data from the Kidventuro catalog:\n- Destination: ${seed.destination.name}\n- Safe destination cues: ${seed.destination.en}\n- Catalog mission: ${seed.mission}\n- Content angle: ${seed.pillar}\n- Slot: ${slot}\n- ${formatInstruction(mode)}\n\nRules:\n- Write distinct platform-native copy for Instagram, Pinterest and TikTok.\n- Do not invent prices, discounts, reviews, statistics, opening hours or safety claims.\n- Do not show or request child personal data.\n- Address parents. Keep the child activity practical and adult-supervised.\n- Use 4–7 specific hashtags in Instagram and TikTok captions, never #fyp.\n- Pinterest title must be search-friendly; description must be useful, not keyword stuffing.\n- Visual headlines must be short. Four video slides must follow the selected format above.\n- For interactive formats, make the viewer choose, guess or answer before the final slide.\n- Avoid emojis in visual text except EMOJI DESTINATION, where emoji clues are required.\n- Avoid generic hype and repeated wording across platforms.`;
 
-  // Prefer the local, free Ollama model over the paid OpenAI API when it's reachable.
-  try {
-    const text = await generateWithOllama(prompt);
-    if (text) return normalizeContent(safeJsonParse(text, 'Ollama output'), seed, 'ollama');
-  } catch (error) {
-    console.warn(`Ollama unavailable; trying OpenAI/fallback: ${error.message}`);
+  // Local Ollama is free and private but, on the current NODE 1 GPU (GTX 970, Vulkan
+  // fallback), constrained JSON-schema generation took ~8 minutes in testing — too slow
+  // for a 15-minute workflow budget. Opt-in only until run on faster hardware; the 30s
+  // timeout in generateWithOllama still protects against a hang if enabled.
+  if (process.env.SOCIAL_PREFER_OLLAMA === 'true') {
+    try {
+      const text = await generateWithOllama(prompt);
+      if (text) return normalizeContent(safeJsonParse(text, 'Ollama output'), seed, 'ollama');
+    } catch (error) {
+      console.warn(`Ollama unavailable; trying OpenAI/fallback: ${error.message}`);
+    }
   }
 
   if (!apiKey) return normalizeContent(fallbackContent(seed), seed, 'local-fallback');
