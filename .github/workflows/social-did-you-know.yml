@@ -2,12 +2,10 @@ name: Kidventuro Did You Know autopilot
 
 on:
   schedule:
-    # Four independent watchdog checks per hour. The gate publishes once per day
-    # after 14:00 Europe/Sofia and skips later checks once delivery is confirmed sent.
+    # Two independent watchdog checks per hour (NODE 2 is now primary). The gate publishes
+    # once per day after 14:00 Europe/Sofia and skips later checks once confirmed sent.
     - cron: '7 * * * *'
-    - cron: '22 * * * *'
     - cron: '37 * * * *'
-    - cron: '52 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -95,6 +93,7 @@ jobs:
           BUFFER_INSTAGRAM_CHANNEL_ID: ${{ vars.BUFFER_INSTAGRAM_CHANNEL_ID }}
           BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
           BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
+          RUNNER_NAME: github
         run: node social-autopilot/src/run.mjs --force --slot "$SOCIAL_SLOT"
 
       - name: Record Did You Know status

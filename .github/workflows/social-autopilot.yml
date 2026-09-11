@@ -2,13 +2,11 @@ name: Kidventuro social autopilot
 
 on:
   schedule:
-    # Four independent watchdog checks per hour. GitHub scheduled jobs can be delayed
-    # or occasionally skipped; the gate still publishes only the earliest due,
-    # incomplete local slot, so extra checks cannot create extra scheduled posts.
+    # Two independent watchdog checks per hour. NODE 2 (systemd timers, every 10 min)
+    # is now the primary runner; GitHub Actions is the backup. The gate still publishes
+    # only the earliest due, incomplete local slot, so extra checks cannot duplicate posts.
     - cron: '8 * * * *'
-    - cron: '23 * * * *'
     - cron: '38 * * * *'
-    - cron: '53 * * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -105,6 +103,7 @@ jobs:
           BUFFER_INSTAGRAM_CHANNEL_ID: ${{ vars.BUFFER_INSTAGRAM_CHANNEL_ID }}
           BUFFER_PINTEREST_CHANNEL_ID: ${{ vars.BUFFER_PINTEREST_CHANNEL_ID }}
           BUFFER_TIKTOK_CHANNEL_ID: ${{ vars.BUFFER_TIKTOK_CHANNEL_ID }}
+          RUNNER_NAME: github
         run: node social-autopilot/src/run.mjs --force --slot "$SOCIAL_SLOT"
 
       - name: Record live autopilot status

@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BufferClient, instagramInput, isCompleteOrInFlight, pinterestInput, tiktokInput } from './buffer.mjs';
+import { claimSlot } from './claim.mjs';
 import { CloudinaryStore } from './cloudinary.mjs';
 import { generateContent } from './content.mjs';
 import { loadDestinations } from './destinations.mjs';
@@ -83,6 +84,15 @@ if (!dryRun) {
     apiKey: requiredEnv('CLOUDINARY_API_KEY'),
     apiSecret: requiredEnv('CLOUDINARY_API_SECRET')
   });
+}
+
+if (!dryRun) {
+  const runner = process.env.RUNNER_NAME?.trim() || 'github';
+  const claim = await claimSlot({ repoRoot: repositoryRoot, autopilotRoot, slotKey, runner });
+  if (!claim.claimed) {
+    console.log(`Kidventuro social slot ${slotKey} not claimed by ${runner} (${claim.reason}); exiting quietly`);
+    process.exit(0);
+  }
 }
 
 const markerIds = Object.fromEntries(['instagram', 'pinterest', 'tiktok'].map((platform) => [
