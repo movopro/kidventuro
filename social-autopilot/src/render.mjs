@@ -10,6 +10,46 @@ import { ensureDirectory, wrapText, xmlEscape } from './utils.mjs';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const autopilotRoot = path.resolve(here, '..');
 
+let grainCache;
+// A tiny procedural noise tile gives every slide a subtle print-grain texture instead
+// of flat vector fills. Generated once per process via sharp's raw pixel input (no new
+// dependency, no network fetch) and cached; renderAssets() awaits it once up front so
+// the synchronous svg-composing functions below can read the cached data directly.
+async function grainTexture() {
+  if (grainCache) return grainCache;
+  const size = 220;
+  const buffer = Buffer.alloc(size * size * 4);
+  for (let i = 0; i < buffer.length; i += 4) {
+    const shade = 96 + Math.floor(Math.random() * 64);
+    buffer[i] = shade;
+    buffer[i + 1] = shade;
+    buffer[i + 2] = shade;
+    buffer[i + 3] = 255;
+  }
+  const png = await sharp(buffer, { raw: { width: size, height: size, channels: 4 } }).png().toBuffer();
+  grainCache = { data: png.toString('base64'), size };
+  return grainCache;
+}
+
+// Grain + vignette layered on top of every slide, after the format-specific artwork.
+// mix-blend-mode degrades gracefully to a faint flat overlay on renderers that ignore
+// it, so this never risks breaking a render — only ever adds texture.
+function premiumFinish(width, height) {
+  if (!grainCache) return '';
+  return `<defs>
+    <pattern id="premiumGrain" width="${grainCache.size}" height="${grainCache.size}" patternUnits="userSpaceOnUse">
+      <image href="data:image/png;base64,${grainCache.data}" width="${grainCache.size}" height="${grainCache.size}"/>
+    </pattern>
+    <radialGradient id="premiumVignette" cx="50%" cy="38%" r="78%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="68%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.32"/>
+    </radialGradient>
+  </defs>
+  <rect width="${width}" height="${height}" fill="url(#premiumGrain)" opacity="0.045" style="mix-blend-mode:overlay"/>
+  <rect width="${width}" height="${height}" fill="url(#premiumVignette)"/>`;
+}
+
 function textLines(lines, x, y, options = {}) {
   const {
     size = 54,
@@ -48,6 +88,7 @@ function imageSvg({ width, height, headline, subhead, kicker, config, variant })
     ${textLines(subheadLines, 92, top + headlineSize + headlineLines.length * Math.round(headlineSize * 1.03) + 58, { size: variant === 'pinterest' ? 35 : 32, lineHeight: 44, weight: 500, fill: brand.muted })}
     <g transform="translate(92 ${height - 210})"><rect width="440" height="82" rx="26" fill="${brand.orange}"/><text x="220" y="53" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="900" fill="#fff">Create a free preview</text></g>
     <text x="92" y="${height - 82}" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="${brand.teal}">kidventuro.com</text>
+    ${premiumFinish(width, height)}
   </svg>`;
 }
 
@@ -76,6 +117,7 @@ function interactivePosterSvg({ width, height, headline, subhead, config, varian
     <g transform="translate(94 ${height - 265})"><rect width="${Math.min(600, width - 188)}" height="112" rx="34" fill="${brand.orange}"/><text x="${Math.min(600, width - 188) / 2}" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="37" font-weight="900" fill="#fff">PLAY → STAY FOR THE REVEAL</text></g>
     <g transform="translate(${width - 258} ${height - 108})"><circle cx="0" cy="0" r="10" fill="${brand.orange}"/><circle cx="36" cy="0" r="10" fill="#fff" opacity="0.32"/><circle cx="72" cy="0" r="10" fill="#fff" opacity="0.32"/><circle cx="108" cy="0" r="10" fill="#fff" opacity="0.32"/></g>
     <text x="70" y="${height - 70}" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="${brand.paper}">kidventuro.com</text>
+    ${premiumFinish(width, height)}
   </svg>`;
 }
 
@@ -116,6 +158,7 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
       </g>
       <g transform="translate(66 1725)"><rect width="${(width - 132) * ((index + 1) / 4)}" height="18" rx="9" fill="${accent}"/><rect x="0" y="0" width="${width - 132}" height="18" rx="9" fill="none" stroke="${foreground}" stroke-opacity="0.24" stroke-width="2"/></g>
       ${index === 0 ? `<g transform="translate(700 1425) rotate(-6)"><rect width="315" height="155" rx="42" fill="${brand.yellow}"/><text x="158" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="${brand.ink}">ANSWER</text><text x="158" y="107" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="${brand.ink}">IN YOUR HEAD</text></g>` : ''}
+      ${premiumFinish(width, height)}
     </svg>`;
   }
 
@@ -141,6 +184,7 @@ function slideSvg({ width, height, slide, index, config, interactive = false }) 
     ${textLines(headline, 78, 600, { size: 98, lineHeight: 103, weight: 900, fill: foreground })}
     ${textLines(body, 78, 600 + headline.length * 103 + 85, { size: 43, lineHeight: 57, weight: 500, fill: isDark ? '#d8e3e0' : brand.muted })}
     <g transform="translate(78 1610)"><rect width="500" height="96" rx="30" fill="${accent}"/><text x="250" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#fff">${index === 3 ? 'kidventuro.com' : `0${index + 1} / 04`}</text></g>
+    ${premiumFinish(width, height)}
   </svg>`;
 }
 
@@ -185,6 +229,7 @@ export function selectAudioClip(slotKey, config) {
 
 export async function renderAssets({ content, outputDirectory, config }) {
   await ensureDirectory(outputDirectory);
+  await grainTexture();
   const instagramPath = path.join(outputDirectory, 'instagram.jpg');
   const pinterestPath = path.join(outputDirectory, 'pinterest.jpg');
   const videoPath = path.join(outputDirectory, 'short-video.mp4');
