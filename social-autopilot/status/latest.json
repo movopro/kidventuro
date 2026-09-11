@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-11T16:44:36.004Z",
+  "updatedAt": "2026-09-11T18:23:42.617Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-11-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-11T16:43:10.099Z",
+    "startedAt": "2026-09-11T18:23:39.308Z",
     "slot": "evening",
     "slotKey": "2026-09-11-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-11T16:43:10.099Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-11T18:23:39.308Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa42faa5ebbb9f005ccb061",
         "status": "sent",
         "sentAt": "2026-09-11T16:43:42.565Z",
         "externalLink": "https://www.instagram.com/p/DdJ3g6yFcMR/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa42fc0616ad9a7807cbebf",
         "status": "sent",
         "sentAt": "2026-09-11T16:43:46.289Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649822413",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa42fc3e1158f41d39cb748",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-11T16:45:51.655Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7684319444977421601",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Boston: Harbour boat bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-11T16:44:35.954Z"
+    "finishedAt": "2026-09-11T18:23:42.569Z"
   }
 }
