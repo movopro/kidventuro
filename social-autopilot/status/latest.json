@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-11T06:36:34.517Z",
+  "updatedAt": "2026-09-11T09:33:08.536Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-11-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-11T06:35:19.414Z",
+    "startedAt": "2026-09-11T09:33:06.105Z",
     "slot": "morning",
     "slotKey": "2026-09-11-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-11T06:35:19.414Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-11T09:33:06.105Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa3a13330bad4fb833789d7",
         "status": "sent",
         "sentAt": "2026-09-11T06:35:40.379Z",
         "externalLink": "https://www.instagram.com/p/DdIx8-clkia/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa3a13e71ba1c02ccf59b80",
         "status": "sent",
         "sentAt": "2026-09-11T06:35:43.621Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649790395",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa3a14185199affc9444ac5",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-11T06:37:30.805Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7684162748846034209",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Copenhagen: Colourful-house hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-11T06:36:34.470Z"
+    "finishedAt": "2026-09-11T09:33:08.484Z"
   }
 }
