@@ -18,7 +18,7 @@ export async function claimSlot({ repoRoot, autopilotRoot, slotKey, runner, stat
 
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
-      git(['pull', '--rebase', 'origin', 'main'], repoRoot);
+      git(['pull', '--rebase', '--autostash', 'origin', 'main'], repoRoot);
     } catch (error) {
       console.warn(`claim: git pull --rebase failed (attempt ${attempt + 1}): ${error.message.split('\n')[0]}`);
     }
