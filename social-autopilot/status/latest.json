@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-13T06:44:18.727Z",
+  "updatedAt": "2026-09-13T11:40:28.377Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-13-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-13T06:43:02.215Z",
+    "startedAt": "2026-09-13T11:40:24.390Z",
     "slot": "morning",
     "slotKey": "2026-09-13-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-13T06:43:02.215Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-13T11:40:24.390Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa6460666679b076f214da6",
         "status": "sent",
         "sentAt": "2026-09-13T06:43:26.761Z",
         "externalLink": "https://www.instagram.com/p/DdN8buiEVvC/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa64610f7b1958d5cdfcab7",
         "status": "sent",
         "sentAt": "2026-09-13T06:43:29.956Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649955062",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa646137da3ee968d0e617c",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-13T06:45:16.426Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7684906902915927328",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Cape Town: Table Mountain shape hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-13T06:44:18.672Z"
+    "finishedAt": "2026-09-13T11:40:28.327Z"
   }
 }
