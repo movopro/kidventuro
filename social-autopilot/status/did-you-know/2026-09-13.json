@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T11:43:17.698Z",
+  "updatedAt": "2026-09-13T14:43:08.052Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,36 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-13T11:42:06.600Z",
+    "startedAt": "2026-09-13T14:42:41.141Z",
     "slot": "evening",
     "slotKey": "2026-09-13-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-13T11:42:06.600Z",
-    "outcome": "partial",
+    "contentDate": "2026-09-13T14:42:41.141Z",
+    "outcome": "sent",
     "platforms": {
-      "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6aa68c217da3ee968d14b282 after retry",
-        "source": "platform-error"
-      },
       "pinterest": {
         "postId": "6aa68c227da3ee968d14b2d2",
         "status": "sent",
         "sentAt": "2026-09-13T11:42:28.036Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644649970107",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa68c2666679b076f274ee3",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
+        "status": "sent",
+        "sentAt": "2026-09-13T11:44:15.586Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7684983989307804961",
+        "source": "verified-marker"
+      },
+      "instagram": {
+        "postId": "6aa6b6724cc07ffa4d382a37",
+        "status": "sent",
+        "sentAt": "2026-09-13T14:43:06.378Z",
+        "externalLink": "https://www.instagram.com/p/DdOzUzrlbfG/",
         "source": "created"
       }
     },
     "generator": "local-fallback",
     "theme": "Barcelona: Mosaic colour bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-13T11:43:17.647Z"
+    "finishedAt": "2026-09-13T14:43:08.000Z"
   }
 }
