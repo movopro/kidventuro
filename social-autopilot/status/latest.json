@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-14T17:03:55.227Z",
+  "updatedAt": "2026-09-14T18:32:10.322Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-14-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-14T17:02:00.434Z",
+    "startedAt": "2026-09-14T18:32:07.788Z",
     "slot": "evening",
     "slotKey": "2026-09-14-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-14T17:02:00.434Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-14T18:32:07.788Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa828964861e1b12d675c12",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-14T17:03:52.080Z",
+        "externalLink": "https://www.instagram.com/p/DdRoOkxEY63/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa828c65f51702bf8d55a5a",
         "status": "sent",
         "sentAt": "2026-09-14T17:03:03.783Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650069142",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa828cadc3175c9e1dd1bdb",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-14T17:13:13.546Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7685439394697841952",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Goa: Beach nature bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-14T17:03:55.190Z"
+    "finishedAt": "2026-09-14T18:32:10.269Z"
   }
 }
