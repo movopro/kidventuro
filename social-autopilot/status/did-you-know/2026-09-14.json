@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T13:57:32.013Z",
+  "updatedAt": "2026-09-14T14:23:46.612Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -7,39 +7,5 @@
   "dateKey": "2026-09-14",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-14T13:56:15.181Z",
-    "slot": "morning",
-    "slotKey": "2026-09-14-did-you-know-morning",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-14T13:56:15.181Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6aa7fd0e981b4d0e8fd16ee3",
-        "status": "sent",
-        "sentAt": "2026-09-14T13:56:37.202Z",
-        "externalLink": "https://www.instagram.com/p/DdRSza_lUZ5/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6aa7fd1779dd2f9a1b4e072d",
-        "status": "sent",
-        "sentAt": "2026-09-14T13:56:40.811Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650057245",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6aa7fd1bebcdf9aed5f0a29b",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "curated-did-you-know",
-    "theme": "Did you know? Türkiye",
-    "postVariant": null,
-    "finishedAt": "2026-09-14T13:57:31.972Z"
-  }
+  "details": null
 }
