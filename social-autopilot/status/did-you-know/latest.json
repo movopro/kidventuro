@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T14:23:46.612Z",
+  "updatedAt": "2026-09-14T19:17:40.877Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -7,5 +7,39 @@
   "dateKey": "2026-09-14",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-14T19:17:37.920Z",
+    "slot": "morning",
+    "slotKey": "2026-09-14-did-you-know-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-14T19:17:37.920Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6aa7fd0e981b4d0e8fd16ee3",
+        "status": "sent",
+        "sentAt": "2026-09-14T13:56:37.202Z",
+        "externalLink": "https://www.instagram.com/p/DdRSza_lUZ5/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6aa7fd1779dd2f9a1b4e072d",
+        "status": "sent",
+        "sentAt": "2026-09-14T13:56:40.811Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650057245",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6aa7fd1bebcdf9aed5f0a29b",
+        "status": "sent",
+        "sentAt": "2026-09-14T14:23:57.003Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7685392399836744993",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "curated-did-you-know",
+    "theme": "Did you know? Türkiye",
+    "postVariant": null,
+    "finishedAt": "2026-09-14T19:17:40.840Z"
+  }
 }
