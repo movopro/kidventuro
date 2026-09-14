@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-14T06:07:29.676Z",
+  "updatedAt": "2026-09-14T10:56:33.767Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-14-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-14T06:05:42.122Z",
+    "startedAt": "2026-09-14T10:56:30.421Z",
     "slot": "morning",
     "slotKey": "2026-09-14-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-14T06:05:42.122Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-14T10:56:30.421Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa78ecec5102442ffeac734",
         "status": "sent",
         "sentAt": "2026-09-14T06:06:32.426Z",
         "externalLink": "https://www.instagram.com/reel/DdQc-VRjTF_/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa78eee328928f5395a9fdb",
         "status": "sent",
         "sentAt": "2026-09-14T06:06:39.487Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650035670",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa78ef138c77459a99914b1",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-14T06:08:24.648Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7685268512817859873",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Emoji destination: Nice",
     "postVariant": null,
-    "finishedAt": "2026-09-14T06:07:29.624Z"
+    "finishedAt": "2026-09-14T10:56:33.729Z"
   }
 }
