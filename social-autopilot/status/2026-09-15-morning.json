@@ -1,41 +1,43 @@
 {
-  "updatedAt": "2026-09-15T07:38:47.953Z",
+  "updatedAt": "2026-09-15T10:23:41.335Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-15-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-15T07:37:35.231Z",
+    "startedAt": "2026-09-15T10:23:08.353Z",
     "slot": "morning",
     "slotKey": "2026-09-15-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-15T07:37:35.231Z",
-    "outcome": "partial",
+    "contentDate": "2026-09-15T10:23:08.353Z",
+    "outcome": "sent",
     "platforms": {
-      "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6aa8f5d1a8c36ff9777d7dce after retry",
-        "source": "platform-error"
-      },
       "pinterest": {
         "postId": "6aa8f5d35fbab78a78e60cd8",
         "status": "sent",
         "sentAt": "2026-09-15T07:37:56.458Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650110787",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa8f5d5d54fd5a9ab435897",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
+        "status": "sent",
+        "sentAt": "2026-09-15T07:39:41.745Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7685663087747206432",
+        "source": "verified-marker"
+      },
+      "instagram": {
+        "postId": "6aa91c9d58613d510d34e87b",
+        "status": "sent",
+        "sentAt": "2026-09-15T10:23:35.648Z",
+        "externalLink": "https://www.instagram.com/p/DdTfNmeoL53/",
         "source": "created"
       }
     },
     "generator": "local-fallback",
     "theme": "Tokyo: Train-sign detective",
     "postVariant": null,
-    "finishedAt": "2026-09-15T07:38:47.908Z"
+    "finishedAt": "2026-09-15T10:23:41.278Z"
   }
 }
