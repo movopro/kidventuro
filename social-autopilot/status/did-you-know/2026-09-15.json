@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T18:09:19.526Z",
+  "updatedAt": "2026-09-15T18:27:09.571Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -7,39 +7,5 @@
   "dateKey": "2026-09-15",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-15T18:08:11.885Z",
-    "slot": "evening",
-    "slotKey": "2026-09-15-did-you-know-evening",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-15T18:08:11.885Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6aa989a047e2f481f8014b7c",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6aa94843d10cb68c0e4febc6",
-        "status": "sent",
-        "sentAt": "2026-09-15T13:29:40.891Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650127410",
-        "source": "verified-marker"
-      },
-      "tiktok": {
-        "postId": "6aa9484622bf0d966afc23f8",
-        "status": "sent",
-        "sentAt": "2026-09-15T13:31:06.656Z",
-        "externalLink": "https://tiktok.com/@kidventuro/video/7685753762367032609",
-        "source": "verified-marker"
-      }
-    },
-    "generator": "curated-did-you-know",
-    "theme": "Guess the Country: New Zealand",
-    "postVariant": null,
-    "finishedAt": "2026-09-15T18:09:19.406Z"
-  }
+  "details": null
 }
