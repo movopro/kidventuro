@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-15T15:15:42.048Z",
+  "updatedAt": "2026-09-15T18:07:08.478Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-15-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-15T15:14:23.157Z",
+    "startedAt": "2026-09-15T18:07:04.693Z",
     "slot": "evening",
     "slotKey": "2026-09-15-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-15T15:14:23.157Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-15T18:07:04.693Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aa960e2debfc905524e6a2a",
         "status": "sent",
         "sentAt": "2026-09-15T15:14:50.785Z",
         "externalLink": "https://www.instagram.com/p/DdUAjELkcXV/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aa960ebd7341b7caaf20fde",
         "status": "sent",
         "sentAt": "2026-09-15T15:14:53.096Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650133910",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aa960eec3962249ef9a7acf",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-15T15:16:40.605Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7685780906853797153",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "San Francisco: Cable-car detective",
     "postVariant": null,
-    "finishedAt": "2026-09-15T15:15:41.969Z"
+    "finishedAt": "2026-09-15T18:07:08.438Z"
   }
 }
