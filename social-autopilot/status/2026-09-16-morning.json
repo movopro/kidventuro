@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-16T06:38:27.626Z",
+  "updatedAt": "2026-09-16T11:25:21.537Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-16-morning",
   "preflightConfigured": "true",
-  "publishOutcome": "failure",
-  "details": null
+  "publishOutcome": "success",
+  "details": {
+    "startedAt": "2026-09-16T11:23:28.864Z",
+    "slot": "morning",
+    "slotKey": "2026-09-16-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-16T11:23:28.864Z",
+    "outcome": "pending",
+    "platforms": {
+      "instagram": {
+        "postId": "6aaa7c3fc02e01a4fced92c2",
+        "status": "sending",
+        "sentAt": null,
+        "externalLink": null,
+        "source": "created"
+      },
+      "pinterest": {
+        "postId": "6aaa7c6ecd2a1d410d8347b3",
+        "status": "sent",
+        "sentAt": "2026-09-16T11:24:32.288Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650193336",
+        "source": "created"
+      },
+      "tiktok": {
+        "postId": "6aaa7c72c02e01a4fced98b7",
+        "status": "sending",
+        "sentAt": null,
+        "externalLink": null,
+        "source": "created"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Interactive choice: Osaka",
+    "postVariant": null,
+    "finishedAt": "2026-09-16T11:25:21.494Z"
+  }
 }
