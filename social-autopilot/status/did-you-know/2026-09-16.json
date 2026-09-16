@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T12:50:05.125Z",
+  "updatedAt": "2026-09-16T13:27:04.411Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-16T12:48:48.633Z",
+    "startedAt": "2026-09-16T13:27:01.644Z",
     "slot": "morning",
     "slotKey": "2026-09-16-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-16T12:48:48.633Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-16T13:27:01.644Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aaa9042d692772a83ab9905",
         "status": "sent",
         "sentAt": "2026-09-16T12:49:13.108Z",
         "externalLink": "https://www.instagram.com/p/DdWUrfroEa9/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aaa904a61ae41c21698ca5d",
         "status": "sent",
         "sentAt": "2026-09-16T12:49:15.923Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650197744",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aaa904eec4bfa9b5226eba9",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-16T12:51:05.714Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686114456396401952",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "3 Fun Facts About Spain",
     "postVariant": null,
-    "finishedAt": "2026-09-16T12:50:05.070Z"
+    "finishedAt": "2026-09-16T13:27:04.377Z"
   }
 }
