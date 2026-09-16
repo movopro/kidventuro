@@ -1,41 +1,43 @@
 {
-  "updatedAt": "2026-09-16T16:45:40.611Z",
+  "updatedAt": "2026-09-16T17:43:13.667Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-16-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-16T16:44:29.391Z",
+    "startedAt": "2026-09-16T17:42:41.686Z",
     "slot": "evening",
     "slotKey": "2026-09-16-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-16T16:44:29.391Z",
-    "outcome": "partial",
+    "contentDate": "2026-09-16T17:42:41.686Z",
+    "outcome": "sent",
     "platforms": {
-      "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6aaac77f6140e9c38a704b64 after retry",
-        "source": "platform-error"
-      },
       "pinterest": {
         "postId": "6aaac78185eb6b8fcc2be466",
         "status": "sent",
         "sentAt": "2026-09-16T16:44:50.524Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650211342",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aaac78325f0b154d20b74ca",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
+        "status": "sent",
+        "sentAt": "2026-09-16T16:48:36.666Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686175172918775073",
+        "source": "verified-marker"
+      },
+      "instagram": {
+        "postId": "6aaad526a3fa4d8905f431d0",
+        "status": "sent",
+        "sentAt": "2026-09-16T17:43:11.559Z",
+        "externalLink": "https://www.instagram.com/p/DdW2UT2IIDu/",
         "source": "created"
       }
     },
     "generator": "local-fallback",
     "theme": "Munich: English Garden explorer",
     "postVariant": null,
-    "finishedAt": "2026-09-16T16:45:40.574Z"
+    "finishedAt": "2026-09-16T17:43:13.622Z"
   }
 }
