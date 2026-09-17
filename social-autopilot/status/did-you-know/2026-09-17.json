@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T12:46:12.516Z",
+  "updatedAt": "2026-09-17T16:53:19.966Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,12 +8,12 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-17T12:45:53.138Z",
+    "startedAt": "2026-09-17T16:53:02.911Z",
     "slot": "evening",
     "slotKey": "2026-09-17-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-17T12:45:53.138Z",
-    "outcome": "partial",
+    "contentDate": "2026-09-17T16:53:02.911Z",
+    "outcome": "sent",
     "platforms": {
       "pinterest": {
         "postId": "6aabd0a3b9afe5545d35d399",
@@ -30,14 +30,16 @@
         "source": "verified-marker"
       },
       "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6aabe1123221980927271e01 after retry",
-        "source": "platform-error"
+        "postId": "6aac0465b0f0ac85bbb37377",
+        "status": "sent",
+        "sentAt": "2026-09-17T15:17:02.482Z",
+        "externalLink": "https://www.instagram.com/p/DdZKYzfoAst/",
+        "source": "recovered-buffer-post"
       }
     },
     "generator": "local-fallback",
     "theme": "Malta: Harbour-fort bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-17T12:46:12.461Z"
+    "finishedAt": "2026-09-17T16:53:19.912Z"
   }
 }
