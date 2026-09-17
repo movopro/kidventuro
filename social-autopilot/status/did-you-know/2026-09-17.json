@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T11:37:59.702Z",
+  "updatedAt": "2026-09-17T12:46:12.516Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,36 +8,36 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-17T11:35:19.565Z",
+    "startedAt": "2026-09-17T12:45:53.138Z",
     "slot": "evening",
     "slotKey": "2026-09-17-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-17T11:35:19.565Z",
+    "contentDate": "2026-09-17T12:45:53.138Z",
     "outcome": "partial",
     "platforms": {
-      "instagram": {
-        "status": "error",
-        "error": "Buffer reported publishing error for 6aabd098b9afe5545d35d011 after retry",
-        "source": "platform-error"
-      },
       "pinterest": {
         "postId": "6aabd0a3b9afe5545d35d399",
         "status": "sent",
         "sentAt": "2026-09-17T11:36:06.570Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650262543",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aabd0b32755c09b10268d86",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-17T11:38:05.388Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686466738531126561",
+        "source": "verified-marker"
+      },
+      "instagram": {
+        "status": "error",
+        "error": "Buffer reported publishing error for 6aabe1123221980927271e01 after retry",
+        "source": "platform-error"
       }
     },
     "generator": "local-fallback",
     "theme": "Malta: Harbour-fort bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-17T11:37:59.654Z"
+    "finishedAt": "2026-09-17T12:46:12.461Z"
   }
 }
