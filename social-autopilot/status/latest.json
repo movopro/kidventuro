@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-17T07:34:57.022Z",
+  "updatedAt": "2026-09-17T10:21:31.160Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-17-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-17T07:33:33.962Z",
+    "startedAt": "2026-09-17T10:21:21.037Z",
     "slot": "morning",
     "slotKey": "2026-09-17-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-17T07:33:33.962Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-17T10:21:21.037Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aab97e2b6213d08e068bd8c",
         "status": "sent",
         "sentAt": "2026-09-17T07:34:01.202Z",
         "externalLink": "https://www.instagram.com/p/DdYVZz5nJkg/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aab97ea587e9f368fe47a24",
         "status": "sent",
         "sentAt": "2026-09-17T07:34:06.525Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650253095",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aab97f020de135c2a15c239",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-17T07:35:52.359Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686404288616205600",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Havana: Classic-car bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-17T07:34:56.966Z"
+    "finishedAt": "2026-09-17T10:21:31.088Z"
   }
 }
