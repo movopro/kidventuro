@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T11:52:06.815Z",
+  "updatedAt": "2026-09-18T14:25:39.282Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-18T11:50:07.688Z",
+    "startedAt": "2026-09-18T14:25:36.148Z",
     "slot": "morning",
     "slotKey": "2026-09-18-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-18T11:50:07.688Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-18T14:25:36.148Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aad2582c8aaa712f4a20c4c",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-18T11:51:23.094Z",
+        "externalLink": "https://www.instagram.com/reel/DdbXj3hgGnT/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aad25b25c5a5e3eefd50804",
         "status": "sent",
         "sentAt": "2026-09-18T11:51:15.657Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650340234",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aad25b536df2deb53f04ec6",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-18T11:53:00.359Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686841668376612128",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Which Would You Visit? Bali vs Santorini",
     "postVariant": null,
-    "finishedAt": "2026-09-18T11:52:06.763Z"
+    "finishedAt": "2026-09-18T14:25:39.241Z"
   }
 }
