@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-18T06:34:50.731Z",
+  "updatedAt": "2026-09-18T11:04:49.133Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-18-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-18T06:32:50.172Z",
+    "startedAt": "2026-09-18T11:04:41.313Z",
     "slot": "morning",
     "slotKey": "2026-09-18-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-18T06:32:50.172Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-18T11:04:41.313Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aacdb278448254db2071cfa",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-18T06:34:10.398Z",
+        "externalLink": "https://www.instagram.com/reel/DdazQUDgm_P/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aacdb5641757aa564b01853",
         "status": "sent",
         "sentAt": "2026-09-18T06:34:00.242Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650326028",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aacdb5a30887344eccd6637",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-18T06:35:46.756Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686759888768355616",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Interactive guess: Naples",
     "postVariant": null,
-    "finishedAt": "2026-09-18T06:34:50.679Z"
+    "finishedAt": "2026-09-18T11:04:49.089Z"
   }
 }
