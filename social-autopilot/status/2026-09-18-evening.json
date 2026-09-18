@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-18T16:42:10.705Z",
+  "updatedAt": "2026-09-18T18:19:28.868Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-18-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-18T16:40:47.953Z",
+    "startedAt": "2026-09-18T18:19:26.095Z",
     "slot": "evening",
     "slotKey": "2026-09-18-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-18T16:40:47.953Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-18T18:19:26.095Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aad69a2cb6ea95cd522e7f0",
         "status": "sent",
         "sentAt": "2026-09-18T16:41:16.343Z",
         "externalLink": "https://www.instagram.com/p/Ddb40lpkdAr/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aad69ae9e7fdc60ebc7f866",
         "status": "sent",
         "sentAt": "2026-09-18T16:41:20.090Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650360303",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aad69b2b722a6a4710750c3",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-18T16:45:09.700Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7686916424622820641",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Petra: Ancient façade detective",
     "postVariant": null,
-    "finishedAt": "2026-09-18T16:42:10.650Z"
+    "finishedAt": "2026-09-18T18:19:28.822Z"
   }
 }
