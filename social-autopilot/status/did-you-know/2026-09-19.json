@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T11:33:25.271Z",
+  "updatedAt": "2026-09-19T14:21:02.560Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-19T11:32:12.306Z",
+    "startedAt": "2026-09-19T14:20:59.460Z",
     "slot": "evening",
     "slotKey": "2026-09-19-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-19T11:32:12.306Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-19T14:20:59.460Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aae72c9f4364554a89b22d7",
         "status": "sent",
         "sentAt": "2026-09-19T11:32:32.572Z",
         "externalLink": "https://www.instagram.com/p/Ddd6ShRlApj/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aae72d224705c9044a2d150",
         "status": "sent",
         "sentAt": "2026-09-19T11:32:35.417Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650421679",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aae72d51e8bdcdb52433e6c",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-19T11:34:22.266Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687207927328951584",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Did you know? Denmark",
     "postVariant": null,
-    "finishedAt": "2026-09-19T11:33:25.225Z"
+    "finishedAt": "2026-09-19T14:21:02.512Z"
   }
 }
