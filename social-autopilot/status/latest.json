@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-19T18:11:50.502Z",
+  "updatedAt": "2026-09-19T20:31:38.411Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-19-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-19T20:31:35.512Z",
+    "slot": "evening",
+    "slotKey": "2026-09-19-evening",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-19T20:31:35.512Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6aaeccd2140a3024025c55ed",
+        "status": "sent",
+        "sentAt": "2026-09-19T17:56:43.618Z",
+        "externalLink": "https://www.instagram.com/p/DdemQCAHGfM/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6aaeccdc4594e3153f3d1361",
+        "status": "sent",
+        "sentAt": "2026-09-19T17:56:45.931Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650450738",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6aaeccdf4594e3153f3d14d4",
+        "status": "sent",
+        "sentAt": "2026-09-19T18:00:58.665Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687306949272128800",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Seoul: Palace-roof shape hunt",
+    "postVariant": null,
+    "finishedAt": "2026-09-19T20:31:38.373Z"
+  }
 }
