@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-19T06:32:30.837Z",
+  "updatedAt": "2026-09-19T10:49:26.445Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-19-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-19T06:31:03.504Z",
+    "startedAt": "2026-09-19T10:49:23.311Z",
     "slot": "morning",
     "slotKey": "2026-09-19-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-19T06:31:03.504Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-19T10:49:23.311Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aae2c3a560f708e814fc9ae",
         "status": "sent",
         "sentAt": "2026-09-19T06:31:34.401Z",
         "externalLink": "https://www.instagram.com/p/DddX1kDlk2f/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aae2c4b04838aa1c45d769a",
         "status": "sent",
         "sentAt": "2026-09-19T06:31:40.751Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650406784",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aae2c4e04838aa1c45d7723",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-19T06:33:26.474Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687130363520388385",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Athens: Acropolis detective",
     "postVariant": null,
-    "finishedAt": "2026-09-19T06:32:30.785Z"
+    "finishedAt": "2026-09-19T10:49:26.398Z"
   }
 }
