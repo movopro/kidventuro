@@ -1,43 +1,9 @@
 {
-  "updatedAt": "2026-09-19T17:57:35.027Z",
+  "updatedAt": "2026-09-19T18:11:50.502Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-19-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-19T17:56:15.417Z",
-    "slot": "evening",
-    "slotKey": "2026-09-19-evening",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-19T17:56:15.417Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6aaeccd2140a3024025c55ed",
-        "status": "sent",
-        "sentAt": "2026-09-19T17:56:43.618Z",
-        "externalLink": "https://www.instagram.com/p/DdemQCAHGfM/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6aaeccdc4594e3153f3d1361",
-        "status": "sent",
-        "sentAt": "2026-09-19T17:56:45.931Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650450738",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6aaeccdf4594e3153f3d14d4",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "local-fallback",
-    "theme": "Seoul: Palace-roof shape hunt",
-    "postVariant": null,
-    "finishedAt": "2026-09-19T17:57:34.964Z"
-  }
+  "details": null
 }
