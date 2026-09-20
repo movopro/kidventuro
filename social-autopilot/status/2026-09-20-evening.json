@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-20T16:27:07.488Z",
+  "updatedAt": "2026-09-20T18:42:08.156Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-20-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-20T18:42:05.211Z",
+    "slot": "evening",
+    "slotKey": "2026-09-20-evening",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-20T18:42:05.211Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6ab00284aa5c0ff01eabbcce",
+        "status": "sent",
+        "sentAt": "2026-09-20T15:58:04.226Z",
+        "externalLink": "https://www.instagram.com/p/Ddg9eFIkUOz/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6ab0028d581115d59058697f",
+        "status": "sent",
+        "sentAt": "2026-09-20T15:58:06.972Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650531812",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6ab00290aa5c0ff01eabbfab",
+        "status": "sent",
+        "sentAt": "2026-09-20T15:59:52.023Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687647439376977184",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Florence: Dome detective",
+    "postVariant": null,
+    "finishedAt": "2026-09-20T18:42:08.114Z"
+  }
 }
