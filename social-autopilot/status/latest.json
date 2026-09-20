@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-20T06:05:56.881Z",
+  "updatedAt": "2026-09-20T06:53:17.184Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-20-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-20T06:03:56.368Z",
+    "startedAt": "2026-09-20T06:53:14.307Z",
     "slot": "morning",
     "slotKey": "2026-09-20-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-20T06:03:56.368Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-20T06:53:14.307Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aaf77618d048c06b4fbadf9",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-20T06:05:15.514Z",
+        "externalLink": "https://www.instagram.com/reel/Ddf5idnCo4c/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aaf7791b87fe813045b63ca",
         "status": "sent",
         "sentAt": "2026-09-20T06:05:06.761Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650493476",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aaf77944594e3153f4c19ee",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-20T06:06:52.270Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687494561559596320",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Myth or fact: screen-free travel in Manila",
     "postVariant": null,
-    "finishedAt": "2026-09-20T06:05:56.835Z"
+    "finishedAt": "2026-09-20T06:53:17.151Z"
   }
 }
