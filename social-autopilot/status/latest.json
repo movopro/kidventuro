@@ -1,43 +1,9 @@
 {
-  "updatedAt": "2026-09-20T15:58:55.500Z",
+  "updatedAt": "2026-09-20T16:27:07.488Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-20-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-20T15:57:39.755Z",
-    "slot": "evening",
-    "slotKey": "2026-09-20-evening",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-20T15:57:39.755Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6ab00284aa5c0ff01eabbcce",
-        "status": "sent",
-        "sentAt": "2026-09-20T15:58:04.226Z",
-        "externalLink": "https://www.instagram.com/p/Ddg9eFIkUOz/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6ab0028d581115d59058697f",
-        "status": "sent",
-        "sentAt": "2026-09-20T15:58:06.972Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650531812",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6ab00290aa5c0ff01eabbfab",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "local-fallback",
-    "theme": "Florence: Dome detective",
-    "postVariant": null,
-    "finishedAt": "2026-09-20T15:58:55.448Z"
-  }
+  "details": null
 }
