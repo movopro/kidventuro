@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T12:17:24.847Z",
+  "updatedAt": "2026-09-20T12:36:36.977Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -7,39 +7,5 @@
   "dateKey": "2026-09-20",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-20T12:15:43.669Z",
-    "slot": "morning",
-    "slotKey": "2026-09-20-did-you-know-morning",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-20T12:15:43.669Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6aafce828d048c06b4049177",
-        "status": "sent",
-        "sentAt": "2026-09-20T12:16:32.853Z",
-        "externalLink": "https://www.instagram.com/reel/DdgkE9Nklov/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6aafcea2549cbb1779858fac",
-        "status": "sent",
-        "sentAt": "2026-09-20T12:16:35.401Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650512990",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6aafcea58d048c06b4049593",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "curated-did-you-know",
-    "theme": "Guess the Country: France",
-    "postVariant": null,
-    "finishedAt": "2026-09-20T12:17:24.803Z"
-  }
+  "details": null
 }
