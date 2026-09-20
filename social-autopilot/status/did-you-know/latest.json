@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T12:36:36.977Z",
+  "updatedAt": "2026-09-20T16:29:24.531Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -7,5 +7,39 @@
   "dateKey": "2026-09-20",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-20T16:29:21.889Z",
+    "slot": "morning",
+    "slotKey": "2026-09-20-did-you-know-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-20T16:29:21.889Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6aafce828d048c06b4049177",
+        "status": "sent",
+        "sentAt": "2026-09-20T12:16:32.853Z",
+        "externalLink": "https://www.instagram.com/reel/DdgkE9Nklov/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6aafcea2549cbb1779858fac",
+        "status": "sent",
+        "sentAt": "2026-09-20T12:16:35.401Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650512990",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6aafcea58d048c06b4049593",
+        "status": "sent",
+        "sentAt": "2026-09-20T12:18:20.506Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687590357567032609",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "curated-did-you-know",
+    "theme": "Guess the Country: France",
+    "postVariant": null,
+    "finishedAt": "2026-09-20T16:29:24.490Z"
+  }
 }
