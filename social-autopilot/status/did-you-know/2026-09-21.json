@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-21T11:06:00.519Z",
+  "updatedAt": "2026-09-21T13:59:23.574Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-21T11:04:27.369Z",
+    "startedAt": "2026-09-21T13:59:20.397Z",
     "slot": "evening",
     "slotKey": "2026-09-21-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-21T11:04:27.369Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-21T13:59:20.397Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab10f4d72aeda4693edf7c7",
         "status": "sent",
         "sentAt": "2026-09-21T11:04:54.654Z",
         "externalLink": "https://www.instagram.com/p/DdjAtl4oESD/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab10f588ade82a17935a40d",
         "status": "sent",
         "sentAt": "2026-09-21T11:04:58.334Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650595035",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab10f69ca3714eb55991d85",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-21T11:08:18.187Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687943380143263008",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Maui: Volcano-and-beach bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-21T11:06:00.457Z"
+    "finishedAt": "2026-09-21T13:59:23.509Z"
   }
 }
