@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-21T06:11:53.297Z",
+  "updatedAt": "2026-09-21T11:02:16.170Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-21-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-21T06:10:38.218Z",
+    "startedAt": "2026-09-21T11:02:12.419Z",
     "slot": "morning",
     "slotKey": "2026-09-21-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-21T06:10:38.218Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-21T11:02:12.419Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab0ca6c26caf7929b0d1bb3",
         "status": "sent",
         "sentAt": "2026-09-21T06:10:58.426Z",
         "externalLink": "https://www.instagram.com/p/DdifFD3FuNH/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab0ca745a51e9fa48b45fd7",
         "status": "sent",
         "sentAt": "2026-09-21T06:11:02.710Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650583866",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab0ca783649bbabeabf7e4b",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-21T06:12:48.915Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7687867252732874016",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Vancouver: Mountain-view challenge",
     "postVariant": null,
-    "finishedAt": "2026-09-21T06:11:53.248Z"
+    "finishedAt": "2026-09-21T11:02:16.037Z"
   }
 }
