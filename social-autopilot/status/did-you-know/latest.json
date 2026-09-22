@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-22T14:46:28.767Z",
+  "updatedAt": "2026-09-22T15:09:36.621Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -7,39 +7,5 @@
   "dateKey": "2026-09-22",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-22T14:45:11.289Z",
-    "slot": "morning",
-    "slotKey": "2026-09-22-did-you-know-morning",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-22T14:45:11.289Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6ab29487dae2e648e5d7d52e",
-        "status": "sent",
-        "sentAt": "2026-09-22T14:45:36.425Z",
-        "externalLink": "https://www.instagram.com/p/Ddl-xE8kSeq/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6ab29492bafcc0c7efe2f28c",
-        "status": "sent",
-        "sentAt": "2026-09-22T14:45:39.781Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650685862",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6ab29495760fb23fa9859618",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "curated-did-you-know",
-    "theme": "Spot It on Your Trip: Prague",
-    "postVariant": null,
-    "finishedAt": "2026-09-22T14:46:28.708Z"
-  }
+  "details": null
 }
