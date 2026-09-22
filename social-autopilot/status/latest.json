@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-22T15:09:34.116Z",
+  "updatedAt": "2026-09-22T18:46:03.469Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-22-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-22T15:08:16.186Z",
+    "startedAt": "2026-09-22T18:46:00.594Z",
     "slot": "evening",
     "slotKey": "2026-09-22-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-22T15:08:16.186Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-22T18:46:00.594Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab299f0dae2e648e5d89bf3",
         "status": "sent",
         "sentAt": "2026-09-22T15:08:40.221Z",
         "externalLink": "https://www.instagram.com/p/DdmBaAZlb6l/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab299fabafcc0c7efe3c477",
         "status": "sent",
         "sentAt": "2026-09-22T15:08:43.678Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650687288",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab299fddae2e648e5d89eb6",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-22T15:15:55.279Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7688377774465158433",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Nairobi: City-and-nature hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-22T15:09:34.076Z"
+    "finishedAt": "2026-09-22T18:46:03.418Z"
   }
 }
