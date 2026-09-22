@@ -1,43 +1,9 @@
 {
-  "updatedAt": "2026-09-22T09:53:20.582Z",
+  "updatedAt": "2026-09-22T10:15:52.909Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-22-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-22T09:51:18.196Z",
-    "slot": "morning",
-    "slotKey": "2026-09-22-morning",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-22T09:51:18.196Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6ab24fab5cfcad806a37d052",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6ab24fdb80cb27270aab63ca",
-        "status": "sent",
-        "sentAt": "2026-09-22T09:52:28.362Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650670083",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6ab24fe08920619c8e55d34a",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "local-fallback",
-    "theme": "Three-second challenge: Stockholm",
-    "postVariant": null,
-    "finishedAt": "2026-09-22T09:53:20.536Z"
-  }
+  "details": null
 }
