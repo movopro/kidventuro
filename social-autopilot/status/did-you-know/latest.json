@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-23T11:28:28.150Z",
+  "updatedAt": "2026-09-23T12:59:36.700Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-23T11:26:27.557Z",
+    "startedAt": "2026-09-23T12:59:34.287Z",
     "slot": "evening",
     "slotKey": "2026-09-23-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-23T11:26:27.557Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-23T12:59:34.287Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab3b779daf288bc75cdba26",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-23T11:27:48.669Z",
+        "externalLink": "https://www.instagram.com/reel/DdoM1KciZpB/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab3b7a9ebc03a62a9e9584c",
         "status": "sent",
         "sentAt": "2026-09-23T11:27:38.165Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650754732",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab3b7ac84128528587856f3",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-23T11:29:24.387Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7688691015200279841",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "Which Would You Visit? Vancouver vs Toronto",
     "postVariant": null,
-    "finishedAt": "2026-09-23T11:28:28.101Z"
+    "finishedAt": "2026-09-23T12:59:36.653Z"
   }
 }
