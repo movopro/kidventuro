@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-23T16:48:31.364Z",
+  "updatedAt": "2026-09-23T17:25:16.255Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-23-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-23T16:47:10.817Z",
+    "startedAt": "2026-09-23T17:25:12.600Z",
     "slot": "evening",
     "slotKey": "2026-09-23-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-23T16:47:10.817Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-23T17:25:12.600Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab402a1fd4ba40aeaac64b6",
         "status": "sent",
         "sentAt": "2026-09-23T16:47:36.215Z",
         "externalLink": "https://www.instagram.com/p/DdoxhmdoNKC/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab402aadf2f6ddba9df3f51",
         "status": "sent",
         "sentAt": "2026-09-23T16:47:39.717Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650774709",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab402ae062c9074d14e0c31",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-23T16:49:26.489Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7688773477016276257",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Warsaw: Old-vs-new city challenge",
     "postVariant": null,
-    "finishedAt": "2026-09-23T16:48:31.306Z"
+    "finishedAt": "2026-09-23T17:25:16.216Z"
   }
 }
