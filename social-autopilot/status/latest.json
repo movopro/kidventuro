@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-24T09:55:50.569Z",
+  "updatedAt": "2026-09-24T10:27:21.437Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-24-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-24T09:53:52.868Z",
+    "startedAt": "2026-09-24T10:27:19.003Z",
     "slot": "morning",
     "slotKey": "2026-09-24-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-24T09:53:52.868Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-24T10:27:19.003Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab4f344d215fd434ff4c114",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-24T09:55:08.992Z",
+        "externalLink": "https://www.instagram.com/reel/DdqnBurD2Nl/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab4f373d215fd434ff4cbb1",
         "status": "sent",
         "sentAt": "2026-09-24T09:55:01.136Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650827199",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab4f3776396ba3b0ccdfcbd",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-24T09:56:52.136Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7689038225913990432",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Emoji destination: Ho Chi Minh City",
     "postVariant": null,
-    "finishedAt": "2026-09-24T09:55:50.514Z"
+    "finishedAt": "2026-09-24T10:27:21.391Z"
   }
 }
