@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-24T15:29:33.986Z",
+  "updatedAt": "2026-09-24T19:01:52.706Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-24-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-24T15:28:11.873Z",
+    "startedAt": "2026-09-24T19:01:48.527Z",
     "slot": "evening",
     "slotKey": "2026-09-24-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-24T15:28:11.873Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-24T19:01:48.527Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab5419d8333eb39f0e35884",
         "status": "sent",
         "sentAt": "2026-09-24T15:28:39.249Z",
         "externalLink": "https://www.instagram.com/p/DdrNR6bG2wX/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab541a967bd3aad31fb0b6e",
         "status": "sent",
         "sentAt": "2026-09-24T15:28:44.557Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650845965",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab541ae8333eb39f0e35b83",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-24T15:32:54.020Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7689124244927647009",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Sydney: Harbour ferry bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-24T15:29:33.927Z"
+    "finishedAt": "2026-09-24T19:01:52.518Z"
   }
 }
