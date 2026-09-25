@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-25T08:08:07.414Z",
+  "updatedAt": "2026-09-25T13:38:12.557Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-25-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-25T13:38:08.816Z",
+    "slot": "morning",
+    "slotKey": "2026-09-25-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-25T13:38:08.816Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6ab62540607bee5b032be03e",
+        "status": "sent",
+        "sentAt": "2026-09-25T07:39:53.850Z",
+        "externalLink": "https://www.instagram.com/p/Dds8bjBls9d/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6ab6254bcbe818dd4ffe075a",
+        "status": "sent",
+        "sentAt": "2026-09-25T07:39:56.338Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650899894",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6ab6254ecbe818dd4ffe07a8",
+        "status": "sent",
+        "sentAt": "2026-09-25T07:41:43.156Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7689374489884380449",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Washington DC: Monument shape challenge",
+    "postVariant": null,
+    "finishedAt": "2026-09-25T13:38:12.503Z"
+  }
 }
