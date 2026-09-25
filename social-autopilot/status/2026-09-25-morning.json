@@ -1,43 +1,9 @@
 {
-  "updatedAt": "2026-09-25T07:40:45.619Z",
+  "updatedAt": "2026-09-25T08:08:07.414Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-25-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-25T07:39:26.076Z",
-    "slot": "morning",
-    "slotKey": "2026-09-25-morning",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-25T07:39:26.076Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6ab62540607bee5b032be03e",
-        "status": "sent",
-        "sentAt": "2026-09-25T07:39:53.850Z",
-        "externalLink": "https://www.instagram.com/p/Dds8bjBls9d/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6ab6254bcbe818dd4ffe075a",
-        "status": "sent",
-        "sentAt": "2026-09-25T07:39:56.338Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644650899894",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6ab6254ecbe818dd4ffe07a8",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "local-fallback",
-    "theme": "Washington DC: Monument shape challenge",
-    "postVariant": null,
-    "finishedAt": "2026-09-25T07:40:45.562Z"
-  }
+  "details": null
 }
