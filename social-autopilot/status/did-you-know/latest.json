@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T12:13:21.977Z",
+  "updatedAt": "2026-09-25T13:40:15.911Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-25T12:12:03.281Z",
+    "startedAt": "2026-09-25T13:40:12.757Z",
     "slot": "evening",
     "slotKey": "2026-09-25-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-25T12:12:03.281Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-25T13:40:12.757Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab66523607bee5b03334427",
         "status": "sent",
         "sentAt": "2026-09-25T12:12:29.292Z",
         "externalLink": "https://www.instagram.com/p/Ddtbn-KIKgC/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab6652edb73444101ecf4b1",
         "status": "sent",
         "sentAt": "2026-09-25T12:12:31.453Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644650912690",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab66531db73444101ecf511",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-25T12:17:11.078Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7689445714753031456",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Melbourne: Tram bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-25T12:13:21.926Z"
+    "finishedAt": "2026-09-25T13:40:15.871Z"
   }
 }
