@@ -1,43 +1,9 @@
 {
-  "updatedAt": "2026-09-26T17:05:39.598Z",
+  "updatedAt": "2026-09-26T17:21:54.589Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-26-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-26T17:04:24.188Z",
-    "slot": "evening",
-    "slotKey": "2026-09-26-evening",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-26T17:04:24.188Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6ab7fb29ccccb9429c345477",
-        "status": "sent",
-        "sentAt": "2026-09-26T17:04:47.709Z",
-        "externalLink": "https://www.instagram.com/p/Ddwh4LbFMDZ/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6ab7fb310f79a37c5d356920",
-        "status": "sent",
-        "sentAt": "2026-09-26T17:04:50.124Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644651022683",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6ab7fb333d66d464e5b7622c",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "local-fallback",
-    "theme": "Lima: Plaza pattern hunt",
-    "postVariant": null,
-    "finishedAt": "2026-09-26T17:05:39.531Z"
-  }
+  "details": null
 }
