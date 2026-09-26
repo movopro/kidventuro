@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-26T13:02:35.538Z",
+  "updatedAt": "2026-09-26T14:42:59.549Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "morning",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-26T13:00:41.793Z",
+    "startedAt": "2026-09-26T14:42:55.379Z",
     "slot": "morning",
     "slotKey": "2026-09-26-did-you-know-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-26T13:00:41.793Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-26T14:42:55.379Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab7c2093d66d464e5b059bc",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-26T13:02:01.481Z",
+        "externalLink": "https://www.instagram.com/p/DdwGCr_lGN2/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab7c239ccccb9429c2d5d78",
         "status": "sent",
         "sentAt": "2026-09-26T13:01:47.245Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644651001278",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab7c23c05811e57372c18bc",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-26T13:17:15.085Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7689830655592631585",
+        "source": "verified-marker"
       }
     },
     "generator": "curated-did-you-know",
     "theme": "3 Fun Facts About Croatia",
     "postVariant": null,
-    "finishedAt": "2026-09-26T13:02:35.476Z"
+    "finishedAt": "2026-09-26T14:42:59.498Z"
   }
 }
