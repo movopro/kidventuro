@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-26T07:58:30.420Z",
+  "updatedAt": "2026-09-26T12:59:13.764Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-26-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-26T12:59:10.494Z",
+    "slot": "morning",
+    "slotKey": "2026-09-26-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-26T12:59:10.494Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6ab7750880521ded5525a399",
+        "status": "sent",
+        "sentAt": "2026-09-26T07:35:23.812Z",
+        "externalLink": "https://www.instagram.com/reel/Ddvgfg8EhsK/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6ab77538dffba3cec6f2ea5d",
+        "status": "sent",
+        "sentAt": "2026-09-26T07:33:13.483Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644650982733",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6ab7753af59168c97539d4f4",
+        "status": "sent",
+        "sentAt": "2026-09-26T07:34:58.332Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7689743867486145824",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "Interactive choice: Brussels",
+    "postVariant": null,
+    "finishedAt": "2026-09-26T12:59:13.713Z"
+  }
 }
