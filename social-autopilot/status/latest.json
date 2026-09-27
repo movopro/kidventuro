@@ -1,9 +1,43 @@
 {
-  "updatedAt": "2026-09-27T08:30:57.176Z",
+  "updatedAt": "2026-09-27T13:51:20.652Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-27-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": null
+  "details": {
+    "startedAt": "2026-09-27T13:51:16.940Z",
+    "slot": "morning",
+    "slotKey": "2026-09-27-morning",
+    "contentDateOffsetDays": 0,
+    "contentDate": "2026-09-27T13:51:16.940Z",
+    "outcome": "sent",
+    "platforms": {
+      "instagram": {
+        "postId": "6ab8cd524b4b9f2c1c677914",
+        "status": "sent",
+        "sentAt": "2026-09-27T08:01:59.217Z",
+        "externalLink": "https://www.instagram.com/p/DdyIjREnIMG/",
+        "source": "verified-marker"
+      },
+      "pinterest": {
+        "postId": "6ab8cd7d3d66d464e5cd09a5",
+        "status": "sent",
+        "sentAt": "2026-09-27T08:02:06.627Z",
+        "externalLink": "https://www.pinterest.com/pin/1122592644651078321",
+        "source": "verified-marker"
+      },
+      "tiktok": {
+        "postId": "6ab8cd809f89edbefe8e6846",
+        "status": "sent",
+        "sentAt": "2026-09-27T08:03:52.455Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7690122378948480289",
+        "source": "verified-marker"
+      }
+    },
+    "generator": "local-fallback",
+    "theme": "London: Red bus bingo",
+    "postVariant": null,
+    "finishedAt": "2026-09-27T13:51:20.611Z"
+  }
 }
