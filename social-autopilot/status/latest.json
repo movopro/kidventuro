@@ -1,43 +1,9 @@
 {
-  "updatedAt": "2026-09-27T08:02:56.869Z",
+  "updatedAt": "2026-09-27T08:30:57.176Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-27-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-27T08:01:03.483Z",
-    "slot": "morning",
-    "slotKey": "2026-09-27-morning",
-    "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-27T08:01:03.483Z",
-    "outcome": "pending",
-    "platforms": {
-      "instagram": {
-        "postId": "6ab8cd524b4b9f2c1c677914",
-        "status": "sent",
-        "sentAt": "2026-09-27T08:01:59.217Z",
-        "externalLink": "https://www.instagram.com/p/DdyIjREnIMG/",
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6ab8cd7d3d66d464e5cd09a5",
-        "status": "sent",
-        "sentAt": "2026-09-27T08:02:06.627Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644651078321",
-        "source": "created"
-      },
-      "tiktok": {
-        "postId": "6ab8cd809f89edbefe8e6846",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "generator": "local-fallback",
-    "theme": "London: Red bus bingo",
-    "postVariant": null,
-    "finishedAt": "2026-09-27T08:02:56.797Z"
-  }
+  "details": null
 }
