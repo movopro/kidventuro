@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T13:18:12.385Z",
+  "updatedAt": "2026-09-27T13:53:15.846Z",
   "series": "did-you-know",
   "event": "schedule",
   "slot": "evening",
@@ -8,38 +8,38 @@
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-27T13:16:52.072Z",
+    "startedAt": "2026-09-27T13:53:12.433Z",
     "slot": "evening",
     "slotKey": "2026-09-27-did-you-know-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-27T13:16:52.072Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-27T13:53:12.433Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6ab917571bf030e330a84618",
         "status": "sent",
         "sentAt": "2026-09-27T13:17:19.673Z",
         "externalLink": "https://www.instagram.com/p/Ddyso5GFZsQ/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6ab9176136a0dcfcb3d5e872",
         "status": "sent",
         "sentAt": "2026-09-27T13:17:22.724Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644651096899",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6ab9176443493a0ede8fc0ee",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-27T13:25:47.972Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7690204927775345953",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Porto: Douro bridge hunt",
     "postVariant": null,
-    "finishedAt": "2026-09-27T13:18:12.308Z"
+    "finishedAt": "2026-09-27T13:53:15.790Z"
   }
 }
