@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-28T15:19:56.939Z",
+  "updatedAt": "2026-09-28T20:43:01.501Z",
   "event": "schedule",
   "slot": "evening",
   "slotKey": "2026-09-28-evening",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-28T15:18:35.982Z",
+    "startedAt": "2026-09-28T20:42:57.864Z",
     "slot": "evening",
     "slotKey": "2026-09-28-evening",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-28T15:18:35.982Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-28T20:42:57.864Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aba855fc62b374cee99a549",
         "status": "sent",
         "sentAt": "2026-09-28T15:19:04.087Z",
         "externalLink": "https://www.instagram.com/p/Dd1fXNzlYZ0/",
-        "source": "created"
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aba856987bbcd84866805db",
         "status": "sent",
         "sentAt": "2026-09-28T15:19:07.052Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644651190173",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aba856cbaa2ae49524d171f",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-28T15:22:50.931Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7690606624599199009",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Orlando: Florida nature bingo",
     "postVariant": null,
-    "finishedAt": "2026-09-28T15:19:56.880Z"
+    "finishedAt": "2026-09-28T20:43:01.449Z"
   }
 }
