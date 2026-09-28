@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-28T06:42:58.646Z",
+  "updatedAt": "2026-09-28T14:23:35.745Z",
   "event": "schedule",
   "slot": "morning",
   "slotKey": "2026-09-28-morning",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-09-28T06:41:00.937Z",
+    "startedAt": "2026-09-28T14:23:32.617Z",
     "slot": "morning",
     "slotKey": "2026-09-28-morning",
     "contentDateOffsetDays": 0,
-    "contentDate": "2026-09-28T06:41:00.937Z",
-    "outcome": "pending",
+    "contentDate": "2026-09-28T14:23:32.617Z",
+    "outcome": "sent",
     "platforms": {
       "instagram": {
         "postId": "6aba0c11595f7f5869597eb2",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-28T06:42:16.869Z",
+        "externalLink": "https://www.instagram.com/reel/Dd0kI1hABFh/",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6aba0c40a94ef4516f2d37f6",
         "status": "sent",
         "sentAt": "2026-09-28T06:42:09.823Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644651163046",
-        "source": "created"
+        "source": "verified-marker"
       },
       "tiktok": {
         "postId": "6aba0c43612c9e6ac942e96f",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-09-28T06:43:55.087Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7690472834639957280",
+        "source": "verified-marker"
       }
     },
     "generator": "local-fallback",
     "theme": "Interactive guess: Mumbai",
     "postVariant": null,
-    "finishedAt": "2026-09-28T06:42:58.585Z"
+    "finishedAt": "2026-09-28T14:23:35.694Z"
   }
 }
