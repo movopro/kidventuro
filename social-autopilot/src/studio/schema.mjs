@@ -78,6 +78,7 @@ export function validatePost(post, { requireSchedule = false, destinations = nul
           onScreen(errors, where, message.text);
         }
         onScreen(errors, `${where} title`, scene.title, { required: false });
+        onScreen(errors, `${where} status`, scene.status, { required: false });
         break;
       case 'booklet':
         check(errors, typeof scene.destination === 'string', `${where}: booklet needs a destination`);

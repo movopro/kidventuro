@@ -503,7 +503,7 @@ function chatScene(ctx, scene, minDuration) {
       c.fillStyle = COLORS.teal;
       c.beginPath(); c.arc(SAFE.left + 49, headerY + 35, 9, 0, Math.PI * 2); c.fill();
       c.font = font(700, 30, FAMILY);
-      c.fillText('on the road', SAFE.left + 68, headerY + 46);
+      c.fillText(scene.status || 'on the road', SAFE.left + 68, headerY + 46);
       let y = headerY + 130;
       messages.forEach((message, i) => {
         const kid = message.from === 'kid';

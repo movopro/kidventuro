@@ -2,11 +2,14 @@ name: Kidventuro social autopilot
 
 on:
   schedule:
-    # Two independent watchdog checks per hour for the 09:00, 14:00 and 18:00 slots
+    # Four independent watchdog checks per hour for the 09:00, 14:00 and 18:00 slots
+    # (GitHub often starts scheduled runs late: more checks, less lateness).
     # (Europe/Sofia). The gate publishes only the due, incomplete slot, so extra checks
     # cannot duplicate posts. Videos are normally pre-rendered by social-studio.yml.
     - cron: '8 * * * *'
+    - cron: '23 * * * *'
     - cron: '38 * * * *'
+    - cron: '53 * * * *'
   workflow_dispatch:
     inputs:
       slot:

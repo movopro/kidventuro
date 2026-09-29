@@ -11,7 +11,7 @@ import { spawnSync } from 'node:child_process';
 export function postTexts(post) {
   const texts = [post.hook?.text, post.hook?.kicker, post.hook?.say, post.outro?.text, post.outro?.sub, post.outro?.say, post.listTitle];
   for (const scene of post.scenes || []) {
-    texts.push(scene.text, scene.kicker, scene.title, scene.prompt, scene.left, scene.right, scene.a, scene.b, scene.say, scene.child);
+    texts.push(scene.text, scene.kicker, scene.title, scene.prompt, scene.left, scene.right, scene.a, scene.b, scene.say, scene.child, scene.status);
     for (const item of scene.items || []) texts.push(typeof item === 'string' ? item : item.text);
     for (const message of scene.messages || []) texts.push(message.text);
   }

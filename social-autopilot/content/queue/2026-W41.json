@@ -421,7 +421,8 @@
               "from": "kid",
               "text": "The *pigeon* that stole my croissant."
             }
-          ]
+          ],
+          "status": "in the air"
         }
       ],
       "outro": {
@@ -1012,7 +1013,8 @@
               "from": "kid",
               "text": "*Oh.*"
             }
-          ]
+          ],
+          "status": "leaving soon"
         }
       ],
       "outro": {

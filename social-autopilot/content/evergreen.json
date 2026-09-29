@@ -306,7 +306,7 @@
       "format": "pov",
       "hook": { "kicker": "POV", "text": "You finally check in to the *hotel*" },
       "scenes": [
-        { "type": "chat", "title": "Room 214", "messages": [
+        { "type": "chat", "title": "Room 214", "status": "checked in", "messages": [
           { "from": "kid", "text": "Can I have the *top bunk*?" },
           { "from": "parent", "text": "There's no bunk." },
           { "from": "kid", "text": "Then can I sleep *in the bathtub*?" },

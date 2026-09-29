@@ -365,7 +365,8 @@
               "from": "kid",
               "text": "*I already packed it.*"
             }
-          ]
+          ],
+          "status": "packing"
         }
       ],
       "outro": {
@@ -952,7 +953,8 @@
               "from": "kid",
               "text": "*Then why is it smiling?*"
             }
-          ]
+          ],
+          "status": "at the museum"
         }
       ],
       "outro": {
