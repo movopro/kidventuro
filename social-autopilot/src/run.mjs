@@ -6,6 +6,7 @@ import { claimSlot } from './claim.mjs';
 import { CloudinaryStore } from './cloudinary.mjs';
 import { generateContent, loadQueuePosts } from './content.mjs';
 import { destinationSet, renderPost } from './studio/studio.mjs';
+import { aiDisclosure } from './studio/schema.mjs';
 import { ensureDirectory, localDateKey, requiredEnv } from './utils.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -180,6 +181,7 @@ if (Object.keys(verifiedMarkers).length === Object.keys(markerIds).length) {
 
 let coverUrl;
 let videoUrl;
+let aiLabel = Boolean(content.ai?.label);
 if (content.media) {
   // Rendered, checked and uploaded by the weekly studio run.
   ({ cover: coverUrl, video: videoUrl } = content.media);
@@ -193,8 +195,12 @@ if (content.media) {
     cloudinary.uploadFile({ filePath: assets.videoPath, publicId: `${mediaPrefix}/short-video`, resourceType: 'video' })
   ]);
   runReport.media = 'rendered-at-publish';
+  // The label follows the video actually made here: narrated only where this
+  // runner has the voice installed (Node 2 does, GitHub's publisher does not).
+  aiLabel = aiDisclosure(content.post, { voiceRendered: Boolean(assets.voiced) }).label;
+  runReport.aiLabel = { ...(runReport.aiLabel || {}), label: aiLabel, voiceRendered: Boolean(assets.voiced) };
 }
-const ai = { label: Boolean(content.ai?.label), assisted: Boolean(content.ai?.textAssisted) };
+const ai = { label: aiLabel, assisted: Boolean(content.ai?.textAssisted) };
 
 const campaign = encodeURIComponent(slotKey);
 const destinationUrl = content.productUrl
