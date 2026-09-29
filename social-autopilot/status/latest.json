@@ -1,49 +1,9 @@
 {
-  "updatedAt": "2026-09-29T11:10:30.410Z",
+  "updatedAt": "2026-09-29T11:17:27.247Z",
   "event": "workflow_dispatch",
   "slot": "afternoon",
   "slotKey": "2026-09-29-afternoon",
   "preflightConfigured": "true",
   "publishOutcome": "success",
-  "details": {
-    "startedAt": "2026-09-29T11:08:49.709Z",
-    "slot": "afternoon",
-    "slotKey": "2026-09-29-afternoon",
-    "outcome": "pending",
-    "platforms": {
-      "tiktok": {
-        "postId": "6abb9c458b8e0389c1a272e8",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      },
-      "pinterest": {
-        "postId": "6abb9c748b8e0389c1a278ca",
-        "status": "sent",
-        "sentAt": "2026-09-29T11:09:41.815Z",
-        "externalLink": "https://www.pinterest.com/pin/1122592644651252159",
-        "source": "created"
-      },
-      "instagram": {
-        "postId": "6abb9c7738ec49fa79441f89",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
-      }
-    },
-    "skippedPlatforms": [],
-    "generator": "studio-queue",
-    "theme": "didyouknow",
-    "bankId": "kw40-dyk-prague",
-    "contentSource": "queue",
-    "aiLabel": {
-      "label": true,
-      "reason": "ai.visuals=template, synthetic voice=true",
-      "textAssisted": true
-    },
-    "media": "studio",
-    "finishedAt": "2026-09-29T11:10:30.345Z"
-  }
+  "details": null
 }
