@@ -42,7 +42,8 @@ export function hunspellAvailable({ dictionary = 'bg_BG' } = {}) {
   return !result.error && `${result.stdout}${result.stderr}`.includes(dictionary);
 }
 
-export async function spellcheckPosts(posts, root) {
+// check is hunspell unless a test supplies its own dictionary.
+export async function spellcheckPosts(posts, root, { check = hunspell } = {}) {
   let allow = new Set();
   try {
     allow = new Set((await fs.readFile(path.join(root, 'content', 'spell-allow.txt'), 'utf8'))
@@ -58,8 +59,16 @@ export async function spellcheckPosts(posts, root) {
   }
   const all = [...byWord.keys()];
   const unknown = [
-    ...hunspell('bg_BG', all.filter((word) => /\p{Script=Cyrillic}/u.test(word))),
-    ...hunspell('en_US', all.filter((word) => /^[\p{Script=Latin}'’-]+$/u.test(word)))
+    ...check('bg_BG', all.filter((word) => /\p{Script=Cyrillic}/u.test(word))),
+    ...check('en_US', all.filter((word) => /^[\p{Script=Latin}'’-]+$/u.test(word)))
   ];
-  return [...new Set(unknown)].map((word) => ({ word, posts: [...(byWord.get(word) || [])] }));
+  // hunspell reports the parts of a hyphenated word ("double-deckers" ->
+  // "deckers"), so its answers go through the allow list too, and are traced
+  // back to every token that contains them.
+  const allowed = (word) => allow.has(word.toLocaleLowerCase('bg'));
+  return [...new Set(unknown)].filter((word) => !allowed(word)).map((word) => {
+    const posts = new Set(byWord.get(word) || []);
+    for (const [token, ids] of byWord) if (token !== word && token.split(/[-'’]/).includes(word)) for (const id of ids) posts.add(id);
+    return { word, posts: [...posts] };
+  });
 }

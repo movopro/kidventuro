@@ -111,3 +111,18 @@ test('captions cap TikTok at five hashtags; media goes stale when the script cha
 test('accent markers survive trailing punctuation', () => {
   assert.deepEqual(tokenize('the *window seat*.').map((token) => token.accent), [false, true, true]);
 });
+
+test('spelling: hyphenated parts reported by hunspell still honour the allow list', async () => {
+  const { spellcheckPosts } = await import('../src/studio/spellcheck.mjs');
+  const fs = await import('node:fs/promises');
+  const os = await import('node:os');
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'spell-'));
+  await fs.mkdir(path.join(dir, 'content'));
+  await fs.writeFile(path.join(dir, 'content', 'spell-allow.txt'), 'deckers\n');
+  // A fake dictionary that behaves like hunspell: it flags the part, not the whole.
+  const check = (dictionary, list) => list.flatMap((word) => word.split('-')).filter((part) => ['deckers', 'teh'].includes(part));
+  const post = { id: 'p1', hook: { text: 'Red double-deckers and teh bus' }, scenes: [], outro: { text: 'Bye' }, caption: {} };
+  const unknown = await spellcheckPosts([post], dir, { check });
+  assert.deepEqual(unknown.map((entry) => entry.word), ['teh']);
+  assert.deepEqual(unknown[0].posts, ['p1']);
+});
