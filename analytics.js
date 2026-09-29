@@ -38,33 +38,188 @@
     }
   }
 
-  // Google measurement layer. No child identity, exact age, checkout reference or order identifier is pushed.
+  // Google measurement layer: optional and consent-first. Nothing is requested from Google until the
+  // visitor accepts in the banner below; a refusal is remembered, and "Cookie settings" in the footer
+  // reopens the choice. No child identity, exact age, checkout reference or order identifier is pushed.
   window.dataLayer=window.dataLayer||[];
   const google=runtime.google||{};
   const gtmId=String(google.gtmId||'').trim();
   const tagId=String(google.tagId||'').trim();
+  const hasGtm=/^GTM-[A-Z0-9]+$/i.test(gtmId);
+  const hasTag=!hasGtm&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId);
+  const googleConfigured=publicHost&&(hasGtm||hasTag);
   const pageLanguage=()=>{
     const lang=String(document.documentElement.lang||'en').toLowerCase().split('-')[0];
     return ['en','es','bg'].includes(lang)?lang:'en';
   };
 
-  if(publicHost&&/^GTM-[A-Z0-9]+$/i.test(gtmId)&&!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${gtmId}"]`)){
-    window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+  const CONSENT_KEY='kidventuro_analytics_consent_v1';
+  const readConsent=()=>{try{return localStorage.getItem(CONSENT_KEY);}catch{return null;}};
+  const saveConsent=value=>{try{localStorage.setItem(CONSENT_KEY,value);}catch{}};
+  let googleOn=false;
+  let pageViewCounted=false;
+
+  const addScript=src=>{
+    if(document.querySelector(`script[src="${src}"]`)) return;
     const script=document.createElement('script');
     script.async=true;
-    script.src=`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
+    script.src=src;
     document.head.appendChild(script);
-  }else if(publicHost&&!gtmId&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId)){
-    if(!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${tagId}"]`)){
-      const script=document.createElement('script');
-      script.async=true;
-      script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(tagId)}`;
-      document.head.appendChild(script);
+  };
+  const startGoogle=()=>{
+    if(googleOn||!googleConfigured) return;
+    googleOn=true;
+    if(hasGtm){
+      window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+      addScript(`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`);
+      return;
     }
-    const gtag=(...args)=>window.dataLayer.push(args);
-    window.gtag=window.gtag||gtag;
+    window[`ga-disable-${tagId}`]=false;
+    // gtag.js only acts on the `arguments` object. An arrow function that pushes a plain array is
+    // silently ignored, which is why Kidventuro sent Google nothing from launch until 2026-09-29.
+    window.gtag=window.gtag||function gtag(){window.dataLayer.push(arguments);};
     window.gtag('js',new Date());
-    window.gtag('config',tagId,{send_page_view:false});
+    window.gtag('config',tagId,{
+      send_page_view:false,
+      allow_google_signals:false,
+      allow_ad_personalization_signals:false,
+      cookie_expires:60*60*24*395
+    });
+    addScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(tagId)}`);
+  };
+  const stopGoogle=()=>{
+    googleOn=false;
+    if(hasTag) window[`ga-disable-${tagId}`]=true;
+    // Remove the Google Analytics cookies this site set, on the host and the parent domain.
+    String(document.cookie||'').split(';').map(part=>part.split('=')[0].trim())
+      .filter(name=>/^_ga(_|$)|^_gid$/.test(name))
+      .forEach(name=>{
+        for(const scope of ['',`;domain=${location.hostname}`,';domain=.kidventuro.com']){
+          document.cookie=`${name}=;Max-Age=0;path=/${scope}`;
+        }
+      });
+  };
+  const sendGoogle=(event,params)=>{
+    if(!googleOn) return;
+    if(hasGtm) window.dataLayer.push({event:`kidventuro_${event}`,kidventuro_event:event,...params});
+    else if(typeof window.gtag==='function') window.gtag('event',event,params);
+  };
+  const pageParams=()=>({page_path:location.pathname||'/',language:pageLanguage()});
+
+  const TEXT={
+    en:{label:'Cookie choice',message:'May we use Google Analytics to see which pages help families most? It only sets cookies if you accept.',privacy:'Privacy',decline:'Decline',accept:'Accept',settings:'Cookie settings'},
+    es:{label:'Elección de cookies',message:'¿Podemos usar Google Analytics para ver qué páginas ayudan más a las familias? Solo instala cookies si aceptas.',privacy:'Privacidad',decline:'Rechazar',accept:'Aceptar',settings:'Configurar cookies'},
+    bg:{label:'Избор за бисквитки',message:'Може ли да използваме Google Analytics, за да виждаме кои страници помагат най-много на семействата? Бисквитки се поставят само ако приемете.',privacy:'Поверителност',decline:'Отказвам',accept:'Приемам',settings:'Бисквитки'}
+  };
+  const text=()=>TEXT[pageLanguage()]||TEXT.en;
+  const ui={};
+  const make=(tag,className)=>{const node=document.createElement(tag);if(className)node.className=className;return node;};
+  const addStyles=()=>{
+    if(document.getElementById('kvConsentStyles')) return;
+    const style=make('style');
+    style.id='kvConsentStyles';
+    style.textContent=[
+      // border-box here, not inherited: the /es/ and destination pages do not set it globally.
+      '.kv-cc,.kv-cc *{box-sizing:border-box}',
+      '.kv-cc{position:fixed;z-index:95;left:50%;bottom:max(16px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(640px,calc(100% - 24px));display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:16px 18px;background:#fffdf9;color:#20312f;border:1px solid #e8e2d8;border-radius:22px;box-shadow:0 20px 60px rgba(42,54,51,.2);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}',
+      '.kv-cc__text{flex:1 1 280px;margin:0}',
+      '.kv-cc__text a{margin-left:4px;color:#2b7a78;font-weight:800;text-decoration:underline}',
+      '.kv-cc__actions{display:flex;gap:10px;flex:0 0 auto}',
+      '.kv-cc__btn{min-height:44px;min-width:112px;padding:10px 18px;border:2px solid #20312f;border-radius:999px;background:#fff;color:#20312f;font:inherit;font-weight:900;cursor:pointer}',
+      '.kv-cc__btn--accept{background:#20312f;color:#fff}',
+      '.kv-cc__btn:focus-visible,.kv-cc-link:focus-visible{outline:3px solid #ff7d4d;outline-offset:2px}',
+      '@media (max-width:520px){.kv-cc__actions{width:100%}.kv-cc__btn{flex:1}}'
+    ].join('');
+    document.head.appendChild(style);
+  };
+  const renderText=()=>{
+    const t=text();
+    if(ui.banner){
+      ui.banner.setAttribute('aria-label',t.label);
+      ui.message.textContent=t.message;
+      ui.privacy.textContent=t.privacy;
+      ui.decline.textContent=t.decline;
+      ui.accept.textContent=t.accept;
+    }
+    if(ui.settings) ui.settings.textContent=t.settings;
+  };
+  const hideBanner=()=>{
+    if(ui.banner) ui.banner.remove();
+    ui.banner=null;
+  };
+  const choose=value=>{
+    saveConsent(value);
+    hideBanner();
+    if(value==='granted'){
+      const wasOn=googleOn;
+      startGoogle();
+      // The page view of the page being read was counted before the choice; give Google that one too.
+      if(!wasOn&&pageViewCounted) sendGoogle('page_view',pageParams());
+    }else{
+      stopGoogle();
+    }
+  };
+  const showBanner=()=>{
+    if(!googleConfigured||ui.banner||!document.body) return;
+    addStyles();
+    const banner=make('div','kv-cc');
+    banner.id='kvConsent';
+    banner.setAttribute('role','region');
+    const paragraph=make('p','kv-cc__text');
+    ui.message=make('span');
+    ui.privacy=make('a');
+    ui.privacy.href='/privacy.html#analytics';
+    paragraph.appendChild(ui.message);
+    paragraph.appendChild(ui.privacy);
+    const actions=make('div','kv-cc__actions');
+    ui.decline=make('button','kv-cc__btn');
+    ui.decline.type='button';
+    ui.decline.setAttribute('data-kv-consent','decline');
+    ui.decline.addEventListener('click',()=>choose('denied'));
+    ui.accept=make('button','kv-cc__btn kv-cc__btn--accept');
+    ui.accept.type='button';
+    ui.accept.setAttribute('data-kv-consent','accept');
+    ui.accept.addEventListener('click',()=>choose('granted'));
+    actions.appendChild(ui.decline);
+    actions.appendChild(ui.accept);
+    banner.appendChild(paragraph);
+    banner.appendChild(actions);
+    ui.banner=banner;
+    renderText();
+    document.body.appendChild(banner);
+  };
+  const addSettingsLink=()=>{
+    const footer=document.querySelector('footer');
+    if(!footer||document.getElementById('kvCookieSettings')) return;
+    addStyles();
+    const target=footer.querySelector('.footer-links')||footer;
+    if(target===footer&&String(footer.className||'').includes('seo-foot')) footer.appendChild(document.createTextNode(' · '));
+    // A link, not a button, so each of the site's three footer styles dresses it like its neighbours.
+    ui.settings=make('a','kv-cc-link');
+    ui.settings.href='#';
+    ui.settings.id='kvCookieSettings';
+    ui.settings.setAttribute('role','button');
+    ui.settings.addEventListener('click',event=>{event.preventDefault();showBanner();});
+    target.appendChild(ui.settings);
+    renderText();
+  };
+
+  if(googleConfigured){
+    const consent=readConsent();
+    if(consent==='granted') startGoogle();
+    const setupConsent=()=>{
+      addSettingsLink();
+      if(consent!=='granted'&&consent!=='denied') showBanner();
+      if('MutationObserver' in window){
+        new MutationObserver(renderText).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+      }
+    };
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setupConsent,{once:true});
+    else setupConsent();
+    afterLoadIdle(()=>{
+      pageViewCounted=true;
+      sendGoogle('page_view',pageParams());
+    });
   }
 
   // Cloudflare Web Analytics is useful, but it is not part of the critical rendering path.
@@ -116,21 +271,10 @@
       mode:runtime.checkoutMode==='live'?'live':'test'
     };
 
-    window.dataLayer.push({
-      event:`kidventuro_${event}`,
-      kidventuro_event:event,
-      product:payload.product,
-      page_path:payload.path,
-      language:payload.lang,
-      traffic_source:payload.source,
-      traffic_medium:payload.medium,
-      traffic_campaign:payload.campaign,
-      external_referrer:payload.referrer,
-      checkout_mode:payload.mode
-    });
-
-    if(!gtmId&&/^(G|AW)-[A-Z0-9-]+$/i.test(tagId)&&typeof window.gtag==='function'){
-      window.gtag('event',event,{
+    // Google gets the same events only after consent (sendGoogle does nothing before it). Page views
+    // reach Google through the consent layer above, so they are not sent twice from here.
+    if(event!=='page_view'){
+      sendGoogle(event,{
         product:payload.product,
         page_path:payload.path,
         language:payload.lang,

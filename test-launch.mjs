@@ -72,13 +72,19 @@ assert.ok(success.includes('const query=order?'),'receipt/confirmation order ide
 assert.ok(success.includes('/diagnostics?ref='),'success diagnostics must use the ref-scoped endpoint');
 assert.equal(success.includes('health.last_webhook'),false,'public health diagnostics must not be consumed by the success page');
 
-for(const [name,doc] of [['privacy',privacy],['terms',terms],['refunds',refunds]]){
+for(const [name,doc,updated] of [['privacy',privacy,'29 September 2026'],['terms',terms,'26 August 2026'],['refunds',refunds,'26 August 2026']]){
   assert.ok(doc.includes('generated in English'),`${name} policy must disclose current printable language`);
-  assert.ok(doc.includes('26 August 2026'),`${name} English policy update date must be current`);
+  assert.ok(doc.includes(updated),`${name} English policy update date must be current`);
 }
 assert.ok(privacy.includes('Aggregate analytics'),'privacy notice must disclose aggregate analytics');
 assert.ok(privacy.includes('Cloudflare Web Analytics'),'privacy notice must disclose Cloudflare Web Analytics');
 assert.ok(privacy.includes('does not create an analytics cookie'),'privacy notice must explain cookie-free funnel tracking');
+// Google Analytics runs only after consent (see test-analytics-consent.mjs); the notice must say so,
+// in both languages, and the banner's privacy link must land on that section.
+assert.ok(privacy.includes('id="analytics"')&&privacy.includes('Optional Google Analytics (only with your consent)'),'privacy notice must disclose consent-based Google Analytics');
+assert.ok(privacy.includes('Google Analytics по избор (само с ваше съгласие)'),'Bulgarian privacy notice must disclose consent-based Google Analytics');
+assert.ok(analytics.includes('/privacy.html#analytics'),'the cookie banner must link to the Google Analytics section');
+assert.equal(analytics.includes('(...args)=>window.dataLayer.push(args)'),false,'gtag must push the arguments object; an array push is ignored by Google');
 assert.ok(refunds.includes('Kidventuro Mini, Adventure and Family'),'delivery policy must cover all three products');
 
 for(const marker of [
