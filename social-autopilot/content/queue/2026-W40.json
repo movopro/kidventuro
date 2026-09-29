@@ -394,17 +394,17 @@
         "voice": "synthetic"
       },
       "media": {
-        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790677902/kidventuro-social/studio/kw40-pov-rock/video.mp4",
+        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790679334/kidventuro-social/studio/kw40-pov-rock/video.mp4",
         "cover": "https://res.cloudinary.com/yy0uymse/image/upload/v1790675915/kidventuro-social/studio/kw40-pov-rock/cover.jpg",
-        "contentHash": "239fba5308093bc3",
+        "contentHash": "a213dd0b3040bb5d",
         "engine": "kid-studio-1",
         "durationSeconds": 17.8,
         "voice": true,
         "sha256": {
-          "video": "5cb6a6cf13505d9915f7a3867f2648255f5dfdcb551c152be2a9139d8c38d761",
+          "video": "bd04eb48ee56966ade9dc37bfe98c4a21b8857c64913ea8ff4c6e31e0f0d5332",
           "cover": "cb043bdb727e415b4c4a450f615759283f859f110370b7881ace51abbc0222e8"
         },
-        "renderedAt": "2026-09-29T10:31:42.922Z"
+        "renderedAt": "2026-09-29T10:55:35.417Z"
       }
     },
     {
@@ -982,17 +982,17 @@
         "voice": "synthetic"
       },
       "media": {
-        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790678259/kidventuro-social/studio/kw40-pov-museum/video.mp4",
+        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790679368/kidventuro-social/studio/kw40-pov-museum/video.mp4",
         "cover": "https://res.cloudinary.com/yy0uymse/image/upload/v1790676346/kidventuro-social/studio/kw40-pov-museum/cover.jpg",
-        "contentHash": "c657194704d8336f",
+        "contentHash": "06b445d3b0ed7f25",
         "engine": "kid-studio-1",
         "durationSeconds": 17.713,
         "voice": true,
         "sha256": {
-          "video": "17d70d334c6235b3cb3bc9954c2c0f6aa400f9d2135f3ed9bf4d2f2d631dd2df",
+          "video": "2230bf945fe9da7c7a3faee7162b6d7a36bdd1508d457c97c3da9b813cac09a6",
           "cover": "ca12a8e91a14b98baa9d0020f01149534b08c596286b6d76ee411b5de4f77fba"
         },
-        "renderedAt": "2026-09-29T10:37:40.115Z"
+        "renderedAt": "2026-09-29T10:56:09.624Z"
       }
     },
     {
