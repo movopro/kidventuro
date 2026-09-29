@@ -54,7 +54,9 @@ jobs:
       - name: Install renderer
         if: steps.renderer-cache.outputs.cache-hit != 'true'
         working-directory: social-autopilot
-        run: npm install --no-audit --no-fund
+        # ci, not install: install rewrote package-lock.json on the runner and
+        # the dirty file then blocked the pull that records the media.
+        run: npm ci --no-audit --no-fund
 
       - name: Install the spell checker
         run: sudo apt-get install -y -q hunspell hunspell-en-us >/dev/null
@@ -82,7 +84,7 @@ jobs:
         working-directory: social-autopilot
         run: npm test
 
-      - name: Render and upload
+      - name: Render, upload and record
         working-directory: social-autopilot
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
@@ -90,31 +92,30 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
           FORCE: ${{ inputs.force && '--force' || '' }}
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          record() {
+            # Pushed after every batch, so the nearest week's media is live
+            # without waiting for the rest.
+            git add content/queue
+            git diff --cached --quiet && return 0
+            git commit -q -m "Studio: rendered media for $1 [skip ci]"
+            for attempt in 1 2 3; do
+              if git pull -q --rebase --autostash origin main && git push -q origin HEAD:main; then return 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((attempt * 15))
+            done
+            echo "Could not push media records for $1" >&2
+            return 1
+          }
           today=$(TZ=Europe/Sofia date +%F)
           for batch in content/queue/*.json; do
             if node -e 'const b=require(process.argv[1]); process.exit((b.posts||[]).some(p=>(p.date||"")>=process.argv[2]) ? 0 : 1)' "./$batch" "$today"; then
               echo "== $batch"
               node src/studio/studio.mjs build "$batch" --upload $FORCE
+              record "$(basename "$batch")"
             fi
           done
-
-      - name: Record media
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add social-autopilot/content/queue
-          if git diff --cached --quiet; then
-            echo "No media changes."
-            exit 0
-          fi
-          git commit -q -m "Studio: rendered media [skip ci]"
-          for attempt in 1 2 3; do
-            if git pull -q --rebase origin main && git push -q origin HEAD:main; then exit 0; fi
-            git rebase --abort 2>/dev/null || true
-            sleep $((attempt * 15))
-          done
-          echo "Could not push media records" >&2
-          exit 1
 
       - name: Keep contact sheets
         if: always()
