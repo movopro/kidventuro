@@ -450,17 +450,17 @@
         "voice": "synthetic"
       },
       "media": {
-        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790678626/kidventuro-social/studio/kw41-pov-pigeon/video.mp4",
+        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790679408/kidventuro-social/studio/kw41-pov-pigeon/video.mp4",
         "cover": "https://res.cloudinary.com/yy0uymse/image/upload/v1790676791/kidventuro-social/studio/kw41-pov-pigeon/cover.jpg",
-        "contentHash": "6d87054975553228",
+        "contentHash": "ea8697a768131eb0",
         "engine": "kid-studio-1",
         "durationSeconds": 18.6,
         "voice": true,
         "sha256": {
-          "video": "95ef7581f51050056f0e135b1a63a216ce3780c027753b7f6d19317a60fc7406",
+          "video": "4116319ad23e0784083e9665f83edaea83dca8ebdb1d7b26fe073e8461dd8715",
           "cover": "3b5e31111a00356490ce088697b38bf4e8e99b7136df624abb34dfca0f722abe"
         },
-        "renderedAt": "2026-09-29T10:43:48.295Z"
+        "renderedAt": "2026-09-29T10:56:49.016Z"
       }
     },
     {
@@ -1042,17 +1042,17 @@
         "voice": "synthetic"
       },
       "media": {
-        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790678976/kidventuro-social/studio/kw41-pov-packed/video.mp4",
+        "video": "https://res.cloudinary.com/yy0uymse/video/upload/v1790679442/kidventuro-social/studio/kw41-pov-packed/video.mp4",
         "cover": "https://res.cloudinary.com/yy0uymse/image/upload/v1790677214/kidventuro-social/studio/kw41-pov-packed/cover.jpg",
-        "contentHash": "b2675763723411cc",
+        "contentHash": "82f6a3d852e7308a",
         "engine": "kid-studio-1",
         "durationSeconds": 17.833,
         "voice": true,
         "sha256": {
-          "video": "ecc35a54060eecea42c3350a76610c7301441d859dc63a5db16ca85eec7bc3e1",
+          "video": "505134076252f722049515e345fd2537993de0ea09f1a72ba15067f0bf10fc5d",
           "cover": "5b9b2fec67bb8f2cdb6c1845d1a9b8a957f44eb413d0e3a6a5015f3e6d8f2c17"
         },
-        "renderedAt": "2026-09-29T10:49:37.853Z"
+        "renderedAt": "2026-09-29T10:57:23.434Z"
       }
     },
     {
