@@ -1,46 +1,44 @@
 # Kidventuro social autopilot
 
-This automation creates and publishes two distinct daily content packages for Instagram, Pinterest and TikTok.
+Posts narrated, animated vertical videos to TikTok, Instagram (Reels) and
+Pinterest three times a day - **09:00, 14:00 and 18:00 Europe/Sofia**.
 
-Flow:
+## How a post is made
 
-1. GitHub Actions selects 09:17 or 18:17 in `Europe/Sofia`, including daylight-saving changes.
-2. One low-cost OpenAI Responses API call creates platform-specific copy and short visual text.
-3. If OpenAI is missing or unavailable, a deterministic local generator keeps publishing.
-4. Sharp renders branded Instagram and Pinterest JPEGs.
-5. FFmpeg renders a four-slide, 9:16 H.264 TikTok video and embeds an alternating original instrumental excerpt.
-6. Cloudinary Free stores the public media and small idempotency markers.
-7. Buffer Free publishes automatically to the three connected channels.
-8. Duplicate checks and per-platform markers prevent normal reruns from reposting the same slot.
-9. Media and state older than 45 days are removed from Cloudinary.
-10. A second run 30 minutes later completes only missing platforms after a transient failure.
+1. **Written** in weekly batches: `content/queue/<ISO week>.json`, one post per
+   date and slot, in US English. Formats: top-3 lists, parent tips, "did you
+   know" facts, guess the city, would you rather, myth or fact, POV chats, and
+   destination activity books. Validated (`src/studio/schema.mjs`: formats,
+   real destinations from `destinations/destination-data.js`, no emoji on
+   screen, caption limits) and spell-checked with hunspell
+   (`content/spell-allow.txt` holds reviewed exceptions).
+2. **Rendered** by `.github/workflows/social-studio.yml` when a batch is
+   pushed: 1080x1920 H.264 at 30 fps with the site's look (cream, sun, mint
+   waves, orange/teal stickers), synthesised sound effects, a music bed, and a
+   narrator (Kokoro-82M, Apache-2.0, run locally on the runner). Each scene is
+   stretched to fit its spoken line. The finished video and a 1000x1500 pin go
+   to Cloudinary and are recorded in the post's `media` field.
+3. **Published** by `.github/workflows/social-autopilot.yml`: it takes the
+   queued post for the slot and posts its finished media through Buffer. If
+   the media is missing or stale it renders the post itself (without voice);
+   if no valid post is queued, `content/evergreen.json` supplies one.
 
-The live destination data is read from `destinations/destination-data.js`, so the content rotation stays aligned with the Kidventuro catalog. The system never sends child names or customer data to OpenAI.
+## Commands
 
-The two original instrumentals in `assets/audio/` alternate strictly between consecutive morning and evening posts. Each slot gets a deterministic excerpt start, so later posts use different parts of the tracks while retries reproduce the same media.
+    npm test
+    node src/studio/studio.mjs validate content/queue/2026-W41.json
+    node src/studio/studio.mjs preview  content/queue/2026-W41.json [--id kw41-...]
+    npm run preview                         # full dry run of the morning slot
 
-Required GitHub Actions secrets:
+Narration in a local preview needs `STUDIO_TTS_PYTHON` (a Python with
+`kokoro-onnx`), `KOKORO_MODEL` and `KOKORO_VOICES`; Node 2 has them in
+`/opt/social/tts`. Previews land in `out/studio/<post id>/` with a contact
+sheet (`sheet.jpg`) and the narration script (`narration.txt`).
 
-- `BUFFER_API_KEY`
-- `CLOUDINARY_CLOUD_NAME`
-- `CLOUDINARY_API_KEY`
-- `CLOUDINARY_API_SECRET`
+## AI disclosure
 
-Optional secret:
+Voiced videos set each platform's "AI-generated" label, because the narrator
+is a synthetic voice. Template graphics and reviewed AI-assisted copy are not
+labelled, and there is no watermark. See `aiDisclosure()` in `schema.mjs`.
 
-- `OPENAI_API_KEY` — without it, the zero-cost local generator is used.
-
-Recommended GitHub Actions variable:
-
-- `PINTEREST_BOARD_NAME` — defaults to `Family Travel with Kids`.
-
-Optional variables when more than one channel of a given service exists:
-
-- `BUFFER_INSTAGRAM_CHANNEL_ID`
-- `BUFFER_PINTEREST_CHANNEL_ID`
-- `BUFFER_TIKTOK_CHANNEL_ID`
-- `OPENAI_MODEL` — defaults to `gpt-5-nano`.
-
-Use the Actions page and run `Kidventuro social autopilot` manually with `dry_run=true` to render a downloadable preview without publishing or calling OpenAI.
-
-Bulgarian activation instructions are in `SETUP-BG.md`.
+Bulgarian setup notes: `SETUP-BG.md`.

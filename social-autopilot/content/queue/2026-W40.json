@@ -1,0 +1,300 @@
+{
+  "brand": "kidventuro",
+  "kind": "queue",
+  "week": "2026-W40",
+  "writtenBy": "Claude (marketing), proofread before rendering",
+  "posts": [
+    {
+      "id": "kw40-dyk-prague", "date": "2026-09-29", "slot": "afternoon", "format": "didyouknow", "destination": "prague",
+      "hook": { "kicker": "Did you know?", "text": "This city has a clock that's over *600 years old*" },
+      "scenes": [
+        { "type": "fact", "destination": "prague", "text": "Prague's astronomical clock was built in *1410* – and it still works today." },
+        { "type": "fact", "text": "Every hour, little *figures of the apostles* parade past its windows." },
+        { "type": "fact", "text": "The Charles Bridge nearby has *30 statues*. Can your kids count them all?" }
+      ],
+      "outro": { "text": "Would your kids wait for the clock show?", "sub": "Save it for your Prague trip" },
+      "caption": {
+        "tiktok": "A clock from 1410 that still puts on a show every hour ⏰ Would your kids wait for it?",
+        "instagram": "Did you know? Prague has a clock that's over 600 years old ⏰\n\nIt was built in 1410, it still works, and every hour little figures parade past its windows. The Charles Bridge nearby has 30 statues to count!\n\nSave it for your Prague trip ✨",
+        "pinterest": { "title": "Prague Facts for Kids: The 600-Year-Old Clock", "description": "Fun Prague facts for kids: the astronomical clock from 1410 and the 30 statues of the Charles Bridge. Prague activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#prague", "#funfacts", "#familytravel", "#travelwithkids", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-booklet-paris", "date": "2026-09-29", "slot": "evening", "format": "booklet", "destination": "paris",
+      "hook": { "kicker": "Paris with kids", "text": "Make Paris a *treasure hunt*, not a to-do list" },
+      "scenes": [
+        { "type": "items", "title": "Inside the Paris book", "items": ["An *Eiffel Tower spotter* mission", "A Paris *color hunt*", "Stickers, drawings and a certificate"] },
+        { "type": "booklet", "destination": "paris", "child": "Mia", "text": "Personalized with your child's name. *Ready to print tonight.*", "say": "A printable Paris adventure with your child's name on the cover. Ready to print tonight." }
+      ],
+      "outro": { "text": "Going to Paris soon?", "sub": "Find it at kidventuro.com" },
+      "caption": {
+        "tiktok": "Paris with kids, but make it a treasure hunt 🗼 Link in bio.",
+        "instagram": "Make Paris a treasure hunt, not a to-do list 🗼\n\nAn Eiffel Tower spotter mission, a Paris color hunt, stickers and a certificate – personalized with your child's name and ready to print tonight.\n\nLink in bio 🔗",
+        "pinterest": { "title": "Paris Activity Book for Kids – Personalized & Printable", "description": "A personalized printable Paris activity book for kids ages 4–12: Eiffel Tower spotter, color hunt and more. From €5.90 at Kidventuro." }
+      },
+      "hashtags": ["#paris", "#pariswithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-tips-long-flight", "date": "2026-09-30", "slot": "morning", "format": "tips",
+      "hook": { "kicker": "Long flight?", "text": "The *last hour* is the hardest. Plan for it." },
+      "scenes": [
+        { "type": "items", "title": "Save your best tricks", "items": ["Walk the aisle *once an hour*", "Keep one *new* activity for the end", "Pack a spare T-shirt in the carry-on"] },
+        { "type": "text", "text": "Hour one is easy. *Hour nine is where you win.*" }
+      ],
+      "outro": { "text": "What's your long-flight secret?", "sub": "Share it with other parents" },
+      "caption": {
+        "tiktok": "Hour one is easy. Hour nine is where you win ✈️ Save your best trick for the end.",
+        "instagram": "The last hour of a long flight is the hardest ✈️\n\n• Walk the aisle once an hour\n• Keep one new activity for the end\n• Pack a spare T-shirt in the carry-on\n\nWhat's your long-flight secret? 👇",
+        "pinterest": { "title": "Long Flight With Kids: Plan for the Last Hour", "description": "Long-haul flight tips for kids: walk every hour, save a new activity for the end and pack a spare shirt. Family travel tips from Kidventuro." }
+      },
+      "hashtags": ["#flyingwithkids", "#travelhacks", "#familytravel", "#parentingtips", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-guess-london", "date": "2026-09-30", "slot": "afternoon", "format": "guess",
+      "hook": { "kicker": "Guess the city", "text": "Three clues. *Who guesses first* – you or the kids?" },
+      "scenes": [
+        { "type": "clue", "text": "The buses here are *red* and have *two floors*." },
+        { "type": "clue", "text": "A famous bell here has a *nickname*." },
+        { "type": "clue", "text": "The king lives in a *palace* with guards in tall fur hats." },
+        { "type": "answer", "destination": "london", "text": "London! And the bell's nickname is *Big Ben*." }
+      ],
+      "outro": { "text": "Who got it first?", "sub": "Tell us in the comments" },
+      "caption": {
+        "tiktok": "Red double-deckers, a famous bell, guards in fur hats 💂 Who got it first?",
+        "instagram": "Guess the city 🕵️\n\n1. Red buses with two floors.\n2. A famous bell with a nickname.\n3. A palace with guards in tall fur hats.\n\nWho got it first in your family? 👇",
+        "pinterest": { "title": "Guess the City Quiz for Kids: London", "description": "A three-clue travel quiz for kids: double-decker buses, Big Ben and palace guards. Screen-free family games from Kidventuro." }
+      },
+      "hashtags": ["#travelquiz", "#london", "#kidsgames", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-top3-explorer-cities", "date": "2026-09-30", "slot": "evening", "format": "top3",
+      "hook": { "kicker": "Bucket list", "text": "3 cities where kids feel like *real explorers*" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "Edinburgh", "destination": "edinburgh", "text": "A castle built on top of an *old volcano*." },
+        { "type": "rank", "rank": 2, "title": "Kyoto", "destination": "kyoto", "text": "Walk through tunnels of *thousands of red gates*." },
+        { "type": "rank", "rank": 1, "title": "Reykjavik", "destination": "reykjavik", "text": "Volcanoes, geysers and the *northernmost capital* of any country." }
+      ],
+      "outro": { "text": "Which one is on your list?", "sub": "Tag who you'd take" },
+      "caption": {
+        "tiktok": "A castle on a volcano, a tunnel of red gates, and geysers 🌋 Which one is on your list?",
+        "instagram": "3 cities where kids feel like real explorers 🧭\n\n3. Edinburgh – a castle on an old volcano\n2. Kyoto – tunnels of red gates\n1. Reykjavik – volcanoes, geysers and the northernmost capital\n\nWhich one is on your list? 👇",
+        "pinterest": { "title": "3 Adventure Cities for Kids: Edinburgh, Kyoto, Reykjavik", "description": "Family bucket list: Edinburgh's volcano castle, Kyoto's red gates and Reykjavik's geysers. Adventure travel ideas for kids from Kidventuro." }
+      },
+      "hashtags": ["#bucketlist", "#familytravel", "#iceland", "#kyoto", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-pov-rock", "date": "2026-10-01", "slot": "morning", "format": "pov",
+      "hook": { "kicker": "POV", "text": "Packing *the night before* the trip" },
+      "scenes": [
+        { "type": "chat", "title": "Kids' room", "messages": [
+          { "from": "kid", "text": "Can I bring my *rock collection*?" },
+          { "from": "parent", "text": "No." },
+          { "from": "kid", "text": "Just the big one?" },
+          { "from": "parent", "text": "Which one is the big one?" },
+          { "from": "kid", "text": "*I already packed it.*" }
+        ] }
+      ],
+      "outro": { "text": "What did your kid sneak in?", "sub": "Best answer gets pinned" },
+      "caption": {
+        "tiktok": "“I already packed it.” 🪨😂 What did your kid sneak into the suitcase?",
+        "instagram": "POV: packing the night before the trip 🧳\n\n“Can I bring my rock collection?” “No.” “Just the big one?” “Which one?” “I already packed it.”\n\nWhat did your kid sneak in? Best answer gets pinned 👇",
+        "pinterest": { "title": "Packing for a Trip With Kids (Funny)", "description": "The packing conversation every parent knows. Family travel humor and screen-free travel activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#parentlife", "#packing", "#familytravel", "#momlife", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-wyr-rides", "date": "2026-10-01", "slot": "afternoon", "format": "wouldyourather",
+      "hook": { "kicker": "Ask your kids", "text": "Would you rather… *ride edition*" },
+      "scenes": [
+        { "type": "choice", "a": "Ride a *gondola* in Venice", "b": "Ride a *cable car* in San Francisco" },
+        { "type": "choice", "a": "Meet a *kangaroo* in Australia", "b": "Meet a *panda* in China" }
+      ],
+      "outro": { "text": "What did your kids choose?", "sub": "A or B – tell us" },
+      "caption": {
+        "tiktok": "Gondola or cable car? Kangaroo or panda? Ask your kids 👇",
+        "instagram": "Would you rather… ride edition 🚡\n\nA gondola in Venice or a cable car in San Francisco? A kangaroo or a panda?\n\nAsk your kids and tell us A or B 👇",
+        "pinterest": { "title": "Would You Rather: Travel Rides for Kids", "description": "Would-you-rather questions for kids about gondolas, cable cars, kangaroos and pandas. A screen-free travel game from Kidventuro." }
+      },
+      "hashtags": ["#wouldyourather", "#kidsgames", "#familytravel", "#roadtripgames", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-dyk-amsterdam", "date": "2026-10-01", "slot": "evening", "format": "didyouknow", "destination": "amsterdam",
+      "hook": { "kicker": "Did you know?", "text": "In this city, the houses *lean forward on purpose*" },
+      "scenes": [
+        { "type": "fact", "destination": "amsterdam", "text": "Some old canal houses in Amsterdam tilt forward so furniture can be *lifted up with a hook* without hitting the wall." },
+        { "type": "fact", "text": "The Netherlands has *more bicycles than people*." },
+        { "type": "fact", "text": "The country grows *billions of tulip bulbs* every year." }
+      ],
+      "outro": { "text": "Did your kids know that?", "sub": "Save it for your Amsterdam trip" },
+      "caption": {
+        "tiktok": "Houses that lean on purpose, and more bikes than people 🚲 Did your kids know?",
+        "instagram": "Did you know? In Amsterdam, some houses lean forward on purpose 🏠\n\nIt lets people lift furniture up with a hook. Plus: the Netherlands has more bicycles than people, and grows billions of tulip bulbs every year!\n\nSave it for your trip ✨",
+        "pinterest": { "title": "Amsterdam Facts for Kids: Leaning Houses and Bikes", "description": "Fun Amsterdam facts for kids: canal houses that lean on purpose, more bikes than people and billions of tulips. From Kidventuro." }
+      },
+      "hashtags": ["#amsterdam", "#funfacts", "#familytravel", "#kidslearning", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-top3-snacks", "date": "2026-10-02", "slot": "morning", "format": "top3",
+      "hook": { "kicker": "Parent hack", "text": "3 travel snack ideas that *actually work*" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "Crackers in a jar", "text": "Fewer crumbs, *no squashed bag*." },
+        { "type": "rank", "rank": 2, "title": "Apple slices + lemon", "text": "A squeeze of lemon stops them *turning brown*." },
+        { "type": "rank", "rank": 1, "title": "The snack calendar", "text": "A pill organizer with a *different snack in each box*. One box per hour." }
+      ],
+      "outro": { "text": "What's your go-to travel snack?", "sub": "Save it before your next trip" },
+      "caption": {
+        "tiktok": "The pill organizer snack calendar = one box per hour 🍎 Save it for your next trip!",
+        "instagram": "3 travel snack ideas that actually work 🍎\n\n3. Crackers in a jar\n2. Apple slices with lemon\n1. The snack calendar – a pill organizer, one box per hour\n\nWhat's your go-to? 👇",
+        "pinterest": { "title": "3 Travel Snack Hacks for Kids", "description": "Easy travel snacks for kids: crackers in a jar, apple slices with lemon and the pill-organizer snack calendar. Family travel tips from Kidventuro." }
+      },
+      "hashtags": ["#travelsnacks", "#parentinghacks", "#roadtrip", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-myth-camel", "date": "2026-10-02", "slot": "afternoon", "format": "myth", "destination": "dubai",
+      "hook": { "kicker": "Myth or fact", "text": "Camels keep *water* in their humps" },
+      "scenes": [
+        { "type": "claim", "text": "A camel's hump is full of water." },
+        { "type": "verdict", "verdict": "myth", "text": "It's full of *fat*! Camels use it for energy when food is hard to find in the desert." }
+      ],
+      "outro": { "text": "Did your kids believe it?", "sub": "Tell us who got it right" },
+      "caption": {
+        "tiktok": "Camel humps are full of… fat, not water 🐪 Did your kids believe the myth?",
+        "instagram": "Myth or fact: camels keep water in their humps 🐪\n\nMyth! The hump is full of fat, which gives camels energy when food is hard to find.\n\nDid your kids get it right? 👇",
+        "pinterest": { "title": "Do Camels Store Water in Their Humps? Myth for Kids", "description": "Myth: camel humps store fat, not water. Fun desert facts for kids traveling to Dubai, Marrakech or Petra – from Kidventuro." }
+      },
+      "hashtags": ["#mythorfact", "#camel", "#kidslearning", "#dubai", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-booklet-tokyo", "date": "2026-10-02", "slot": "evening", "format": "booklet", "destination": "tokyo",
+      "hook": { "kicker": "Tokyo with kids", "text": "Neon, trains and *vending machines everywhere*" },
+      "scenes": [
+        { "type": "items", "title": "Inside the Tokyo book", "items": ["A *train-sign detective* mission", "Vending-machine *bingo*", "Stickers, drawings and a certificate"] },
+        { "type": "booklet", "destination": "tokyo", "child": "Leo", "text": "Personalized for your explorer. *Print it and go.*", "say": "A printable Tokyo adventure, personalized for your little explorer. Print it and go." }
+      ],
+      "outro": { "text": "Is Tokyo on your list?", "sub": "Find it at kidventuro.com" },
+      "caption": {
+        "tiktok": "Vending-machine bingo in Tokyo 🗼🎌 Kids love it. Link in bio.",
+        "instagram": "Tokyo with kids: neon, trains and vending machines everywhere 🎌\n\nA train-sign detective mission, vending-machine bingo, stickers and a certificate – personalized for your explorer.\n\nLink in bio 🔗",
+        "pinterest": { "title": "Tokyo Activity Book for Kids – Personalized & Printable", "description": "A personalized printable Tokyo travel activity book for kids ages 4–12: train-sign detective, vending-machine bingo and more. From Kidventuro." }
+      },
+      "hashtags": ["#tokyo", "#japanwithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-tips-jetlag", "date": "2026-10-03", "slot": "morning", "format": "tips",
+      "hook": { "kicker": "Jet lag with kids", "text": "3 simple rules for the *first day* after a long flight" },
+      "scenes": [
+        { "type": "items", "title": "Day one rules", "items": ["Get outside in *morning daylight*", "Keep the plans *light and short*", "Eat dinner at *local time*"] },
+        { "type": "text", "text": "The body clock follows the sun. *Let the sun do the work.*" }
+      ],
+      "outro": { "text": "How long does jet lag last in your family?", "sub": "Share your best tip" },
+      "caption": {
+        "tiktok": "Jet lag with kids? Let the sun do the work ☀️ Save these three rules.",
+        "instagram": "3 simple rules for the first day after a long flight ☀️\n\n• Get outside in morning daylight\n• Keep the plans light and short\n• Eat dinner at local time\n\nHow long does jet lag last in your family? 👇",
+        "pinterest": { "title": "Jet Lag With Kids: 3 First-Day Rules", "description": "Beat jet lag with kids: morning daylight, a light first day and dinner at local time. Family travel tips from Kidventuro." }
+      },
+      "hashtags": ["#jetlag", "#travelwithkids", "#familytravel", "#parentingtips", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-guess-sydney", "date": "2026-10-03", "slot": "afternoon", "format": "guess",
+      "hook": { "kicker": "Guess the city", "text": "It's in a country that's *also a continent*" },
+      "scenes": [
+        { "type": "clue", "text": "The country is also a *whole continent*." },
+        { "type": "clue", "text": "Its opera house looks like *giant sails*." },
+        { "type": "clue", "text": "Its big bridge is nicknamed *the Coathanger*." },
+        { "type": "answer", "destination": "sydney", "text": "Sydney, Australia! The bridge really does look like a *coat hanger*." }
+      ],
+      "outro": { "text": "Which clue gave it away?", "sub": "Tell us in the comments" },
+      "caption": {
+        "tiktok": "A bridge nicknamed the Coathanger 🌉 Which clue gave it away?",
+        "instagram": "Guess the city 🕵️\n\n1. The country is also a continent.\n2. Its opera house looks like giant sails.\n3. Its bridge is nicknamed the Coathanger.\n\nWhich clue gave it away? 👇",
+        "pinterest": { "title": "Guess the City Quiz for Kids: Sydney", "description": "A three-clue geography quiz for kids about Sydney: the Opera House and the Coathanger bridge. Travel games from Kidventuro." }
+      },
+      "hashtags": ["#travelquiz", "#sydney", "#australia", "#kidsgames", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-top3-castles", "date": "2026-10-03", "slot": "evening", "format": "top3",
+      "hook": { "kicker": "Fairy-tale edition", "text": "3 castles that look like they're *from a storybook*" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "Prague Castle", "destination": "prague", "text": "One of the *largest castle complexes* in the world." },
+        { "type": "rank", "rank": 2, "title": "Edinburgh Castle", "destination": "edinburgh", "text": "It sits on the rock of an *ancient volcano*." },
+        { "type": "rank", "rank": 1, "title": "Neuschwanstein", "destination": "munich", "text": "Near Munich – the castle that inspired *Sleeping Beauty's castle*." }
+      ],
+      "outro": { "text": "Which castle would your kids pick?", "sub": "Save it for your castle trip" },
+      "caption": {
+        "tiktok": "The castle that inspired Sleeping Beauty's 🏰 Which one would your kids pick?",
+        "instagram": "3 castles that look like they're from a storybook 🏰\n\n3. Prague Castle – one of the largest in the world\n2. Edinburgh Castle – on an ancient volcano\n1. Neuschwanstein – the inspiration for Sleeping Beauty's castle\n\nWhich one would your kids pick? 👇",
+        "pinterest": { "title": "3 Fairy-Tale Castles to Visit With Kids", "description": "Prague Castle, Edinburgh Castle and Neuschwanstein near Munich – fairy-tale castles for a family trip. Castle activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#castles", "#familytravel", "#germanywithkids", "#fairytale", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-pov-museum", "date": "2026-10-04", "slot": "morning", "format": "pov",
+      "hook": { "kicker": "POV", "text": "The museum with a *five-year-old*" },
+      "scenes": [
+        { "type": "chat", "title": "Egyptian room", "messages": [
+          { "from": "kid", "text": "Is that a *real* mummy?" },
+          { "from": "parent", "text": "Yes." },
+          { "from": "kid", "text": "Can it see me?" },
+          { "from": "parent", "text": "No, sweetie." },
+          { "from": "kid", "text": "*Then why is it smiling?*" }
+        ] }
+      ],
+      "outro": { "text": "What's the funniest museum question you got?", "sub": "Tell us below" },
+      "caption": {
+        "tiktok": "“Then why is it smiling?” 😳 Funniest museum question your kid ever asked?",
+        "instagram": "POV: the museum with a five-year-old 🏺\n\n“Is that a real mummy?” “Yes.” “Can it see me?” “No.” “Then why is it smiling?”\n\nFunniest museum question your kid ever asked? 👇",
+        "pinterest": { "title": "Museum Day With a Five-Year-Old", "description": "The funniest questions kids ask in museums. Family travel humor and museum activity ideas for kids from Kidventuro." }
+      },
+      "hashtags": ["#parentlife", "#museumwithkids", "#kidssaythedarndestthings", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-dyk-japan", "date": "2026-10-04", "slot": "afternoon", "format": "didyouknow", "destination": "tokyo",
+      "hook": { "kicker": "Did you know?", "text": "In Japan, some vending machines sell *hot soup*" },
+      "scenes": [
+        { "type": "fact", "destination": "tokyo", "text": "Japan has *millions* of vending machines – some sell hot corn soup in a can." },
+        { "type": "fact", "text": "Japan's first *bullet train* started running in 1964." },
+        { "type": "fact", "destination": "kyoto", "text": "Kyoto has more than *1,000 temples*. You'd need years to see them all." }
+      ],
+      "outro": { "text": "What would your kids buy first?", "sub": "Save it for your Japan trip" },
+      "caption": {
+        "tiktok": "Hot soup from a vending machine 🥫🇯🇵 What would your kids buy first?",
+        "instagram": "Did you know? In Japan, some vending machines sell hot soup 🥫\n\nJapan has millions of vending machines, its first bullet train ran in 1964, and Kyoto has more than 1,000 temples.\n\nSave it for your Japan trip ✨",
+        "pinterest": { "title": "Japan Facts for Kids: Vending Machines and Bullet Trains", "description": "Fun Japan facts for kids: hot soup vending machines, the first bullet train in 1964 and Kyoto's 1,000+ temples. From Kidventuro." }
+      },
+      "hashtags": ["#japan", "#funfacts", "#japanwithkids", "#kidslearning", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw40-booklet-london", "date": "2026-10-04", "slot": "evening", "format": "booklet", "destination": "london",
+      "hook": { "kicker": "London with kids", "text": "Red buses, royal clues and *one very busy detective*" },
+      "scenes": [
+        { "type": "items", "title": "Inside the London book", "items": ["*Red bus* bingo", "A royal symbol hunt", "Stickers, drawings and a certificate"] },
+        { "type": "booklet", "destination": "london", "child": "Noah", "text": "Personalized with your child's name. *Print it at home.*", "say": "A printable London adventure with your child's name on the cover. Print it at home before you fly." }
+      ],
+      "outro": { "text": "Heading to London?", "sub": "Find it at kidventuro.com" },
+      "caption": {
+        "tiktok": "Red bus bingo in London 🚌 Your kid will count every one. Link in bio.",
+        "instagram": "London with kids: red buses, royal clues and one very busy detective 🚌\n\nRed bus bingo, a royal symbol hunt, stickers and a certificate – personalized and printable.\n\nLink in bio 🔗",
+        "pinterest": { "title": "London Activity Book for Kids – Personalized & Printable", "description": "A personalized printable London travel activity book for kids ages 4–12: red bus bingo, royal symbol hunt and more. From Kidventuro." }
+      },
+      "hashtags": ["#london", "#londonwithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { dueSlot } from './slots.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const autopilotRoot = path.resolve(here, '..');
@@ -85,11 +86,7 @@ if (scheduleExpr) {
     process.exit(0);
   }
 
-  const dueSlots = Object.entries(config.slots)
-    .sort(([, left], [, right]) => left - right)
-    .filter(([, slotHour]) => localHour >= slotHour);
-  const slot = dueSlots.find(([name]) => !slotIsComplete(name))?.[0] || null;
-  emit(slot);
+  emit(dueSlot(Object.entries(config.slots), localHour, slotIsComplete));
   process.exit(0);
 }
 

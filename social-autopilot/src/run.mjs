@@ -4,14 +4,12 @@ import { fileURLToPath } from 'node:url';
 import { BufferClient, instagramInput, isCompleteOrInFlight, pinterestInput, tiktokInput } from './buffer.mjs';
 import { claimSlot } from './claim.mjs';
 import { CloudinaryStore } from './cloudinary.mjs';
-import { generateContent } from './content.mjs';
-import { loadDestinations } from './destinations.mjs';
-import { renderAssets } from './render.mjs';
+import { generateContent, loadQueuePosts } from './content.mjs';
+import { destinationSet, renderPost } from './studio/studio.mjs';
 import { ensureDirectory, localDateKey, requiredEnv } from './utils.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const autopilotRoot = path.resolve(here, '..');
-const repositoryRoot = path.resolve(autopilotRoot, '..');
 const config = JSON.parse(await fs.readFile(path.join(autopilotRoot, 'config.json'), 'utf8'));
 const argumentsList = process.argv.slice(2);
 const flag = (name) => argumentsList.includes(name);
@@ -36,30 +34,27 @@ if (!force && localHour !== config.slots[slot]) {
   process.exit(0);
 }
 
-const dateKey = localDateKey(now, config.timezone);
-const requestedSlotKey = option('--slot-key') || process.env.SOCIAL_SLOT_KEY?.trim();
-const slotKey = requestedSlotKey || `${dateKey}-${slot}`;
-if (!/^[a-zA-Z0-9._-]+$/.test(slotKey)) throw new Error(`Unsafe social slot key: ${slotKey}`);
-const postVariant = process.env.SOCIAL_POST_VARIANT?.trim();
 const contentDateOffsetRaw = process.env.SOCIAL_CONTENT_DATE_OFFSET_DAYS?.trim();
 const contentDateOffsetDays = contentDateOffsetRaw ? Number(contentDateOffsetRaw) : 0;
 if (!Number.isInteger(contentDateOffsetDays) || Math.abs(contentDateOffsetDays) > 365) {
   throw new Error(`Invalid social content date offset: ${contentDateOffsetRaw}`);
 }
 const contentDate = new Date(now.getTime() + contentDateOffsetDays * 86_400_000);
-const outputDirectory = path.join(autopilotRoot, dryRun ? 'preview' : '.tmp', slotKey);
+const dateKey = localDateKey(now, config.timezone);
+const requestedSlotKey = option('--slot-key') || process.env.SOCIAL_SLOT_KEY?.trim();
+const slotKey = requestedSlotKey || `${dateKey}-${slot}`;
+if (!/^[a-zA-Z0-9._-]+$/.test(slotKey)) throw new Error(`Unsafe social slot key: ${slotKey}`);
+const outputDirectory = path.join(autopilotRoot, dryRun ? 'out/preview' : '.tmp', slotKey);
 await ensureDirectory(outputDirectory);
 
 const requestedResultPath = process.env.SOCIAL_RESULT_PATH?.trim();
 const resultPath = requestedResultPath
-  ? (path.isAbsolute(requestedResultPath) ? requestedResultPath : path.resolve(repositoryRoot, requestedResultPath))
+  ? (path.isAbsolute(requestedResultPath) ? requestedResultPath : path.resolve(autopilotRoot, '..', requestedResultPath))
   : null;
 const runReport = {
   startedAt: now.toISOString(),
   slot,
   slotKey,
-  contentDateOffsetDays,
-  contentDate: contentDate.toISOString(),
   outcome: 'running',
   platforms: {}
 };
@@ -69,14 +64,6 @@ const persistReport = async () => {
   await fs.writeFile(resultPath, JSON.stringify(runReport, null, 2), 'utf8');
 };
 
-const applyPostVariant = (content) => {
-  if (!postVariant || content.postVariant === postVariant) return content;
-  const updated = structuredClone(content);
-  updated.postVariant = postVariant;
-  return updated;
-};
-
-const destinations = await loadDestinations(repositoryRoot);
 let cloudinary;
 if (!dryRun) {
   cloudinary = new CloudinaryStore({
@@ -84,18 +71,35 @@ if (!dryRun) {
     apiKey: requiredEnv('CLOUDINARY_API_KEY'),
     apiSecret: requiredEnv('CLOUDINARY_API_SECRET')
   });
-}
 
-if (!dryRun) {
   const runner = process.env.RUNNER_NAME?.trim() || 'github';
-  const claim = await claimSlot({ repoRoot: repositoryRoot, autopilotRoot, slotKey, runner });
+  const claim = await claimSlot({ repoRoot: path.resolve(autopilotRoot, '..'), autopilotRoot, slotKey, runner });
   if (!claim.claimed) {
     console.log(`Kidventuro social slot ${slotKey} not claimed by ${runner} (${claim.reason}); exiting quietly`);
     process.exit(0);
   }
 }
 
-const markerIds = Object.fromEntries(['instagram', 'pinterest', 'tiktok'].map((platform) => [
+// Every platform the brand wants; ones not (yet) connected in Buffer and
+// listed as optional - Instagram until the owner connects it - are skipped
+// with a note instead of failing the slot. SOCIAL_ACTIVE_PLATFORMS overrides.
+const wantedPlatforms = (process.env.SOCIAL_ACTIVE_PLATFORMS?.trim() || (config.platforms || ['pinterest', 'tiktok']).join(','))
+  .split(',').map((platform) => platform.trim()).filter(Boolean);
+const optionalPlatforms = new Set(config.optionalPlatforms || []);
+let activePlatforms = wantedPlatforms;
+let buffer;
+if (!dryRun) {
+  buffer = new BufferClient(requiredEnv('BUFFER_API_KEY'));
+  const connected = await buffer.connectedServices();
+  const missing = wantedPlatforms.filter((platform) => !connected.has(platform));
+  const fatal = missing.filter((platform) => !optionalPlatforms.has(platform));
+  if (fatal.length) throw new Error(`Required platform(s) not connected in Buffer: ${fatal.join(', ')}`);
+  if (missing.length) console.log(`Skipping platform(s) not connected in Buffer yet: ${missing.join(', ')}`);
+  activePlatforms = wantedPlatforms.filter((platform) => connected.has(platform));
+  runReport.skippedPlatforms = missing;
+}
+
+const markerIds = Object.fromEntries(activePlatforms.map((platform) => [
   platform,
   `kidventuro-social/state/${slotKey}/${platform}.json`
 ]));
@@ -105,49 +109,37 @@ const existingMarkers = dryRun ? {} : Object.fromEntries(await Promise.all(
 
 const contentStateId = `kidventuro-social/state/${slotKey}/content.json`;
 let content = dryRun ? null : await cloudinary.getJson(contentStateId);
-if (!content) {
-  content = await generateContent({
-    destinations,
-    slot,
-    date: contentDate,
-    config,
-    apiKey: process.env.OPENAI_API_KEY?.trim(),
-    useAi: !dryRun || flag('--live-ai')
-  });
+// Content cached by the pre-studio generator has no post; choose again.
+if (!content?.post) {
+  content = await generateContent({ slot, date: contentDate, config, destinations: await destinationSet() });
   content.slotKey = slotKey;
   content.createdAt = now.toISOString();
-  content.contentDate = contentDate.toISOString();
-  content.contentDateOffsetDays = contentDateOffsetDays;
-  content = applyPostVariant(content);
-  if (!dryRun) await cloudinary.putJson(contentStateId, content);
-} else if (postVariant && content.postVariant !== postVariant) {
-  content = applyPostVariant(content);
   if (!dryRun) await cloudinary.putJson(contentStateId, content);
 }
 runReport.generator = content.generator;
 runReport.theme = content.theme;
-runReport.postVariant = content.postVariant || null;
-const isInteractive = content.seed?.format && content.seed.format !== 'standard';
+runReport.bankId = content.seed?.bankId || null;
+
+runReport.contentSource = content.seed?.source || null;
+runReport.aiLabel = content.ai || null;
 
 if (dryRun) {
-  const assets = await renderAssets({ content, outputDirectory, config });
+  const assets = await renderPost({ post: content.post, outDir: outputDirectory, config });
   await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
   runReport.outcome = 'preview';
-  runReport.assets = {
-    instagram: isInteractive ? assets.videoPath : assets.instagramPath,
-    pinterest: assets.pinterestPath,
-    tiktok: assets.videoPath
-  };
+  runReport.assets = { instagram: assets.videoPath, pinterest: assets.coverPath, tiktok: assets.videoPath, sheet: assets.sheetPath, active: activePlatforms };
   await persistReport();
   console.log(`Preview created in ${outputDirectory}`);
-  console.log(JSON.stringify({ slotKey, generator: content.generator, theme: content.theme }, null, 2));
+  console.log(JSON.stringify({ slotKey, generator: content.generator, theme: content.theme, bankId: content.seed.bankId }, null, 2));
   process.exit(0);
 }
 
-const buffer = new BufferClient(requiredEnv('BUFFER_API_KEY'));
-const boardName = process.env.PINTEREST_BOARD_NAME?.trim() || config.pinterestBoardName;
+const boardName = process.env.PINTEREST_BOARD_NAME?.trim()
+  || content.pinterestBoard
+  || config.pinterestBoardName;
 const setup = await buffer.discover({
   pinterestBoardName: boardName,
+  requiredServices: activePlatforms,
   channelOverrides: {
     instagram: process.env.BUFFER_INSTAGRAM_CHANNEL_ID?.trim(),
     pinterest: process.env.BUFFER_PINTEREST_CHANNEL_ID?.trim(),
@@ -186,50 +178,58 @@ if (Object.keys(verifiedMarkers).length === Object.keys(markerIds).length) {
   process.exit(0);
 }
 
-const assets = await renderAssets({ content, outputDirectory, config });
-await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
-
-const mediaPrefix = `kidventuro-social/media/${slotKey}`;
-const [instagramUrl, pinterestUrl, videoUrl] = await Promise.all([
-  cloudinary.uploadFile({ filePath: assets.instagramPath, publicId: `${mediaPrefix}/instagram`, resourceType: 'image' }),
-  cloudinary.uploadFile({ filePath: assets.pinterestPath, publicId: `${mediaPrefix}/pinterest`, resourceType: 'image' }),
-  cloudinary.uploadFile({ filePath: assets.videoPath, publicId: `${mediaPrefix}/short-video`, resourceType: 'video' })
-]);
+let coverUrl;
+let videoUrl;
+if (content.media) {
+  // Rendered, checked and uploaded by the weekly studio run.
+  ({ cover: coverUrl, video: videoUrl } = content.media);
+  runReport.media = 'studio';
+} else {
+  const assets = await renderPost({ post: content.post, outDir: outputDirectory, config, withSheet: false });
+  await fs.writeFile(path.join(outputDirectory, 'content.json'), JSON.stringify(content, null, 2), 'utf8');
+  const mediaPrefix = `kidventuro-social/media/${slotKey}`;
+  [coverUrl, videoUrl] = await Promise.all([
+    cloudinary.uploadFile({ filePath: assets.coverPath, publicId: `${mediaPrefix}/cover`, resourceType: 'image' }),
+    cloudinary.uploadFile({ filePath: assets.videoPath, publicId: `${mediaPrefix}/short-video`, resourceType: 'video' })
+  ]);
+  runReport.media = 'rendered-at-publish';
+}
+const ai = { label: Boolean(content.ai?.label), assisted: Boolean(content.ai?.textAssisted) };
 
 const campaign = encodeURIComponent(slotKey);
-const destinationUrl = `${config.siteUrl}?utm_source=pinterest&utm_medium=organic&utm_campaign=social_autopilot&utm_content=${campaign}`;
-const posts = {
-  instagram: {
+const destinationUrl = content.productUrl
+  ? `${content.productUrl}?utm_source=pinterest&utm_medium=organic&utm_campaign=social_autopilot&utm_content=${campaign}`
+  : `${config.siteUrl}?utm_source=pinterest&utm_medium=organic&utm_campaign=social_autopilot&utm_content=${campaign}`;
+const allPostBuilders = {
+  instagram: () => instagramInput({
     channelId: setup.channels.instagram.id,
-    input: instagramInput({
-      channelId: setup.channels.instagram.id,
-      text: content.instagram.caption,
-      imageUrl: instagramUrl,
-      videoUrl,
-      altText: content.instagram.altText,
-      asReel: isInteractive
-    })
-  },
-  pinterest: {
+    text: content.instagram.caption,
+    imageUrl: coverUrl,
+    videoUrl,
+    altText: content.instagram.altText,
+    asReel: true,
+    ai
+  }),
+  pinterest: () => pinterestInput({
     channelId: setup.channels.pinterest.id,
-    input: pinterestInput({
-      channelId: setup.channels.pinterest.id,
-      text: content.pinterest.description,
-      imageUrl: pinterestUrl,
-      boardServiceId: setup.board.serviceId,
-      title: content.pinterest.title,
-      destinationUrl
-    })
-  },
-  tiktok: {
+    text: content.pinterest.description,
+    imageUrl: coverUrl,
+    boardServiceId: setup.board.serviceId,
+    title: content.pinterest.title,
+    destinationUrl,
+    ai
+  }),
+  tiktok: () => tiktokInput({
     channelId: setup.channels.tiktok.id,
-    input: tiktokInput({
-      channelId: setup.channels.tiktok.id,
-      text: content.tiktok.caption,
-      videoUrl
-    })
-  }
+    text: content.tiktok.caption,
+    videoUrl,
+    ai
+  })
 };
+const posts = Object.fromEntries(activePlatforms.map((platform) => [
+  platform,
+  { channelId: setup.channels[platform].id, input: allPostBuilders[platform]() }
+]));
 
 for (const [platform, post] of Object.entries(posts)) {
   const markerId = markerIds[platform];
@@ -313,11 +313,17 @@ const oldDateKey = localDateKey(oldDate, config.timezone);
 for (const oldSlot of Object.keys(config.slots)) {
   const oldKey = `${oldDateKey}-${oldSlot}`;
   await Promise.all([
-    cloudinary.destroy(`kidventuro-social/media/${oldKey}/instagram`, 'image'),
-    cloudinary.destroy(`kidventuro-social/media/${oldKey}/pinterest`, 'image'),
+    cloudinary.destroy(`kidventuro-social/media/${oldKey}/cover`, 'image'),
     cloudinary.destroy(`kidventuro-social/media/${oldKey}/short-video`, 'video'),
     cloudinary.destroy(`kidventuro-social/state/${oldKey}/content.json`, 'raw'),
-    ...['instagram', 'pinterest', 'tiktok'].map((platform) => cloudinary.destroy(`kidventuro-social/state/${oldKey}/${platform}.json`, 'raw'))
+    ...activePlatforms.map((platform) => cloudinary.destroy(`kidventuro-social/state/${oldKey}/${platform}.json`, 'raw'))
+  ]);
+}
+// Studio media of queued posts that ran on that date.
+for (const post of (await loadQueuePosts()).filter((entry) => entry.date === oldDateKey)) {
+  await Promise.all([
+    cloudinary.destroy(`kidventuro-social/studio/${post.id}/cover`, 'image'),
+    cloudinary.destroy(`kidventuro-social/studio/${post.id}/video`, 'video')
   ]);
 }
 

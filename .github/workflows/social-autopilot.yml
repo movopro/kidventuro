@@ -2,9 +2,9 @@ name: Kidventuro social autopilot
 
 on:
   schedule:
-    # Two independent watchdog checks per hour. NODE 2 (systemd timers, every 10 min)
-    # is now the primary runner; GitHub Actions is the backup. The gate still publishes
-    # only the earliest due, incomplete local slot, so extra checks cannot duplicate posts.
+    # Two independent watchdog checks per hour for the 09:00, 14:00 and 18:00 slots
+    # (Europe/Sofia). The gate publishes only the due, incomplete slot, so extra checks
+    # cannot duplicate posts. Videos are normally pre-rendered by social-studio.yml.
     - cron: '8 * * * *'
     - cron: '38 * * * *'
   workflow_dispatch:
@@ -16,6 +16,7 @@ on:
         type: choice
         options:
           - morning
+          - afternoon
           - evening
       dry_run:
         description: Render a preview without publishing or using paid APIs
@@ -36,7 +37,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - name: Check out Kidventuro
         uses: actions/checkout@v4
@@ -94,8 +95,6 @@ jobs:
           SOCIAL_CONTENT_DATE_OFFSET_DAYS: ${{ steps.gate.outputs.content_date_offset_days }}
           SOCIAL_RESULT_PATH: social-autopilot/status/run-result.json
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
@@ -190,5 +189,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: kidventuro-social-preview-${{ steps.gate.outputs.slot }}
-          path: social-autopilot/preview/
+          path: social-autopilot/out/preview/
           retention-days: 7

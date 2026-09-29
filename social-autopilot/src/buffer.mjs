@@ -27,7 +27,7 @@ export class BufferClient {
     return body.data;
   }
 
-  async discover({ pinterestBoardName, channelOverrides = {} }) {
+  async discover({ pinterestBoardName, channelOverrides = {}, requiredServices = ['instagram', 'pinterest', 'tiktok'] }) {
     const accountData = await this.graphql(`query Account { account { organizations { id name } } }`);
     const organizations = accountData.account?.organizations || [];
     if (organizations.length !== 1) throw new Error(`Expected one Buffer organization, found ${organizations.length}`);
@@ -47,25 +47,41 @@ export class BufferClient {
       const override = channelOverrides[service];
       if (override) {
         const exact = usable.find((channel) => channel.id === override);
-        if (!exact) throw new Error(`Configured ${service} channel is unavailable: ${override}`);
-        return exact;
+        if (exact) return exact;
+        // A stale id (channel reconnected in Buffer) must not block posting
+        // when exactly one channel of that service is connected.
+        console.warn(`Configured ${service} channel ${override} is unavailable; matching by service instead`);
       }
       const matches = usable.filter((channel) => String(channel.service).toLowerCase() === service);
       if (matches.length !== 1) throw new Error(`Expected one usable ${service} channel in Buffer, found ${matches.length}`);
       return matches[0];
     };
 
-    const channels = {
-      instagram: pick('instagram'),
-      pinterest: pick('pinterest'),
-      tiktok: pick('tiktok')
-    };
-    const boards = channels.pinterest.metadata?.boards || [];
-    const wanted = pinterestBoardName.trim().toLocaleLowerCase('en');
-    const board = boards.find((candidate) => candidate.name.trim().toLocaleLowerCase('en') === wanted)
-      || (boards.length === 1 ? boards[0] : null);
-    if (!board) throw new Error(`Pinterest board “${pinterestBoardName}” was not found in Buffer`);
+    const channels = Object.fromEntries(requiredServices.map((service) => [service, pick(service)]));
+    let board = null;
+    if (channels.pinterest) {
+      const boards = channels.pinterest.metadata?.boards || [];
+      const wanted = pinterestBoardName.trim().toLocaleLowerCase('en');
+      board = boards.find((candidate) => candidate.name.trim().toLocaleLowerCase('en') === wanted)
+        || (boards.length === 1 ? boards[0] : null);
+      if (!board) throw new Error(`Pinterest board “${pinterestBoardName}” was not found in Buffer`);
+    }
     return { organizationId, channels, board };
+  }
+
+  // Services with at least one usable (connected, unlocked) channel.
+  async connectedServices() {
+    const accountData = await this.graphql(`query Account { account { organizations { id } } }`);
+    const organizations = accountData.account?.organizations || [];
+    if (organizations.length !== 1) throw new Error(`Expected one Buffer organization, found ${organizations.length}`);
+    const channelData = await this.graphql(`
+      query Channels($organizationId: OrganizationId!) {
+        channels(input: { organizationId: $organizationId }) { service isDisconnected isLocked }
+      }
+    `, { organizationId: organizations[0].id });
+    return new Set(channelData.channels
+      .filter((channel) => !channel.isDisconnected && !channel.isLocked)
+      .map((channel) => String(channel.service).toLowerCase()));
   }
 
   async getPost(postId) {
@@ -124,7 +140,12 @@ export class BufferClient {
   }
 }
 
-export function instagramInput({ channelId, text, imageUrl, videoUrl, altText, asReel = false }) {
+// ai.label: synthetic media a viewer could take as real (generated visuals, a
+// synthetic voice) - sets each platform's own "AI-generated" label.
+// ai.assisted: the copy was drafted with AI.
+const NO_AI = { label: false, assisted: false };
+
+export function instagramInput({ channelId, text, imageUrl, videoUrl, altText, asReel = false, ai = NO_AI }) {
   const assets = asReel
     ? [{ video: { url: videoUrl, metadata: { thumbnailOffset: 1000 } } }]
     : [{ image: { url: imageUrl, metadata: { altText } } }];
@@ -134,40 +155,41 @@ export function instagramInput({ channelId, text, imageUrl, videoUrl, altText, a
     schedulingType: 'automatic',
     mode: 'shareNow',
     needsApproval: false,
-    aiAssisted: true,
+    aiAssisted: ai.assisted,
     assets,
     metadata: {
       instagram: {
         type: asReel ? 'reel' : 'post',
         shouldShareToFeed: true,
-        isAiGenerated: true
+        isAiGenerated: ai.label
       }
     }
   };
 }
 
-export function pinterestInput({ channelId, text, imageUrl, boardServiceId, title, destinationUrl }) {
+export function pinterestInput({ channelId, text, imageUrl, boardServiceId, title, destinationUrl, ai = NO_AI }) {
   return {
     text,
     channelId,
     schedulingType: 'automatic',
     mode: 'shareNow',
     needsApproval: false,
-    aiAssisted: true,
+    aiAssisted: ai.assisted,
     assets: [{ image: { url: imageUrl, metadata: { altText: title } } }],
     metadata: { pinterest: { boardServiceId, title, url: destinationUrl } }
   };
 }
 
-export function tiktokInput({ channelId, text, videoUrl }) {
+export function tiktokInput({ channelId, text, videoUrl, ai = NO_AI }) {
   return {
     text,
     channelId,
     schedulingType: 'automatic',
     mode: 'shareNow',
     needsApproval: false,
-    aiAssisted: true,
-    assets: [{ video: { url: videoUrl, metadata: { thumbnailOffset: 1000 } } }],
-    metadata: { tiktok: { isAiGenerated: true } }
+    aiAssisted: ai.assisted,
+    // 1.5 s: the hook has finished popping in, so the cover shows all of it.
+    assets: [{ video: { url: videoUrl, metadata: { thumbnailOffset: 1500 } } }],
+    metadata: { tiktok: { isAiGenerated: ai.label } }
   };
 }

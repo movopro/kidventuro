@@ -1,0 +1,24 @@
+# Words hunspell's en_US dictionary does not know but that are correct.
+# One per line, case-insensitive. Add a word only after checking it is spelled
+# right - this list is what stands between a typo and a published video.
+
+# brand and formats
+kidventuro
+pov
+
+# everyday words the dictionary lags behind on
+treehouse
+gelato
+teleporting
+aww
+café
+decker
+deckers
+
+# places, landmarks and local words
+vaporetti
+coathanger
+neuschwanstein
+trevi
+gaudí
+shibuya

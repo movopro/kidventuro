@@ -26,9 +26,20 @@ export class CloudinaryStore {
     return `https://res.cloudinary.com/${encodeURIComponent(this.cloudName)}/${resourceType}/upload/${encodedPublicId(publicId)}`;
   }
 
+  // State is read through the Admin API, then fetched at its exact version.
+  // The plain delivery URL is served by a CDN that can keep answering 404 (or
+  // an old copy) for a while after an upload - which is how Kidventuro's
+  // "Did you know" runs read back "no content" moments after preparing it and
+  // published generic fallback posts instead (2026-09-24 .. 09-28).
   async getJson(publicId) {
-    const response = await fetch(this.deliveryUrl('raw', publicId), { headers: { Accept: 'application/json' } });
-    if (response.status === 404) return null;
+    const auth = Buffer.from(`${this.apiKey}:${this.apiSecret}`).toString('base64');
+    const lookup = await fetchWithRetry(
+      `https://api.cloudinary.com/v1_1/${encodeURIComponent(this.cloudName)}/resources/raw/upload/${encodedPublicId(publicId)}`,
+      { headers: { Authorization: `Basic ${auth}` } }, 3);
+    if (lookup.status === 404) return null;
+    if (!lookup.ok) throw new Error(`Cloudinary state lookup failed: HTTP ${lookup.status}`);
+    const { secure_url: versionedUrl } = await lookup.json();
+    const response = await fetchWithRetry(versionedUrl, { headers: { Accept: 'application/json' } }, 3);
     if (!response.ok) throw new Error(`Cloudinary state read failed: HTTP ${response.status}`);
     return response.json();
   }

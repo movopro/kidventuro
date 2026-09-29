@@ -1,0 +1,365 @@
+{
+  "brand": "kidventuro",
+  "kind": "queue",
+  "week": "2026-W41",
+  "writtenBy": "Claude (marketing), proofread before rendering",
+  "posts": [
+    {
+      "id": "kw41-top3-car-games", "date": "2026-10-05", "slot": "morning", "format": "top3",
+      "hook": { "kicker": "Road trip rescue", "text": "3 car games that need *nothing but your voice*" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "20 questions", "text": "One person thinks of an animal. Everyone else gets *20 yes-or-no questions*." },
+        { "type": "rank", "rank": 2, "title": "The alphabet game", "text": "Find every letter from *A to Z* on signs outside. In order!" },
+        { "type": "rank", "rank": 1, "title": "Story in the car", "text": "Each person adds *three words*. Watch the story go completely wild." }
+      ],
+      "outro": { "text": "Which game wins in your car?", "sub": "Save it for your next drive" },
+      "caption": {
+        "tiktok": "Zero equipment, zero screens, zero “are we there yet” 🚗 Save these three games.",
+        "instagram": "3 car games that need nothing but your voice 🚗\n\n3. 20 questions\n2. The alphabet game\n1. Story in the car – three words each\n\nWhich game wins in your car? 👇",
+        "pinterest": { "title": "3 Car Games for Kids With No Equipment", "description": "Screen-free road trip games for kids: 20 questions, the alphabet game and story in the car. Family travel ideas from Kidventuro." }
+      },
+      "hashtags": ["#roadtripgames", "#screenfree", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-myth-penguins", "date": "2026-10-05", "slot": "afternoon", "format": "myth", "destination": "cape-town",
+      "hook": { "kicker": "Myth or fact", "text": "Penguins *only* live where it's freezing" },
+      "scenes": [
+        { "type": "claim", "text": "All penguins live in ice and snow." },
+        { "type": "verdict", "verdict": "myth", "text": "Near Cape Town, *African penguins* live on a sunny beach – and families can watch them up close." }
+      ],
+      "outro": { "text": "Would your kids visit penguin beach?", "sub": "Tell us yes or no" },
+      "caption": {
+        "tiktok": "Penguins on a SUNNY beach 🐧☀️ Did your kids think they only live in snow?",
+        "instagram": "Myth or fact: penguins only live where it's freezing 🐧\n\nMyth! Near Cape Town, African penguins live on a sunny beach, and families can watch them up close.\n\nWould your kids go? 👇",
+        "pinterest": { "title": "Do Penguins Only Live in the Cold? Myth for Kids", "description": "Myth: not all penguins live in snow – African penguins live on beaches near Cape Town. Animal facts for kids from Kidventuro." }
+      },
+      "hashtags": ["#penguins", "#mythorfact", "#capetown", "#kidslearning", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-dyk-rome", "date": "2026-10-05", "slot": "evening", "format": "didyouknow", "destination": "rome",
+      "hook": { "kicker": "Did you know?", "text": "There's a *whole country* inside Rome" },
+      "scenes": [
+        { "type": "fact", "destination": "rome", "text": "Vatican City sits inside Rome – it's the *smallest country* in the world." },
+        { "type": "fact", "text": "The Colosseum could hold about *50,000 people*." },
+        { "type": "fact", "text": "Visitors toss about *3,000 euros* into the Trevi Fountain every day. It goes to charity." }
+      ],
+      "outro": { "text": "Would your kids toss a coin?", "sub": "Save it for your Rome trip" },
+      "caption": {
+        "tiktok": "A whole country inside a city 🇻🇦 Did your kids know?",
+        "instagram": "Did you know? There's a whole country inside Rome 🏛️\n\nVatican City is the smallest country in the world. The Colosseum held about 50,000 people. And the Trevi Fountain collects about 3,000 euros a day for charity!\n\nSave it for your Rome trip ✨",
+        "pinterest": { "title": "Rome Facts for Kids: A Country Inside a City", "description": "Fun Rome facts for kids: Vatican City, the Colosseum's 50,000 seats and the Trevi Fountain coins. Rome activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#rome", "#funfacts", "#italywithkids", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-tips-journal", "date": "2026-10-06", "slot": "morning", "format": "tips",
+      "hook": { "kicker": "Best souvenir ever", "text": "A travel journal your kids will *actually* keep" },
+      "scenes": [
+        { "type": "items", "title": "Keep it simple", "items": ["Tape in *one ticket* a day", "Draw the *weirdest thing* you saw", "Rate the food with *stars*"] },
+        { "type": "text", "text": "Ten years later, it's the *best souvenir you own*." }
+      ],
+      "outro": { "text": "Do your kids keep a journal?", "sub": "Save it for your next trip" },
+      "caption": {
+        "tiktok": "One ticket, one weird drawing, star ratings for food ⭐ The best souvenir you'll ever own.",
+        "instagram": "A travel journal your kids will actually keep 📓\n\n• Tape in one ticket a day\n• Draw the weirdest thing you saw\n• Rate the food with stars\n\nTen years later, it's the best souvenir you own. Save it 💛",
+        "pinterest": { "title": "Easy Travel Journal Ideas for Kids", "description": "Simple travel journal prompts for kids: one ticket a day, the weirdest thing you saw and star ratings for food. Travel activity books from Kidventuro." }
+      },
+      "hashtags": ["#traveljournal", "#kidsactivities", "#familytravel", "#memories", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-guess-amsterdam", "date": "2026-10-06", "slot": "afternoon", "format": "guess",
+      "hook": { "kicker": "Guess the city", "text": "The bikes here *outnumber the people*" },
+      "scenes": [
+        { "type": "clue", "text": "There are *more bicycles* than people in this country." },
+        { "type": "clue", "text": "Some old houses *lean forward* on purpose." },
+        { "type": "clue", "text": "Its canals make *rings* around the old town." },
+        { "type": "answer", "destination": "amsterdam", "text": "Amsterdam! Watch out for bikes when you cross the street." }
+      ],
+      "outro": { "text": "Did your kids get it?", "sub": "Tell us which clue helped" },
+      "caption": {
+        "tiktok": "More bikes than people, leaning houses, canal rings 🚲 Did your kids get it?",
+        "instagram": "Guess the city 🕵️\n\n1. More bicycles than people.\n2. Old houses that lean forward on purpose.\n3. Canals in rings around the old town.\n\nWhich clue helped your kids? 👇",
+        "pinterest": { "title": "Guess the City Quiz for Kids: Amsterdam", "description": "A three-clue travel quiz for kids about Amsterdam's bikes, leaning houses and canal rings. Screen-free family games from Kidventuro." }
+      },
+      "hashtags": ["#travelquiz", "#amsterdam", "#kidsgames", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-booklet-barcelona", "date": "2026-10-06", "slot": "evening", "format": "booklet", "destination": "barcelona",
+      "hook": { "kicker": "Barcelona with kids", "text": "Mosaics, dragons and *buildings that look like cake*" },
+      "scenes": [
+        { "type": "items", "title": "Inside the Barcelona book", "items": ["A *Gaudí shape* hunt", "Mosaic *color bingo*", "Stickers, drawings and a certificate"] },
+        { "type": "booklet", "destination": "barcelona", "child": "Sofia", "text": "Personalized with your child's name. *Print it at home.*", "say": "A printable Barcelona adventure, personalized with your child's name. Print it at home." }
+      ],
+      "outro": { "text": "Barcelona on your list?", "sub": "Find it at kidventuro.com" },
+      "caption": {
+        "tiktok": "A Gaudí shape hunt in Barcelona 🦎 Kids go wild for the mosaics. Link in bio.",
+        "instagram": "Barcelona with kids: mosaics, dragons and buildings that look like cake 🦎\n\nA Gaudí shape hunt, mosaic color bingo, stickers and a certificate – personalized and printable.\n\nLink in bio 🔗",
+        "pinterest": { "title": "Barcelona Activity Book for Kids – Personalized & Printable", "description": "A personalized printable Barcelona travel activity book for kids ages 4–12: Gaudí shape hunt, mosaic color bingo and more. From Kidventuro." }
+      },
+      "hashtags": ["#barcelona", "#spainwithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-pov-pigeon", "date": "2026-10-07", "slot": "morning", "format": "pov",
+      "hook": { "kicker": "POV", "text": "You ask your kid about their *favorite part* of Paris" },
+      "scenes": [
+        { "type": "chat", "title": "Flight home", "messages": [
+          { "from": "parent", "text": "What was your favorite part of Paris?" },
+          { "from": "kid", "text": "The Eiffel Tower!" },
+          { "from": "parent", "text": "Aww." },
+          { "from": "kid", "text": "No wait." },
+          { "from": "kid", "text": "The *pigeon* that stole my croissant." }
+        ] }
+      ],
+      "outro": { "text": "What was YOUR kid's favorite part?", "sub": "The weirder the better" },
+      "caption": {
+        "tiktok": "Eiffel Tower? No. The pigeon that stole the croissant 🥐🐦 What was your kid's favorite part?",
+        "instagram": "POV: you ask your kid about their favorite part of Paris 🗼\n\n“The Eiffel Tower!” “Aww.” “No wait. The pigeon that stole my croissant.”\n\nWhat was your kid's favorite part of your last trip? 👇",
+        "pinterest": { "title": "Kids' Favorite Part of Paris (It's Not the Eiffel Tower)", "description": "What kids really remember from travel – funny family moments and screen-free travel activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#parentlife", "#paris", "#familytravel", "#kidsbelike", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-wyr-explore", "date": "2026-10-07", "slot": "afternoon", "format": "wouldyourather",
+      "hook": { "kicker": "Ask your kids", "text": "Would you rather… *explorer edition*" },
+      "scenes": [
+        { "type": "choice", "a": "Explore a *pyramid* in Egypt", "b": "Explore a *castle* in Scotland" },
+        { "type": "choice", "a": "Swim with *turtles* in Hawaii", "b": "Watch *penguins* on a beach in Cape Town" }
+      ],
+      "outro": { "text": "What did your explorers pick?", "sub": "A or B – tell us" },
+      "caption": {
+        "tiktok": "Pyramid or castle? Turtles or penguins? Ask your explorers 👇",
+        "instagram": "Would you rather… explorer edition 🧭\n\nA pyramid in Egypt or a castle in Scotland? Turtles in Hawaii or penguins in Cape Town?\n\nTell us what your explorers picked 👇",
+        "pinterest": { "title": "Would You Rather: Explorer Questions for Kids", "description": "Would-you-rather questions for young explorers: pyramids, castles, turtles and penguins. A screen-free travel game from Kidventuro." }
+      },
+      "hashtags": ["#wouldyourather", "#kidsgames", "#familytravel", "#explorer", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-top3-treats", "date": "2026-10-07", "slot": "evening", "format": "top3",
+      "hook": { "kicker": "Sweet tooth tour", "text": "3 cities with the *best treats* for kids" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "Brussels", "destination": "brussels", "text": "Warm *waffles* and chocolate shops on almost every corner." },
+        { "type": "rank", "rank": 2, "title": "Lisbon", "destination": "lisbon", "text": "Crispy *custard tarts*, still warm from the oven." },
+        { "type": "rank", "rank": 1, "title": "Florence", "destination": "florence", "text": "The city many call the *birthplace of gelato*." }
+      ],
+      "outro": { "text": "Which treat would your kids choose?", "sub": "Waffle, tart or gelato?" },
+      "caption": {
+        "tiktok": "Waffles, custard tarts or gelato? 🍦 Your kids have to choose one.",
+        "instagram": "3 cities with the best treats for kids 🍦\n\n3. Brussels – waffles and chocolate\n2. Lisbon – warm custard tarts\n1. Florence – the birthplace of gelato\n\nWaffle, tart or gelato? 👇",
+        "pinterest": { "title": "3 Cities With the Best Treats for Kids", "description": "A sweet family trip: waffles in Brussels, custard tarts in Lisbon and gelato in Florence. Family travel ideas from Kidventuro." }
+      },
+      "hashtags": ["#foodtravel", "#familytravel", "#gelato", "#europetravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-tips-packing-help", "date": "2026-10-08", "slot": "morning", "format": "tips",
+      "hook": { "kicker": "Packing hack", "text": "Kids who pack it *carry it*" },
+      "scenes": [
+        { "type": "items", "title": "Let them help", "items": ["Give them *one bag* that's all theirs", "Use a checklist with *pictures*", "Pack one *comfort thing* from home"] },
+        { "type": "text", "text": "They'll know what's inside, and they'll *actually* look after it." }
+      ],
+      "outro": { "text": "Do your kids pack their own bag?", "sub": "Tell us how it went" },
+      "caption": {
+        "tiktok": "Kids who pack it carry it 🎒 Give them their own bag and a picture checklist.",
+        "instagram": "Kids who pack it carry it 🎒\n\n• One bag that's all theirs\n• A checklist with pictures\n• One comfort thing from home\n\nDo your kids pack their own bag? 👇",
+        "pinterest": { "title": "Packing Tips: Let Kids Pack Their Own Bag", "description": "How to let kids pack for a trip: their own bag, a picture checklist and one comfort item. Family packing tips from Kidventuro." }
+      },
+      "hashtags": ["#packingtips", "#travelwithkids", "#parentinghacks", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-dyk-iceland", "date": "2026-10-08", "slot": "afternoon", "format": "didyouknow", "destination": "reykjavik",
+      "hook": { "kicker": "Did you know?", "text": "There's a country with *almost no mosquitoes*" },
+      "scenes": [
+        { "type": "fact", "destination": "reykjavik", "text": "Iceland has *almost no mosquitoes* at all." },
+        { "type": "fact", "text": "Reykjavik is the *northernmost capital* of any country." },
+        { "type": "fact", "text": "In June, it's still *light at midnight*. Bedtime gets tricky!" }
+      ],
+      "outro": { "text": "Would your kids love Iceland?", "sub": "Save it for your trip list" },
+      "caption": {
+        "tiktok": "No mosquitoes and daylight at midnight 🌋 Would your kids love Iceland?",
+        "instagram": "Did you know? Iceland has almost no mosquitoes 🌋\n\nReykjavik is the northernmost capital of any country, and in June it's still light at midnight. Bedtime gets tricky!\n\nSave it for your trip list ✨",
+        "pinterest": { "title": "Iceland Facts for Kids: Midnight Sun and No Mosquitoes", "description": "Fun Iceland facts for kids: almost no mosquitoes, the northernmost capital and daylight at midnight in June. From Kidventuro." }
+      },
+      "hashtags": ["#iceland", "#funfacts", "#familytravel", "#kidslearning", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-booklet-venice", "date": "2026-10-08", "slot": "evening", "format": "booklet", "destination": "venice",
+      "hook": { "kicker": "Venice with kids", "text": "A city with *no cars* needs a different kind of map" },
+      "scenes": [
+        { "type": "items", "title": "Inside the Venice book", "items": ["A *gondola spotter* mission", "The *bridge-count* challenge", "Stickers, drawings and a certificate"] },
+        { "type": "booklet", "destination": "venice", "child": "Emma", "text": "Personalized with your child's name. *Print it at home.*", "say": "A printable Venice adventure with your child's name on it. Print it at home before you go." }
+      ],
+      "outro": { "text": "How many bridges will your kids count?", "sub": "Find it at kidventuro.com" },
+      "caption": {
+        "tiktok": "The bridge-count challenge in Venice 🚤 How many will your kids find? Link in bio.",
+        "instagram": "Venice with kids: a city with no cars needs a different kind of map 🚤\n\nA gondola spotter mission, the bridge-count challenge, stickers and a certificate – personalized and printable.\n\nLink in bio 🔗",
+        "pinterest": { "title": "Venice Activity Book for Kids – Personalized & Printable", "description": "A personalized printable Venice travel activity book for kids ages 4–12: gondola spotter, bridge-count challenge and more. From Kidventuro." }
+      },
+      "hashtags": ["#venice", "#italywithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-top3-born-traveler", "date": "2026-10-09", "slot": "morning", "format": "top3",
+      "hook": { "kicker": "Parents, be honest", "text": "3 signs your kid is a *born traveler*" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "The window seat", "text": "They ask for it. *Every single time.*" },
+        { "type": "rank", "rank": 2, "title": "The collector", "text": "Tickets, maps, *sugar packets* – from every café." },
+        { "type": "rank", "rank": 1, "title": "The question", "text": "You just got home, and they're already asking: *“Where next?”*" }
+      ],
+      "outro": { "text": "Is your kid a born traveler?", "sub": "Tag the family explorer" },
+      "caption": {
+        "tiktok": "Home for 5 minutes and they're already asking “where next?” 🌍 Tag your family explorer!",
+        "instagram": "3 signs your kid is a born traveler 🌍\n\n3. Always asks for the window seat\n2. Collects tickets, maps and sugar packets\n1. Already asking “Where next?”\n\nTag your family explorer 👇",
+        "pinterest": { "title": "3 Signs Your Kid Is a Born Traveler", "description": "Window seats, sugar-packet collections and “where next?” – signs your child loves to travel. Family travel ideas from Kidventuro." }
+      },
+      "hashtags": ["#familytravel", "#travelkids", "#parentlife", "#wanderlust", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-guess-tokyo", "date": "2026-10-09", "slot": "afternoon", "format": "guess",
+      "hook": { "kicker": "Guess the city", "text": "The busiest *crosswalk* in the world is here" },
+      "scenes": [
+        { "type": "clue", "text": "Vending machines here sell *hot soup*." },
+        { "type": "clue", "text": "The country's *bullet trains* started running in 1964." },
+        { "type": "clue", "text": "At one crossing, *thousands of people* walk at the same time." },
+        { "type": "answer", "destination": "tokyo", "text": "Tokyo, Japan! The famous crossing is in *Shibuya*." }
+      ],
+      "outro": { "text": "Who guessed it first?", "sub": "Kids or grown-ups?" },
+      "caption": {
+        "tiktok": "Hot soup vending machines and a crossing with thousands of people 🇯🇵 Who guessed first?",
+        "instagram": "Guess the city 🕵️\n\n1. Vending machines sell hot soup.\n2. Bullet trains since 1964.\n3. Thousands of people cross at once.\n\nWho guessed it first, kids or grown-ups? 👇",
+        "pinterest": { "title": "Guess the City Quiz for Kids: Tokyo", "description": "A three-clue travel quiz for kids about Tokyo: hot soup vending machines, bullet trains and the Shibuya crossing. From Kidventuro." }
+      },
+      "hashtags": ["#travelquiz", "#tokyo", "#japan", "#kidsgames", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-dyk-istanbul", "date": "2026-10-09", "slot": "evening", "format": "didyouknow", "destination": "istanbul",
+      "hook": { "kicker": "Did you know?", "text": "In this city, you can have breakfast in *Europe* and lunch in *Asia*" },
+      "scenes": [
+        { "type": "fact", "destination": "istanbul", "text": "Istanbul sits on *two continents* – Europe and Asia." },
+        { "type": "fact", "text": "A short *ferry ride* takes you from one continent to the other." },
+        { "type": "fact", "text": "Its Grand Bazaar has *thousands of shops* under one roof." }
+      ],
+      "outro": { "text": "Would your kids ride the ferry?", "sub": "Save it for your Istanbul trip" },
+      "caption": {
+        "tiktok": "Breakfast in Europe, lunch in Asia ⛴️ Would your kids ride the ferry?",
+        "instagram": "Did you know? In Istanbul you can have breakfast in Europe and lunch in Asia ⛴️\n\nThe city sits on two continents, a short ferry ride connects them, and the Grand Bazaar has thousands of shops under one roof.\n\nSave it for your trip ✨",
+        "pinterest": { "title": "Istanbul Facts for Kids: A City on Two Continents", "description": "Fun Istanbul facts for kids: two continents, a ferry between them and the Grand Bazaar. Istanbul activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#istanbul", "#funfacts", "#familytravel", "#kidslearning", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-pov-packed", "date": "2026-10-10", "slot": "morning", "format": "pov",
+      "hook": { "kicker": "POV", "text": "Your kid says *“I packed everything”*" },
+      "scenes": [
+        { "type": "chat", "title": "Front door", "messages": [
+          { "from": "kid", "text": "I packed everything!" },
+          { "from": "parent", "text": "What did you pack?" },
+          { "from": "kid", "text": "Three toys, a flashlight and *my rock*." },
+          { "from": "parent", "text": "And clothes?" },
+          { "from": "kid", "text": "*Oh.*" }
+        ] }
+      ],
+      "outro": { "text": "What did your kid forget?", "sub": "Tell us in the comments" },
+      "caption": {
+        "tiktok": "Three toys, a flashlight, a rock. Clothes? “Oh.” 😂 What did your kid forget?",
+        "instagram": "POV: your kid says “I packed everything” 🎒\n\n“Three toys, a flashlight and my rock.” “And clothes?” “Oh.”\n\nWhat did your kid forget? 👇",
+        "pinterest": { "title": "When Kids Pack Their Own Suitcase", "description": "Funny family travel moments: when kids pack their own bags. Packing checklists and travel activity books for kids from Kidventuro." }
+      },
+      "hashtags": ["#parentlife", "#packing", "#momlife", "#familytravel", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-myth-bulls", "date": "2026-10-10", "slot": "afternoon", "format": "myth",
+      "hook": { "kicker": "Myth or fact", "text": "Bulls get angry at the color *red*" },
+      "scenes": [
+        { "type": "claim", "text": "The color red makes bulls angry." },
+        { "type": "verdict", "verdict": "myth", "text": "Bulls can't really tell red from green. They react to *movement*, not color." }
+      ],
+      "outro": { "text": "Did your kids believe this one?", "sub": "Be honest in the comments" },
+      "caption": {
+        "tiktok": "It's the movement, not the red 🐂 Did your kids believe this myth?",
+        "instagram": "Myth or fact: bulls get angry at the color red 🐂\n\nMyth! Bulls can't really tell red from green. They react to movement, not color.\n\nDid your kids believe it? 👇",
+        "pinterest": { "title": "Do Bulls Hate the Color Red? Myth for Kids", "description": "Myth: bulls don't react to the color red – they react to movement. Fun animal myths and facts for kids from Kidventuro." }
+      },
+      "hashtags": ["#mythorfact", "#animalfacts", "#kidslearning", "#funfacts", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-top3-animals", "date": "2026-10-10", "slot": "evening", "format": "top3",
+      "hook": { "kicker": "Animal lovers", "text": "3 trips where kids meet animals they'll *never forget*" },
+      "scenes": [
+        { "type": "rank", "rank": 3, "title": "Sydney", "destination": "sydney", "text": "Wildlife parks where kids can see *koalas and kangaroos* up close." },
+        { "type": "rank", "rank": 2, "title": "Cape Town", "destination": "cape-town", "text": "Penguins waddling on a *sunny beach*." },
+        { "type": "rank", "rank": 1, "title": "Nairobi", "destination": "nairobi", "text": "A national park with giraffes and zebras *inside the city*." }
+      ],
+      "outro": { "text": "Which animal would your kids pick?", "sub": "Koala, penguin or giraffe?" },
+      "caption": {
+        "tiktok": "Giraffes in a national park INSIDE a city 🦒 Which animal would your kids pick?",
+        "instagram": "3 trips where kids meet animals they'll never forget 🦒\n\n3. Sydney – koalas and kangaroos\n2. Cape Town – penguins on a sunny beach\n1. Nairobi – a national park inside the city\n\nKoala, penguin or giraffe? 👇",
+        "pinterest": { "title": "3 Family Trips for Animal-Loving Kids", "description": "Family travel for animal lovers: koalas in Sydney, penguins in Cape Town and Nairobi's national park inside the city. From Kidventuro." }
+      },
+      "hashtags": ["#animals", "#familytravel", "#safari", "#travelwithkids", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-tips-rainy-day", "date": "2026-10-11", "slot": "morning", "format": "tips",
+      "hook": { "kicker": "Rainy day abroad?", "text": "3 ideas that turn rain into *an adventure*" },
+      "scenes": [
+        { "type": "items", "title": "Rainy day plan", "items": ["Find a *covered market* and taste one new thing", "Visit a bookstore and pick a *local story*", "Make a *puddle map* of your street"] },
+        { "type": "text", "text": "Rain isn't a lost day. *It's a different adventure.*" }
+      ],
+      "outro": { "text": "What do you do when it rains?", "sub": "Share your best rainy day idea" },
+      "caption": {
+        "tiktok": "Rain isn't a lost day ☔ Save these three ideas for your next trip.",
+        "instagram": "3 ideas that turn a rainy travel day into an adventure ☔\n\n• A covered market and one new taste\n• A bookstore and a local story\n• A puddle map of your street\n\nWhat do you do when it rains? 👇",
+        "pinterest": { "title": "Rainy Day Travel Ideas for Kids", "description": "What to do with kids on a rainy day abroad: covered markets, local bookstores and puddle maps. Family travel tips from Kidventuro." }
+      },
+      "hashtags": ["#rainyday", "#travelwithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-wyr-sleep", "date": "2026-10-11", "slot": "afternoon", "format": "wouldyourather",
+      "hook": { "kicker": "Ask your kids", "text": "Would you rather… *sleepover edition*" },
+      "scenes": [
+        { "type": "choice", "a": "Sleep in an *igloo*", "b": "Sleep in a tent in the *desert*" },
+        { "type": "choice", "a": "Have a pet *camel*", "b": "Have a pet *penguin*" }
+      ],
+      "outro": { "text": "What did your kids pick?", "sub": "A or B – tell us" },
+      "caption": {
+        "tiktok": "Igloo or desert tent? Camel or penguin? 🐪🐧 Ask your kids!",
+        "instagram": "Would you rather… sleepover edition 🏕️\n\nAn igloo or a desert tent? A pet camel or a pet penguin?\n\nAsk your kids and tell us A or B 👇",
+        "pinterest": { "title": "Would You Rather: Sleepover Questions for Kids", "description": "Would-you-rather questions for kids: igloos, desert tents, camels and penguins. A fun screen-free travel game from Kidventuro." }
+      },
+      "hashtags": ["#wouldyourather", "#kidsgames", "#familyfun", "#roadtripgames", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    },
+    {
+      "id": "kw41-booklet-new-york", "date": "2026-10-11", "slot": "evening", "format": "booklet", "destination": "new-york",
+      "hook": { "kicker": "New York with kids", "text": "Yellow taxis, giant parks and *skyscrapers to count*" },
+      "scenes": [
+        { "type": "items", "title": "Inside the New York book", "items": ["*Yellow taxi* bingo", "A *skyscraper spotter* mission", "Stickers, drawings and a certificate"] },
+        { "type": "booklet", "destination": "new-york", "child": "Ava", "text": "Personalized with your child's name. *Print it at home.*", "say": "A printable New York adventure, personalized with your child's name. Print it at home." }
+      ],
+      "outro": { "text": "Big Apple on your list?", "sub": "Find it at kidventuro.com" },
+      "caption": {
+        "tiktok": "Yellow taxi bingo in New York 🚕 Your kids will count every one. Link in bio.",
+        "instagram": "New York with kids: yellow taxis, giant parks and skyscrapers to count 🚕\n\nYellow taxi bingo, a skyscraper spotter mission, stickers and a certificate – personalized and printable.\n\nLink in bio 🔗",
+        "pinterest": { "title": "New York Activity Book for Kids – Personalized & Printable", "description": "A personalized printable New York travel activity book for kids ages 4–12: yellow taxi bingo, skyscraper spotter and more. From Kidventuro." }
+      },
+      "hashtags": ["#newyork", "#nycwithkids", "#familytravel", "#kidsactivities", "#kidventuro"],
+      "ai": { "text": "assisted", "visuals": "template", "voice": "synthetic" }
+    }
+  ]
+}

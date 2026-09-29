@@ -2,32 +2,28 @@
   "timezone": "Europe/Sofia",
   "language": "en",
   "siteUrl": "https://kidventuro.com/",
-  "openaiModel": "gpt-5-nano",
   "pinterestBoardName": "Family Travel with Kids",
   "retentionDays": 45,
   "slots": {
     "morning": 9,
+    "afternoon": 14,
     "evening": 18
+  },
+  "platforms": ["tiktok", "pinterest", "instagram"],
+  "optionalPlatforms": [],
+  "priceLabel": "from €5.90",
+  "voice": {
+    "name": "af_heart",
+    "speed": 1.0,
+    "engine": "Kokoro-82M (Apache-2.0), run locally"
   },
   "audio": {
     "tracks": ["1.mp3", "2.mp3", "SlideBC.mp3", "SoftBC.mp3"],
-    "excerptStartRangeSeconds": 60,
-    "slideDurationSeconds": 3.2,
-    "videoDurationSeconds": 12.8,
-    "fadeSeconds": 0.6,
-    "targetLoudnessLufs": -16
+    "excerptStartRangeSeconds": 60
   },
-  "brand": {
-    "ink": "#20312f",
-    "muted": "#65736f",
-    "cream": "#fff8ef",
-    "paper": "#fffdf9",
-    "orange": "#ff7d4d",
-    "orangeDark": "#e95e2d",
-    "teal": "#2b7a78",
-    "mint": "#dff4ea",
-    "yellow": "#ffd96a",
-    "blue": "#dfeeff",
-    "pink": "#ffe3dc"
+  "font": {
+    "family": "Montserrat",
+    "files": ["Montserrat-Medium.ttf", "Montserrat-Bold.ttf", "Montserrat-ExtraBold.ttf", "Montserrat-Black.ttf"],
+    "license": "SIL Open Font License 1.1 (Montserrat, Julieta Ulanovsky)"
   }
 }
