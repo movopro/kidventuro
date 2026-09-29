@@ -116,34 +116,14 @@ jobs:
           SLOT_KEY: ${{ steps.gate.outputs.slot_key }}
           PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
           PUBLISH_OUTCOME: ${{ steps.live_publish.outcome }}
+        # A run that found the slot claimed by another runner writes no report and
+        # records nothing (record-status.mjs), so the holder's record survives.
         run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const resultPath = 'social-autopilot/status/run-result.json';
-          let details = null;
-          if (fs.existsSync(resultPath)) {
-            details = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
-          }
-          const status = {
-            updatedAt: new Date().toISOString(),
-            event: process.env.EVENT_NAME,
-            slot: process.env.SLOT || null,
-            slotKey: process.env.SLOT_KEY || details?.slotKey || null,
-            preflightConfigured: process.env.PREFLIGHT_CONFIGURED || 'false',
-            publishOutcome: process.env.PUBLISH_OUTCOME || 'skipped',
-            details
-          };
-          fs.mkdirSync('social-autopilot/status', { recursive: true });
-          const body = `${JSON.stringify(status, null, 2)}\n`;
-          fs.writeFileSync('social-autopilot/status/latest.json', body);
-          if (status.slotKey && status.slotKey !== 'none') {
-            fs.writeFileSync(`social-autopilot/status/${status.slotKey}.json`, body);
-          }
-          NODE
+          node social-autopilot/src/record-status.mjs record
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add social-autopilot/status/latest.json
-          if [ -n "${SLOT_KEY}" ] && [ "${SLOT_KEY}" != "none" ]; then
+          if [ -n "${SLOT_KEY}" ] && [ "${SLOT_KEY}" != "none" ] && [ -f "social-autopilot/status/${SLOT_KEY}.json" ]; then
             git add "social-autopilot/status/${SLOT_KEY}.json"
           fi
           if ! git diff --cached --quiet; then
@@ -157,29 +137,7 @@ jobs:
         env:
           PREFLIGHT_CONFIGURED: ${{ steps.preflight.outputs.configured }}
           LIVE_PUBLISH_OUTCOME: ${{ steps.live_publish.outcome }}
-        run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const resultPath = 'social-autopilot/status/run-result.json';
-          let details = null;
-          if (fs.existsSync(resultPath)) details = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
-
-          const preflightOk = process.env.PREFLIGHT_CONFIGURED === 'true';
-          const publishOk = process.env.LIVE_PUBLISH_OUTCOME === 'success';
-          const outcome = details?.outcome || 'missing';
-          const acceptableOutcome = outcome === 'sent' || outcome === 'pending';
-
-          if (!preflightOk || !publishOk || !acceptableOutcome) {
-            console.error(`Live delivery unhealthy: preflight=${process.env.PREFLIGHT_CONFIGURED}, publish=${process.env.LIVE_PUBLISH_OUTCOME}, outcome=${outcome}`);
-            process.exit(1);
-          }
-
-          if (outcome === 'pending') {
-            console.log('Delivery accepted by Buffer and still in flight; a later watchdog run will verify final sent state without creating duplicates.');
-          } else {
-            console.log('All configured platforms are confirmed sent.');
-          }
-          NODE
+        run: node social-autopilot/src/record-status.mjs verify
 
       - name: Render manual preview
         if: steps.gate.outputs.should_run == 'true' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
