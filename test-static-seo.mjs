@@ -14,11 +14,20 @@ const stripMarkup = html => html
   .replace(/\s+/g, ' ')
   .trim();
 
+// Only the 50 supported (paid-product) destinations are indexed: robots.txt allows exactly those pages. The
+// folders also hold thin stubs for the other 50 catalog destinations, which crawlers are told to skip.
+const robots = await readFile(new URL('./robots.txt', import.meta.url), 'utf8');
+const supported = [...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)]
+  .map(match => `${match[1]}.html`)
+  .filter(file => file !== 'index.html');
+assert.equal(supported.length, 50, 'robots.txt must allow exactly 50 supported destination pages');
+
 let checked = 0;
 for (const group of groups) {
   const dirUrl = new URL(group.dir, import.meta.url);
-  const files = (await readdir(dirUrl)).filter(file => file.endsWith('.html') && file !== 'index.html');
-  assert.equal(files.length, 50, `${group.lang}: expected 50 destination pages`);
+  const present = new Set(await readdir(dirUrl));
+  const files = supported.filter(file => present.has(file));
+  assert.equal(files.length, 50, `${group.lang}: expected 50 supported destination pages`);
 
   for (const file of files) {
     const html = await readFile(new URL(file, dirUrl), 'utf8');
