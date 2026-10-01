@@ -62,6 +62,11 @@ for(const [name,html] of [['index',index],['success',successHtml],['booklet',boo
   assert.ok(html.includes('runtime-config.js'),`${name} must load runtime-config.js before analytics`);
   assert.ok(html.indexOf('runtime-config.js')<html.indexOf('analytics.js'),`${name} must load runtime config before analytics`);
 }
+// The 404 page is served for any missing URL at any depth (for example /destinations/x.html), so a relative
+// asset path such as legal.css would 404 there and leave the page unstyled.
+for(const m of notFound.matchAll(/\b(?:href|src)="([^"#]+)"/g)){
+  assert.ok(/^(\/|https?:|mailto:)/.test(m[1]),`404.html must use root-absolute paths, found "${m[1]}"`);
+}
 
 assert.ok(polish.includes('TEST MODE • No real payment is taken'),'Test mode must be visible to visitors');
 assert.ok(polish.includes('printable books are currently generated in English'),'current product language must be disclosed');
