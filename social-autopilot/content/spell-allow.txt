@@ -22,3 +22,11 @@ neuschwanstein
 trevi
 gaudí
 shibuya
+
+# added 2026-W42 (reviewed: all correct)
+supertrees
+merlion
+janeiro
+janeiro's
+treehouses
+lego's
