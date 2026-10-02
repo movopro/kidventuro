@@ -1,36 +1,36 @@
 {
-  "updatedAt": "2026-10-02T11:01:58.301Z",
+  "updatedAt": "2026-10-02T11:30:32.963Z",
   "event": "node2",
   "slot": "afternoon",
   "slotKey": "2026-10-02-afternoon",
   "preflightConfigured": "true",
   "publishOutcome": "success",
   "details": {
-    "startedAt": "2026-10-02T11:00:04.998Z",
+    "startedAt": "2026-10-02T11:30:26.094Z",
     "slot": "afternoon",
     "slotKey": "2026-10-02-afternoon",
-    "outcome": "pending",
+    "outcome": "sent",
     "platforms": {
       "tiktok": {
         "postId": "6abf8ec0f781c1ecf1614cd3",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-10-02T11:02:43.783Z",
+        "externalLink": "https://tiktok.com/@kidventuro/video/7692023706603834656",
+        "source": "verified-marker"
       },
       "pinterest": {
         "postId": "6abf8ef11b2a6a8e155ae86c",
         "status": "sent",
         "sentAt": "2026-10-02T11:01:06.790Z",
         "externalLink": "https://www.pinterest.com/pin/1122592644651497403",
-        "source": "created"
+        "source": "verified-marker"
       },
       "instagram": {
         "postId": "6abf8ef41b2a6a8e155ae8e4",
-        "status": "sending",
-        "sentAt": null,
-        "externalLink": null,
-        "source": "created"
+        "status": "sent",
+        "sentAt": "2026-10-02T11:02:00.402Z",
+        "externalLink": "https://www.instagram.com/reel/Dd_VE3bjRpy/",
+        "source": "verified-marker"
       }
     },
     "skippedPlatforms": [],
@@ -43,7 +43,6 @@
       "reason": "ai.visuals=template, synthetic voice=true",
       "textAssisted": true
     },
-    "media": "studio",
-    "finishedAt": "2026-10-02T11:01:58.105Z"
+    "finishedAt": "2026-10-02T11:30:32.846Z"
   }
 }
