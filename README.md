@@ -154,7 +154,7 @@ Not launch blockers:
 - `privacy.html`, `terms.html`, `refunds.html`, `legal.css` — policy pages
 - `test-catalog.mjs`, `test-checkout-safety.mjs`, `test-launch.mjs` — frontend/catalog/launch regression tests
 - `worker/` — Cloudflare Worker payment, fulfillment, diagnostics and AI backend
-- `social-autopilot/` and `.github/workflows/social-autopilot.yml` — twice-daily Instagram, Pinterest and TikTok content generation and automatic publishing; activation steps are in `social-autopilot/SETUP-BG.md`
+- The social posting pipeline (Instagram, Pinterest and TikTok content, schedule and publishing) is NOT in this repository: it moved to a separate private repository on 2026-10-05, so that the queue and the status files are not public. This repository is the website only.
 
 ## Security model
 
