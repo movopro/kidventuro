@@ -1,0 +1,114 @@
+{
+  "slug": "innsbruck",
+  "name": "Innsbruck",
+  "nameEs": "Innsbruck",
+  "country": "Austria",
+  "countryEs": "Austria",
+  "flag": "🇦🇹",
+  "region": "europe",
+  "lang": "de",
+  "phrases": [["Grüß Gott", "Hello"], ["Danke", "Thank you"], ["Bitte", "Please"], ["Ja", "Yes"]],
+  "icons": "🚡 ⛷️ 🏔️",
+  "scene": "mountains",
+  "bestMonths": [1, 2, 3, 6, 7, 8, 9, 12],
+  "seasons": ["winter", "summer"],
+  "en": {
+    "tagline": "Cable cars • Alpine zoo • ski slopes",
+    "intro": "Innsbruck is a real city with a medieval old town, yet a cable car from the centre lifts you above 2,000 metres in about half an hour. That makes it easy with children: ski or sledge in winter, hike and swim in summer, and come back down for apple strudel by the river. Two Winter Olympics, a ski jump on the skyline and an Alpine zoo keep curious kids busy.",
+    "ages": { "best": "5-12", "text": "Children from about 5 get the most from ski school and longer hikes, while the zoo, old town and cable car rides already work well for 3- and 4-year-olds." },
+    "stroller": { "rating": "mixed", "text": "The old town is flat and pedestrianised and trams are low-floor, but mountain paths and snowy streets call for a carrier or an all-terrain stroller." },
+    "mustDos": [
+      { "title": "Nordkette cable cars", "text": "Ride the Hungerburg funicular from Congress station, then cable cars to Seegrube (1,905 m) and Hafelekar (2,256 m) for huge views; adult returns cost roughly €40-55 and children pay about half.", "ages": "4+" },
+      { "title": "Alpenzoo", "text": "Europe's highest-lying zoo shows Alpine animals only, from ibex and marmots to bears, wolves and bearded vultures, on a sloping site reached from the Hungerburg funicular.", "ages": "3+" },
+      { "title": "Old town and Golden Roof", "text": "Look up at the Golden Roof's shining tiles, climb the City Tower stairs for a view over red roofs, and watch the colourful houses along the Inn river.", "ages": "4+" },
+      { "title": "Snow days or lake days", "text": "In winter, family ski areas such as Patscherkofel and Muttereralm have ski schools and sledge runs; in summer, swap them for hikes with mountain huts and the Natterer See bathing lake.", "ages": "4+" },
+      { "title": "Swarovski Crystal Worlds", "text": "A short shuttle ride east in Wattens, the giant grass head, the shimmering crystal chambers and the big outdoor play tower with climbing nets fill half a day.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Audioversum Science Center", "text": "Interactive exhibition about sound and hearing where kids test their ears and play with echoes." },
+      { "title": "Tirol Panorama", "text": "A giant round painting of an 1809 battle next to the Bergisel ski jump, which you can visit afterwards." },
+      { "title": "Ambras Castle", "text": "Renaissance castle with suits of armour, a cabinet of curiosities and a large park for drier moments." }
+    ],
+    "safety": [
+      "Mountain weather turns fast, so pack a warm layer and rain jacket even when the valley is sunny, and check the cable car webcams before going up.",
+      "Sun at 2,000 metres is strong on snow and in summer, so use high-factor sunscreen and sunglasses for children.",
+      "Trams run silently through the centre and bikes use marked lanes, so keep small children close at crossings in the old town."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €200-320 a day for a family of four excluding lodging; ski passes, rentals and lessons can double that in winter.",
+      "items": [
+        { "label": "Nordkette return to Seegrube or Hafelekar (adult)", "price": "€40-55" },
+        { "label": "Alpenzoo entry (child to adult)", "price": "€7-17" },
+        { "label": "Innsbruck Card 24 h (adult; children about half)", "price": "€55-70" },
+        { "label": "Day ski pass in a family area (child to adult)", "price": "€30-70" }
+      ],
+      "tip": "Ask your hotel for the free Welcome Card, which in summer includes guided hikes, and compare the Innsbruck Card if you plan the Nordkette, zoo and Swarovski in one day."
+    },
+    "gettingAround": "The centre is walkable, IVB trams and buses cover the city, and free ski buses link hotels to the slopes for ski pass holders in winter.",
+    "food": "Kids love Kaiserschmarrn (torn sweet pancake with apple sauce), cheese noodles called Kasspatzln and apple strudel; lunch is around 12:00 and many mountain huts serve hot food all afternoon.",
+    "firstDay": {
+      "morning": "Ride the Nordkette cable cars early, when the sky is clearest and queues short.",
+      "afternoon": "Stop at the Alpenzoo on the way down to meet the ibex and marmots.",
+      "evening": "Stroll the old town to the Golden Roof and share Kaiserschmarrn for dessert."
+    }
+  },
+  "es": {
+    "tagline": "Teleféricos • zoo alpino • pistas de esquí",
+    "intro": "Innsbruck es una ciudad de verdad con casco antiguo medieval, pero un teleférico desde el centro os sube a más de 2.000 metros en una media hora. Eso lo hace muy cómodo con niños: esquí o trineo en invierno, caminatas y baños en verano, y de vuelta abajo para un strudel de manzana junto al río. Dos Juegos Olímpicos de Invierno, un trampolín de saltos en el horizonte y un zoo alpino mantienen ocupados a los curiosos.",
+    "ages": { "best": "5-12", "text": "Los niños desde unos 5 años aprovechan mejor la escuela de esquí y las caminatas largas, aunque el zoo, el casco antiguo y los teleféricos ya funcionan bien con 3 y 4 años." },
+    "stroller": { "rating": "mixed", "text": "El casco antiguo es llano y peatonal y los tranvías son de piso bajo, pero los senderos de montaña y las calles nevadas piden mochila portabebés o un carrito todoterreno." },
+    "mustDos": [
+      { "title": "Teleféricos de Nordkette", "text": "Tomad el funicular de Hungerburg desde la estación Congress y luego los teleféricos a Seegrube (1.905 m) y Hafelekar (2.256 m); la ida y vuelta de adulto cuesta unos €40-55 y los niños pagan más o menos la mitad.", "ages": "4+" },
+      { "title": "Alpenzoo", "text": "El zoo situado a mayor altitud de Europa solo muestra animales alpinos, desde íbices y marmotas hasta osos, lobos y quebrantahuesos, en una ladera a la que se llega con el funicular de Hungerburg.", "ages": "3+" },
+      { "title": "Casco antiguo y Tejadillo de Oro", "text": "Mirad las tejas brillantes del Tejadillo de Oro, subid las escaleras de la Torre de la Ciudad para ver los tejados rojos y contemplad las casas de colores junto al río Inn.", "ages": "4+" },
+      { "title": "Días de nieve o de lago", "text": "En invierno, zonas familiares como Patscherkofel y Muttereralm tienen escuelas de esquí y pistas de trineo; en verano, cambiadlas por rutas con refugios de montaña y el lago de baño Natterer See.", "ages": "4+" },
+      { "title": "Mundos de Cristal de Swarovski", "text": "A un corto trayecto en autobús lanzadera hacia Wattens, la cabeza gigante de hierba, las salas de cristal brillante y la gran torre de juegos con redes para trepar llenan media jornada.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Audioversum Science Center", "text": "Exposición interactiva sobre el sonido y el oído donde los niños ponen a prueba sus orejas y juegan con ecos." },
+      { "title": "Tirol Panorama", "text": "Una enorme pintura circular de una batalla de 1809 junto al trampolín de Bergisel, que se puede visitar después." },
+      { "title": "Castillo de Ambras", "text": "Castillo renacentista con armaduras, un gabinete de curiosidades y un gran parque para cuando deje de llover." }
+    ],
+    "safety": [
+      "El tiempo en la montaña cambia rápido, así que llevad una capa de abrigo y chubasquero aunque el valle esté soleado, y mirad las webcams del teleférico antes de subir.",
+      "El sol a 2.000 metros es fuerte sobre la nieve y en verano, así que usad protector solar alto y gafas de sol para los niños.",
+      "Los tranvías circulan casi en silencio por el centro y las bicis tienen carriles marcados, así que mantened cerca a los pequeños al cruzar en el casco antiguo."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos €200-320 al día para una familia de cuatro sin alojamiento; en invierno, forfaits, alquiler y clases pueden duplicarlo.",
+      "items": [
+        { "label": "Nordkette ida y vuelta a Seegrube o Hafelekar (adulto)", "price": "€40-55" },
+        { "label": "Entrada al Alpenzoo (de niño a adulto)", "price": "€7-17" },
+        { "label": "Innsbruck Card 24 h (adulto; niños más o menos la mitad)", "price": "€55-70" },
+        { "label": "Forfait de un día en zona familiar (de niño a adulto)", "price": "€30-70" }
+      ],
+      "tip": "Pedid en el hotel la Welcome Card gratuita, que en verano incluye caminatas guiadas, y comparad con la Innsbruck Card si vais a hacer Nordkette, zoo y Swarovski el mismo día."
+    },
+    "gettingAround": "El centro se recorre a pie, los tranvías y autobuses de IVB cubren la ciudad y en invierno hay autobuses de esquí gratuitos entre hoteles y pistas para quien tiene forfait.",
+    "food": "A los niños les encanta el Kaiserschmarrn (tortita dulce troceada con compota de manzana), los fideos con queso llamados Kasspatzln y el strudel de manzana; se come hacia las 12:00 y muchos refugios sirven comida caliente toda la tarde.",
+    "firstDay": {
+      "morning": "Subid temprano en los teleféricos de Nordkette, cuando el cielo está más claro y hay menos cola.",
+      "afternoon": "Parad en el Alpenzoo al bajar para conocer a los íbices y las marmotas.",
+      "evening": "Pasead por el casco antiguo hasta el Tejadillo de Oro y compartid un Kaiserschmarrn de postre."
+    }
+  },
+  "booklet": {
+    "marks": ["Golden Roof", "Nordkette", "Bergisel Ski Jump", "Ambras Castle"],
+    "food": ["Kaiserschmarrn", "apple strudel", "cheese noodles", "pretzel"],
+    "facts": [
+      "Innsbruck means 'bridge over the Inn', the river that runs through the city.",
+      "Innsbruck has hosted the Winter Olympics twice, in 1964 and 1976.",
+      "The Golden Roof is covered with more than 2,600 golden copper tiles."
+    ],
+    "hunt": ["a cable car", "a red and white flag", "a golden roof", "a ski jump", "a cow with a bell", "a tram", "a snowy mountain top", "an ibex", "a painted house", "a horse and carriage", "a pretzel", "a marmot"],
+    "quiz": [
+      ["Which river flows through Innsbruck?", "The Inn", "The Danube", "The Rhine", "The Thames"],
+      ["How many times has Innsbruck hosted the Winter Olympics?", "Two", "One", "Four", "Ten"],
+      ["What covers the famous Golden Roof?", "Golden copper tiles", "Chocolate coins", "Glass bottles", "Ice blocks"]
+    ],
+    "missions": ["Mountain peak counter", "Alpine animal tracker"]
+  },
+  "missionsEs": ["Contador de cumbres", "Rastreador de animales alpinos"]
+}

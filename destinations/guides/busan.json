@@ -1,0 +1,114 @@
+{
+  "slug": "busan",
+  "name": "Busan",
+  "nameEs": "Busan",
+  "country": "South Korea",
+  "countryEs": "Corea del Sur",
+  "flag": "🇰🇷",
+  "region": "asia",
+  "lang": "ko",
+  "phrases": [["Annyeonghaseyo", "Hello"], ["Gamsahamnida", "Thank you"], ["Juseyo", "Please (give me)"], ["Ne", "Yes"]],
+  "icons": "🌊 🏘️ 🐟",
+  "scene": "coast",
+  "bestMonths": [4, 5, 6, 9, 10],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "City beaches • painted hillside villages • a temple by the waves",
+    "intro": "Busan is Korea's big seaside city: sandy beaches reachable by metro, a clifftop temple with waves crashing below and whole hillsides of brightly painted houses. Days mix sand and sea with fish markets, cable cars and street snacks, and the KTX train from Seoul arrives in about two and a half hours. It suits families who want a city break and a beach holiday in one trip.",
+    "ages": { "best": "5-12", "text": "Children of 5 and up get the most from the steep alleys of Gamcheon and the cliff walks. Younger ones are happy with Haeundae's sand, the aquarium and the beach train, though the sky capsules want an adult with every child." },
+    "stroller": { "rating": "mixed", "text": "Haeundae and Gwangalli promenades, the metro and big malls are smooth with plenty of lifts. Gamcheon, Haedong Yonggungsa and Taejongdae have many stairs, so a carrier is far easier there." },
+    "mustDos": [
+      { "title": "Haeundae Beach and Blueline Park", "text": "Build sandcastles on Korea's best-known city beach, then ride the slow Sky Capsule pods along the cliffs towards Cheongsapo. Capsules seat up to four and cost roughly ₩30,000-50,000 per pod, so book a time slot online in busy months.", "ages": "3+" },
+      { "title": "Gamcheon Culture Village", "text": "A hillside of pastel houses with murals, fish sculptures and a Little Prince statue looking over the harbour. Buy the stamp-trail map for a couple of thousand won and children collect stamps at shops and galleries along the route.", "ages": "5+" },
+      { "title": "Haedong Yonggungsa Temple", "text": "This Buddhist temple sits on rocks right above the sea, with a stone bridge, golden Buddha statues and a row of zodiac animal figures kids love to find. Entry is free; go early to avoid the weekend crowds.", "ages": "4+" },
+      { "title": "Songdo Beach and Air Cruise", "text": "Ride the cable car across the bay in a glass-floored Crystal Cabin, then walk the curved Songdo Skywalk over the water. A return adult ticket costs roughly ₩17,000-24,000 depending on cabin type.", "ages": "4+" },
+      { "title": "Jagalchi Market and BIFF Square", "text": "See octopus, crabs and giant fish in Korea's largest seafood market, then walk to BIFF Square for ssiat hotteok, sweet pancakes stuffed with seeds. A hotteok costs around ₩2,000-3,000.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Sea Life Busan Aquarium", "text": "An underground aquarium at Haeundae Beach with a shark tunnel, penguins and a touch pool." },
+      { "title": "National Maritime Museum of Korea", "text": "A free museum on Yeongdo with ship models, a walk-through aquarium tunnel and a children's area." },
+      { "title": "Shinsegae Centum City", "text": "A giant department store with an ice rink, a cinema and a big food hall for a dry afternoon." }
+    ],
+    "safety": [
+      "Traffic drives on the right and cars often turn right on red, so hold small hands at every crossing and watch for delivery scooters on pavements.",
+      "Lifeguards and swimming zones operate mainly from June to August; stay between the flags at Haeundae, where waves and currents can be strong.",
+      "Late June and July bring heavy monsoon rain and August can be very humid, with occasional typhoons, so keep a flexible indoor plan."
+    ],
+    "costs": {
+      "currency": "KRW",
+      "daily": "About ₩250,000-400,000 (about €160-250) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Sea Life Busan Aquarium, adult", "price": "₩30,000-38,000 (about €19-24)" },
+        { "label": "Songdo Air Cruise return, adult", "price": "₩17,000-24,000 (about €11-15)" },
+        { "label": "Metro ride with a T-money card, adult", "price": "₩1,500-1,800 (about €1)" },
+        { "label": "Bowl of dwaeji gukbap", "price": "₩10,000-13,000 (about €6-8)" }
+      ],
+      "tip": "Beaches, Gamcheon and Haedong Yonggungsa are free, under-6s ride the metro free, and aquarium tickets are usually cheaper booked online in advance."
+    },
+    "gettingAround": "Busan's metro covers most sights: Line 2 runs to Gwangalli and Haeundae, and Line 1 to Busan Station and Jagalchi. Load a T-money card for metro, buses and taxis; Haedong Yonggungsa and Gamcheon need a short bus or taxi from the nearest station.",
+    "food": "Children usually love eomuk fish cakes on sticks, ssiat hotteok and mild dwaeji gukbap, a pork and rice soup. Many dishes are spicy, so ask for 'an maepge' (not spicy); restaurants serve dinner from about 17:30 and side dishes are refilled for free.",
+    "firstDay": {
+      "morning": "Take the metro to Haeundae, play on the beach and visit the aquarium.",
+      "afternoon": "Ride a Blueline Park sky capsule to Cheongsapo and snack on grilled fish cakes.",
+      "evening": "Watch Gwangan Bridge light up in changing colours from Gwangalli Beach."
+    }
+  },
+  "es": {
+    "tagline": "Playas urbanas • pueblos pintados en la colina • un templo junto a las olas",
+    "intro": "Busan es la gran ciudad costera de Corea: playas de arena a las que se llega en metro, un templo sobre los acantilados con olas rompiendo debajo y laderas enteras de casas pintadas de colores. Los días combinan arena y mar con mercados de pescado, teleféricos y comida callejera, y el tren KTX desde Seúl tarda unas dos horas y media. Es ideal para familias que quieren ciudad y playa en un mismo viaje.",
+    "ages": { "best": "5-12", "text": "A partir de los 5 años los niños aprovechan mejor las cuestas de Gamcheon y los paseos por los acantilados. Los más pequeños disfrutan la arena de Haeundae, el acuario y el tren de la costa, aunque en las cápsulas cada niño debe ir con un adulto." },
+    "stroller": { "rating": "mixed", "text": "Los paseos de Haeundae y Gwangalli, el metro y los centros comerciales son cómodos y tienen ascensores. Gamcheon, Haedong Yonggungsa y Taejongdae tienen muchas escaleras, así que allí es mucho mejor la mochila portabebés." },
+    "mustDos": [
+      { "title": "Playa de Haeundae y Blueline Park", "text": "Haz castillos de arena en la playa urbana más famosa de Corea y luego sube a las lentas Sky Capsule que recorren los acantilados hacia Cheongsapo. Caben hasta cuatro personas y cuestan unos ₩30.000-50.000 por cápsula; reserva hora en línea en temporada alta.", "ages": "3+" },
+      { "title": "Aldea Cultural de Gamcheon", "text": "Una ladera de casas en tonos pastel con murales, peces de colores y una estatua del Principito mirando al puerto. Compra el mapa de sellos por un par de miles de wones y los niños irán sellando en tiendas y galerías del recorrido.", "ages": "5+" },
+      { "title": "Templo Haedong Yonggungsa", "text": "Este templo budista está sobre las rocas justo encima del mar, con un puente de piedra, budas dorados y una fila de animales del zodiaco que a los niños les encanta buscar. La entrada es gratis; ve temprano para evitar las multitudes del fin de semana.", "ages": "4+" },
+      { "title": "Playa de Songdo y Air Cruise", "text": "Cruza la bahía en teleférico en una Crystal Cabin con suelo de cristal y luego camina por la pasarela curva Songdo Skywalk sobre el agua. El billete de ida y vuelta para adultos cuesta unos ₩17.000-24.000 según la cabina.", "ages": "4+" },
+      { "title": "Mercado Jagalchi y plaza BIFF", "text": "Mira pulpos, cangrejos y peces enormes en el mayor mercado de marisco de Corea y luego camina a la plaza BIFF a por ssiat hotteok, tortitas dulces rellenas de semillas. Cada una cuesta unos ₩2.000-3.000.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Acuario Sea Life Busan", "text": "Un acuario subterráneo en la playa de Haeundae con túnel de tiburones, pingüinos y piscina táctil." },
+      { "title": "Museo Marítimo Nacional de Corea", "text": "Un museo gratuito en Yeongdo con maquetas de barcos, un túnel de acuario y una zona infantil." },
+      { "title": "Shinsegae Centum City", "text": "Unos grandes almacenes enormes con pista de hielo, cine y un gran patio de comidas para una tarde seca." }
+    ],
+    "safety": [
+      "Se circula por la derecha y los coches suelen girar a la derecha con el semáforo en rojo, así que da la mano a los pequeños en cada cruce y vigila las motos de reparto en las aceras.",
+      "Los socorristas y las zonas de baño funcionan sobre todo de junio a agosto; báñate entre las banderas en Haeundae, donde las olas y corrientes pueden ser fuertes.",
+      "Finales de junio y julio traen lluvias monzónicas intensas y agosto puede ser muy húmedo, con algún tifón, así que ten un plan bajo techo."
+    ],
+    "costs": {
+      "currency": "KRW",
+      "daily": "Unos ₩250.000-400.000 (unos 160-250 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Acuario Sea Life Busan, adulto", "price": "₩30,000-38,000 (about €19-24)" },
+        { "label": "Songdo Air Cruise ida y vuelta, adulto", "price": "₩17,000-24,000 (about €11-15)" },
+        { "label": "Viaje en metro con tarjeta T-money, adulto", "price": "₩1,500-1,800 (about €1)" },
+        { "label": "Cuenco de dwaeji gukbap", "price": "₩10,000-13,000 (about €6-8)" }
+      ],
+      "tip": "Las playas, Gamcheon y Haedong Yonggungsa son gratis, los menores de 6 años viajan gratis en metro y el acuario suele ser más barato comprado en línea."
+    },
+    "gettingAround": "El metro de Busan llega a casi todo: la línea 2 va a Gwangalli y Haeundae, y la línea 1 a la estación de Busan y Jagalchi. Carga una tarjeta T-money para metro, autobús y taxi; Haedong Yonggungsa y Gamcheon requieren un corto trayecto en autobús o taxi desde la estación.",
+    "food": "A los niños suelen gustarles los pinchos de pastel de pescado eomuk, el ssiat hotteok y el suave dwaeji gukbap, una sopa de cerdo con arroz. Muchos platos pican, así que pide 'an maepge' (sin picante); la cena se sirve desde las 17:30 y los acompañamientos se rellenan gratis.",
+    "firstDay": {
+      "morning": "Ve en metro a Haeundae, juega en la playa y visita el acuario.",
+      "afternoon": "Sube a una cápsula de Blueline Park hasta Cheongsapo y merienda pastel de pescado a la parrilla.",
+      "evening": "Mira cómo el puente Gwangan cambia de colores desde la playa de Gwangalli."
+    }
+  },
+  "booklet": {
+    "marks": ["Haeundae Beach", "Gamcheon Culture Village", "Haedong Yonggungsa Temple", "Gwangan Bridge"],
+    "food": ["fish cake on a stick", "seed pancake (hotteok)", "pork rice soup", "cold noodles"],
+    "facts": [
+      "Busan is the second biggest city in South Korea.",
+      "At night Gwangan Bridge glows in many different colours.",
+      "Busan has one of the biggest fish markets in Korea, called Jagalchi."
+    ],
+    "hunt": ["a painted house", "a fish mural", "a cable car", "a lighthouse", "a seagull", "an octopus", "a temple lantern", "a stone zodiac animal", "a fishing boat", "a metro train", "a fish cake stick", "a big bridge"],
+    "quiz": [
+      ["Which Busan bridge lights up in many colours at night?", "Gwangan Bridge", "Tower Bridge", "Golden Gate Bridge", "Rainbow Bridge"],
+      ["What can you find lots of at Jagalchi Market?", "Fish and seafood", "Toy cars", "Winter coats", "Books"],
+      ["Where does Haedong Yonggungsa Temple stand?", "On rocks by the sea", "On top of a skyscraper", "In a desert", "Under a lake"]
+    ],
+    "missions": ["Colourful house hunter", "Bridge light spotter"]
+  },
+  "missionsEs": ["Cazador de casas de colores", "Vigía de las luces del puente"]
+}

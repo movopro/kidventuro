@@ -1,0 +1,114 @@
+{
+  "slug": "hamburg",
+  "name": "Hamburg",
+  "nameEs": "Hamburgo",
+  "country": "Germany",
+  "countryEs": "Alemania",
+  "flag": "🇩🇪",
+  "region": "europe",
+  "lang": "de",
+  "phrases": [["Moin", "Hello"], ["Danke", "Thank you"], ["Bitte", "Please"], ["Ja", "Yes"]],
+  "icons": "🚂 ⚓ 🚢",
+  "scene": "canals",
+  "bestMonths": [5, 6, 7, 8, 9, 12],
+  "seasons": ["spring", "summer", "winter"],
+  "en": {
+    "tagline": "Model trains • harbour ferries • giant container ships",
+    "intro": "Hamburg is a working port city, and children feel it straight away: container ships the size of skyscrapers glide past beaches, ferries cost the price of a bus ticket, and red-brick warehouses stand on canals. Inside one of those warehouses is Miniatur Wunderland, the world's largest model railway, which alone justifies the trip. Add a famous zoo, huge parks and fish rolls on the pier.",
+    "ages": { "best": "4-12", "text": "Miniatur Wunderland fascinates every age from about 3, while the U-434 submarine and maritime museums suit children of 7 and up better." },
+    "stroller": { "rating": "easy", "text": "Pavements are wide and flat, most U-Bahn and S-Bahn stations have lifts, and ferries roll strollers on board; only Speicherstadt bridges have some cobbles." },
+    "mustDos": [
+      { "title": "Miniatur Wunderland", "text": "Thousands of tiny trains, cars and planes run through model countries with day and night every 15 minutes; book a time slot online and plan at least three hours.", "ages": "3+" },
+      { "title": "Harbour by ferry line 62", "text": "From Landungsbrücken, the HADAG ferry 62 sails past Övelgönne beach and the container terminals to Finkenwerder for the price of a normal public transport ticket.", "ages": "3+" },
+      { "title": "Old Elbe Tunnel and Elbphilharmonie Plaza", "text": "Walk under the river through the 1911 tiled tunnel, then ride the long curved escalator up to the free Elbphilharmonie Plaza for a 360-degree harbour view.", "ages": "4+" },
+      { "title": "Tierpark Hagenbeck", "text": "A family-run zoo founded in 1907 with open enclosures, elephants, walruses and a separate Tropen-Aquarium with sharks, snakes and lemurs; take the U2 to Hagenbecks Tierpark.", "ages": "3+" },
+      { "title": "Planten un Blomen", "text": "A central park with huge playgrounds, a water playground and free evening water-and-light fountain shows from May to September.", "ages": "3+" }
+    ],
+    "rainyDay": [
+      { "title": "International Maritime Museum", "text": "Nine floors of ship models, uniforms and a ship simulator in an old Speicherstadt warehouse." },
+      { "title": "Chocoversum", "text": "Chocolate museum tour where children mix and decorate their own bar to take home." },
+      { "title": "U-434 Submarine Museum", "text": "Climb through a real Soviet-built submarine moored near the fish market, with narrow hatches and bunks." }
+    ],
+    "safety": [
+      "The Elbe has strong currents and big ship waves, so let children paddle only at the shoreline at Övelgönne and never swim there.",
+      "Red-paved bike lanes run along many pavements and cyclists move fast, so teach children to stay off the red strip.",
+      "St. Pauli and the Reeperbahn are lively at night and less suited to families after dark, though fine in daytime on the way to the harbour."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €180-280 a day for a family of four excluding lodging; ferries and parks keep many days cheap.",
+      "items": [
+        { "label": "Miniatur Wunderland (child to adult; under 1 m free)", "price": "€13-25" },
+        { "label": "Tierpark Hagenbeck zoo (child to adult)", "price": "€20-32" },
+        { "label": "HVV day ticket after 9 a.m. (one adult)", "price": "€7-10" },
+        { "label": "Fish roll at the harbour", "price": "€4-8" }
+      ],
+      "tip": "Children under 6 ride HVV transport free, and a 9 a.m. group day ticket covers up to five people, including all harbour ferries."
+    },
+    "gettingAround": "U-Bahn, S-Bahn, buses and HADAG harbour ferries all use the same HVV tickets, which you can buy in the hvv switch app or at machines.",
+    "food": "Kids usually love Franzbrötchen (flat cinnamon pastries), currywurst and Rote Grütze red berry pudding; brave eaters can try a Fischbrötchen with herring or fried fish at Landungsbrücken.",
+    "firstDay": {
+      "morning": "Spend the morning at Miniatur Wunderland with a pre-booked early slot.",
+      "afternoon": "Walk through the Speicherstadt to Landungsbrücken and ride ferry 62 along the harbour.",
+      "evening": "Eat fish rolls on the pier and watch the lights come on at the Elbphilharmonie."
+    }
+  },
+  "es": {
+    "tagline": "Trenes en miniatura • ferris del puerto • barcos gigantes",
+    "intro": "Hamburgo es una ciudad portuaria en plena actividad y los niños lo notan enseguida: buques portacontenedores del tamaño de rascacielos pasan junto a playas, los ferris cuestan lo mismo que un autobús y los almacenes de ladrillo rojo se alzan sobre canales. Dentro de uno de ellos está Miniatur Wunderland, la maqueta de tren más grande del mundo, que por sí sola justifica el viaje. Sumad un zoo famoso, grandes parques y bocadillos de pescado en el muelle.",
+    "ages": { "best": "4-12", "text": "Miniatur Wunderland fascina a cualquier edad desde unos 3 años, mientras que el submarino U-434 y los museos marítimos encajan mejor a partir de los 7." },
+    "stroller": { "rating": "easy", "text": "Las aceras son anchas y llanas, casi todas las estaciones de U-Bahn y S-Bahn tienen ascensor y los ferris admiten carritos; solo algunos puentes de Speicherstadt tienen adoquines." },
+    "mustDos": [
+      { "title": "Miniatur Wunderland", "text": "Miles de trenes, coches y aviones diminutos recorren países en miniatura con día y noche cada 15 minutos; reservad franja horaria en línea y contad con al menos tres horas.", "ages": "3+" },
+      { "title": "El puerto en el ferri 62", "text": "Desde Landungsbrücken, el ferri 62 de HADAG pasa por la playa de Övelgönne y las terminales de contenedores hasta Finkenwerder por el precio de un billete normal de transporte público.", "ages": "3+" },
+      { "title": "Antiguo túnel del Elba y Plaza de la Elbphilharmonie", "text": "Cruzad bajo el río por el túnel de azulejos de 1911 y luego subid la larga escalera mecánica curva hasta la Plaza gratuita de la Elbphilharmonie para ver el puerto en 360 grados.", "ages": "4+" },
+      { "title": "Tierpark Hagenbeck", "text": "Un zoo familiar fundado en 1907 con recintos abiertos, elefantes, morsas y un Tropen-Aquarium aparte con tiburones, serpientes y lémures; se llega con la U2 a Hagenbecks Tierpark.", "ages": "3+" },
+      { "title": "Planten un Blomen", "text": "Un parque céntrico con enormes zonas de juego, parque acuático infantil y espectáculos gratuitos nocturnos de agua y luz de mayo a septiembre.", "ages": "3+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo Marítimo Internacional", "text": "Nueve plantas de maquetas de barcos, uniformes y un simulador de navegación en un antiguo almacén de Speicherstadt." },
+      { "title": "Chocoversum", "text": "Visita a un museo del chocolate donde los niños mezclan y decoran su propia tableta para llevársela." },
+      { "title": "Museo del submarino U-434", "text": "Recorred por dentro un submarino de construcción soviética amarrado cerca del mercado de pescado, con escotillas estrechas y literas." }
+    ],
+    "safety": [
+      "El Elba tiene corrientes fuertes y grandes olas de los barcos, así que en Övelgönne dejad que los niños solo se mojen los pies en la orilla y nunca se bañen.",
+      "Muchas aceras tienen carril bici pintado de rojo y los ciclistas van rápido, así que enseñad a los niños a no pisar la franja roja.",
+      "St. Pauli y el Reeperbahn son muy animados de noche y menos adecuados para familias, aunque de día se cruzan sin problema camino del puerto."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos €180-280 al día para una familia de cuatro sin alojamiento; los ferris y los parques abaratan muchos días.",
+      "items": [
+        { "label": "Miniatur Wunderland (de niño a adulto; menores de 1 m gratis)", "price": "€13-25" },
+        { "label": "Zoo Tierpark Hagenbeck (de niño a adulto)", "price": "€20-32" },
+        { "label": "Billete de día HVV desde las 9:00 (un adulto)", "price": "€7-10" },
+        { "label": "Bocadillo de pescado en el puerto", "price": "€4-8" }
+      ],
+      "tip": "Los menores de 6 años viajan gratis en el transporte HVV, y el billete de grupo de día desde las 9:00 cubre hasta cinco personas, ferris del puerto incluidos."
+    },
+    "gettingAround": "U-Bahn, S-Bahn, autobuses y ferris de HADAG usan los mismos billetes HVV, que se compran en la app hvv switch o en las máquinas.",
+    "food": "A los niños suelen encantarles los Franzbrötchen (bollos planos de canela), la currywurst y la Rote Grütze, un pudin de frutos rojos; los más valientes pueden probar un Fischbrötchen de arenque o pescado frito en Landungsbrücken.",
+    "firstDay": {
+      "morning": "Pasad la mañana en Miniatur Wunderland con una franja temprana reservada.",
+      "afternoon": "Caminad por Speicherstadt hasta Landungsbrücken y subid al ferri 62 por el puerto.",
+      "evening": "Comed bocadillos de pescado en el muelle y ved cómo se encienden las luces de la Elbphilharmonie."
+    }
+  },
+  "booklet": {
+    "marks": ["Miniatur Wunderland", "Elbphilharmonie", "Speicherstadt", "St. Michael's Church"],
+    "food": ["Franzbrötchen", "fish roll", "currywurst", "red berry pudding"],
+    "facts": [
+      "Miniatur Wunderland is the biggest model railway in the world.",
+      "Hamburg has around 2,500 bridges, more than Venice and Amsterdam together.",
+      "Hamburg's port is one of the biggest in Europe, with ships from all over the world."
+    ],
+    "hunt": ["a container ship", "a ferry", "a crane", "a red-brick warehouse", "a tiny train", "a lighthouse", "a seagull", "a tugboat", "a sailor's cap", "an anchor", "a bridge over a canal", "some colourful containers"],
+    "quiz": [
+      ["What is Miniatur Wunderland famous for?", "The biggest model railway in the world", "The biggest cake in the world", "The tallest slide in the world", "The longest bridge in the world"],
+      ["Which river flows through Hamburg?", "The Elbe", "The Seine", "The Nile", "The Amazon"],
+      ["What do the huge ships in Hamburg carry?", "Containers", "Castles", "Clouds", "Mountains"]
+    ],
+    "missions": ["Container colour counter", "Tiny train spotter"]
+  },
+  "missionsEs": ["Contador de colores de contenedores", "Detective de trenes diminutos"]
+}

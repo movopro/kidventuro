@@ -23,5 +23,7 @@ try{
 }finally{
   await writeFile(dataPath,source,'utf8');
 }
+// The legacy generator rewrites sitemap.xml from scratch; re-apply the family guides (pages, sitemap, robots, hubs).
+await import(`${pathToFileURL(path.join(root,'scripts','build-family-guides.mjs')).href}?supported=${Date.now()}`);
 
 console.log(`SEO generation safely scoped to ${supported.length} paid-product destinations.`);

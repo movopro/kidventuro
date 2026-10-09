@@ -9,6 +9,7 @@ const match = source.match(/^window\.KIDVENTURO_DESTINATION_SEO=(\{.*\});\s*$/s)
 if (!match) throw new Error('Could not parse destinations/destination-data.js');
 
 const destinations = JSON.parse(match[1]);
+const missionsEs = JSON.parse(await readFile(path.join(root, 'scripts', 'legacy-missions-es.json'), 'utf8'));
 const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -51,8 +52,8 @@ function page({ slug, data, language }) {
     childText: 'Elige edad, intereses y duración para que la aventura resulte personal, clara y apropiada.',
     ideasTitle: `Ideas de actividades familiares en ${city}`,
     ideasText: `Kidventuro combina actividades para el trayecto con descubrimientos del destino. En ${city}, los niños reciben cosas concretas que buscar, comparar, dibujar y recordar, en lugar de limitarse a seguir a los adultos. Cada página está pensada para mantener la curiosidad sin depender de una pantalla.`,
-    missionOne: `Reto de observación inspirado en ${data.missions[0]}`,
-    missionTwo: `Búsqueda inspirada en ${data.missions[1]}`,
+    missionOne: missionsEs[slug]?.[0] ?? `Reto de observación inspirado en ${data.missions[0]}`,
+    missionTwo: missionsEs[slug]?.[1] ?? `Búsqueda inspirada en ${data.missions[1]}`,
     bingo: 'Bingo de viaje y búsquedas visuales',
     journal: 'Dibujo, diario y páginas de recuerdos',
     facts: `Palabras locales, comida y curiosidades sobre ${city}`,

@@ -1,0 +1,114 @@
+{
+  "slug": "tenerife",
+  "name": "Tenerife",
+  "nameEs": "Tenerife",
+  "country": "Spain",
+  "countryEs": "España",
+  "flag": "🇪🇸",
+  "region": "europe",
+  "lang": "es",
+  "phrases": [["Hola", "Hello"], ["Gracias", "Thank you"], ["Por favor", "Please"], ["Sí", "Yes"]],
+  "icons": "🌋 🐬 🌴",
+  "scene": "island",
+  "bestMonths": [11, 12, 1, 2, 3, 4, 10],
+  "seasons": ["winter", "spring", "autumn"],
+  "en": {
+    "tagline": "Volcano • whales • winter sun",
+    "intro": "Tenerife is Europe's easy answer to a grey winter: about 20-24 °C by day from November to March, a four-hour flight from much of the continent, and a volcano to ride up. Families split their time between the sunny south coast around Los Cristianos and Costa Adeje, the green north with Loro Parque, and the moon-like crater around Mount Teide. Whales and dolphins live offshore all year.",
+    "ages": { "best": "4-12", "text": "Beaches and Loro Parque suit all ages; Siam Park's big slides need about 1.25 m or more, and the Teide cable car to 3,555 m is better for children who are well and not too small." },
+    "stroller": { "rating": "mixed", "text": "Seafront promenades in Los Cristianos, Costa Adeje and Puerto de la Cruz are flat and smooth, but villages, lava trails and the Teide upper station are rough, so bring a carrier." },
+    "mustDos": [
+      { "title": "Teide cable car", "text": "An eight-minute ride climbs to 3,555 m among lava and craters; return tickets are about €42 for adults and €21 for ages 3-13, and wind or snow can stop it.", "ages": "4+" },
+      { "title": "Loro Parque", "text": "Large zoo in Puerto de la Cruz with a real-ice penguin house, gorillas, parrots and sea lion shows; plan a full day and book online.", "ages": "all ages" },
+      { "title": "Siam Park", "text": "A Thai-themed water park in Costa Adeje with a wave pool, a lazy river and a separate kids' area; the water is heated, so it works in winter too.", "ages": "3+" },
+      { "title": "Whale and dolphin trip", "text": "Pilot whales live between Tenerife and La Gomera all year; two- to three-hour boat trips from Los Cristianos or Puerto Colón cost roughly €30-60 per person.", "ages": "4+" },
+      { "title": "Playa de Las Teresitas", "text": "A wide golden-sand beach near Santa Cruz protected by a breakwater, so the water stays calm for small swimmers.", "ages": "all ages" }
+    ],
+    "rainyDay": [
+      { "title": "Museo de la Naturaleza y Arqueología", "text": "Guanche mummies, volcano rocks and island animals in Santa Cruz." },
+      { "title": "Museo de la Ciencia y el Cosmos", "text": "Hands-on science and a planetarium in La Laguna, with low entry prices." },
+      { "title": "Cueva del Viento", "text": "Guided walk inside a long lava tube near Icod de los Vinos; book ahead and wear trainers." }
+    ],
+    "safety": [
+      "The sun is strong even in January and stronger still at Teide, so use high-factor sunscreen, hats and sunglasses all day.",
+      "Atlantic waves and currents are powerful on open beaches, so swim at guarded, sheltered beaches and follow the flags.",
+      "Teide is cold, windy and high, so bring warm layers, water and snacks, and come down if anyone feels dizzy or sick."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €140-220 a day for a family of four, excluding lodging and car hire.",
+      "items": [
+        { "label": "Teide cable car return (adult / child 3-13)", "price": "€42 / €21" },
+        { "label": "Loro Parque (adult / child)", "price": "€40-46 / €27-32" },
+        { "label": "Siam Park (adult / child)", "price": "€40-46 / €27-32" },
+        { "label": "Whale and dolphin boat trip (per person)", "price": "€30-60" }
+      ],
+      "tip": "The Twin Ticket combines Loro Parque and Siam Park at a discount, and supermarket picnics are much cheaper than resort restaurants."
+    },
+    "gettingAround": "A hire car is the simplest way to reach Teide and the north; TITSA buses link the main towns cheaply with a Ten+ travel card, and the south coast resorts are walkable.",
+    "food": "Kids usually like papas arrugadas (wrinkly salted potatoes) with mild green mojo, grilled fish, Canary bananas and churros; dinner starts around 19:30 in resorts and later in local towns.",
+    "firstDay": {
+      "morning": "Walk the promenade from Los Cristianos to Playa de las Américas and swim at a sheltered beach.",
+      "afternoon": "Take a two-hour whale and dolphin boat trip from the harbour.",
+      "evening": "Eat papas arrugadas by the sea and watch La Gomera's outline at sunset."
+    }
+  },
+  "es": {
+    "tagline": "Volcán • ballenas • sol de invierno",
+    "intro": "Tenerife es la respuesta sencilla de Europa a un invierno gris: unos 20-24 °C de día entre noviembre y marzo, a cuatro horas de vuelo de buena parte del continente y con un volcán al que subir. Las familias reparten su tiempo entre la soleada costa sur de Los Cristianos y Costa Adeje, el norte verde con el Loro Parque y el paisaje lunar del cráter del Teide. Ballenas y delfines viven frente a la costa todo el año.",
+    "ages": { "best": "4-12", "text": "Las playas y el Loro Parque sirven para todas las edades; los toboganes grandes de Siam Park piden 1,25 m o más, y el teleférico del Teide hasta 3.555 m es mejor para niños sanos y no demasiado pequeños." },
+    "stroller": { "rating": "mixed", "text": "Los paseos marítimos de Los Cristianos, Costa Adeje y Puerto de la Cruz son llanos y lisos, pero los pueblos, los senderos de lava y la estación superior del Teide son irregulares, así que lleva mochila portabebés." },
+    "mustDos": [
+      { "title": "Teleférico del Teide", "text": "En ocho minutos sube a 3.555 m entre lava y cráteres; la ida y vuelta cuesta unos 42 € por adulto y 21 € de 3 a 13 años, y el viento o la nieve pueden pararlo.", "ages": "4+" },
+      { "title": "Loro Parque", "text": "Gran zoo en Puerto de la Cruz con pingüinario de hielo real, gorilas, loros y espectáculo de leones marinos; dedícale el día entero y compra en línea.", "ages": "todas las edades" },
+      { "title": "Siam Park", "text": "Parque acuático de temática tailandesa en Costa Adeje con piscina de olas, río lento y zona infantil propia; el agua está climatizada, así que funciona también en invierno.", "ages": "3+" },
+      { "title": "Excursión de ballenas y delfines", "text": "Los calderones viven todo el año entre Tenerife y La Gomera; las salidas de dos o tres horas desde Los Cristianos o Puerto Colón cuestan unos 30-60 € por persona.", "ages": "4+" },
+      { "title": "Playa de Las Teresitas", "text": "Una amplia playa de arena dorada cerca de Santa Cruz protegida por un rompeolas, así que el agua está tranquila para los pequeños nadadores.", "ages": "todas las edades" }
+    ],
+    "rainyDay": [
+      { "title": "Museo de la Naturaleza y Arqueología", "text": "Momias guanches, rocas volcánicas y animales de la isla en Santa Cruz." },
+      { "title": "Museo de la Ciencia y el Cosmos", "text": "Ciencia interactiva y planetario en La Laguna, con entradas muy económicas." },
+      { "title": "Cueva del Viento", "text": "Visita guiada dentro de un largo tubo volcánico cerca de Icod de los Vinos; reserva antes y lleva zapatillas." }
+    ],
+    "safety": [
+      "El sol es fuerte incluso en enero y más aún en el Teide, así que usa protector alto, gorra y gafas de sol todo el día.",
+      "Las olas y corrientes del Atlántico son potentes en playas abiertas: báñate en playas vigiladas y resguardadas y respeta las banderas.",
+      "En el Teide hace frío, viento y hay altitud, así que lleva capas de abrigo, agua y algo de comer, y baja si alguien se marea."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos 140-220 € al día para una familia de cuatro, sin alojamiento ni coche de alquiler.",
+      "items": [
+        { "label": "Teleférico del Teide ida y vuelta (adulto / niño 3-13)", "price": "€42 / €21" },
+        { "label": "Loro Parque (adulto / niño)", "price": "€40-46 / €27-32" },
+        { "label": "Siam Park (adulto / niño)", "price": "€40-46 / €27-32" },
+        { "label": "Excursión de ballenas y delfines (por persona)", "price": "€30-60" }
+      ],
+      "tip": "El Twin Ticket combina Loro Parque y Siam Park con descuento, y un pícnic del supermercado sale mucho más barato que los restaurantes de los complejos."
+    },
+    "gettingAround": "Un coche de alquiler es lo más fácil para llegar al Teide y al norte; las guaguas de TITSA unen los pueblos principales a buen precio con la tarjeta Ten+, y los complejos del sur se recorren a pie.",
+    "food": "A los niños suelen gustarles las papas arrugadas con mojo verde suave, el pescado a la plancha, los plátanos de Canarias y los churros; en las zonas turísticas se cena desde las 19:30 y más tarde en los pueblos.",
+    "firstDay": {
+      "morning": "Pasea por el paseo marítimo de Los Cristianos a Playa de las Américas y báñate en una playa resguardada.",
+      "afternoon": "Haz una salida de dos horas en barco para ver ballenas y delfines desde el puerto.",
+      "evening": "Cena papas arrugadas junto al mar y mira la silueta de La Gomera al atardecer."
+    }
+  },
+  "booklet": {
+    "marks": ["Mount Teide", "Loro Parque", "Siam Park", "Playa de Las Teresitas"],
+    "food": ["papas arrugadas", "Canary bananas", "churros", "grilled fish"],
+    "facts": [
+      "Mount Teide is the highest mountain in Spain, at 3,715 metres.",
+      "Pilot whales live in the sea near Tenerife all year round.",
+      "Some Tenerife beaches have black sand made from volcanic rock."
+    ],
+    "hunt": ["a volcano", "a black sand beach", "a parrot", "a penguin", "a palm tree", "a banana plant", "a cable car", "a whale tail", "a dolphin fin", "a lizard", "some lava rocks", "a water slide"],
+    "quiz": [
+      ["What is Mount Teide?", "A volcano", "A castle", "A lake", "A forest"],
+      ["What sand colour can you find on some Tenerife beaches?", "Black", "Pink", "Purple", "Blue"],
+      ["Which fruit grows a lot in the Canary Islands?", "Bananas", "Apples", "Cherries", "Pears"]
+    ],
+    "missions": ["Volcano explorer", "Whale and dolphin spotter"]
+  },
+  "missionsEs": ["Explorador del volcán", "Vigía de ballenas y delfines"]
+}

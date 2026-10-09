@@ -1,0 +1,114 @@
+{
+  "slug": "billund",
+  "name": "Billund",
+  "nameEs": "Billund",
+  "country": "Denmark",
+  "countryEs": "Dinamarca",
+  "flag": "🇩🇰",
+  "region": "europe",
+  "lang": "da",
+  "phrases": [["Hej", "Hello"], ["Tak", "Thank you"], ["Vær så venlig", "Please"], ["Ja", "Yes"]],
+  "icons": "🧱 🎢 🦁",
+  "scene": "city",
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "seasons": ["spring", "summer", "autumn"],
+  "en": {
+    "tagline": "LEGO bricks • theme park rides • Viking stones",
+    "intro": "Billund is a small Danish town where the LEGO brick was born, and almost everything here is built for families. LEGOLAND, the original park from 1968, fills one or two days, while LEGO House lets children design, build and test their own creations. Around town there are forest play parks, a safari zoo and Viking rune stones, and the airport is a few minutes from the hotels.",
+    "ages": { "best": "4-12", "text": "Ages 3-8 love DUPLO Land and Miniland, older kids head for the bigger coasters, which have height limits of around 100-120 cm, and LEGO House suits every age." },
+    "stroller": { "rating": "easy", "text": "LEGOLAND, LEGO House and the town are flat with smooth paths, and the park rents strollers and wagons at the entrance." },
+    "mustDos": [
+      { "title": "LEGOLAND Billund", "text": "Walk through Miniland's famous cities made of millions of bricks, ride pirate boats and coasters, and earn a LEGO driving licence; the park opens roughly late March to early November and closes in winter.", "ages": "3+" },
+      { "title": "LEGO House", "text": "Build fish, cars and whole cities in four colour-coded play zones, see the giant Tree of Creativity and order lunch with bricks at the Mini Chef restaurant; open all year with timed tickets.", "ages": "3+" },
+      { "title": "Givskud Zoo", "text": "Drive your own car through the lion and savanna areas, then walk past gorillas and giraffes, about 25 minutes from Billund; the zoo is mainly open in the warmer months.", "ages": "3+" },
+      { "title": "Jelling rune stones", "text": "The two Viking rune stones and royal burial mounds are a UNESCO site, and the free Kongernes Jelling museum next to them tells their story with interactive displays.", "ages": "5+" },
+      { "title": "WOW Park", "text": "A huge forest play park in Billund with treetop walkways, slides and tunnels to crawl through, open in the summer season and school holidays.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Lalandia Aquadome", "text": "Big indoor tropical water park next to LEGOLAND with slides, a wave pool and toddler pools, open all year." },
+      { "title": "Monkey Tonkey Land", "text": "Lalandia's indoor play area with climbing frames, ball pits and trampolines for a wet afternoon." },
+      { "title": "Økolariet in Vejle", "text": "Hands-on nature and climate centre about 30 minutes away by car, good for curious 6-12-year-olds." }
+    ],
+    "safety": [
+      "LEGOLAND gets very busy in Danish school holidays, so write your phone number on a wristband for each child and agree a meeting point by a big Miniland model.",
+      "Check ride height limits before queuing so younger siblings are not disappointed at the gate.",
+      "Jutland weather is windy and changeable even in summer, so carry a rain jacket and sun cream on the same day."
+    ],
+    "costs": {
+      "currency": "DKK",
+      "daily": "About DKK 2,500-4,000 (≈ €335-535) a day for a family of four on a LEGOLAND day excluding lodging; other days cost far less.",
+      "items": [
+        { "label": "LEGOLAND day ticket bought online (per person; under 2 free)", "price": "DKK 330-520 (≈ €44-70)" },
+        { "label": "LEGO House experience zones (per person)", "price": "DKK 169-330 (≈ €23-44)" },
+        { "label": "WOW Park day ticket (per person)", "price": "DKK 249-300 (≈ €33-40)" },
+        { "label": "Hot dog from a sausage stand", "price": "DKK 35-50 (≈ €5-7)" }
+      ],
+      "tip": "Buy LEGOLAND tickets online days ahead, because gate prices are much higher, and look at the combined LEGOLAND and LEGO House ticket."
+    },
+    "gettingAround": "Billund is small and walkable between LEGOLAND, LEGO House and the hotels, but a hire car makes Givskud Zoo, Jelling and the coast far easier to reach.",
+    "food": "Try a red hot dog from a pølsevogn, frikadeller (Danish meatballs), smørrebrød open sandwiches and, around Christmas, æbleskiver pancake balls; Danes eat lunch around 12:00 and dinner around 18:00.",
+    "firstDay": {
+      "morning": "Arrive at LEGOLAND at opening and head to the far end first while queues are short.",
+      "afternoon": "Rest in Miniland and spot model cities, ships and airports in tiny detail.",
+      "evening": "Walk to LEGO House to play on its free public square and look up at the giant brick building."
+    }
+  },
+  "es": {
+    "tagline": "Ladrillos LEGO • atracciones • piedras vikingas",
+    "intro": "Billund es un pequeño pueblo danés donde nació el ladrillo LEGO, y casi todo aquí está pensado para familias. LEGOLAND, el parque original de 1968, ocupa uno o dos días, mientras que LEGO House deja a los niños diseñar, construir y probar sus propias creaciones. Alrededor hay parques de juego en el bosque, un zoo safari y piedras rúnicas vikingas, y el aeropuerto está a pocos minutos de los hoteles.",
+    "ages": { "best": "4-12", "text": "Los de 3 a 8 años adoran DUPLO Land y Miniland, los mayores van a las montañas rusas grandes, con límites de altura de unos 100-120 cm, y LEGO House va bien a cualquier edad." },
+    "stroller": { "rating": "easy", "text": "LEGOLAND, LEGO House y el pueblo son llanos con caminos lisos, y el parque alquila carritos y carretillas en la entrada." },
+    "mustDos": [
+      { "title": "LEGOLAND Billund", "text": "Recorred las famosas ciudades de Miniland hechas con millones de piezas, subid a barcos piratas y montañas rusas y sacad un carné de conducir LEGO; el parque abre más o menos de finales de marzo a principios de noviembre y cierra en invierno.", "ages": "3+" },
+      { "title": "LEGO House", "text": "Construid peces, coches y ciudades enteras en cuatro zonas de juego por colores, ved el gigantesco Árbol de la Creatividad y pedid la comida con piezas en el restaurante Mini Chef; abre todo el año con entradas por horario.", "ages": "3+" },
+      { "title": "Zoo de Givskud", "text": "Conducid vuestro propio coche por las zonas de leones y sabana y luego pasead junto a gorilas y jirafas, a unos 25 minutos de Billund; el zoo abre sobre todo en los meses cálidos.", "ages": "3+" },
+      { "title": "Piedras rúnicas de Jelling", "text": "Las dos piedras rúnicas vikingas y los túmulos reales son Patrimonio de la UNESCO, y el museo gratuito Kongernes Jelling, al lado, cuenta su historia con pantallas interactivas.", "ages": "5+" },
+      { "title": "WOW Park", "text": "Un enorme parque de juegos en el bosque de Billund con pasarelas en las copas de los árboles, toboganes y túneles para gatear, abierto en temporada de verano y vacaciones escolares.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Lalandia Aquadome", "text": "Gran parque acuático tropical cubierto junto a LEGOLAND con toboganes, piscina de olas y piscinas para los más pequeños, abierto todo el año." },
+      { "title": "Monkey Tonkey Land", "text": "La zona de juegos cubierta de Lalandia con estructuras para trepar, piscinas de bolas y camas elásticas para una tarde de lluvia." },
+      { "title": "Økolariet en Vejle", "text": "Centro interactivo sobre naturaleza y clima a unos 30 minutos en coche, ideal para curiosos de 6 a 12 años." }
+    ],
+    "safety": [
+      "LEGOLAND se llena en las vacaciones escolares danesas, así que escribid vuestro teléfono en una pulsera para cada niño y acordad un punto de encuentro junto a una maqueta grande de Miniland.",
+      "Mirad los límites de altura de cada atracción antes de hacer cola para que los hermanos pequeños no se lleven un disgusto en la entrada.",
+      "El tiempo en Jutlandia es ventoso y cambiante incluso en verano, así que llevad chubasquero y protector solar el mismo día."
+    ],
+    "costs": {
+      "currency": "DKK",
+      "daily": "Unos DKK 2.500-4.000 (≈ €335-535) al día para una familia de cuatro en un día de LEGOLAND sin alojamiento; los demás días cuestan mucho menos.",
+      "items": [
+        { "label": "Entrada de un día a LEGOLAND comprada en línea (por persona; menores de 2 gratis)", "price": "DKK 330-520 (≈ €44-70)" },
+        { "label": "Zonas de experiencia de LEGO House (por persona)", "price": "DKK 169-330 (≈ €23-44)" },
+        { "label": "Entrada de un día a WOW Park (por persona)", "price": "DKK 249-300 (≈ €33-40)" },
+        { "label": "Perrito caliente de un puesto callejero", "price": "DKK 35-50 (≈ €5-7)" }
+      ],
+      "tip": "Comprad las entradas de LEGOLAND en línea con días de antelación, porque en taquilla cuestan bastante más, y mirad la entrada combinada de LEGOLAND y LEGO House."
+    },
+    "gettingAround": "Billund es pequeño y se va a pie entre LEGOLAND, LEGO House y los hoteles, pero un coche de alquiler facilita mucho llegar al zoo de Givskud, a Jelling y a la costa.",
+    "food": "Probad un perrito rojo de un pølsevogn, las frikadeller (albóndigas danesas), el smørrebrød (pan abierto con toppings) y, en Navidad, los æbleskiver, bolitas de masa dulce; los daneses comen hacia las 12:00 y cenan hacia las 18:00.",
+    "firstDay": {
+      "morning": "Llegad a LEGOLAND a la apertura y empezad por el fondo del parque mientras las colas son cortas.",
+      "afternoon": "Descansad en Miniland buscando ciudades, barcos y aeropuertos en miniatura con todo detalle.",
+      "evening": "Caminad hasta LEGO House para jugar en su plaza pública gratuita y mirar el enorme edificio de piezas."
+    }
+  },
+  "booklet": {
+    "marks": ["LEGOLAND", "LEGO House", "Miniland", "Jelling Stones"],
+    "food": ["red hot dog", "Danish meatballs", "open sandwich", "pancake balls"],
+    "facts": [
+      "The name LEGO comes from the Danish words 'leg godt', which mean 'play well'.",
+      "The very first LEGOLAND opened in Billund in 1968.",
+      "LEGO House is shaped like 21 giant white bricks stacked on top of each other."
+    ],
+    "hunt": ["a LEGO minifigure", "a red brick", "a DUPLO train", "a pirate ship", "a tiny airport", "a Danish flag", "a lion", "a Viking rune stone", "a roller coaster", "a hot dog stand", "a giant LEGO tree", "some yellow bricks"],
+    "quiz": [
+      ["What does the Danish 'leg godt' mean?", "Play well", "Build fast", "Eat well", "Run far"],
+      ["In which year did the first LEGOLAND open?", "1968", "1868", "1999", "2020"],
+      ["What is the miniature city area at LEGOLAND called?", "Miniland", "Tinytown", "Brickville", "Smallworld"]
+    ],
+    "missions": ["Miniland detail detective", "Brick colour counter"]
+  },
+  "missionsEs": ["Detective de detalles en Miniland", "Contador de colores de piezas"]
+}

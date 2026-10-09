@@ -1,0 +1,114 @@
+{
+  "slug": "riga",
+  "name": "Riga",
+  "nameEs": "Riga",
+  "country": "Latvia",
+  "countryEs": "Letonia",
+  "flag": "🇱🇻",
+  "region": "europe",
+  "lang": "lv",
+  "phrases": [["Sveiki", "Hello"], ["Paldies", "Thank you"], ["Lūdzu", "Please"], ["Jā", "Yes"]],
+  "icons": "🐓 🏛️ 🏖️",
+  "scene": "city",
+  "bestMonths": [5, 6, 7, 8, 12],
+  "seasons": ["summer", "winter"],
+  "en": {
+    "tagline": "Golden roosters • Art Nouveau faces • Baltic beaches",
+    "intro": "Riga is the biggest city in the Baltics, but its old town is small enough to cross in fifteen minutes and full of things children notice: a black cat on a rooftop, four animal musicians standing on each other's backs, golden roosters on church spires. Add a giant food market in old airship hangars and a sandy beach half an hour away by train, and it is an easy, good-value city break.",
+    "ages": { "best": "4-12", "text": "Most of Riga suits children from about 4, and older kids also enjoy the car museum and the stone carvings and faces on the Art Nouveau buildings." },
+    "stroller": { "rating": "mixed", "text": "Old town streets are cobbled and a few tower stairs are narrow, but parks, the canal paths and the Art Nouveau district have smooth wide pavements." },
+    "mustDos": [
+      { "title": "Old town animal hunt", "text": "Find the Town Musicians of Bremen statue, the black cats on the Cat House roof and the House of the Blackheads, then take the lift up St Peter's Church tower for a view over the river.", "ages": "4+" },
+      { "title": "Riga Central Market", "text": "Five huge pavilions built from old zeppelin hangars sell smoked fish, berries, honey and pastries, so let kids choose a picnic and pay a few euros.", "ages": "4+" },
+      { "title": "Jūrmala beach day", "text": "Trains from Riga Central Station reach Majori in about 30-40 minutes, where a long sandy beach with shallow water and pine forest awaits in summer.", "ages": "3+" },
+      { "title": "Ethnographic Open-Air Museum", "text": "On the shore of Lake Jugla, old farmsteads, windmills and a wooden church spread through pine woods, and craft days in summer let kids try old skills.", "ages": "4+" },
+      { "title": "Riga Zoo in Mežaparks", "text": "A forest-park zoo with a tropical house and animals from Baltic woods to warmer lands, reached by tram from the centre and next to big playgrounds.", "ages": "3+" }
+    ],
+    "rainyDay": [
+      { "title": "Riga Motor Museum", "text": "Hundreds of cars, motorbikes and racing machines, including vehicles once driven by Soviet leaders." },
+      { "title": "Laima Chocolate Museum", "text": "Learn how Latvia's best-known chocolate is made and decorate your own bar in a workshop." },
+      { "title": "Latvian Museum of Natural History", "text": "Central museum with stuffed animals, skeletons and minerals that suits a couple of indoor hours." }
+    ],
+    "safety": [
+      "Baltic Sea beaches at Jūrmala are shallow but can have currents on windy days, so swim near lifeguard posts and keep little ones within reach.",
+      "Cobbles and tram rails in the old town catch small wheels and scooters, so walk with children on the narrow streets.",
+      "Tap water is treated and safe, though many locals prefer bottled for taste, and winter pavements can be icy from December to March."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €120-200 a day for a family of four excluding lodging, one of the better-value capitals in Europe.",
+      "items": [
+        { "label": "St Peter's Church tower lift (adult)", "price": "€9-12" },
+        { "label": "Riga Zoo entry (child to adult)", "price": "€6-12" },
+        { "label": "Train Riga to Jūrmala Majori (one way, adult)", "price": "€1.50-2.50" },
+        { "label": "Lido self-service lunch for four", "price": "€30-50" }
+      ],
+      "tip": "Eat at a Lido self-service restaurant, where kids point at what they want and portions are cheap, and use e-talons tickets for trams and buses."
+    },
+    "gettingAround": "The old town is walkable and Rīgas Satiksme trams, trolleybuses and buses cover the rest of the city, while suburban trains run to Jūrmala from Riga Central Station.",
+    "food": "Look for pīrāgi (little bacon buns), potato pancakes, grey peas with bacon and rye bread pudding with cream; lunch is around 12:00-14:00 and cafes open early.",
+    "firstDay": {
+      "morning": "Walk the old town from the Freedom Monument to the Cat House and the Town Musicians statue.",
+      "afternoon": "Graze for lunch at the Central Market, then ride the lift up St Peter's tower.",
+      "evening": "Feed the ducks along the city canal in Bastejkalns Park and have dinner at a Lido."
+    }
+  },
+  "es": {
+    "tagline": "Gallos dorados • fachadas modernistas • playas del Báltico",
+    "intro": "Riga es la ciudad más grande de los países bálticos, pero su casco antiguo se cruza en quince minutos y está lleno de detalles para niños: un gato negro sobre un tejado, cuatro animales músicos subidos unos encima de otros y gallos dorados en las torres de las iglesias. Si sumáis un enorme mercado en antiguos hangares de dirigibles y una playa de arena a media hora en tren, es una escapada fácil y barata.",
+    "ages": { "best": "4-12", "text": "Casi todo Riga va bien desde unos 4 años, y a los mayores también les gusta el museo del motor y las caras talladas en los edificios modernistas." },
+    "stroller": { "rating": "mixed", "text": "Las calles del casco antiguo son empedradas y algunas escaleras de torres son estrechas, pero los parques, los paseos del canal y el barrio modernista tienen aceras anchas y lisas." },
+    "mustDos": [
+      { "title": "Caza de animales en el casco antiguo", "text": "Buscad la estatua de los Músicos de Bremen, los gatos negros sobre la Casa del Gato y la Casa de los Cabezas Negras, y subid en ascensor a la torre de San Pedro para ver el río.", "ages": "4+" },
+      { "title": "Mercado Central de Riga", "text": "Cinco enormes pabellones hechos con antiguos hangares de zepelines venden pescado ahumado, bayas, miel y bollería, así que dejad que los niños elijan un pícnic y paguen unos pocos euros.", "ages": "4+" },
+      { "title": "Día de playa en Jūrmala", "text": "Los trenes desde la estación central de Riga llegan a Majori en unos 30-40 minutos, donde en verano os espera una larga playa de arena con agua poco profunda y pinar.", "ages": "3+" },
+      { "title": "Museo Etnográfico al Aire Libre", "text": "A orillas del lago Jugla, granjas antiguas, molinos y una iglesia de madera se reparten por el pinar, y en verano los días de artesanía permiten a los niños probar oficios antiguos.", "ages": "4+" },
+      { "title": "Zoo de Riga en Mežaparks", "text": "Un zoo en un parque forestal con casa tropical y animales desde los bosques bálticos hasta tierras cálidas, al que se llega en tranvía desde el centro y que está junto a grandes parques infantiles.", "ages": "3+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Motor de Riga", "text": "Cientos de coches, motos y máquinas de carreras, incluidos vehículos que usaron líderes soviéticos." },
+      { "title": "Museo del Chocolate Laima", "text": "Descubrid cómo se hace el chocolate más conocido de Letonia y decorad vuestra propia tableta en un taller." },
+      { "title": "Museo de Historia Natural de Letonia", "text": "Museo céntrico con animales disecados, esqueletos y minerales que da para un par de horas bajo techo." }
+    ],
+    "safety": [
+      "Las playas del Báltico en Jūrmala son poco profundas pero con viento puede haber corrientes, así que bañaos cerca de los socorristas y tened a los pequeños al alcance.",
+      "El empedrado y las vías del tranvía del casco antiguo atrapan ruedas pequeñas y patinetes, así que caminad con los niños por las calles estrechas.",
+      "El agua del grifo está tratada y es segura, aunque muchos locales prefieren la embotellada por el sabor, y de diciembre a marzo las aceras pueden estar heladas."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos €120-200 al día para una familia de cuatro sin alojamiento, una de las capitales con mejor precio de Europa.",
+      "items": [
+        { "label": "Ascensor de la torre de San Pedro (adulto)", "price": "€9-12" },
+        { "label": "Entrada al Zoo de Riga (de niño a adulto)", "price": "€6-12" },
+        { "label": "Tren de Riga a Jūrmala Majori (ida, adulto)", "price": "€1.50-2.50" },
+        { "label": "Comida de autoservicio en Lido para cuatro", "price": "€30-50" }
+      ],
+      "tip": "Comed en un autoservicio Lido, donde los niños señalan lo que quieren y las raciones son baratas, y usad billetes e-talons para tranvías y autobuses."
+    },
+    "gettingAround": "El casco antiguo se recorre a pie y los tranvías, trolebuses y autobuses de Rīgas Satiksme cubren el resto de la ciudad, mientras que los trenes de cercanías salen hacia Jūrmala desde la estación central.",
+    "food": "Buscad los pīrāgi (bollitos rellenos de beicon), las tortitas de patata, los guisantes grises con beicon y el pudin de pan de centeno con nata; se come hacia las 12:00-14:00 y las cafeterías abren temprano.",
+    "firstDay": {
+      "morning": "Recorred el casco antiguo desde el Monumento a la Libertad hasta la Casa del Gato y los Músicos de Bremen.",
+      "afternoon": "Picad algo en el Mercado Central y luego subid en ascensor a la torre de San Pedro.",
+      "evening": "Dad de comer a los patos junto al canal en el parque Bastejkalns y cenad en un Lido."
+    }
+  },
+  "booklet": {
+    "marks": ["House of the Blackheads", "St Peter's Church", "Freedom Monument", "Central Market"],
+    "food": ["bacon buns", "potato pancakes", "rye bread pudding", "smoked fish"],
+    "facts": [
+      "Riga's Central Market sits inside giant hangars first built for zeppelin airships.",
+      "Riga has one of the largest collections of Art Nouveau buildings in the world.",
+      "A golden rooster sits on top of St Peter's Church spire to show the wind direction."
+    ],
+    "hunt": ["a black cat on a roof", "a golden rooster", "a donkey statue", "a stone face on a building", "a tram", "a canal boat", "a windmill", "a pine tree", "a smoked fish", "a seagull", "some amber jewellery", "a church spire"],
+    "quiz": [
+      ["Which animals stand on each other's backs in Riga's famous statue?", "Donkey, dog, cat and rooster", "Bear, wolf, fox and owl", "Horse, cow, pig and duck", "Lion, tiger, zebra and parrot"],
+      ["What was Riga Central Market built from?", "Old zeppelin hangars", "Old ships", "Old castles", "Old trains"],
+      ["Which bird sits on top of many Riga church spires?", "A rooster", "An eagle", "A swan", "A penguin"]
+    ],
+    "missions": ["Rooftop cat detective", "Stone face collector"]
+  },
+  "missionsEs": ["Detective de gatos en tejados", "Coleccionista de caras de piedra"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "cartagena",
+  "name": "Cartagena",
+  "nameEs": "Cartagena de Indias",
+  "country": "Colombia",
+  "countryEs": "Colombia",
+  "flag": "🇨🇴",
+  "region": "americas",
+  "lang": "es",
+  "phrases": [["Hola","Hello"],["Gracias","Thank you"],["Por favor","Please"],["Sí","Yes"]],
+  "icons": "🏰 🥥 🏝️",
+  "scene": "coast",
+  "bestMonths": [12, 1, 2, 3, 4],
+  "seasons": ["winter", "spring"],
+  "en": {
+    "tagline": "Pirate walls • colourful balconies • island boats",
+    "intro": "Cartagena feels like a storybook port: thick stone walls built against pirates, flower-covered balconies, horse carriages and women selling fruit from bowls on their heads. Families pair slow walks in the old town with a giant Spanish fortress full of tunnels and a boat day to the coral islands. It is hot all year, so days start early and end with a breezy sunset on the walls.",
+    "ages": { "best": "5-12", "text": "Ages 5-12 enjoy the fortress tunnels, the pirate stories and snorkelling most; under-5s are fine but need shade, naps and short walking stretches in the heat." },
+    "stroller": { "rating": "hard", "text": "Sidewalks in the walled city are narrow with high kerbs, and evenings get crowded, while the fortress has steep ramps. A lightweight carrier is far easier, and a stroller only suits the seafront paths in Bocagrande." },
+    "mustDos": [
+      { "title": "Castillo San Felipe de Barajas", "text": "Climb the huge ramps of Spain's largest colonial fortress and crawl through its dark tunnels; foreign adults pay about COP 35,000-45,000, so go early before the heat.", "ages": "5+" },
+      { "title": "Sunset on the city walls", "text": "Walk the wide top of Las Murallas from the Clock Tower towards Baluarte de Santo Domingo, spotting cannons and sentry boxes as the sea breeze picks up.", "ages": "3+" },
+      { "title": "Rosario Islands boat day", "text": "Boats leave Muelle La Bodeguita for clear water and snorkelling around Isla Grande; check that child life jackets are on board and expect a bumpy hour each way.", "ages": "5+" },
+      { "title": "Getsemaní street art", "text": "Follow the murals, umbrellas and flags of Calle de la Sierpe, then join locals in Plaza de la Trinidad where street dancers perform most evenings.", "ages": "4+" },
+      { "title": "Totumo mud volcano", "text": "About an hour away, kids float in warm, thick mud inside a small cone, then rinse off in the lagoon; local helpers expect small tips.", "ages": "6+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Oro Zenú", "text": "A small free museum of shiny pre-Columbian gold frogs, birds and jewellery." },
+      { "title": "Museo Naval del Caribe", "text": "Ship models, cannons and pirate-era maps in a cool colonial building near the walls." },
+      { "title": "Choco Museo Cartagena", "text": "A hands-on workshop where kids roast cacao and make their own chocolate bars." }
+    ],
+    "safety": [
+      "Temperatures sit around 30-32°C with high humidity all year, so plan indoor time from noon to 3 pm and keep everyone drinking water.",
+      "Beach and street vendors can be persistent, so agree on prices for boats, massages or photos with palenqueras before saying yes.",
+      "Use insect repellent at dawn and dusk because mosquitoes carry dengue, and drink bottled or filtered water to be safe."
+    ],
+    "costs": {
+      "currency": "COP",
+      "daily": "About COP 700,000-1,100,000 (about €150-240) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Castillo San Felipe (foreign adult)", "price": "COP 35,000-45,000 (about €8-10)" },
+        { "label": "Rosario Islands boat trip with lunch (per adult)", "price": "COP 200,000-350,000 (about €43-76)" },
+        { "label": "Arepa de huevo from a street stall", "price": "COP 4,000-8,000 (about €1-2)" },
+        { "label": "Taxi across town", "price": "COP 10,000-20,000 (about €2-4)" }
+      ],
+      "tip": "Eat the set lunch, called menú del día, at small local restaurants for a full meal at a fraction of dinner prices."
+    },
+    "gettingAround": "The walled city and Getsemaní are best on foot, and taxis are cheap for the fortress or Bocagrande if you agree the fare first. Island boats leave from Muelle La Bodeguita, with a small port fee paid in cash.",
+    "food": "Kids usually love arepa de huevo, crispy patacones, coconut rice with fried fish and sweets from the Portal de los Dulces. Lunch is the main meal from 12 to 2 pm, and dinner starts late, around 7-9 pm.",
+    "firstDay": {
+      "morning": "Explore Castillo San Felipe de Barajas early while the ramps are shaded.",
+      "afternoon": "Rest through the heat, then stroll the old town balconies and plazas.",
+      "evening": "Watch the sunset from the city walls and eat in Plaza de la Trinidad."
+    }
+  },
+  "es": {
+    "tagline": "Murallas contra piratas • balcones de colores • barcos a las islas",
+    "intro": "Cartagena parece un puerto de cuento: murallas gruesas levantadas contra los piratas, balcones llenos de flores, coches de caballos y palenqueras que venden fruta en palanganas sobre la cabeza. Las familias combinan paseos tranquilos por el centro histórico con una enorme fortaleza española llena de túneles y un día en barco a las islas de coral. Hace calor todo el año, así que el día empieza temprano y termina con brisa en la muralla.",
+    "ages": { "best": "5-12", "text": "De 5 a 12 años se disfrutan más los túneles de la fortaleza, las historias de piratas y el esnórquel; los menores de 5 lo pasan bien, pero necesitan sombra, siestas y trayectos cortos por el calor." },
+    "stroller": { "rating": "hard", "text": "Las aceras de la ciudad amurallada son estrechas, con bordillos altos, y por la tarde se llenan de gente, mientras que la fortaleza tiene rampas empinadas. Una mochila portabebés ligera es mucho más cómoda, y el cochecito solo sirve en el malecón de Bocagrande." },
+    "mustDos": [
+      { "title": "Castillo San Felipe de Barajas", "text": "Sube por las enormes rampas de la mayor fortaleza colonial española y recorre sus túneles oscuros; los adultos extranjeros pagan unos COP 35.000-45.000, así que ve temprano antes del calor.", "ages": "5+" },
+      { "title": "Atardecer en las murallas", "text": "Camina por lo alto de Las Murallas desde la Torre del Reloj hacia el Baluarte de Santo Domingo, buscando cañones y garitas mientras sube la brisa del mar.", "ages": "3+" },
+      { "title": "Día en barco a las Islas del Rosario", "text": "Los barcos salen del Muelle La Bodeguita hacia aguas claras para hacer esnórquel en Isla Grande; comprueba que haya chalecos salvavidas infantiles y cuenta con una hora movida por trayecto.", "ages": "5+" },
+      { "title": "Arte urbano de Getsemaní", "text": "Sigue los murales, sombrillas y banderines de la Calle de la Sierpe y únete a los locales en la Plaza de la Trinidad, donde casi cada tarde actúan bailarines callejeros.", "ages": "4+" },
+      { "title": "Volcán del Totumo", "text": "A una hora de la ciudad, los niños flotan en barro tibio y espeso dentro de un pequeño cono y luego se lavan en la ciénaga; los ayudantes locales esperan propina.", "ages": "6+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Oro Zenú", "text": "Un pequeño museo gratuito con ranas, aves y joyas precolombinas de oro brillante." },
+      { "title": "Museo Naval del Caribe", "text": "Maquetas de barcos, cañones y mapas de la época de los piratas en un fresco edificio colonial." },
+      { "title": "Choco Museo Cartagena", "text": "Un taller práctico donde los niños tuestan cacao y hacen su propia tableta de chocolate." }
+    ],
+    "safety": [
+      "La temperatura ronda los 30-32 °C con mucha humedad todo el año, así que planea tiempo bajo techo entre el mediodía y las 15 horas y que todos beban agua.",
+      "Los vendedores de playa y calle pueden insistir mucho, así que acuerda el precio de barcos, masajes o fotos con palenqueras antes de aceptar.",
+      "Usa repelente al amanecer y al anochecer porque los mosquitos transmiten dengue, y bebe agua embotellada o filtrada para ir sobre seguro."
+    ],
+    "costs": {
+      "currency": "COP",
+      "daily": "Unos COP 700.000-1.100.000 (unos €150-240) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Castillo San Felipe (adulto extranjero)", "price": "COP 35,000-45,000 (about €8-10)" },
+        { "label": "Barco a las Islas del Rosario con almuerzo (por adulto)", "price": "COP 200,000-350,000 (about €43-76)" },
+        { "label": "Arepa de huevo en un puesto callejero", "price": "COP 4,000-8,000 (about €1-2)" },
+        { "label": "Taxi dentro de la ciudad", "price": "COP 10,000-20,000 (about €2-4)" }
+      ],
+      "tip": "Pide el menú del día en restaurantes pequeños de barrio: una comida completa por una fracción de lo que cuesta cenar."
+    },
+    "gettingAround": "La ciudad amurallada y Getsemaní se recorren mejor a pie, y los taxis son baratos para ir al castillo o a Bocagrande si acuerdas la tarifa antes. Los barcos a las islas salen del Muelle La Bodeguita, con una pequeña tasa portuaria en efectivo.",
+    "food": "A los niños suelen encantarles la arepa de huevo, los patacones crujientes, el arroz con coco con pescado frito y los dulces del Portal de los Dulces. El almuerzo es la comida fuerte, de 12 a 14 horas, y la cena empieza tarde, hacia las 19-21.",
+    "firstDay": {
+      "morning": "Explora el Castillo San Felipe de Barajas temprano, con las rampas a la sombra.",
+      "afternoon": "Descansa en las horas de calor y luego pasea entre balcones y plazas del centro.",
+      "evening": "Mira el atardecer desde la muralla y cena en la Plaza de la Trinidad."
+    }
+  },
+  "booklet": {
+    "marks": ["Castillo San Felipe de Barajas", "Torre del Reloj", "Las Murallas", "Islas del Rosario"],
+    "food": ["arepa de huevo", "patacones", "cocadas", "coconut lemonade"],
+    "facts": [
+      "Cartagena's old town is wrapped in about 11 km of stone walls built to keep out pirates.",
+      "Palenqueras are women in bright dresses who sell fruit from big bowls balanced on their heads.",
+      "Castillo San Felipe is the biggest fort Spain ever built in the Americas."
+    ],
+    "hunt": ["a clock tower", "a horse carriage", "a palenquera with a fruit bowl", "a balcony with flowers", "a cannon", "an iguana in a tree", "a door knocker shaped like an animal", "a street mural", "some pink bougainvillea", "a fishing boat", "a pelican", "a Colombian flag"],
+    "quiz": [
+      ["Why were the big walls around Cartagena built?", "To keep out pirates", "To stop the wind", "To keep goats in", "To hold back snow"],
+      ["What do palenqueras carry on their heads?", "Bowls of fruit", "Baskets of fish", "Piles of books", "Umbrellas"],
+      ["Which sea is Cartagena next to?", "The Caribbean Sea", "The Black Sea", "The North Sea", "The Red Sea"]
+    ],
+    "missions": ["Door knocker detective", "Pirate wall patrol"]
+  },
+  "missionsEs": ["Detective de aldabas", "Patrulla de la muralla"]
+}

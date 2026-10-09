@@ -1,0 +1,281 @@
+{
+  "slug": "macau",
+  "name": "Macau",
+  "nameEs": "Macao",
+  "country": "Macau SAR, China",
+  "countryEs": "Macao, RAE de China",
+  "flag": "🇲🇴",
+  "region": "asia",
+  "lang": "zh",
+  "phrases": [
+    [
+      "Nei hou",
+      "Hello (Cantonese)"
+    ],
+    [
+      "Do je",
+      "Thank you"
+    ],
+    [
+      "M goi",
+      "Please / excuse me"
+    ],
+    [
+      "Hai",
+      "Yes"
+    ]
+  ],
+  "icons": "🐼 🥧 ⛪",
+  "scene": "city",
+  "bestMonths": [
+    10,
+    11,
+    12,
+    3,
+    4
+  ],
+  "seasons": [
+    "autumn",
+    "winter"
+  ],
+  "en": {
+    "tagline": "Portuguese tiles • warm egg tarts • giant pandas",
+    "intro": "Macau packs Portuguese squares, Chinese temples and a giant-panda house into a territory you can cross by bus in under an hour. Away from the casinos, families climb to the facade of St Paul's, eat egg tarts warm from the oven in Coloane village and look over the whole city from Macau Tower. It makes an easy two- or three-day add-on to Hong Kong, an hour away by bridge bus or ferry.",
+    "ages": {
+      "best": "4-12",
+      "text": "Pandas, egg tarts and the tower suit every age, and children of 7 and up can follow the story of the old Portuguese trading port. Casino floors are closed to anyone under 21."
+    },
+    "stroller": {
+      "rating": "mixed",
+      "text": "Cotai, Taipa and the big hotels are flat with lifts everywhere. The historic centre has steep slopes, steps and slippery wavy-tile pavements around St Paul's and Monte Fort, where a carrier is easier."
+    },
+    "mustDos": [
+      {
+        "title": "Ruins of St Paul's and Senado Square",
+        "text": "Walk across the black-and-white wave pavement of Senado Square and up the steps to the stone facade of St Paul's, all that is left of a church that burned in 1835. Then climb Monte Fort next door for cannons and a city view; the squares and facade are free.",
+        "ages": "4+"
+      },
+      {
+        "title": "Giant Panda Pavilion",
+        "text": "In Seac Pai Van Park in Coloane, giant pandas and red pandas eat bamboo behind glass, and the park also has a small zoo and playgrounds. Entry costs about MOP 10, and mornings are when the pandas are most active.",
+        "ages": "2+"
+      },
+      {
+        "title": "Macau Tower observation deck",
+        "text": "Ride a fast lift to the 58th-floor observation deck with glass floor panels and watch bungee jumpers drop past outside. Adult tickets cost roughly MOP 145-175 with reduced child prices.",
+        "ages": "4+"
+      },
+      {
+        "title": "Taipa Village and Rua do Cunha",
+        "text": "This lane of free tasting samples, almond cookies and pork chop buns leads to pastel Portuguese houses along Avenida da Praia. It is a compact, shady walk with plenty of snack stops for small legs.",
+        "ages": "3+"
+      },
+      {
+        "title": "Coloane Village and Hac Sa Beach",
+        "text": "Buy egg tarts at Lord Stow's Bakery, see the little yellow Chapel of St Francis Xavier, then dig in the dark sand of Hac Sa Beach. Tarts cost about MOP 10-15 each.",
+        "ages": "3+"
+      }
+    ],
+    "rainyDay": [
+      {
+        "title": "Macao Science Center",
+        "text": "A shiny cone-shaped building by the sea with hands-on galleries and a 3D planetarium."
+      },
+      {
+        "title": "Macao Grand Prix Museum",
+        "text": "Racing cars, motorbikes and driving simulators telling the story of the city's street race."
+      },
+      {
+        "title": "Maritime Museum",
+        "text": "Ship models, old fishing boats and a small aquarium opposite A-Ma Temple, with low ticket prices."
+      }
+    ],
+    "safety": [
+      "Traffic drives on the left and the narrow old streets have little room, so hold hands on Avenida de Almeida Ribeiro and around the bus stops.",
+      "St Paul's and Senado Square are packed at weekends and Chinese holidays, so agree a meeting point and put a phone number on younger children.",
+      "Summers are hot and humid and typhoons can close attractions from July to September; the wave-pattern stone pavements get very slippery in rain."
+    ],
+    "costs": {
+      "currency": "MOP",
+      "daily": "About MOP 1,300-2,200 (about €140-235) a day for a family of four, excluding lodging.",
+      "items": [
+        {
+          "label": "Macau Tower observation deck, adult",
+          "price": "MOP 145-175 (about €16-19)"
+        },
+        {
+          "label": "Giant Panda Pavilion, per person",
+          "price": "MOP 10 (about €1)"
+        },
+        {
+          "label": "Portuguese egg tart",
+          "price": "MOP 10-15 (about €1-1.60)"
+        },
+        {
+          "label": "Bus ride with a Macau Pass card",
+          "price": "MOP 3-6 (about €0.30-0.65)"
+        }
+      ],
+      "tip": "Free hotel shuttle buses link the ferry terminals and border gate with Cotai and the peninsula, and Hong Kong dollars are accepted almost everywhere at about par."
+    },
+    "gettingAround": "From Hong Kong, the bridge shuttle bus or TurboJET ferry takes about an hour. In Macau, buses with a Macau Pass card are cheap, the light rail links Taipa and Cotai, and taxis are reasonably priced but scarce at peak times.",
+    "food": "Portuguese egg tarts, pork chop buns and almond cookies are easy favourites, and Macanese minchi, minced meat with fried potato, wins over fussy eaters. Dim sum and congee work for breakfast, and family dinners usually start around 19:00.",
+    "firstDay": {
+      "morning": "Walk from Senado Square up to St Paul's and Monte Fort before the crowds.",
+      "afternoon": "Take the bus to Coloane for egg tarts, the pandas and a play on Hac Sa Beach.",
+      "evening": "Watch the city lights from Macau Tower before dinner in Taipa Village."
+    }
+  },
+  "es": {
+    "tagline": "Azulejos portugueses • pasteles de nata calientes • pandas gigantes",
+    "intro": "Macao reúne plazas portuguesas, templos chinos y una casa de pandas gigantes en un territorio que se cruza en autobús en menos de una hora. Lejos de los casinos, las familias suben hasta la fachada de San Pablo, comen pasteles de nata recién horneados en Coloane y ven toda la ciudad desde la Torre de Macao. Es una escapada fácil de dos o tres días desde Hong Kong, a una hora en autobús o ferri.",
+    "ages": {
+      "best": "4-12",
+      "text": "Los pandas, los pasteles de nata y la torre gustan a todas las edades, y a partir de los 7 años los niños siguen la historia del antiguo puerto comercial portugués. Las salas de casino están prohibidas a menores de 21 años."
+    },
+    "stroller": {
+      "rating": "mixed",
+      "text": "Cotai, Taipa y los grandes hoteles son llanos y tienen ascensores por todas partes. El centro histórico tiene cuestas, escalones y un empedrado ondulado resbaladizo alrededor de San Pablo y la fortaleza del Monte, donde va mejor la mochila portabebés."
+    },
+    "mustDos": [
+      {
+        "title": "Ruinas de San Pablo y Largo do Senado",
+        "text": "Cruza el empedrado de ondas blancas y negras del Largo do Senado y sube las escaleras hasta la fachada de piedra de San Pablo, lo único que queda de una iglesia que ardió en 1835. Después sube a la fortaleza del Monte, al lado, para ver cañones y la ciudad; las plazas y la fachada son gratis.",
+        "ages": "4+"
+      },
+      {
+        "title": "Pabellón del Panda Gigante",
+        "text": "En el parque Seac Pai Van de Coloane, pandas gigantes y pandas rojos comen bambú tras el cristal, y el parque tiene además un pequeño zoo y parques infantiles. La entrada cuesta unas MOP 10 y por la mañana es cuando los pandas están más activos.",
+        "ages": "2+"
+      },
+      {
+        "title": "Mirador de la Torre de Macao",
+        "text": "Sube en un ascensor rapidísimo al mirador de la planta 58, con paneles de suelo de cristal, y mira pasar a los que saltan en puenting por fuera. La entrada de adulto cuesta unas MOP 145-175, con precio reducido para niños.",
+        "ages": "4+"
+      },
+      {
+        "title": "Pueblo de Taipa y Rua do Cunha",
+        "text": "Esta calle de degustaciones gratis, galletas de almendra y bocadillos de chuleta de cerdo lleva a las casas portuguesas de colores pastel de la Avenida da Praia. Es un paseo corto y con sombra, con muchas paradas para picar algo.",
+        "ages": "3+"
+      },
+      {
+        "title": "Pueblo de Coloane y playa de Hac Sa",
+        "text": "Compra pasteles de nata en Lord Stow's Bakery, mira la pequeña capilla amarilla de San Francisco Javier y luego juega en la arena oscura de la playa de Hac Sa. Cada pastel cuesta unas MOP 10-15.",
+        "ages": "3+"
+      }
+    ],
+    "rainyDay": [
+      {
+        "title": "Centro de Ciencia de Macao",
+        "text": "Un edificio brillante en forma de cono junto al mar con salas interactivas y un planetario 3D."
+      },
+      {
+        "title": "Museo del Gran Premio de Macao",
+        "text": "Coches de carreras, motos y simuladores de conducción que cuentan la historia de la carrera urbana."
+      },
+      {
+        "title": "Museo Marítimo",
+        "text": "Maquetas de barcos, antiguos barcos de pesca y un pequeño acuario frente al templo de A-Ma, con entrada barata."
+      }
+    ],
+    "safety": [
+      "Se circula por la izquierda y las calles antiguas son estrechas, así que da la mano a los niños en la Avenida de Almeida Ribeiro y cerca de las paradas de autobús.",
+      "San Pablo y el Largo do Senado se llenan los fines de semana y en las fiestas chinas, así que acordad un punto de encuentro y poned un número de teléfono a los pequeños.",
+      "Los veranos son calurosos y húmedos y de julio a septiembre los tifones pueden cerrar atracciones; el empedrado ondulado resbala mucho con lluvia."
+    ],
+    "costs": {
+      "currency": "MOP",
+      "daily": "Unas MOP 1.300-2.200 (unos 140-235 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        {
+          "label": "Mirador de la Torre de Macao, adulto",
+          "price": "MOP 145-175 (about €16-19)"
+        },
+        {
+          "label": "Pabellón del Panda Gigante, por persona",
+          "price": "MOP 10 (about €1)"
+        },
+        {
+          "label": "Pastel de nata portugués",
+          "price": "MOP 10-15 (about €1-1.60)"
+        },
+        {
+          "label": "Viaje en autobús con tarjeta Macau Pass",
+          "price": "MOP 3-6 (about €0.30-0.65)"
+        }
+      ],
+      "tip": "Los autobuses gratuitos de los hoteles unen las terminales de ferri y la frontera con Cotai y la península, y los dólares de Hong Kong se aceptan casi en todas partes prácticamente a la par."
+    },
+    "gettingAround": "Desde Hong Kong, el autobús del puente o el ferri TurboJET tardan alrededor de una hora. En Macao, los autobuses con tarjeta Macau Pass son baratos, el tren ligero une Taipa y Cotai y los taxis tienen precios razonables pero escasean en horas punta.",
+    "food": "Los pasteles de nata, los bocadillos de chuleta de cerdo y las galletas de almendra son favoritos seguros, y el minchi macaense, carne picada con patata frita, convence a los más quisquillosos. Dim sum y congee sirven de desayuno, y las cenas en familia suelen empezar hacia las 19:00.",
+    "firstDay": {
+      "morning": "Sube a pie del Largo do Senado a San Pablo y la fortaleza del Monte antes de las multitudes.",
+      "afternoon": "Coge el autobús a Coloane para pasteles de nata, los pandas y jugar en la playa de Hac Sa.",
+      "evening": "Mira las luces de la ciudad desde la Torre de Macao y cena en el pueblo de Taipa."
+    }
+  },
+  "booklet": {
+    "marks": [
+      "Ruins of St Paul's",
+      "Senado Square",
+      "Macau Tower",
+      "A-Ma Temple"
+    ],
+    "food": [
+      "egg tart",
+      "pork chop bun",
+      "almond cookie",
+      "serradura pudding"
+    ],
+    "facts": [
+      "Only the front wall of St Paul's church survived a big fire in 1835.",
+      "Macau Tower is 338 metres tall, taller than the Eiffel Tower.",
+      "Macau's wavy pavements are made of thousands of small black and white stones."
+    ],
+    "hunt": [
+      "a giant panda",
+      "a wavy pavement",
+      "a blue and white tile sign",
+      "an egg tart",
+      "a red lantern",
+      "a stone church front",
+      "a cannon",
+      "a ferry boat",
+      "a Portuguese street name",
+      "a yellow church",
+      "a temple incense coil",
+      "a bungee jumper"
+    ],
+    "quiz": [
+      [
+        "Which famous pastry comes from Portugal and is loved in Macau?",
+        "Egg tart",
+        "Croissant",
+        "Doughnut",
+        "Pretzel"
+      ],
+      [
+        "What is left of St Paul's church today?",
+        "Its front wall",
+        "Only the roof",
+        "A bell tower",
+        "Nothing at all"
+      ],
+      [
+        "Which black-and-white animal lives in Macau's Seac Pai Van Park?",
+        "Giant panda",
+        "Zebra",
+        "Penguin",
+        "Orca"
+      ]
+    ],
+    "missions": [
+      "Wave pavement walker",
+      "Egg tart taste tester"
+    ]
+  },
+  "missionsEs": [
+    "Caminante del empedrado de olas",
+    "Catador de pasteles de nata"
+  ]
+}

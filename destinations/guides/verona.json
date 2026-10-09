@@ -1,0 +1,114 @@
+{
+  "slug": "verona",
+  "name": "Verona",
+  "nameEs": "Verona",
+  "country": "Italy",
+  "countryEs": "Italia",
+  "flag": "🇮🇹",
+  "region": "europe",
+  "lang": "it",
+  "phrases": [["Ciao", "Hello"], ["Grazie", "Thank you"], ["Per favore", "Please"], ["Sì", "Yes"]],
+  "icons": "🏟️ 🎢 🍦",
+  "scene": "city",
+  "bestMonths": [4, 5, 6, 9, 10],
+  "seasons": ["spring", "summer", "autumn"],
+  "en": {
+    "tagline": "Roman arena • Romeo and Juliet • Lake Garda",
+    "intro": "Verona is a walkable, river-bend city with a Roman arena still used for summer opera, a balcony linked to Romeo and Juliet and some of Italy's best gelato. It also makes an easy base for Lake Garda: Gardaland, Italy's biggest theme park, is about 30 minutes away. Families often mix two days in town with a lake day of boats, beaches and castle walls in Sirmione.",
+    "ages": { "best": "5-12", "text": "Gardaland suits ages 4-12, with many rides needing 100-120 cm; the arena, tower lift and castle walls appeal most to school-age children who like Roman stories." },
+    "stroller": { "rating": "mixed", "text": "The centre is mostly pedestrian with smooth stone streets, but Castel San Pietro needs the funicular or steep steps and the arena itself has worn stone stairs." },
+    "mustDos": [
+      { "title": "Arena di Verona", "text": "Walk the inside of a 2,000-year-old amphitheatre and climb the top rows; daytime visits are shorter in summer opera season, so check hours before going.", "ages": "all ages" },
+      { "title": "Gardaland", "text": "Italy's largest theme park near Castelnuovo del Garda, open roughly April to early November plus Christmas weekends; online tickets are about €40-55 and kids under 1 m go free.", "ages": "3+" },
+      { "title": "Castel San Pietro funicular", "text": "A short funicular climbs from the river to a terrace with the best view of the city's red roofs and bridges, especially near sunset.", "ages": "all ages" },
+      { "title": "Torre dei Lamberti", "text": "Take the lift most of the way up the 84 m medieval tower above Piazza delle Erbe, then climb the last steps to see the Alps on clear days.", "ages": "5+" },
+      { "title": "Sirmione on Lake Garda", "text": "A castle surrounded by water, shallow pebble beaches and gelato; reach it by train to Desenzano or Peschiera then bus, or by lake ferry in summer.", "ages": "all ages" }
+    ],
+    "rainyDay": [
+      { "title": "Museo di Storia Naturale", "text": "Fossils from nearby Bolca, minerals and stuffed animals in a palace near the river." },
+      { "title": "Castelvecchio Museum", "text": "A brick castle with armour, swords and a bridge with swallowtail battlements to walk across." },
+      { "title": "Sea Life Gardaland", "text": "Aquarium next to Gardaland with a walk-through tunnel, good for a wet lake day." }
+    ],
+    "safety": [
+      "Summer days around Lake Garda and in the arena reach 32-35 °C, so carry water and hats and rest in the shade after lunch.",
+      "Some streets in the old town still allow scooters and delivery vans, so hold small hands near Piazza Bra and Via Mazzini.",
+      "On Lake Garda, swim only at guarded beaches and keep kids close as the lakebed can drop quickly; tap water is safe."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €150-240 a day for a family of four, excluding lodging; Gardaland days cost more.",
+      "items": [
+        { "label": "Gardaland day ticket online (per person)", "price": "€40-55" },
+        { "label": "Arena di Verona entry (adult)", "price": "€10-12" },
+        { "label": "Castel San Pietro funicular (one way)", "price": "€2-3" },
+        { "label": "Two scoops of gelato", "price": "€3-4" }
+      ],
+      "tip": "The Verona Card covers the arena, tower and most museums for 24 or 48 hours, and Gardaland tickets are cheaper booked online for a fixed date."
+    },
+    "gettingAround": "Walk the old town from Piazza Bra; for Gardaland take the 15-minute train to Peschiera del Garda and the park's free shuttle bus.",
+    "food": "Kids like pizza, tortellini from nearby Valeggio, gnocchi and pandoro, the star-shaped Christmas cake invented in Verona; lunch is 12:30-14:30 and dinner rarely before 19:30.",
+    "firstDay": {
+      "morning": "Explore the arena early, then walk Via Mazzini to Juliet's courtyard before crowds build.",
+      "afternoon": "Ride up Torre dei Lamberti and share gelato in Piazza delle Erbe.",
+      "evening": "Take the funicular to Castel San Pietro and watch the lights come on over the Adige."
+    }
+  },
+  "es": {
+    "tagline": "Arena romana • Romeo y Julieta • lago de Garda",
+    "intro": "Verona es una ciudad paseable en una curva del río, con una arena romana que aún acoge ópera en verano, un balcón ligado a Romeo y Julieta y algunos de los mejores helados de Italia. También es una buena base para el lago de Garda: Gardaland, el mayor parque temático del país, está a unos 30 minutos. Muchas familias combinan dos días en la ciudad con un día de lago entre barcos, playas y murallas en Sirmione.",
+    "ages": { "best": "5-12", "text": "Gardaland es ideal de 4 a 12 años, aunque muchas atracciones piden 100-120 cm; la arena, el ascensor de la torre y las murallas atraen más a niños en edad escolar que disfrutan de historias romanas." },
+    "stroller": { "rating": "mixed", "text": "El centro es casi todo peatonal con calles de piedra lisa, pero a Castel San Pietro se sube en funicular o por escaleras empinadas, y la arena tiene escalones de piedra gastados." },
+    "mustDos": [
+      { "title": "Arena de Verona", "text": "Recorre por dentro un anfiteatro de 2.000 años y sube a las gradas altas; en temporada de ópera las visitas diurnas son más cortas, así que revisa el horario antes.", "ages": "todas las edades" },
+      { "title": "Gardaland", "text": "El mayor parque temático de Italia, junto a Castelnuovo del Garda, abre aproximadamente de abril a principios de noviembre y fines de semana navideños; la entrada en línea ronda 40-55 € y los menores de 1 m entran gratis.", "ages": "3+" },
+      { "title": "Funicular de Castel San Pietro", "text": "Un funicular corto sube desde el río hasta una terraza con la mejor vista de los tejados rojos y los puentes, sobre todo al atardecer.", "ages": "todas las edades" },
+      { "title": "Torre dei Lamberti", "text": "Sube en ascensor casi hasta lo alto de la torre medieval de 84 m sobre la Piazza delle Erbe y termina por la escalera para ver los Alpes en días claros.", "ages": "5+" },
+      { "title": "Sirmione en el lago de Garda", "text": "Un castillo rodeado de agua, playas de guijarros poco profundas y helados; se llega en tren a Desenzano o Peschiera y luego en autobús, o en barco por el lago en verano.", "ages": "todas las edades" }
+    ],
+    "rainyDay": [
+      { "title": "Museo di Storia Naturale", "text": "Fósiles del cercano yacimiento de Bolca, minerales y animales disecados en un palacio junto al río." },
+      { "title": "Museo de Castelvecchio", "text": "Un castillo de ladrillo con armaduras, espadas y un puente almenado que se puede cruzar." },
+      { "title": "Sea Life Gardaland", "text": "Acuario junto a Gardaland con túnel submarino, buena opción para un día de lluvia en el lago." }
+    ],
+    "safety": [
+      "En verano el lago de Garda y la arena alcanzan 32-35 °C, así que lleva agua y gorras y descansad a la sombra después de comer.",
+      "Algunas calles del centro siguen abiertas a motos y furgonetas de reparto, así que da la mano a los pequeños cerca de la Piazza Bra y la Via Mazzini.",
+      "En el lago de Garda báñate solo en playas vigiladas y mantén a los niños cerca porque el fondo puede bajar de golpe; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos 150-240 € al día para una familia de cuatro, sin alojamiento; el día de Gardaland sale más caro.",
+      "items": [
+        { "label": "Entrada a Gardaland en línea (por persona)", "price": "€40-55" },
+        { "label": "Arena de Verona (adulto)", "price": "€10-12" },
+        { "label": "Funicular de Castel San Pietro (ida)", "price": "€2-3" },
+        { "label": "Helado de dos bolas", "price": "€3-4" }
+      ],
+      "tip": "La Verona Card incluye la arena, la torre y casi todos los museos durante 24 o 48 horas, y las entradas de Gardaland salen más baratas en línea con fecha fija."
+    },
+    "gettingAround": "Recorre el centro a pie desde la Piazza Bra; para Gardaland toma el tren de 15 minutos a Peschiera del Garda y el autobús lanzadera gratuito del parque.",
+    "food": "A los niños les gustan la pizza, los tortellini de la cercana Valeggio, los ñoquis y el pandoro, el bizcocho navideño en forma de estrella inventado en Verona; se come de 12:30 a 14:30 y se cena rara vez antes de las 19:30.",
+    "firstDay": {
+      "morning": "Visita la arena temprano y sigue por la Via Mazzini hasta el patio de Julieta antes de que llegue la gente.",
+      "afternoon": "Sube a la Torre dei Lamberti y comparte un helado en la Piazza delle Erbe.",
+      "evening": "Toma el funicular a Castel San Pietro y mira cómo se encienden las luces sobre el Adigio."
+    }
+  },
+  "booklet": {
+    "marks": ["Arena di Verona", "Juliet's balcony", "Torre dei Lamberti", "Ponte Pietra"],
+    "food": ["pizza", "gelato", "tortellini", "pandoro"],
+    "facts": [
+      "Verona's arena was built by the Romans about 2,000 years ago and still hosts shows.",
+      "Pandoro, a star-shaped Christmas cake, was first made in Verona.",
+      "Lake Garda, near Verona, is the biggest lake in Italy."
+    ],
+    "hunt": ["a Roman arch", "a balcony", "a gelato shop", "a stone bridge", "a lion statue", "a tower with a clock", "a red roof", "a market umbrella", "a roller coaster", "a swan on the lake", "a castle wall", "some opera posters"],
+    "quiz": [
+      ["Who built the Verona arena?", "The Romans", "The Vikings", "The Egyptians", "The Aztecs"],
+      ["Which famous love story is set in Verona?", "Romeo and Juliet", "Cinderella", "Snow White", "Peter Pan"],
+      ["What is the biggest lake in Italy?", "Lake Garda", "Lake Como", "Loch Ness", "Lake Geneva"]
+    ],
+    "missions": ["Roman arena explorer", "Gelato flavour taster"]
+  },
+  "missionsEs": ["Explorador de la arena romana", "Catador de sabores de helado"]
+}

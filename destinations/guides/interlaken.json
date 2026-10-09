@@ -1,0 +1,114 @@
+{
+  "slug": "interlaken",
+  "name": "Interlaken",
+  "nameEs": "Interlaken",
+  "country": "Switzerland",
+  "countryEs": "Suiza",
+  "flag": "🇨🇭",
+  "region": "europe",
+  "lang": "de",
+  "phrases": [["Grüezi", "Hello"], ["Merci", "Thank you"], ["Bitte", "Please"], ["Ja", "Yes"]],
+  "icons": "🏔️ 🚂 🧀",
+  "scene": "lake",
+  "bestMonths": [6, 7, 8, 9],
+  "seasons": ["summer", "autumn"],
+  "en": {
+    "tagline": "Turquoise lakes • mountain trains • waterfalls",
+    "intro": "Interlaken lies on a flat strip of land between Lake Thun and Lake Brienz, with the snowy Eiger, Mönch and Jungfrau rising behind it. For families it works as a base camp: every morning a different train, boat or funicular takes you to waterfalls, cogwheel railways or a mountain lake, and every evening you are back in a calm, walkable town. Switzerland is expensive, but children's travel deals soften the cost.",
+    "ages": { "best": "5-12", "text": "Ages 5 and up handle the walks best; Trümmelbach Falls does not admit children under 4, and mountain carts and scooters at First have minimum height rules." },
+    "stroller": { "rating": "mixed", "text": "Interlaken town and the lake promenades are flat and smooth, and trains have step-free access, but mountain trails above the stations need a carrier." },
+    "mustDos": [
+      { "title": "Harder Kulm funicular", "text": "A ten-minute funicular climbs from Interlaken Ost to a viewing platform hanging over both lakes, with the Eiger, Mönch and Jungfrau straight ahead; it runs roughly April to November.", "ages": "3+" },
+      { "title": "Grindelwald First", "text": "Take the gondola up, walk the First Cliff Walk along the rock face and continue on an easy trail of about an hour to the Bachalpsee lake; in summer older kids can ride mountain carts down.", "ages": "6+" },
+      { "title": "Lauterbrunnen waterfalls", "text": "Watch Staubbach Falls drop off a cliff right in the village for free, then see Trümmelbach Falls thunder inside the mountain, reached by a tunnel lift and open from spring to autumn.", "ages": "4+" },
+      { "title": "Boat on Lake Brienz", "text": "Board a lake boat at Interlaken Ost for Iseltwald or Giessbach, where an old funicular climbs to a huge waterfall behind a grand hotel; boats are included in most Swiss passes.", "ages": "3+" },
+      { "title": "Schynige Platte railway", "text": "A cogwheel train running since 1893 climbs slowly from Wilderswil to an Alpine garden full of mountain flowers and easy short walks; the line operates only in summer and early autumn.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "St. Beatus Caves", "text": "Lit limestone caves above Lake Thun with an underground path and the legend of a dragon." },
+      { "title": "Bödelibad indoor pool", "text": "Interlaken's public pool with indoor swimming and a children's area for a wet afternoon." },
+      { "title": "Chocolate workshop", "text": "Several shops in town run hands-on classes where kids make and decorate their own Swiss chocolate." }
+    ],
+    "safety": [
+      "The Aare river through Interlaken is cold and fast, so swim only at lake beaches and lidos, never in the river channel.",
+      "Mountain weather changes quickly and the sun is strong above 2,000 metres, so carry a jacket, sun cream and water on every trip up.",
+      "The Jungfraujoch at 3,454 metres can cause headaches and tiredness in young children, so go slowly and come down if anyone feels unwell."
+    ],
+    "costs": {
+      "currency": "CHF",
+      "daily": "About CHF 250-400 (≈ €265-430) a day for a family of four excluding lodging; mountain railways are the biggest cost.",
+      "items": [
+        { "label": "Harder Kulm funicular return (adult; children about half)", "price": "CHF 36-44 (≈ €38-47)" },
+        { "label": "Grindelwald First gondola return (adult)", "price": "CHF 60-75 (≈ €64-80)" },
+        { "label": "Trümmelbach Falls entry (child to adult)", "price": "CHF 6-16 (≈ €6-17)" },
+        { "label": "Swiss Junior Travelcard (per child, 1 year)", "price": "CHF 30 (≈ €32)" }
+      ],
+      "tip": "Buy the Swiss Junior Travelcard for each child aged 6-15 so they ride free on trains, buses and boats with a paying parent; under-6s already travel free."
+    },
+    "gettingAround": "Trains from Interlaken Ost reach Lauterbrunnen, Grindelwald and Wilderswil in under 40 minutes, and the guest card from your hotel gives free local buses.",
+    "food": "Rösti (crispy grated potato), cheese fondue, Älplermagronen (Alpine macaroni with apple sauce) and meringues with cream all please children; supermarkets such as Coop and Migros are good for picnic lunches.",
+    "firstDay": {
+      "morning": "Walk across the Höhematte meadow and watch paragliders land with the Jungfrau behind them.",
+      "afternoon": "Ride the Harder Kulm funicular and spot both lakes from the platform.",
+      "evening": "Stroll along the Aare promenade and eat rösti in town."
+    }
+  },
+  "es": {
+    "tagline": "Lagos turquesa • trenes de montaña • cascadas",
+    "intro": "Interlaken está en una franja llana entre el lago de Thun y el lago de Brienz, con el Eiger, el Mönch y la Jungfrau nevados al fondo. Para familias funciona como campamento base: cada mañana un tren, un barco o un funicular distinto os lleva a cascadas, trenes de cremallera o un lago de montaña, y cada tarde volvéis a un pueblo tranquilo y fácil de caminar. Suiza es cara, pero las ofertas de transporte infantil ayudan mucho.",
+    "ages": { "best": "5-12", "text": "Desde los 5 años se llevan mejor las caminatas; las cascadas de Trümmelbach no admiten menores de 4 años, y los carts y patinetes de First tienen altura mínima." },
+    "stroller": { "rating": "mixed", "text": "El pueblo y los paseos junto a los lagos son llanos y lisos, y los trenes tienen acceso sin escalones, pero los senderos de montaña sobre las estaciones piden mochila portabebés." },
+    "mustDos": [
+      { "title": "Funicular de Harder Kulm", "text": "Un funicular de diez minutos sube desde Interlaken Ost a un mirador suspendido sobre los dos lagos, con el Eiger, el Mönch y la Jungfrau enfrente; funciona más o menos de abril a noviembre.", "ages": "3+" },
+      { "title": "Grindelwald First", "text": "Subid en telecabina, recorred la pasarela First Cliff Walk junto a la roca y seguid una senda fácil de una hora hasta el lago Bachalpsee; en verano los mayores pueden bajar en carts de montaña.", "ages": "6+" },
+      { "title": "Cascadas de Lauterbrunnen", "text": "Ved caer gratis la cascada de Staubbach desde un acantilado en pleno pueblo y luego las cascadas de Trümmelbach rugiendo dentro de la montaña, con ascensor en túnel y abiertas de primavera a otoño.", "ages": "4+" },
+      { "title": "Barco por el lago de Brienz", "text": "Subid a un barco en Interlaken Ost hacia Iseltwald o Giessbach, donde un funicular antiguo sube a una gran cascada detrás de un hotel histórico; los barcos entran en la mayoría de pases suizos.", "ages": "3+" },
+      { "title": "Tren de Schynige Platte", "text": "Un tren de cremallera que funciona desde 1893 sube despacio desde Wilderswil a un jardín alpino lleno de flores de montaña y paseos cortos y fáciles; la línea solo opera en verano y a principios de otoño.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Cuevas de San Beato", "text": "Cuevas de piedra caliza iluminadas sobre el lago de Thun, con un camino subterráneo y la leyenda de un dragón." },
+      { "title": "Piscina cubierta Bödelibad", "text": "La piscina pública de Interlaken, con vaso cubierto y zona infantil para una tarde de lluvia." },
+      { "title": "Taller de chocolate", "text": "Varias tiendas del pueblo organizan clases donde los niños hacen y decoran su propio chocolate suizo." }
+    ],
+    "safety": [
+      "El río Aare que cruza Interlaken es frío y rápido, así que bañaos solo en playas y piscinas del lago, nunca en el canal del río.",
+      "El tiempo en la montaña cambia rápido y el sol es fuerte por encima de 2.000 metros, así que llevad chaqueta, protector solar y agua en cada subida.",
+      "El Jungfraujoch, a 3.454 metros, puede dar dolor de cabeza y cansancio a los niños pequeños, así que id despacio y bajad si alguien se encuentra mal."
+    ],
+    "costs": {
+      "currency": "CHF",
+      "daily": "Unos CHF 250-400 (≈ €265-430) al día para una familia de cuatro sin alojamiento; los trenes de montaña son el mayor gasto.",
+      "items": [
+        { "label": "Funicular de Harder Kulm ida y vuelta (adulto; niños más o menos la mitad)", "price": "CHF 36-44 (≈ €38-47)" },
+        { "label": "Telecabina de Grindelwald First ida y vuelta (adulto)", "price": "CHF 60-75 (≈ €64-80)" },
+        { "label": "Entrada a las cascadas de Trümmelbach (de niño a adulto)", "price": "CHF 6-16 (≈ €6-17)" },
+        { "label": "Swiss Junior Travelcard (por niño, 1 año)", "price": "CHF 30 (≈ €32)" }
+      ],
+      "tip": "Comprad la Swiss Junior Travelcard para cada niño de 6 a 15 años: viajan gratis en trenes, autobuses y barcos con un padre que paga billete; los menores de 6 ya viajan gratis."
+    },
+    "gettingAround": "Los trenes desde Interlaken Ost llegan a Lauterbrunnen, Grindelwald y Wilderswil en menos de 40 minutos, y la tarjeta de huésped del hotel da autobuses locales gratis.",
+    "food": "El rösti (patata rallada crujiente), la fondue de queso, los Älplermagronen (macarrones alpinos con compota de manzana) y los merengues con nata gustan a los niños; los supermercados Coop y Migros son ideales para comidas de pícnic.",
+    "firstDay": {
+      "morning": "Cruzad el prado Höhematte y mirad cómo aterrizan los parapentes con la Jungfrau al fondo.",
+      "afternoon": "Subid en el funicular de Harder Kulm y buscad los dos lagos desde el mirador.",
+      "evening": "Pasead junto al río Aare y cenad rösti en el pueblo."
+    }
+  },
+  "booklet": {
+    "marks": ["Harder Kulm", "Höhematte", "Staubbach Falls", "Lake Brienz"],
+    "food": ["rösti", "cheese fondue", "Swiss chocolate", "meringue with cream"],
+    "facts": [
+      "Interlaken means 'between lakes': it sits between Lake Thun and Lake Brienz.",
+      "The Jungfraujoch station, at 3,454 metres, is the highest railway station in Europe.",
+      "Lake Brienz looks turquoise because of tiny bits of rock washed down from glaciers."
+    ],
+    "hunt": ["a paraglider", "a cow with a bell", "a red train", "a waterfall", "a Swiss flag", "a chalet with flower boxes", "a boat on the lake", "a snowy peak", "a cogwheel train", "a yellow post bus", "a cable car", "a marmot"],
+    "quiz": [
+      ["Which two lakes is Interlaken between?", "Lake Thun and Lake Brienz", "Lake Geneva and Lake Zurich", "Lake Como and Lake Garda", "Lake Lucerne and Lake Constance"],
+      ["What is the highest railway station in Europe?", "Jungfraujoch", "Grindelwald", "Interlaken Ost", "Lauterbrunnen"],
+      ["Which Swiss dish is made of crispy grated potato?", "Rösti", "Fondue", "Muesli", "Raclette"]
+    ],
+    "missions": ["Waterfall counter", "Paraglider spotter"]
+  },
+  "missionsEs": ["Contador de cascadas", "Detective de parapentes"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "penang",
+  "name": "Penang",
+  "nameEs": "Penang",
+  "country": "Malaysia",
+  "countryEs": "Malasia",
+  "flag": "🇲🇾",
+  "region": "asia",
+  "lang": "ms",
+  "phrases": [["Selamat pagi", "Good morning"], ["Terima kasih", "Thank you"], ["Tolong", "Please"], ["Ya", "Yes"]],
+  "icons": "🎨 🍜 🚲",
+  "scene": "city",
+  "bestMonths": [12, 1, 2, 3],
+  "seasons": ["winter"],
+  "en": {
+    "tagline": "Street art trails • hawker food • a funicular up the hill",
+    "intro": "Penang's capital, George Town, is a heritage city of shophouses, clan temples and wooden houses on stilts, where children hunt for murals and iron-rod cartoons on almost every corner. Families eat at hawker stalls for a few ringgit, ride a steep funicular up Penang Hill and spend a day among butterflies and beaches on the north coast. It is easy, English-friendly and good value.",
+    "ages": { "best": "4-12", "text": "Every age likes the street art hunt and hawker food, and children of 6 and up get most from Entopia and the hill trails. The heat means short bursts of walking work better than long tours for under-5s." },
+    "stroller": { "rating": "mixed", "text": "George Town's covered five-foot walkways have steps, drains and parked scooters, so pushing a stroller is slow. Penang Hill's top paths and the malls are fine; a carrier is easier for the heritage lanes and jetties." },
+    "mustDos": [
+      { "title": "George Town street art hunt", "text": "Find Ernest Zacharevic's 'Children on a Bicycle' on Armenian Street, then tick off murals and the witty iron-rod caricatures around Lebuh Chulia and Lebuh Cannon. It is free, and a printed mural map turns it into a treasure hunt.", "ages": "4+" },
+      { "title": "Penang Hill funicular", "text": "A steep funicular railway climbs to about 800 m in under 10 minutes, where it is cooler and the view stretches across the strait. Return tickets for foreign visitors cost about RM30 for adults and RM15 for children aged 4-12 in the normal lane.", "ages": "3+" },
+      { "title": "Clan Jetties", "text": "Walk the wooden boardwalks of Chew Jetty, where Chinese families still live in houses on stilts over the sea. Entry is free; be quiet and respectful, as these are people's homes.", "ages": "4+" },
+      { "title": "Entopia", "text": "A covered butterfly garden and indoor insect gallery in Teluk Bahang, with thousands of butterflies, giant beetles and a play area of climbing nets. Tickets for foreign adults are roughly RM65-85, with lower child prices.", "ages": "3+" },
+      { "title": "Kek Lok Si Temple", "text": "Southeast Asia's largest Buddhist temple complex climbs the hillside in Air Itam, with a turtle pond, a seven-tier pagoda and a towering bronze statue of Kuan Yin reached by a small inclined lift. Entry is free, with small fees for the pagoda and lift.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Tech Dome Penang", "text": "A hands-on science centre in the Komtar tower with dozens of interactive exhibits and a dome theatre." },
+      { "title": "Wonderfood Museum", "text": "Giant, super-realistic plastic models of Malaysian dishes that make children laugh and grown-ups hungry." },
+      { "title": "Pinang Peranakan Mansion", "text": "A green mansion full of carved furniture, beaded slippers and stories of Peranakan family life." }
+    ],
+    "safety": [
+      "Traffic drives on the left and five-foot walkways often force you into the road, so keep children on the inside and use crossings near Komtar and Lebuh Chulia.",
+      "Heat and humidity are high all year with sudden afternoon storms, so carry water, plan indoor breaks around midday and drink only bottled or filtered water.",
+      "Monkeys on Penang Hill and at the Botanic Gardens snatch food and bags, so keep snacks hidden and do not let children feed them."
+    ],
+    "costs": {
+      "currency": "MYR",
+      "daily": "About RM450-750 (about €90-155) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Penang Hill funicular return, foreign adult / child", "price": "RM30 / RM15 (about €6 / €3)" },
+        { "label": "Entopia, foreign adult", "price": "RM65-85 (about €13-17)" },
+        { "label": "Plate of char kway teow at a hawker stall", "price": "RM8-15 (about €1.60-3)" },
+        { "label": "Grab ride across George Town", "price": "RM8-15 (about €1.60-3)" }
+      ],
+      "tip": "Eat at hawker centres such as New Lane or Gurney Drive, where a family dinner costs a fraction of a restaurant meal."
+    },
+    "gettingAround": "Walk or take a trishaw around the heritage core; Grab is cheap and reliable for everything else. Rapid Penang buses run to Penang Hill (route 204) and to Batu Ferringhi and Teluk Bahang (route 101).",
+    "food": "Children usually love roti canai with curry dip, chicken rice and cendol, shaved ice with coconut milk and green jelly noodles. Asam laksa is sour and spicy for braver eaters; hawker centres come alive from about 18:00.",
+    "firstDay": {
+      "morning": "Hunt for murals around Armenian Street before it gets hot.",
+      "afternoon": "Cool off at Tech Dome or a museum, then walk the Clan Jetties in the late light.",
+      "evening": "Eat dinner at a hawker centre and try cendol for dessert."
+    }
+  },
+  "es": {
+    "tagline": "Rutas de arte urbano • puestos de comida callejera • un funicular a la colina",
+    "intro": "La capital de Penang, George Town, es una ciudad histórica de casas-tienda, templos de clanes y casas de madera sobre pilotes, donde los niños buscan murales y caricaturas de hierro en casi cada esquina. Las familias comen en puestos callejeros por pocos ringgits, suben en un funicular empinado a Penang Hill y pasan un día entre mariposas y playas en la costa norte. Es fácil, se habla inglés y sale a buen precio.",
+    "ages": { "best": "4-12", "text": "La búsqueda de arte urbano y los puestos de comida gustan a todas las edades, y a partir de los 6 años los niños aprovechan más Entopia y los senderos de la colina. Con el calor, para los menores de 5 años funcionan mejor paseos cortos que visitas largas." },
+    "stroller": { "rating": "mixed", "text": "Los soportales de George Town tienen escalones, desagües y motos aparcadas, así que con carrito se avanza despacio. La cima de Penang Hill y los centros comerciales van bien; en las calles históricas y los muelles es mejor la mochila portabebés." },
+    "mustDos": [
+      { "title": "Búsqueda de arte urbano en George Town", "text": "Encuentra 'Children on a Bicycle' de Ernest Zacharevic en Armenian Street y luego busca murales y las caricaturas de hierro por Lebuh Chulia y Lebuh Cannon. Es gratis, y con un mapa de murales impreso se convierte en una búsqueda del tesoro.", "ages": "4+" },
+      { "title": "Funicular de Penang Hill", "text": "Un funicular muy empinado sube a unos 800 m en menos de 10 minutos, donde hace más fresco y se ve todo el estrecho. La ida y vuelta para extranjeros cuesta unos RM30 por adulto y RM15 por niño de 4 a 12 años en la fila normal.", "ages": "3+" },
+      { "title": "Clan Jetties", "text": "Recorre las pasarelas de madera de Chew Jetty, donde familias chinas siguen viviendo en casas sobre pilotes encima del mar. La entrada es gratis; habla bajo y con respeto, porque son viviendas.", "ages": "4+" },
+      { "title": "Entopia", "text": "Un jardín de mariposas cubierto y una galería de insectos en Teluk Bahang, con miles de mariposas, escarabajos gigantes y una zona de juegos con redes para trepar. La entrada para adultos extranjeros cuesta unos RM65-85, con precio reducido para niños.", "ages": "3+" },
+      { "title": "Templo Kek Lok Si", "text": "El mayor complejo de templos budistas del sudeste asiático sube por la ladera de Air Itam, con un estanque de tortugas, una pagoda de siete pisos y una enorme estatua de bronce de Kuan Yin a la que se llega en un pequeño ascensor inclinado. La entrada es gratis, con pequeñas tarifas para la pagoda y el ascensor.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Tech Dome Penang", "text": "Un centro de ciencia interactivo en la torre Komtar con decenas de experimentos interactivos y una cúpula de proyecciones." },
+      { "title": "Wonderfood Museum", "text": "Maquetas gigantes y muy realistas de platos malasios que hacen reír a los niños y dan hambre a los mayores." },
+      { "title": "Pinang Peranakan Mansion", "text": "Una mansión verde llena de muebles tallados, zapatillas bordadas con cuentas e historias de la vida peranakan." }
+    ],
+    "safety": [
+      "Se circula por la izquierda y los soportales a menudo obligan a salir a la calzada, así que lleva a los niños por el lado interior y usa los pasos de peatones cerca de Komtar y Lebuh Chulia.",
+      "El calor y la humedad son altos todo el año, con tormentas repentinas por la tarde: lleva agua, haz pausas bajo techo a mediodía y bebe solo agua embotellada o filtrada.",
+      "Los monos de Penang Hill y del Jardín Botánico roban comida y bolsas, así que guarda la merienda y no dejes que los niños les den de comer."
+    ],
+    "costs": {
+      "currency": "MYR",
+      "daily": "Unos RM450-750 (unos 90-155 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Funicular de Penang Hill ida y vuelta, adulto / niño extranjero", "price": "RM30 / RM15 (about €6 / €3)" },
+        { "label": "Entopia, adulto extranjero", "price": "RM65-85 (about €13-17)" },
+        { "label": "Plato de char kway teow en un puesto", "price": "RM8-15 (about €1.60-3)" },
+        { "label": "Trayecto en Grab por George Town", "price": "RM8-15 (about €1.60-3)" }
+      ],
+      "tip": "Come en mercados de comida callejera como New Lane o Gurney Drive, donde cenar en familia cuesta una fracción de un restaurante."
+    },
+    "gettingAround": "Recorre el centro histórico a pie o en trishaw; Grab es barato y fiable para todo lo demás. Los autobuses Rapid Penang van a Penang Hill (línea 204) y a Batu Ferringhi y Teluk Bahang (línea 101).",
+    "food": "A los niños suelen encantarles el roti canai mojado en curry, el arroz con pollo y el cendol, hielo raspado con leche de coco y fideos verdes de gelatina. El asam laksa es ácido y picante para los más valientes; los mercados de comida se animan a partir de las 18:00.",
+    "firstDay": {
+      "morning": "Busca murales por Armenian Street antes de que apriete el calor.",
+      "afternoon": "Refréscate en Tech Dome o en un museo y recorre los Clan Jetties con la luz de la tarde.",
+      "evening": "Cena en un mercado de comida callejera y prueba el cendol de postre."
+    }
+  },
+  "booklet": {
+    "marks": ["Penang Hill", "Kek Lok Si Temple", "Chew Jetty", "Children on a Bicycle mural"],
+    "food": ["roti canai", "char kway teow", "cendol", "chicken rice"],
+    "facts": [
+      "The old streets of George Town are a UNESCO World Heritage Site.",
+      "A little train called a funicular climbs straight up Penang Hill.",
+      "Some families in Penang live in wooden houses on stilts over the sea."
+    ],
+    "hunt": ["a painted mural", "a bicycle on a wall", "an iron cartoon sign", "a trishaw", "a red lantern", "a house on stilts", "a butterfly", "a monkey", "a funicular train", "a temple pagoda", "a bowl of cendol", "a hawker stall"],
+    "quiz": [
+      ["What famous mural is on Armenian Street?", "Children on a Bicycle", "A Flying Dragon", "A Giant Penguin", "A Rainbow Whale"],
+      ["How do people ride up Penang Hill?", "On a funicular train", "On a camel", "On a submarine", "On a hot air balloon"],
+      ["What are the houses at the Clan Jetties built on?", "Wooden stilts over the sea", "Clouds", "Ice blocks", "Tree tops"]
+    ],
+    "missions": ["Street art detective", "Jetty house explorer"]
+  },
+  "missionsEs": ["Detective de arte urbano", "Explorador de casas sobre el mar"]
+}

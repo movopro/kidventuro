@@ -1,0 +1,114 @@
+{
+  "slug": "panama-city",
+  "name": "Panama City",
+  "nameEs": "Ciudad de Panamá",
+  "country": "Panama",
+  "countryEs": "Panamá",
+  "flag": "🇵🇦",
+  "region": "americas",
+  "lang": "es",
+  "phrases": [["Hola","Hello"],["Gracias","Thank you"],["Por favor","Please"],["Sí","Yes"]],
+  "icons": "🚢 🦥 🌴",
+  "scene": "city",
+  "bestMonths": [1, 2, 3, 4],
+  "seasons": ["winter", "spring"],
+  "en": {
+    "tagline": "Giant ships • sloths • colourful old town",
+    "intro": "Panama City puts a world wonder within a taxi ride of your hotel: kids watch ships as long as streets rise and sink in the canal locks. The same day can hold sloths in a rainforest park, bike rides along the Amador Causeway and ice treats in the pastel plazas of Casco Viejo. Flights are short from the US, the currency is the dollar and the dry season runs January to April.",
+    "ages": { "best": "4-12", "text": "Ships, sloths and boats work for every age, while 7-12 year olds get the most from the canal film and the Biomuseo story of how Panama's land bridge rose." },
+    "stroller": { "rating": "mixed", "text": "The Cinta Costera seafront and the Amador Causeway are wide, flat and perfect for strollers. Casco Viejo has cobbles and narrow sidewalks, and many other streets have none, so pack a carrier too." },
+    "mustDos": [
+      { "title": "Miraflores Locks", "text": "From the viewing terraces, kids watch huge cargo ships lifted and lowered by water; check the transit times, and children under 6 enter free.", "ages": "4+" },
+      { "title": "Biomuseo", "text": "Frank Gehry's bright-roofed museum shows how Panama rose from the sea and let animals cross between two continents, with big walk-through galleries.", "ages": "6+" },
+      { "title": "Casco Viejo", "text": "Wander the restored old town to Plaza de Francia and the seaside walkway, buying a cold raspao or fruit ice pop on the way.", "ages": "3+" },
+      { "title": "Amador Causeway and Punta Culebra", "text": "Rent family bikes on the causeway, then visit the Smithsonian's Punta Culebra Nature Center for sloths, turtles and touch pools.", "ages": "4+" },
+      { "title": "Gatun Lake boat tour", "text": "Boats from Gamboa pass giant ships and islands where capuchin and howler monkeys live; choose operators that do not feed the wildlife.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Canal", "text": "The canal's dramatic building story told inside an old building on Plaza de la Independencia." },
+      { "title": "Albrook Mall", "text": "A giant air-conditioned mall with a carousel, indoor play areas and a big food court." },
+      { "title": "Panamá Viejo museum", "text": "The visitor centre of the 1519 city ruins, then climb the old cathedral tower when it clears." }
+    ],
+    "safety": [
+      "From May to November heavy afternoon storms with lightning are common, so plan outdoor visits for the morning and shelter quickly when thunder starts.",
+      "Traffic is heavy and drivers do not always stop at crossings, so hold hands near roads and use the footbridges where you find them.",
+      "Tap water in the city is treated and widely drunk, but use repellent against mosquitoes, especially near forest parks at dusk."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "About USD 200-320 (about €175-280) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Miraflores Locks Visitor Center (foreign adult)", "price": "USD 17-20 (about €15-17)" },
+        { "label": "Biomuseo (non-resident adult)", "price": "USD 18-22 (about €16-19)" },
+        { "label": "Gatun Lake monkey boat tour (per person)", "price": "USD 45-80 (about €39-70)" },
+        { "label": "Raspao shaved ice", "price": "USD 1-2 (about €1-2)" }
+      ],
+      "tip": "Ride apps are cheap for short hops, and a fonda lunch of chicken, rice and patacones costs a fraction of a Casco Viejo dinner."
+    },
+    "gettingAround": "Ride apps are the easiest way around and are inexpensive, while Metro Lines 1 and 2 are clean and air-conditioned with a rechargeable card. Gamboa and Gatun Lake are best reached on a tour that includes hotel pick-up.",
+    "food": "Try patacones, carimañolas, fried hojaldra bread at breakfast, sancocho chicken soup and ceviche at the Mercado de Mariscos. Families lunch around 12-2 pm and dine about 7-8 pm, with air-conditioned breaks in between.",
+    "firstDay": {
+      "morning": "Watch the ships at Miraflores Locks during the morning transits.",
+      "afternoon": "Ride bikes along the Amador Causeway and visit Punta Culebra.",
+      "evening": "Stroll Casco Viejo's plazas at sunset with a raspao."
+    }
+  },
+  "es": {
+    "tagline": "Barcos gigantes • perezosos • casco antiguo de colores",
+    "intro": "Ciudad de Panamá pone una maravilla mundial a un taxi del hotel: los niños ven cómo barcos tan largos como una calle suben y bajan en las esclusas del canal. El mismo día caben perezosos en un parque de selva, paseos en bici por la Calzada de Amador y helados en las plazas color pastel del Casco Viejo. Se usa el dólar y la estación seca va de enero a abril.",
+    "ages": { "best": "4-12", "text": "Los barcos, los perezosos y los paseos en lancha funcionan a cualquier edad, y los de 7 a 12 años aprovechan más la película del canal y la historia del puente de tierra en el Biomuseo." },
+    "stroller": { "rating": "mixed", "text": "La Cinta Costera y la Calzada de Amador son anchas, llanas e ideales para el cochecito. El Casco Viejo tiene adoquines y aceras estrechas, y muchas otras calles no tienen acera, así que lleva también mochila portabebés." },
+    "mustDos": [
+      { "title": "Esclusas de Miraflores", "text": "Desde las terrazas, los niños ven cómo el agua eleva y baja enormes buques de carga; consulta los horarios de tránsito, y los menores de 6 años entran gratis.", "ages": "4+" },
+      { "title": "Biomuseo", "text": "El museo de techos de colores de Frank Gehry cuenta cómo Panamá surgió del mar y permitió a los animales cruzar entre dos continentes, con grandes salas para recorrer.", "ages": "6+" },
+      { "title": "Casco Viejo", "text": "Pasea por el casco antiguo restaurado hasta la Plaza de Francia y el paseo junto al mar, con un raspao frío o una paleta de fruta por el camino.", "ages": "3+" },
+      { "title": "Calzada de Amador y Punta Culebra", "text": "Alquila bicicletas familiares en la Calzada y visita el Centro Natural Punta Culebra del Smithsonian para ver perezosos, tortugas y piscinas táctiles.", "ages": "4+" },
+      { "title": "Paseo en barco por el lago Gatún", "text": "Las lanchas salen de Gamboa, pasan junto a barcos gigantes y llegan a islas donde viven monos capuchinos y aulladores; elige operadores que no alimenten a los animales.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Canal", "text": "La dramática historia de la construcción del canal, en un edificio antiguo de la Plaza de la Independencia." },
+      { "title": "Albrook Mall", "text": "Un centro comercial gigante con aire acondicionado, carrusel, zonas de juego y gran patio de comidas." },
+      { "title": "Museo de Panamá Viejo", "text": "El centro de visitantes de las ruinas de la ciudad de 1519; cuando escampe, sube a la torre de la catedral." }
+    ],
+    "safety": [
+      "De mayo a noviembre son habituales las tormentas fuertes por la tarde con rayos, así que haz las visitas al aire libre por la mañana y resguárdate al primer trueno.",
+      "El tráfico es denso y los conductores no siempre paran en los pasos de peatones, así que lleva a los niños de la mano y usa los puentes peatonales cuando los haya.",
+      "El agua del grifo en la ciudad está tratada y se bebe sin problema, pero usa repelente contra los mosquitos, sobre todo cerca de los parques de selva al atardecer."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "Unos USD 200-320 (unos €175-280) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Centro de Visitantes de Miraflores (adulto extranjero)", "price": "USD 17-20 (about €15-17)" },
+        { "label": "Biomuseo (adulto no residente)", "price": "USD 18-22 (about €16-19)" },
+        { "label": "Paseo en lancha para ver monos en el lago Gatún (por persona)", "price": "USD 45-80 (about €39-70)" },
+        { "label": "Raspao", "price": "USD 1-2 (about €1-2)" }
+      ],
+      "tip": "Las aplicaciones de transporte son baratas para trayectos cortos, y un almuerzo en una fonda con pollo, arroz y patacones cuesta una fracción de una cena en el Casco Viejo."
+    },
+    "gettingAround": "Las aplicaciones de transporte son la forma más fácil y barata de moverse, y las líneas 1 y 2 del Metro son limpias y con aire acondicionado, con tarjeta recargable. A Gamboa y al lago Gatún se llega mejor con un tour que recoja en el hotel.",
+    "food": "Prueba los patacones, las carimañolas, las hojaldras fritas del desayuno, el sancocho de gallina y el ceviche del Mercado de Mariscos. Las familias almuerzan entre las 12 y las 14 horas y cenan hacia las 19-20, con pausas al fresco del aire acondicionado.",
+    "firstDay": {
+      "morning": "Mira los barcos en las Esclusas de Miraflores durante los tránsitos de la mañana.",
+      "afternoon": "Pedalea por la Calzada de Amador y visita Punta Culebra.",
+      "evening": "Pasea por las plazas del Casco Viejo al atardecer con un raspao."
+    }
+  },
+  "booklet": {
+    "marks": ["Miraflores Locks", "Biomuseo", "Casco Viejo", "Bridge of the Americas"],
+    "food": ["patacones", "sancocho", "hojaldras", "raspao"],
+    "facts": [
+      "Canal locks lift ships up and down with water, like a giant staircase made of water.",
+      "The Panama Canal opened in 1914 and joins the Atlantic and Pacific oceans.",
+      "Sloths sleep a lot and climb down from their trees only about once a week."
+    ],
+    "hunt": ["a giant cargo ship", "a canal lock gate", "a sloth", "a toucan", "a pelican", "a colourful metal roof", "a mola with bright patterns", "a tall glass skyscraper", "a raspao cart", "a bicycle on the causeway", "a tugboat", "a Panama flag"],
+    "quiz": [
+      ["Which two oceans does the Panama Canal connect?", "The Atlantic and the Pacific", "The Indian and the Arctic", "The Atlantic and the Indian", "The Pacific and the Arctic"],
+      ["Which slow animal hangs upside down in Panama's trees?", "The sloth", "The giraffe", "The penguin", "The camel"],
+      ["What lifts ships up and down in the canal?", "Water locks", "Giant cranes", "Hot-air balloons", "Rope elevators"]
+    ],
+    "missions": ["Canal ship counter", "Sloth spotter"]
+  },
+  "missionsEs": ["Contador de barcos del canal", "Vigía de perezosos"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "philadelphia",
+  "name": "Philadelphia",
+  "nameEs": "Filadelfia",
+  "country": "United States",
+  "countryEs": "Estados Unidos",
+  "flag": "🇺🇸",
+  "region": "americas",
+  "lang": "en",
+  "phrases": [["Hey", "Hello"], ["Thanks", "Thank you"], ["Please", "Please"], ["Yeah", "Yes"]],
+  "icons": "🔔 🥨 🦖",
+  "scene": "city",
+  "bestMonths": [4, 5, 6, 9, 10],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "Liberty Bell • giant heart • soft pretzels",
+    "intro": "Philadelphia is where the United States was born, and it makes history easy for kids: you can stand next to the cracked Liberty Bell and walk through the room where the Declaration of Independence was signed. Then it switches to fun, with a walk-through giant heart at the Franklin Institute, a museum made for touching, America's first zoo and soft pretzels on every corner. The centre is compact and flat.",
+    "ages": { "best": "4-12", "text": "Please Touch Museum is built for ages 1-7, while the Franklin Institute, the Museum of the American Revolution and Independence Hall suit children of 7-12 who have heard some history." },
+    "stroller": { "rating": "easy", "text": "Center City and the Old City are flat on a tidy street grid with kerb cuts, and most museums have lifts; only the brick pavements in the Old City get bumpy." },
+    "mustDos": [
+      { "title": "Liberty Bell and Independence Hall", "text": "See the cracked bell for free, then join a ranger tour of Independence Hall; free timed tickets are needed most of the year and cost US$1 each to reserve online.", "ages": "5+" },
+      { "title": "Franklin Institute", "text": "Walk through a giant beating heart, see a real steam train and test science experiments; plan half a day and expect about US$25-35 per adult.", "ages": "4+" },
+      { "title": "Please Touch Museum", "text": "A huge hands-on museum in Fairmount Park with a mini supermarket, a water play area, an Alice in Wonderland maze and a restored 1908 carousel.", "ages": "1-7" },
+      { "title": "Philadelphia Zoo", "text": "America's first zoo, with Zoo360 mesh trails that let big cats and primates walk over visitors' heads; tickets are cheaper online for a set date.", "ages": "all ages" },
+      { "title": "Franklin Square", "text": "A small Old City park with a carousel, Philadelphia-themed mini golf and a playground, open daily and best combined with the Liberty Bell.", "ages": "3-10" }
+    ],
+    "rainyDay": [
+      { "title": "Academy of Natural Sciences", "text": "Huge dinosaur skeletons, a dig pit and a live butterfly room on the Parkway." },
+      { "title": "Museum of the American Revolution", "text": "Lively 1776 story with George Washington's war tent and a hands-on discovery centre." },
+      { "title": "Reading Terminal Market", "text": "Covered food hall with Amish pretzels, ice cream and dozens of counters to graze." }
+    ],
+    "safety": [
+      "Some neighbourhoods outside the centre, such as Kensington, are not for visitors, so stay in Center City, Old City and Fairmount with kids.",
+      "Summer can be hot and very humid at 30-35 °C, so plan indoor museums at midday and carry water.",
+      "Drivers turn fast on one-way streets, so cross at signals with the walk sign; city tap water is treated and safe."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "About US$250-380 (≈ €215-330) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Franklin Institute (adult / child 3-11)", "price": "US$25-35 / US$21-27 (≈ €22-30 / €18-23)" },
+        { "label": "Please Touch Museum (per person, age 1+)", "price": "US$25-30 (≈ €22-26)" },
+        { "label": "SEPTA single ride (under 12 free with an adult)", "price": "US$2.50-3 (≈ €2.20-2.60)" },
+        { "label": "Philly cheesesteak", "price": "US$12-18 (≈ €10-16)" }
+      ],
+      "tip": "The Liberty Bell, Independence Hall, the Rocky Steps and many Old City sites are free, which balances the pricier science museums."
+    },
+    "gettingAround": "Walk Old City and Center City, use SEPTA buses, the east-west subway line and trolleys, and take the Regional Rail straight from the airport.",
+    "food": "Kids usually enjoy a cheesesteak, soft pretzels, Italian water ice in summer and Tastykake snack cakes; Reading Terminal Market is easiest for picky eaters, and dinner starts around 17:30.",
+    "firstDay": {
+      "morning": "See the Liberty Bell and tour Independence Hall before the school groups arrive.",
+      "afternoon": "Play at Franklin Square, then visit the Museum of the American Revolution.",
+      "evening": "Eat at Reading Terminal Market or share a cheesesteak in South Philly."
+    }
+  },
+  "es": {
+    "tagline": "Campana de la Libertad • corazón gigante • pretzels blandos",
+    "intro": "Filadelfia es donde nacieron los Estados Unidos y hace la historia fácil para los niños: puedes ponerte junto a la agrietada Campana de la Libertad y recorrer la sala donde se firmó la Declaración de Independencia. Después llega la diversión, con un corazón gigante para atravesar en el Franklin Institute, un museo hecho para tocar, el primer zoo del país y pretzels blandos en cada esquina. El centro es compacto y llano.",
+    "ages": { "best": "4-12", "text": "El Please Touch Museum está pensado para niños de 1 a 7 años, mientras que el Franklin Institute, el Museum of the American Revolution e Independence Hall convienen a niños de 7 a 12 que ya saben algo de historia." },
+    "stroller": { "rating": "easy", "text": "Center City y Old City son llanos, con calles en cuadrícula y rebajes en las aceras, y casi todos los museos tienen ascensor; solo las aceras de ladrillo de Old City son algo irregulares." },
+    "mustDos": [
+      { "title": "Campana de la Libertad e Independence Hall", "text": "Mira gratis la campana agrietada y únete a una visita guiada por un guardaparques en Independence Hall; casi todo el año hacen falta entradas gratuitas con hora que cuestan 1 US$ al reservar en línea.", "ages": "5+" },
+      { "title": "Franklin Institute", "text": "Atraviesa un corazón gigante que late, mira una locomotora de vapor real y prueba experimentos científicos; calcula medio día y unos 25-35 US$ por adulto.", "ages": "4+" },
+      { "title": "Please Touch Museum", "text": "Un enorme museo interactivo en Fairmount Park con un minisupermercado, zona de juegos de agua, un laberinto de Alicia en el País de las Maravillas y un tiovivo restaurado de 1908.", "ages": "1-7" },
+      { "title": "Zoo de Filadelfia", "text": "El primer zoo de Estados Unidos, con túneles de malla Zoo360 por los que grandes felinos y primates pasan sobre las cabezas de los visitantes; las entradas son más baratas en línea con fecha fija.", "ages": "todas las edades" },
+      { "title": "Franklin Square", "text": "Un pequeño parque de Old City con tiovivo, minigolf con temática de Filadelfia y zona de juegos, abierto a diario e ideal para combinar con la Campana de la Libertad.", "ages": "3-10" }
+    ],
+    "rainyDay": [
+      { "title": "Academy of Natural Sciences", "text": "Enormes esqueletos de dinosaurio, un foso para excavar y una sala de mariposas vivas en el Parkway." },
+      { "title": "Museum of the American Revolution", "text": "La historia de 1776 contada con viveza, con la tienda de campaña de George Washington y un centro interactivo." },
+      { "title": "Reading Terminal Market", "text": "Mercado cubierto con pretzels amish, helados y decenas de puestos para picar." }
+    ],
+    "safety": [
+      "Algunos barrios fuera del centro, como Kensington, no son para visitantes, así que con niños quédate en Center City, Old City y Fairmount.",
+      "El verano puede ser caluroso y muy húmedo, con 30-35 °C, así que deja los museos para el mediodía y lleva agua.",
+      "Los coches giran rápido en las calles de sentido único, así que cruza en los semáforos con la señal de paso; el agua del grifo está tratada y es potable."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "Unos 250-380 US$ (215-330 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Franklin Institute (adulto / niño 3-11)", "price": "US$25-35 / US$21-27 (≈ €22-30 / €18-23)" },
+        { "label": "Please Touch Museum (por persona, desde 1 año)", "price": "US$25-30 (≈ €22-26)" },
+        { "label": "Viaje sencillo en SEPTA (menores de 12 gratis con un adulto)", "price": "US$2.50-3 (≈ €2.20-2.60)" },
+        { "label": "Cheesesteak de Filadelfia", "price": "US$12-18 (≈ €10-16)" }
+      ],
+      "tip": "La Campana de la Libertad, Independence Hall, las escaleras de Rocky y muchos lugares de Old City son gratis, lo que compensa los museos de ciencia más caros."
+    },
+    "gettingAround": "Recorre a pie Old City y Center City, usa los autobuses urbanos, el metro y los tranvías de SEPTA, y toma el tren Regional Rail directamente desde el aeropuerto.",
+    "food": "A los niños suelen gustarles el cheesesteak, los pretzels blandos, el water ice italiano en verano y los pastelitos Tastykake; Reading Terminal Market es lo más fácil para los niños quisquillosos, y se cena hacia las 17:30.",
+    "firstDay": {
+      "morning": "Mira la Campana de la Libertad y visita Independence Hall antes de que lleguen los grupos escolares.",
+      "afternoon": "Jugad en Franklin Square y después visitad el Museum of the American Revolution.",
+      "evening": "Cena en Reading Terminal Market o comparte un cheesesteak en South Philly."
+    }
+  },
+  "booklet": {
+    "marks": ["Liberty Bell", "Independence Hall", "Rocky Steps", "Franklin Institute"],
+    "food": ["cheesesteak", "soft pretzel", "water ice", "Tastykake"],
+    "facts": [
+      "The Liberty Bell has a big crack and has not been rung properly for over 150 years.",
+      "Philadelphia Zoo, opened in 1874, was the first zoo in the United States.",
+      "The name Philadelphia comes from Greek words meaning brotherly love."
+    ],
+    "hunt": ["a cracked bell", "a statue of Benjamin Franklin", "a soft pretzel", "a carousel horse", "a brick house", "an American flag", "a three-cornered hat", "a dinosaur skeleton", "a mural on a wall", "a trolley", "some big stone steps", "a LOVE sign"],
+    "quiz": [
+      ["What is special about the Liberty Bell?", "It has a crack", "It is made of gold", "It is purple", "It can talk"],
+      ["What can you walk through at the Franklin Institute?", "A giant heart", "A volcano", "A rocket", "A whale"],
+      ["What does Philadelphia mean?", "Brotherly love", "Big river", "Tall tower", "Sunny city"]
+    ],
+    "missions": ["Liberty Bell detective", "Founding history hunter"]
+  },
+  "missionsEs": ["Detective de la campana", "Cazador de historia"]
+}

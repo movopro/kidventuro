@@ -1,0 +1,114 @@
+{
+  "slug": "nara",
+  "name": "Nara",
+  "nameEs": "Nara",
+  "country": "Japan",
+  "countryEs": "Japón",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "lang": "ja",
+  "phrases": [["Konnichiwa", "Hello"], ["Arigatō", "Thank you"], ["Onegaishimasu", "Please"], ["Hai", "Yes"]],
+  "icons": "🦌 🛕 🍡",
+  "scene": "temple",
+  "bestMonths": [3, 4, 5, 10, 11],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "Bowing deer • a giant bronze Buddha • stone lantern paths",
+    "intro": "Nara is the easiest big day out in Japan for children: more than a thousand free-roaming deer, a bronze Buddha the height of a five-storey building and wide, flat park paths linking the main temples. It works as a day trip from Kyoto or Osaka, but staying one night lets you see the deer and lantern paths early, before the tour groups arrive.",
+    "ages": { "best": "4-12", "text": "Every age enjoys the deer, though under-5s can be startled when a crowd of them pushes in for crackers. Children of 7 and up like the temple stories and squeezing through the pillar hole at Todai-ji." },
+    "stroller": { "rating": "easy", "text": "Nara Park is mostly flat with wide gravel and paved paths, so a stroller copes well. Expect some gravel and steps at Kasuga Taisha and on the climb towards Nigatsu-do, where a carrier is easier." },
+    "mustDos": [
+      { "title": "Nara Park deer", "text": "Buy a bundle of shika senbei crackers (about ¥200) from the official stalls, bow to a deer and many will bow back. Hand them over quickly, then show empty palms so the deer stop nudging.", "ages": "4+" },
+      { "title": "Todai-ji Great Buddha Hall", "text": "One of the world's largest wooden buildings holds a bronze Buddha about 15 m tall. Behind it, children queue to crawl through a hole in a wooden pillar, said to be the size of the Buddha's nostril; adults pay ¥800 and children ¥400.", "ages": "4+" },
+      { "title": "Kasuga Taisha lantern paths", "text": "The forest approach to this red-lacquered shrine is lined with around 2,000 moss-covered stone lanterns, and the outer grounds are free. Children can count lanterns and look for deer resting between them in the shade.", "ages": "5+" },
+      { "title": "Mount Wakakusa", "text": "This grassy hill gives a wide view over the city and a picnic spot with deer, roughly 30-40 minutes' climb for school-age legs. It opens from mid-March to mid-December for a small fee of a few hundred yen.", "ages": "6+" },
+      { "title": "Naramachi and the mochi pounders", "text": "Wander the old merchant lanes of Naramachi, then stop at Nakatanidou near Sanjo-dori, where staff pound green yomogi mochi at high speed with wooden mallets. A fresh piece costs around ¥200 and the show draws a cheering crowd.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Naramachi Karakuri Toy Museum", "text": "A free little house of traditional wooden mechanical toys that children are allowed to play with." },
+      { "title": "Nara National Museum", "text": "Calm halls of Buddhist statues; collection galleries are free for under-18s, so a short visit costs little." },
+      { "title": "Naramachi Koshi-no-Ie", "text": "A free reconstructed merchant townhouse where kids can explore tatami rooms, a tiny garden and steep wooden stairs." }
+    ],
+    "safety": [
+      "Deer are wild and can nip, butt or chase a child holding crackers, so let small children feed them with an adult and keep snacks and paper maps in a closed bag.",
+      "In autumn the stags are in rutting season and grumpier than usual, so keep a few metres from any male with antlers even though most are cut each October.",
+      "July and August are hot and very humid, so plan the park for early morning and carry water; vending machines with cold drinks stand almost everywhere."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "About ¥22,000-35,000 (about €130-205) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Deer crackers (one bundle)", "price": "¥200 (about €1.20)" },
+        { "label": "Todai-ji Great Buddha Hall (adult / child)", "price": "¥800 / ¥400 (about €4.70 / €2.40)" },
+        { "label": "Train Kyoto-Nara one way, adult (children half)", "price": "¥720-800 (about €4.20-4.70)" },
+        { "label": "Kakinoha-zushi lunch set", "price": "¥1,000-1,800 (about €6-11)" }
+      ],
+      "tip": "Most of Nara Park, the Kasuga Taisha approach and the Naramachi lanes are free, so pay for one or two halls and spend the rest of the day outdoors."
+    },
+    "gettingAround": "Kintetsu Nara Station is a five-minute walk from the park, and trains from Kyoto or Osaka Namba take about 35-50 minutes. Everything central is walkable, with loop buses for tired legs; an ICOCA or Suica card works on all of them.",
+    "food": "Try kakinoha-zushi (small sushi wrapped in persimmon leaves), chilled miwa somen noodles in summer and wobbly kuzu mochi with brown-sugar syrup. Lunch runs from about 11:30 to 14:00 and many Nara restaurants close by 20:00, so eat dinner early.",
+    "firstDay": {
+      "morning": "Arrive early, buy deer crackers and walk through Nara Park to Todai-ji before the tour buses.",
+      "afternoon": "Have lunch near Kintetsu Nara, then follow the lantern path up to Kasuga Taisha.",
+      "evening": "Stroll Naramachi, watch the mochi pounding and eat an early dinner of somen or udon."
+    }
+  },
+  "es": {
+    "tagline": "Ciervos que saludan • un Buda gigante de bronce • senderos de faroles de piedra",
+    "intro": "Nara es la excursión más fácil de Japón con niños: más de mil ciervos sueltos, un Buda de bronce tan alto como un edificio de cinco plantas y caminos anchos y llanos que unen los templos principales. Se puede visitar en el día desde Kioto u Osaka, pero dormir una noche permite ver los ciervos y los faroles temprano, antes de que lleguen los grupos.",
+    "ages": { "best": "4-12", "text": "Los ciervos encantan a todas las edades, aunque a los menores de 5 años puede asustarles que varios se acerquen a la vez pidiendo galletas. A partir de los 7 años disfrutan las historias de los templos y pasar por el agujero de la columna de Todai-ji." },
+    "stroller": { "rating": "easy", "text": "El parque de Nara es casi todo llano, con caminos anchos de grava y asfalto, así que el carrito funciona bien. Hay grava y escalones en Kasuga Taisha y en la subida a Nigatsu-do, donde va mejor la mochila portabebés." },
+    "mustDos": [
+      { "title": "Los ciervos del parque de Nara", "text": "Compra un paquete de galletas shika senbei (unos ¥200) en los puestos oficiales, haz una reverencia y muchos ciervos te la devolverán. Dáselas rápido y luego enseña las manos vacías para que dejen de empujar.", "ages": "4+" },
+      { "title": "Gran Sala del Buda de Todai-ji", "text": "Uno de los edificios de madera más grandes del mundo guarda un Buda de bronce de unos 15 m. Detrás, los niños hacen cola para pasar por un agujero en una columna, del tamaño de la nariz del Buda según la tradición; adultos ¥800 y niños ¥400.", "ages": "4+" },
+      { "title": "Faroles de Kasuga Taisha", "text": "El camino por el bosque hasta este santuario rojo está bordeado por unos 2.000 faroles de piedra cubiertos de musgo, y la zona exterior es gratuita. Los niños pueden contar faroles y buscar ciervos descansando a la sombra.", "ages": "5+" },
+      { "title": "Monte Wakakusa", "text": "Esta colina de hierba ofrece vistas de toda la ciudad y un buen sitio para merendar con ciervos, a unos 30-40 minutos de subida para niños en edad escolar. Abre de mediados de marzo a mediados de diciembre por unos pocos cientos de yenes.", "ages": "6+" },
+      { "title": "Naramachi y los golpeadores de mochi", "text": "Pasea por las calles de comerciantes de Naramachi y para en Nakatanidou, cerca de Sanjo-dori, donde golpean mochi verde de yomogi a toda velocidad con mazos de madera. Un trozo recién hecho cuesta unos ¥200 y el espectáculo siempre reúne público.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo de juguetes Karakuri de Naramachi", "text": "Una casita gratuita llena de juguetes mecánicos tradicionales de madera con los que los niños pueden jugar." },
+      { "title": "Museo Nacional de Nara", "text": "Salas tranquilas de estatuas budistas; la colección permanente es gratuita para menores de 18 años." },
+      { "title": "Naramachi Koshi-no-Ie", "text": "Una casa de comerciante reconstruida y gratuita con habitaciones de tatami, un jardín diminuto y escaleras empinadas de madera." }
+    ],
+    "safety": [
+      "Los ciervos son salvajes y pueden morder, empujar o perseguir a un niño con galletas, así que los pequeños deben darles de comer con un adulto y guardar comida y mapas en una bolsa cerrada.",
+      "En otoño los machos están en celo y más irritables, así que mantén unos metros de distancia de cualquier ciervo con astas, aunque la mayoría se cortan cada octubre.",
+      "Julio y agosto son muy calurosos y húmedos: visita el parque a primera hora y lleva agua; hay máquinas expendedoras de bebidas frías casi en cada esquina."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "Unos ¥22.000-35.000 (unos 130-205 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Galletas para ciervos (un paquete)", "price": "¥200 (about €1.20)" },
+        { "label": "Gran Sala del Buda de Todai-ji (adulto / niño)", "price": "¥800 / ¥400 (about €4.70 / €2.40)" },
+        { "label": "Tren Kioto-Nara solo ida, adulto (niños mitad)", "price": "¥720-800 (about €4.20-4.70)" },
+        { "label": "Menú de kakinoha-zushi", "price": "¥1,000-1,800 (about €6-11)" }
+      ],
+      "tip": "Casi todo el parque de Nara, el camino a Kasuga Taisha y las calles de Naramachi son gratis: paga una o dos salas y pasa el resto del día al aire libre."
+    },
+    "gettingAround": "La estación Kintetsu Nara está a cinco minutos a pie del parque y los trenes desde Kioto u Osaka Namba tardan unos 35-50 minutos. Todo el centro se recorre andando, con autobuses circulares para piernas cansadas; la tarjeta ICOCA o Suica sirve en todos.",
+    "food": "Prueba el kakinoha-zushi (pequeño sushi envuelto en hojas de caqui), los fideos fríos miwa somen en verano y el tembloroso kuzu mochi con sirope de azúcar moreno. La comida es de 11:30 a 14:00 aproximadamente y muchos restaurantes cierran a las 20:00, así que cena temprano.",
+    "firstDay": {
+      "morning": "Llega temprano, compra galletas para los ciervos y cruza el parque hasta Todai-ji antes que los autobuses.",
+      "afternoon": "Come cerca de Kintetsu Nara y sube por el camino de faroles hasta Kasuga Taisha.",
+      "evening": "Pasea por Naramachi, mira cómo golpean el mochi y cena pronto unos somen o udon."
+    }
+  },
+  "booklet": {
+    "marks": ["Todai-ji Temple", "Kasuga Taisha Shrine", "Kofuku-ji Pagoda", "Nara Park"],
+    "food": ["persimmon-leaf sushi", "green mochi", "somen noodles", "kuzu mochi"],
+    "facts": [
+      "More than 1,000 wild deer walk freely around Nara Park.",
+      "Nara was the capital of Japan about 1,300 years ago.",
+      "The Great Buddha at Todai-ji is about 15 metres tall."
+    ],
+    "hunt": ["a deer bowing", "a baby deer", "a stone lantern", "a red torii gate", "a deer cracker stall", "a five-storey pagoda", "some moss on a lantern", "a big wooden gate", "a temple bell", "a person in a kimono", "a koi pond", "a vending machine"],
+    "quiz": [
+      ["What do visitors feed the deer in Nara?", "Special deer crackers", "Chocolate", "Sushi", "Ice cream"],
+      ["About how tall is the Great Buddha at Todai-ji?", "About 15 metres", "About 2 metres", "About 50 metres", "About 100 metres"],
+      ["What do many Nara deer do before they get a cracker?", "Bow their heads", "Jump in a circle", "Sing a song", "Wave a hoof"]
+    ],
+    "missions": ["Deer bow counter", "Stone lantern hunt"]
+  },
+  "missionsEs": ["Contador de reverencias de ciervos", "Caza de faroles de piedra"]
+}

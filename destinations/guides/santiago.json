@@ -1,0 +1,114 @@
+{
+  "slug": "santiago",
+  "name": "Santiago",
+  "nameEs": "Santiago de Chile",
+  "country": "Chile",
+  "countryEs": "Chile",
+  "flag": "🇨🇱",
+  "region": "americas",
+  "lang": "es",
+  "phrases": [["Hola","Hello"],["Gracias","Thank you"],["Por favor","Please"],["Sí po","Yes (Chilean style)"]],
+  "icons": "🏔️ 🚡 🥟",
+  "scene": "mountains",
+  "bestMonths": [10, 11, 12, 3, 4],
+  "seasons": ["spring", "autumn", "winter"],
+  "en": {
+    "tagline": "Andes views • cable cars • empanadas",
+    "intro": "Santiago is a modern capital with the snowy Andes as its backdrop. Kids ride a century-old funicular and a cable car over Cerro San Cristóbal, climb the castle-like terraces of Santa Lucía and eat warm empanadas. Within two hours you can splash in an Andean river, ride the old lifts of Valparaíso or, in the southern winter, play in real snow.",
+    "ages": { "best": "4-12", "text": "Every age enjoys the hills, parks and science museums, and older kids get more from Valparaíso walks and river rafting, which operators usually allow from about 7-8 years." },
+    "stroller": { "rating": "mixed", "text": "Providencia and Las Condes have wide, flat sidewalks and many Metro stations have lifts. The hills, Valparaíso's stairways and Santa Lucía's steps call for a carrier." },
+    "mustDos": [
+      { "title": "Cerro San Cristóbal", "text": "Ride the 1925 funicular from Pío Nono to the white Virgin statue, then take the cable car across the hill for wide views of the city and the Andes.", "ages": "3+" },
+      { "title": "Cerro Santa Lucía", "text": "Climb stone stairways, terraces and a small fort on this free hill park in the centre; visitors register with ID at the gate.", "ages": "4+" },
+      { "title": "Cajón del Maipo", "text": "About an hour southeast, families picnic by the Maipo River, spot condors over the peaks and try gentle rafting with local operators from spring to autumn.", "ages": "5+" },
+      { "title": "Valparaíso day trip", "text": "Buses take about 1.5-2 hours to this colourful port, where kids ride the historic ascensor lifts and hunt for giant murals on the hills.", "ages": "6+" },
+      { "title": "Snow day at Farellones", "text": "From about June to September the ski areas above Santiago offer snow play and beginner slopes about 1.5 hours away; book transport early on weekends.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo Interactivo Mirador", "text": "A huge hands-on science museum in La Granja, easily a half day of experiments." },
+      { "title": "Museo Nacional de Historia Natural", "text": "A free museum in Quinta Normal park with a whale skeleton and Chilean wildlife." },
+      { "title": "Sky Costanera", "text": "The viewing deck of Gran Torre Santiago is clearest just after rain washes the air." }
+    ],
+    "safety": [
+      "Summer sun from December to February is intense and dry, so carry water, hats and sunscreen, especially on the shadeless hilltops.",
+      "Pickpockets work in the centre, on the Metro and in Valparaíso, so keep phones and bags zipped and close in crowds.",
+      "Chile has frequent small earthquakes and builds for them, so learn your hotel's exit routes and teach kids drop, cover and hold on."
+    ],
+    "costs": {
+      "currency": "CLP",
+      "daily": "About CLP 180,000-280,000 (about €165-255) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "San Cristóbal funicular return (adult / child)", "price": "CLP 4,000 / 2,000 (about €3.60 / €1.80)" },
+        { "label": "Sky Costanera viewing deck (adult)", "price": "CLP 15,000-20,000 (about €14-18)" },
+        { "label": "Empanada de pino", "price": "CLP 2,500-4,500 (about €2.30-4)" },
+        { "label": "Metro ride with a Bip! card (adult)", "price": "CLP 700-900 (about €0.65-0.85)" }
+      ],
+      "tip": "Cerro Santa Lucía, the natural history museum and many state museums are free, so balance them with the paid cable car day."
+    },
+    "gettingAround": "The Metro is clean and quick with a rechargeable Bip! card, though very crowded at rush hour. Ride apps work well around the city, and a rental car makes Cajón del Maipo and the ski roads easier.",
+    "food": "Kids love empanadas de pino, completo hot dogs with avocado, pastel de choclo and the summer peach drink mote con huesillo. Lunch runs 1-3 pm and dinner is late, so many families do 'once', an early evening tea with bread.",
+    "firstDay": {
+      "morning": "Ride the funicular up Cerro San Cristóbal for Andes views before the haze.",
+      "afternoon": "Eat at Mercado Central, then climb the terraces of Cerro Santa Lucía.",
+      "evening": "Have 'once' with sopaipillas and walk the cafés of Barrio Lastarria."
+    }
+  },
+  "es": {
+    "tagline": "Vistas a los Andes • teleféricos • empanadas",
+    "intro": "Santiago es una capital moderna con los Andes nevados de telón de fondo. Los niños suben en un funicular centenario y cruzan el Cerro San Cristóbal en teleférico, trepan por las terrazas con aire de castillo del Santa Lucía y comen empanadas calentitas. A menos de dos horas se puede chapotear en un río andino, subir a los ascensores antiguos de Valparaíso o, en el invierno austral, jugar en la nieve.",
+    "ages": { "best": "4-12", "text": "Todas las edades disfrutan los cerros, los parques y los museos de ciencia, y los mayores aprovechan más Valparaíso y el rafting, que los operadores suelen permitir desde los 7 u 8 años." },
+    "stroller": { "rating": "mixed", "text": "Providencia y Las Condes tienen aceras anchas y llanas, y muchas estaciones de Metro tienen ascensor. Los cerros, las escaleras de Valparaíso y los escalones del Santa Lucía piden mochila portabebés." },
+    "mustDos": [
+      { "title": "Cerro San Cristóbal", "text": "Sube en el funicular de 1925 desde Pío Nono hasta la Virgen blanca y cruza el cerro en teleférico, con amplias vistas de la ciudad y la cordillera.", "ages": "3+" },
+      { "title": "Cerro Santa Lucía", "text": "Trepa por escaleras de piedra, terrazas y un pequeño fuerte en este parque gratuito del centro; en la entrada se registra a los visitantes con documento.", "ages": "4+" },
+      { "title": "Cajón del Maipo", "text": "A una hora al sureste, las familias hacen pícnic junto al río Maipo, buscan cóndores sobre las cumbres y prueban un rafting suave con operadores locales de primavera a otoño.", "ages": "5+" },
+      { "title": "Excursión a Valparaíso", "text": "En bus se tarda 1,5-2 horas hasta este puerto de colores, donde los niños suben en los ascensores históricos y buscan murales gigantes por los cerros.", "ages": "6+" },
+      { "title": "Día de nieve en Farellones", "text": "De junio a septiembre aproximadamente, los centros de esquí sobre Santiago tienen zonas de juego en la nieve y pistas para principiantes a 1,5 horas; reserva transporte con tiempo los fines de semana.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo Interactivo Mirador", "text": "Un enorme museo de ciencia interactivo en La Granja, fácilmente media jornada de experimentos." },
+      { "title": "Museo Nacional de Historia Natural", "text": "Un museo gratuito en el parque Quinta Normal con un esqueleto de ballena y fauna chilena." },
+      { "title": "Sky Costanera", "text": "El mirador de la Gran Torre Santiago se ve más nítido justo después de que la lluvia limpia el aire." }
+    ],
+    "safety": [
+      "El sol de verano, de diciembre a febrero, es intenso y seco, así que lleva agua, gorros y protector solar, sobre todo en las cumbres sin sombra.",
+      "Hay carteristas en el centro, en el Metro y en Valparaíso, así que lleva el móvil y los bolsos cerrados y pegados al cuerpo entre la gente.",
+      "En Chile hay temblores frecuentes y se construye pensando en ellos, así que conoce las salidas del hotel y enseña a los niños a agacharse, cubrirse y sujetarse."
+    ],
+    "costs": {
+      "currency": "CLP",
+      "daily": "Unos CLP 180.000-280.000 (unos €165-255) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Funicular San Cristóbal ida y vuelta (adulto / niño)", "price": "CLP 4,000 / 2,000 (about €3.60 / €1.80)" },
+        { "label": "Mirador Sky Costanera (adulto)", "price": "CLP 15,000-20,000 (about €14-18)" },
+        { "label": "Empanada de pino", "price": "CLP 2,500-4,500 (about €2.30-4)" },
+        { "label": "Viaje en Metro con tarjeta Bip! (adulto)", "price": "CLP 700-900 (about €0.65-0.85)" }
+      ],
+      "tip": "El Cerro Santa Lucía, el museo de historia natural y muchos museos públicos son gratis, así que combínalos con el día de teleférico, que es de pago."
+    },
+    "gettingAround": "El Metro es limpio y rápido con la tarjeta recargable Bip!, aunque va muy lleno en hora punta. Las aplicaciones de transporte funcionan bien en la ciudad, y un coche de alquiler facilita ir al Cajón del Maipo y a los centros de esquí.",
+    "food": "A los niños les encantan las empanadas de pino, los completos con palta, el pastel de choclo y el mote con huesillo en verano. Se almuerza de 13 a 15 horas y se cena tarde, por eso muchas familias toman 'once', una merienda con pan al caer la tarde.",
+    "firstDay": {
+      "morning": "Sube en funicular al Cerro San Cristóbal para ver los Andes antes de la bruma.",
+      "afternoon": "Come en el Mercado Central y luego sube las terrazas del Cerro Santa Lucía.",
+      "evening": "Toma 'once' con sopaipillas y pasea entre los cafés del Barrio Lastarria."
+    }
+  },
+  "booklet": {
+    "marks": ["Cerro San Cristóbal", "Gran Torre Santiago", "Cerro Santa Lucía", "La Moneda Palace"],
+    "food": ["empanadas", "completos", "mote con huesillo", "sopaipillas"],
+    "facts": [
+      "The Andes next to Santiago are the longest mountain range on land in the whole world.",
+      "Chile is so long and thin that it stretches more than 4,000 km from top to bottom.",
+      "Gran Torre Santiago is about 300 metres tall, the tallest building in South America."
+    ],
+    "hunt": ["a funicular car", "a cable car", "a snowy mountain top", "a condor picture", "a sleepy street dog", "a giant mural", "a palm tree", "an empanada", "a Metro train", "a white statue on a hill", "a Chilean flag", "a fruit stall"],
+    "quiz": [
+      ["Which mountains can you see from Santiago?", "The Andes", "The Alps", "The Himalayas", "The Rockies"],
+      ["What shape is Chile on a map?", "Long and thin", "Round like a ball", "Square", "Like a star"],
+      ["Which huge bird soars over the Andes?", "The Andean condor", "The penguin", "The flamingo", "The ostrich"]
+    ],
+    "missions": ["Andes peak counter", "Funicular and cable car rider"]
+  },
+  "missionsEs": ["Contador de cumbres andinas", "Viajero en funicular"]
+}

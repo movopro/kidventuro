@@ -1,0 +1,1015 @@
+[
+ {
+  "slug": "bergen",
+  "name": "Bergen",
+  "nameEs": "Bergen",
+  "flag": "🇳🇴",
+  "region": "europe",
+  "scene": "coast",
+  "bestMonths": [
+   5,
+   6,
+   7,
+   8
+  ],
+  "seasons": [
+   "spring",
+   "summer"
+  ],
+  "en": "Troll forest • wooden wharf • fjord boats",
+  "es": "Bosque de troles • muelle de madera • barcos por el fiordo",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About NOK 3,000-4,500 (≈ €255-385) a day for a family of four excluding lodging; Norway is pricey, so plan picnic lunches.",
+  "dailyEs": "Unos NOK 3.000-4.500 (≈ €255-385) al día para una familia de cuatro sin alojamiento; Noruega es cara, así que planead comidas de pícnic."
+ },
+ {
+  "slug": "billund",
+  "name": "Billund",
+  "nameEs": "Billund",
+  "flag": "🇩🇰",
+  "region": "europe",
+  "scene": "city",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "en": "LEGO bricks • theme park rides • Viking stones",
+  "es": "Ladrillos LEGO • atracciones • piedras vikingas",
+  "stroller": "easy",
+  "ages": "4-12",
+  "dailyEn": "About DKK 2,500-4,000 (≈ €335-535) a day for a family of four on a LEGOLAND day excluding lodging; other days cost far less.",
+  "dailyEs": "Unos DKK 2.500-4.000 (≈ €335-535) al día para una familia de cuatro en un día de LEGOLAND sin alojamiento; los demás días cuestan mucho menos."
+ },
+ {
+  "slug": "funchal",
+  "name": "Funchal",
+  "nameEs": "Funchal",
+  "flag": "🇵🇹",
+  "region": "europe",
+  "scene": "island",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   9,
+   10,
+   12
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "en": "Cable car • wicker toboggan • flower gardens",
+  "es": "Teleférico • tobogán de mimbre • jardines de flores",
+  "stroller": "hard",
+  "ages": "5-12",
+  "dailyEn": "About €130-200 a day for a family of four, excluding lodging and car hire.",
+  "dailyEs": "Unos 130-200 € al día para una familia de cuatro, sin alojamiento ni coche de alquiler."
+ },
+ {
+  "slug": "gothenburg",
+  "name": "Gothenburg",
+  "nameEs": "Gotemburgo",
+  "flag": "🇸🇪",
+  "region": "europe",
+  "scene": "coast",
+  "bestMonths": [
+   6,
+   7,
+   8,
+   12
+  ],
+  "seasons": [
+   "summer",
+   "winter"
+  ],
+  "en": "Roller coasters • rainforest science • island ferries",
+  "es": "Montañas rusas • ciencia en la selva • ferris a las islas",
+  "stroller": "easy",
+  "ages": "4-12",
+  "dailyEn": "About SEK 2,200-3,500 (≈ €200-320) a day for a family of four excluding lodging; a Liseberg day with ride passes costs more.",
+  "dailyEs": "Unos SEK 2.200-3.500 (≈ €200-320) al día para una familia de cuatro sin alojamiento; un día en Liseberg con pase de atracciones cuesta más."
+ },
+ {
+  "slug": "hamburg",
+  "name": "Hamburg",
+  "nameEs": "Hamburgo",
+  "flag": "🇩🇪",
+  "region": "europe",
+  "scene": "canals",
+  "bestMonths": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   12
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "winter"
+  ],
+  "en": "Model trains • harbour ferries • giant container ships",
+  "es": "Trenes en miniatura • ferris del puerto • barcos gigantes",
+  "stroller": "easy",
+  "ages": "4-12",
+  "dailyEn": "About €180-280 a day for a family of four excluding lodging; ferries and parks keep many days cheap.",
+  "dailyEs": "Unos €180-280 al día para una familia de cuatro sin alojamiento; los ferris y los parques abaratan muchos días."
+ },
+ {
+  "slug": "innsbruck",
+  "name": "Innsbruck",
+  "nameEs": "Innsbruck",
+  "flag": "🇦🇹",
+  "region": "europe",
+  "scene": "mountains",
+  "bestMonths": [
+   1,
+   2,
+   3,
+   6,
+   7,
+   8,
+   9,
+   12
+  ],
+  "seasons": [
+   "winter",
+   "summer"
+  ],
+  "en": "Cable cars • Alpine zoo • ski slopes",
+  "es": "Teleféricos • zoo alpino • pistas de esquí",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About €200-320 a day for a family of four excluding lodging; ski passes, rentals and lessons can double that in winter.",
+  "dailyEs": "Unos €200-320 al día para una familia de cuatro sin alojamiento; en invierno, forfaits, alquiler y clases pueden duplicarlo."
+ },
+ {
+  "slug": "interlaken",
+  "name": "Interlaken",
+  "nameEs": "Interlaken",
+  "flag": "🇨🇭",
+  "region": "europe",
+  "scene": "lake",
+  "bestMonths": [
+   6,
+   7,
+   8,
+   9
+  ],
+  "seasons": [
+   "summer",
+   "autumn"
+  ],
+  "en": "Turquoise lakes • mountain trains • waterfalls",
+  "es": "Lagos turquesa • trenes de montaña • cascadas",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About CHF 250-400 (≈ €265-430) a day for a family of four excluding lodging; mountain railways are the biggest cost.",
+  "dailyEs": "Unos CHF 250-400 (≈ €265-430) al día para una familia de cuatro sin alojamiento; los trenes de montaña son el mayor gasto."
+ },
+ {
+  "slug": "ljubljana",
+  "name": "Ljubljana",
+  "nameEs": "Liubliana",
+  "flag": "🇸🇮",
+  "region": "europe",
+  "scene": "city",
+  "bestMonths": [
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "en": "Dragon bridges • castle funicular • Lake Bled",
+  "es": "Puentes de dragones • funicular al castillo • lago Bled",
+  "stroller": "easy",
+  "ages": "4-12",
+  "dailyEn": "About €150-230 a day for a family of four excluding lodging; a Postojna day adds roughly €100-150.",
+  "dailyEs": "Unos €150-230 al día para una familia de cuatro sin alojamiento; un día en Postojna suma unos €100-150."
+ },
+ {
+  "slug": "lyon",
+  "name": "Lyon",
+  "nameEs": "Lyon",
+  "flag": "🇫🇷",
+  "region": "europe",
+  "scene": "city",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   9,
+   10,
+   12
+  ],
+  "seasons": [
+   "spring",
+   "autumn",
+   "winter"
+  ],
+  "en": "Puppets • secret passageways • two rivers",
+  "es": "Títeres • pasadizos secretos • dos ríos",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About €140-210 a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 140-210 € al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "palma-de-mallorca",
+  "name": "Palma de Mallorca",
+  "nameEs": "Palma de Mallorca",
+  "flag": "🇪🇸",
+  "region": "europe",
+  "scene": "island",
+  "bestMonths": [
+   5,
+   6,
+   9,
+   10
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "en": "Seaside cathedral • round castle • wooden train",
+  "es": "Catedral junto al mar • castillo redondo • tren de madera",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About €150-230 a day for a family of four, excluding lodging and car hire.",
+  "dailyEs": "Unos 150-230 € al día para una familia de cuatro, sin alojamiento ni coche de alquiler."
+ },
+ {
+  "slug": "riga",
+  "name": "Riga",
+  "nameEs": "Riga",
+  "flag": "🇱🇻",
+  "region": "europe",
+  "scene": "city",
+  "bestMonths": [
+   5,
+   6,
+   7,
+   8,
+   12
+  ],
+  "seasons": [
+   "summer",
+   "winter"
+  ],
+  "en": "Golden roosters • Art Nouveau faces • Baltic beaches",
+  "es": "Gallos dorados • fachadas modernistas • playas del Báltico",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About €120-200 a day for a family of four excluding lodging, one of the better-value capitals in Europe.",
+  "dailyEs": "Unos €120-200 al día para una familia de cuatro sin alojamiento, una de las capitales con mejor precio de Europa."
+ },
+ {
+  "slug": "rovaniemi",
+  "name": "Rovaniemi",
+  "nameEs": "Rovaniemi",
+  "flag": "🇫🇮",
+  "region": "europe",
+  "scene": "snow",
+  "bestMonths": [
+   12,
+   1,
+   2,
+   3
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "en": "Reindeer • husky sleds • northern lights",
+  "es": "Renos • trineos de huskies • auroras boreales",
+  "stroller": "hard",
+  "ages": "4-12",
+  "dailyEn": "About €180-280 a day for a family of four excluding lodging; each guided safari adds roughly €300-600 for the family.",
+  "dailyEs": "Unos €180-280 al día para una familia de cuatro sin alojamiento; cada safari guiado suma entre €300 y €600 para toda la familia."
+ },
+ {
+  "slug": "strasbourg",
+  "name": "Strasbourg",
+  "nameEs": "Estrasburgo",
+  "flag": "🇫🇷",
+  "region": "europe",
+  "scene": "canals",
+  "bestMonths": [
+   12,
+   5,
+   6,
+   9
+  ],
+  "seasons": [
+   "winter",
+   "spring",
+   "summer"
+  ],
+  "en": "Christmas market • timbered houses • storks",
+  "es": "Mercado navideño • casas de entramado • cigüeñas",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About €150-230 a day for a family of four, excluding lodging; December prices run higher.",
+  "dailyEs": "Unos 150-230 € al día para una familia de cuatro, sin alojamiento; en diciembre los precios suben."
+ },
+ {
+  "slug": "tallinn",
+  "name": "Tallinn",
+  "nameEs": "Tallin",
+  "flag": "🇪🇪",
+  "region": "europe",
+  "scene": "city",
+  "bestMonths": [
+   5,
+   6,
+   7,
+   8,
+   12
+  ],
+  "seasons": [
+   "summer",
+   "winter"
+  ],
+  "en": "Medieval towers • submarines • seaside parks",
+  "es": "Torres medievales • submarinos • parques junto al mar",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About €140-220 a day for a family of four excluding lodging, depending on how many paid museums you visit.",
+  "dailyEs": "Unos €140-220 al día para una familia de cuatro sin alojamiento, según cuántos museos de pago visitéis."
+ },
+ {
+  "slug": "tenerife",
+  "name": "Tenerife",
+  "nameEs": "Tenerife",
+  "flag": "🇪🇸",
+  "region": "europe",
+  "scene": "island",
+  "bestMonths": [
+   11,
+   12,
+   1,
+   2,
+   3,
+   4,
+   10
+  ],
+  "seasons": [
+   "winter",
+   "spring",
+   "autumn"
+  ],
+  "en": "Volcano • whales • winter sun",
+  "es": "Volcán • ballenas • sol de invierno",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About €140-220 a day for a family of four, excluding lodging and car hire.",
+  "dailyEs": "Unos 140-220 € al día para una familia de cuatro, sin alojamiento ni coche de alquiler."
+ },
+ {
+  "slug": "verona",
+  "name": "Verona",
+  "nameEs": "Verona",
+  "flag": "🇮🇹",
+  "region": "europe",
+  "scene": "city",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   9,
+   10
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "en": "Roman arena • Romeo and Juliet • Lake Garda",
+  "es": "Arena romana • Romeo y Julieta • lago de Garda",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About €150-240 a day for a family of four, excluding lodging; Gardaland days cost more.",
+  "dailyEs": "Unos 150-240 € al día para una familia de cuatro, sin alojamiento; el día de Gardaland sale más caro."
+ },
+ {
+  "slug": "banff",
+  "name": "Banff",
+  "nameEs": "Banff",
+  "flag": "🇨🇦",
+  "region": "americas",
+  "scene": "mountains",
+  "bestMonths": [
+   6,
+   7,
+   8,
+   9,
+   12,
+   1,
+   2
+  ],
+  "seasons": [
+   "summer",
+   "winter"
+  ],
+  "en": "Turquoise lakes • elk on the streets • hot springs",
+  "es": "Lagos turquesa • alces en las calles • aguas termales",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About C$350-550 (≈ €215-340) a day for a family of four, excluding lodging and car hire.",
+  "dailyEs": "Unos 350-550 C$ (215-340 €) al día para una familia de cuatro, sin alojamiento ni coche de alquiler."
+ },
+ {
+  "slug": "cartagena",
+  "name": "Cartagena",
+  "nameEs": "Cartagena de Indias",
+  "flag": "🇨🇴",
+  "region": "americas",
+  "scene": "coast",
+  "bestMonths": [
+   12,
+   1,
+   2,
+   3,
+   4
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "en": "Pirate walls • colourful balconies • island boats",
+  "es": "Murallas contra piratas • balcones de colores • barcos a las islas",
+  "stroller": "hard",
+  "ages": "5-12",
+  "dailyEn": "About COP 700,000-1,100,000 (about €150-240) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos COP 700.000-1.100.000 (unos €150-240) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "cusco",
+  "name": "Cusco",
+  "nameEs": "Cusco",
+  "flag": "🇵🇪",
+  "region": "americas",
+  "scene": "mountains",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "en": "Inca stones • llamas • Machu Picchu",
+  "es": "Piedras incas • llamas • Machu Picchu",
+  "stroller": "hard",
+  "ages": "6-12",
+  "dailyEn": "About PEN 700-1,100 (about €175-275) a day for a family of four, excluding lodging and the Machu Picchu day.",
+  "dailyEs": "Unos PEN 700-1.100 (unos €175-275) al día para una familia de cuatro, sin alojamiento ni el día de Machu Picchu."
+ },
+ {
+  "slug": "la-fortuna",
+  "name": "La Fortuna",
+  "nameEs": "La Fortuna",
+  "flag": "🇨🇷",
+  "region": "americas",
+  "scene": "jungle",
+  "bestMonths": [
+   1,
+   2,
+   3,
+   4,
+   7
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "en": "Volcano views • hanging bridges • hot springs",
+  "es": "Vistas al volcán • puentes colgantes • aguas termales",
+  "stroller": "hard",
+  "ages": "5-12",
+  "dailyEn": "About CRC 125,000-200,000 (about €215-345) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos CRC 125.000-200.000 (unos €215-345) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "oaxaca",
+  "name": "Oaxaca",
+  "nameEs": "Oaxaca",
+  "flag": "🇲🇽",
+  "region": "americas",
+  "scene": "city",
+  "bestMonths": [
+   10,
+   11,
+   12,
+   2,
+   3
+  ],
+  "seasons": [
+   "autumn",
+   "winter",
+   "spring"
+  ],
+  "en": "Hot chocolate • painted alebrijes • ancient pyramids",
+  "es": "Chocolate caliente • alebrijes pintados • pirámides antiguas",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About MXN 3,000-5,000 (about €140-230) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos MXN 3.000-5.000 (unos €140-230) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "panama-city",
+  "name": "Panama City",
+  "nameEs": "Ciudad de Panamá",
+  "flag": "🇵🇦",
+  "region": "americas",
+  "scene": "city",
+  "bestMonths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "en": "Giant ships • sloths • colourful old town",
+  "es": "Barcos gigantes • perezosos • casco antiguo de colores",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About USD 200-320 (about €175-280) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos USD 200-320 (unos €175-280) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "philadelphia",
+  "name": "Philadelphia",
+  "nameEs": "Filadelfia",
+  "flag": "🇺🇸",
+  "region": "americas",
+  "scene": "city",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   9,
+   10
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "Liberty Bell • giant heart • soft pretzels",
+  "es": "Campana de la Libertad • corazón gigante • pretzels blandos",
+  "stroller": "easy",
+  "ages": "4-12",
+  "dailyEn": "About US$250-380 (≈ €215-330) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 250-380 US$ (215-330 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "quebec-city",
+  "name": "Quebec City",
+  "nameEs": "Quebec",
+  "flag": "🇨🇦",
+  "region": "americas",
+  "scene": "snow",
+  "bestMonths": [
+   1,
+   2,
+   6,
+   7,
+   8,
+   12
+  ],
+  "seasons": [
+   "winter",
+   "summer"
+  ],
+  "en": "Winter Carnival • stone walls • maple taffy",
+  "es": "Carnaval de invierno • murallas de piedra • caramelo de arce",
+  "stroller": "hard",
+  "ages": "4-12",
+  "dailyEn": "About C$300-450 (€185-280) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 300-450 C$ (185-280 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "san-antonio",
+  "name": "San Antonio",
+  "nameEs": "San Antonio",
+  "flag": "🇺🇸",
+  "region": "americas",
+  "scene": "city",
+  "bestMonths": [
+   3,
+   4,
+   10,
+   11
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "River boats • old missions • breakfast tacos",
+  "es": "Barcos en el río • misiones antiguas • tacos de desayuno",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About USD 250-400 (about €215-345) a day for a family of four, excluding lodging; theme park days cost more.",
+  "dailyEs": "Unos USD 250-400 (unos €215-345) al día para una familia de cuatro, sin alojamiento; los días de parque temático cuestan más."
+ },
+ {
+  "slug": "san-juan",
+  "name": "San Juan",
+  "nameEs": "San Juan",
+  "flag": "🇵🇷",
+  "region": "americas",
+  "scene": "island",
+  "bestMonths": [
+   12,
+   1,
+   2,
+   3,
+   4
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "en": "Seaside forts • rainforest • glowing bay",
+  "es": "Fuertes junto al mar • selva tropical • bahía que brilla",
+  "stroller": "hard",
+  "ages": "5-12",
+  "dailyEn": "About USD 250-380 (about €215-330) a day for a family of four, excluding lodging and car rental.",
+  "dailyEs": "Unos USD 250-380 (unos €215-330) al día para una familia de cuatro, sin alojamiento ni alquiler de coche."
+ },
+ {
+  "slug": "santiago",
+  "name": "Santiago",
+  "nameEs": "Santiago de Chile",
+  "flag": "🇨🇱",
+  "region": "americas",
+  "scene": "mountains",
+  "bestMonths": [
+   10,
+   11,
+   12,
+   3,
+   4
+  ],
+  "seasons": [
+   "spring",
+   "autumn",
+   "winter"
+  ],
+  "en": "Andes views • cable cars • empanadas",
+  "es": "Vistas a los Andes • teleféricos • empanadas",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About CLP 180,000-280,000 (about €165-255) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos CLP 180.000-280.000 (unos €165-255) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "seattle",
+  "name": "Seattle",
+  "nameEs": "Seattle",
+  "flag": "🇺🇸",
+  "region": "americas",
+  "scene": "coast",
+  "bestMonths": [
+   6,
+   7,
+   8,
+   9
+  ],
+  "seasons": [
+   "summer",
+   "spring"
+  ],
+  "en": "Space Needle • flying fish • ferry rides",
+  "es": "Space Needle • peces voladores • ferris",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About US$280-420 (≈ €240-365) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 280-420 US$ (240-365 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "busan",
+  "name": "Busan",
+  "nameEs": "Busan",
+  "flag": "🇰🇷",
+  "region": "asia",
+  "scene": "coast",
+  "bestMonths": [
+   4,
+   5,
+   6,
+   9,
+   10
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "City beaches • painted hillside villages • a temple by the waves",
+  "es": "Playas urbanas • pueblos pintados en la colina • un templo junto a las olas",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About ₩250,000-400,000 (about €160-250) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos ₩250.000-400.000 (unos 160-250 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "hiroshima",
+  "name": "Hiroshima",
+  "nameEs": "Hiroshima",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "scene": "temple",
+  "bestMonths": [
+   3,
+   4,
+   5,
+   10,
+   11
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "Paper cranes • floating gate • island deer",
+  "es": "Grullas de papel • puerta flotante • ciervos en la isla",
+  "stroller": "easy",
+  "ages": "6-12",
+  "dailyEn": "About JPY 22,000-38,000 (about €130-225) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos JPY 22.000-38.000 (unos €130-225) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "hoi-an",
+  "name": "Hoi An",
+  "nameEs": "Hoi An",
+  "flag": "🇻🇳",
+  "region": "asia",
+  "scene": "city",
+  "bestMonths": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "seasons": [
+   "spring"
+  ],
+  "en": "Silk lanterns • round basket boats • bike rides through rice fields",
+  "es": "Farolillos de seda • barcas redondas de bambú • bicis entre arrozales",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About 1,800,000-3,000,000 VND (about €60-100) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 1.800.000-3.000.000 VND (unos 60-100 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "jeju",
+  "name": "Jeju",
+  "nameEs": "Jeju",
+  "flag": "🇰🇷",
+  "region": "asia",
+  "scene": "island",
+  "bestMonths": [
+   4,
+   5,
+   9,
+   10,
+   11
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "Volcano craters • waterfalls into the sea • tangerine orchards",
+  "es": "Cráteres volcánicos • cascadas que caen al mar • huertos de mandarinas",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About ₩220,000-350,000 (about €140-220) a day for a family of four, excluding lodging and car hire.",
+  "dailyEs": "Unos ₩220.000-350.000 (unos 140-220 €) al día para una familia de cuatro, sin alojamiento ni coche."
+ },
+ {
+  "slug": "kandy",
+  "name": "Kandy",
+  "nameEs": "Kandy",
+  "flag": "🇱🇰",
+  "region": "asia",
+  "scene": "temple",
+  "bestMonths": [
+   1,
+   2,
+   3,
+   4,
+   8
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "en": "The Temple of the Tooth • tea hills • drums and fire dancers",
+  "es": "El Templo del Diente • colinas de té • tambores y bailarines de fuego",
+  "stroller": "hard",
+  "ages": "5-12",
+  "dailyEn": "About LKR 30,000-50,000 (about €85-145) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unas LKR 30.000-50.000 (unos 85-145 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "krabi",
+  "name": "Krabi",
+  "nameEs": "Krabi",
+  "flag": "🇹🇭",
+  "region": "asia",
+  "scene": "coast",
+  "bestMonths": [
+   11,
+   12,
+   1,
+   2,
+   3,
+   4
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "en": "Limestone cliffs • longtail boats • island-hopping days",
+  "es": "Acantilados de piedra caliza • barcas de cola larga • días de islas",
+  "stroller": "hard",
+  "ages": "4-12",
+  "dailyEn": "About 3,500-6,000 THB (about €90-160) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 3.500-6.000 THB (unos 90-160 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "luang-prabang",
+  "name": "Luang Prabang",
+  "nameEs": "Luang Prabang",
+  "flag": "🇱🇦",
+  "region": "asia",
+  "scene": "temple",
+  "bestMonths": [
+   11,
+   12,
+   1,
+   2
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "en": "Turquoise waterfalls • golden temples • slow boats on the Mekong",
+  "es": "Cascadas turquesa • templos dorados • barcas lentas por el Mekong",
+  "stroller": "mixed",
+  "ages": "5-12",
+  "dailyEn": "About 2,500,000-4,000,000 kip (about €100-165) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos 2.500.000-4.000.000 kips (unos 100-165 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "macau",
+  "name": "Macau",
+  "nameEs": "Macao",
+  "flag": "🇲🇴",
+  "region": "asia",
+  "scene": "city",
+  "bestMonths": [
+   10,
+   11,
+   12,
+   3,
+   4
+  ],
+  "seasons": [
+   "autumn",
+   "winter"
+  ],
+  "en": "Portuguese tiles • warm egg tarts • giant pandas",
+  "es": "Azulejos portugueses • pasteles de nata calientes • pandas gigantes",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About MOP 1,300-2,200 (about €140-235) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unas MOP 1.300-2.200 (unos 140-235 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "nara",
+  "name": "Nara",
+  "nameEs": "Nara",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "scene": "temple",
+  "bestMonths": [
+   3,
+   4,
+   5,
+   10,
+   11
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "Bowing deer • a giant bronze Buddha • stone lantern paths",
+  "es": "Ciervos que saludan • un Buda gigante de bronce • senderos de faroles de piedra",
+  "stroller": "easy",
+  "ages": "4-12",
+  "dailyEn": "About ¥22,000-35,000 (about €130-205) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos ¥22.000-35.000 (unos 130-205 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "okinawa",
+  "name": "Okinawa",
+  "nameEs": "Okinawa",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "scene": "island",
+  "bestMonths": [
+   3,
+   4,
+   5,
+   10,
+   11
+  ],
+  "seasons": [
+   "spring",
+   "autumn"
+  ],
+  "en": "Whale sharks • white-sand islands • shisa lion-dogs",
+  "es": "Tiburones ballena • islas de arena blanca • leones-perro shisa",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About ¥25,000-40,000 (about €145-235) a day for a family of four, excluding lodging and car hire.",
+  "dailyEs": "Unos ¥25.000-40.000 (unos 145-235 €) al día para una familia de cuatro, sin alojamiento ni coche de alquiler."
+ },
+ {
+  "slug": "penang",
+  "name": "Penang",
+  "nameEs": "Penang",
+  "flag": "🇲🇾",
+  "region": "asia",
+  "scene": "city",
+  "bestMonths": [
+   12,
+   1,
+   2,
+   3
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "en": "Street art trails • hawker food • a funicular up the hill",
+  "es": "Rutas de arte urbano • puestos de comida callejera • un funicular a la colina",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About RM450-750 (about €90-155) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos RM450-750 (unos 90-155 €) al día para una familia de cuatro, sin alojamiento."
+ },
+ {
+  "slug": "sapporo",
+  "name": "Sapporo",
+  "nameEs": "Sapporo",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "scene": "snow",
+  "bestMonths": [
+   12,
+   1,
+   2,
+   7,
+   8
+  ],
+  "seasons": [
+   "winter",
+   "summer"
+  ],
+  "en": "Snow sculptures • penguin parade • miso ramen",
+  "es": "Esculturas de nieve • desfile de pingüinos • ramen de miso",
+  "stroller": "mixed",
+  "ages": "4-12",
+  "dailyEn": "About JPY 25,000-40,000 (about €150-235) a day for a family of four, excluding lodging.",
+  "dailyEs": "Unos JPY 25.000-40.000 (unos €150-235) al día para una familia de cuatro, sin alojamiento."
+ }
+]

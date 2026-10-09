@@ -9,6 +9,8 @@ on:
       - 'scripts/generate-supported-destination-pages.mjs'
       - 'scripts/polish-supported-destination-pages.mjs'
       - 'destinations/destination-data.js'
+      - 'destinations/guides/**'
+      - 'scripts/build-family-guides.mjs'
       - 'robots.txt'
 
 permissions:
@@ -34,7 +36,8 @@ jobs:
           import fs from 'node:fs';
           const robots=fs.readFileSync('robots.txt','utf8');
           const supported=[...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)].map(m=>m[1]).filter(slug=>slug!=='index');
-          if(supported.length!==50) throw new Error(`Expected 50 supported destinations, found ${supported.length}`);
+          const guides=JSON.parse(fs.readFileSync('destinations/guide-index.json','utf8')).length;
+          if(supported.length!==50+guides) throw new Error(`Expected ${50+guides} supported destinations, found ${supported.length}`);
           for(const slug of supported){
             for(const file of [`destinations/${slug}.html`,`es/destinos/${slug}.html`]){
               const html=fs.readFileSync(file,'utf8');
@@ -45,7 +48,7 @@ jobs:
           }
           const sitemap=fs.readFileSync('sitemap.xml','utf8');
           const urls=(sitemap.match(/<loc>/g)||[]).length;
-          if(urls!==107) throw new Error(`Expected 107 sitemap URLs, found ${urls}`);
+          if(urls!==107+guides*2+4) throw new Error(`Expected ${107+guides*2+4} sitemap URLs, found ${urls}`);
           console.log('Supported SEO output is consistent.');
           NODE
 

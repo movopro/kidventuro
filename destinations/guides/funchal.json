@@ -1,0 +1,114 @@
+{
+  "slug": "funchal",
+  "name": "Funchal",
+  "nameEs": "Funchal",
+  "country": "Portugal",
+  "countryEs": "Portugal",
+  "flag": "🇵🇹",
+  "region": "europe",
+  "lang": "pt",
+  "phrases": [["Olá", "Hello"], ["Obrigado", "Thank you"], ["Por favor", "Please"], ["Sim", "Yes"]],
+  "icons": "🚡 🛷 🌺",
+  "scene": "island",
+  "bestMonths": [4, 5, 6, 9, 10, 12],
+  "seasons": ["spring", "summer", "autumn", "winter"],
+  "en": {
+    "tagline": "Cable car • wicker toboggan • flower gardens",
+    "intro": "Funchal climbs steeply up from the Atlantic on Madeira, an island with spring-like weather most of the year. Families ride a cable car into the hills, slide back down in a wicker basket steered by men in straw hats, and walk flat water channels called levadas through ancient laurel forest. Whales and dolphins swim offshore, and the New Year fireworks over the bay are famous.",
+    "ages": { "best": "5-12", "text": "Gardens, the cable car and boat trips suit all ages; levada walks with drop-offs and the toboggan ride are better from about 5, when children can sit still and follow instructions." },
+    "stroller": { "rating": "hard", "text": "Funchal is very steep, with slippery black-and-white mosaic pavements and many steps, so a sturdy carrier works far better than a stroller beyond the seafront promenade." },
+    "mustDos": [
+      { "title": "Funchal cable car to Monte", "text": "A 15-minute ride from the Zona Velha seafront up to Monte, over red roofs and banana gardens; adults pay roughly €14-17 one way, children about half.", "ages": "all ages" },
+      { "title": "Monte toboggan ride", "text": "Two carreiros in straw hats push and steer a wicker basket two kilometres downhill on the road; since May 2026 it costs about €30 for one rider or €40 for two.", "ages": "4+" },
+      { "title": "Monte Palace Tropical Garden", "text": "Koi ponds, tile panels, giant ferns and mineral displays on a steep hillside garden at the top of the cable car; children under 15 enter free.", "ages": "all ages" },
+      { "title": "Levada dos Balcões", "text": "One of Madeira's easiest walks, about 1.5 km each way from Ribeiro Frio along a water channel to a viewpoint where finches eat from your hand.", "ages": "4+" },
+      { "title": "Whale and dolphin boat trip", "text": "Boats leave Funchal marina daily and often meet common dolphins and pilot whales; a two- to three-hour trip costs roughly €35-60 per person.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museu da Baleia", "text": "Whale museum in Caniçal with life-size models and interactive whaling history." },
+      { "title": "Aquário da Madeira", "text": "Small aquarium in an old fort at Porto Moniz, next to the natural lava pools." },
+      { "title": "Mercado dos Lavradores", "text": "Covered market with strange tropical fruits, fish stalls and flower sellers to explore." }
+    ],
+    "safety": [
+      "Levada paths can have long drops on one side, so keep children on the inside, hold hands at narrow parts and skip routes rated difficult.",
+      "Atlantic swells hit the rocky shore hard, so swim in the Lido pools, Porto Moniz natural pools or guarded beaches only.",
+      "Weather changes fast in the mountains, so carry a rain jacket and warm layer even when Funchal is sunny; tap water is safe."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €130-200 a day for a family of four, excluding lodging and car hire.",
+      "items": [
+        { "label": "Cable car to Monte, one way (adult)", "price": "€14-17" },
+        { "label": "Monte toboggan (1 / 2 riders)", "price": "€30 / €40" },
+        { "label": "Whale and dolphin trip (per person)", "price": "€35-60" },
+        { "label": "Bolo do caco with garlic butter", "price": "€2-4" }
+      ],
+      "tip": "Take the cable car up and the toboggan partway down, then catch a city bus back instead of buying the return cable car."
+    },
+    "gettingAround": "Funchal's yellow city buses climb to Monte and the hills; for levadas and Porto Moniz hire a small car or join a tour, as mountain roads are steep and winding.",
+    "food": "Kids usually enjoy bolo do caco flatbread with garlic butter, espetada beef skewers, fried maize cubes (milho frito) and tiny Madeira bananas; dinner is from about 19:00.",
+    "firstDay": {
+      "morning": "Explore the Mercado dos Lavradores and taste a passion fruit or banana.",
+      "afternoon": "Ride the cable car to Monte, visit the gardens and slide down by toboggan.",
+      "evening": "Walk the Zona Velha painted doors street and share bolo do caco for dinner."
+    }
+  },
+  "es": {
+    "tagline": "Teleférico • tobogán de mimbre • jardines de flores",
+    "intro": "Funchal sube empinada desde el Atlántico en Madeira, una isla con tiempo primaveral casi todo el año. Las familias suben en teleférico a las colinas, bajan en un cesto de mimbre guiado por hombres con sombrero de paja y caminan por canales de agua llanos, las levadas, a través de un bosque de laurisilva milenario. Ballenas y delfines nadan frente a la costa, y los fuegos artificiales de Año Nuevo sobre la bahía son famosos.",
+    "ages": { "best": "5-12", "text": "Los jardines, el teleférico y los barcos sirven para todas las edades; las levadas con desniveles y el tobogán son mejores desde los 5 años, cuando los niños aguantan sentados y siguen instrucciones." },
+    "stroller": { "rating": "hard", "text": "Funchal es muy empinada, con aceras de mosaico blanco y negro resbaladizas y muchas escaleras, así que una mochila portabebés funciona mucho mejor que el carrito fuera del paseo marítimo." },
+    "mustDos": [
+      { "title": "Teleférico de Funchal a Monte", "text": "Un trayecto de 15 minutos desde el paseo de la Zona Velha hasta Monte, sobre tejados rojos y huertos de plátanos; los adultos pagan unos 14-17 € por trayecto y los niños, la mitad.", "ages": "todas las edades" },
+      { "title": "Tobogán de Monte", "text": "Dos carreiros con sombrero de paja empujan y guían un cesto de mimbre dos kilómetros cuesta abajo por la carretera; desde mayo de 2026 cuesta unos 30 € para una persona o 40 € para dos.", "ages": "4+" },
+      { "title": "Monte Palace Tropical Garden", "text": "Estanques de carpas koi, paneles de azulejos, helechos gigantes y minerales en un jardín en ladera junto al teleférico; los menores de 15 años entran gratis.", "ages": "todas las edades" },
+      { "title": "Levada dos Balcões", "text": "Uno de los paseos más fáciles de Madeira, unos 1,5 km por trayecto desde Ribeiro Frio junto a un canal hasta un mirador donde los pinzones comen de la mano.", "ages": "4+" },
+      { "title": "Excursión de ballenas y delfines", "text": "Salen barcos a diario desde la marina de Funchal y a menudo ven delfines comunes y calderones; una salida de dos o tres horas cuesta unos 35-60 € por persona.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museu da Baleia", "text": "Museo de la ballena en Caniçal con modelos a tamaño real e historia interactiva de la caza ballenera." },
+      { "title": "Aquário da Madeira", "text": "Pequeño acuario en un antiguo fuerte de Porto Moniz, junto a las piscinas naturales de lava." },
+      { "title": "Mercado dos Lavradores", "text": "Mercado cubierto con frutas tropicales curiosas, puestos de pescado y floristas para explorar." }
+    ],
+    "safety": [
+      "Algunas levadas tienen caídas largas a un lado, así que lleva a los niños por el interior, dales la mano en los tramos estrechos y evita las rutas difíciles.",
+      "El oleaje atlántico golpea fuerte la costa rocosa, así que báñate solo en las piscinas del Lido, las piscinas naturales de Porto Moniz o playas vigiladas.",
+      "El tiempo cambia rápido en la montaña: lleva chubasquero y una capa de abrigo aunque en Funchal haga sol; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos 130-200 € al día para una familia de cuatro, sin alojamiento ni coche de alquiler.",
+      "items": [
+        { "label": "Teleférico a Monte, ida (adulto)", "price": "€14-17" },
+        { "label": "Tobogán de Monte (1 / 2 personas)", "price": "€30 / €40" },
+        { "label": "Excursión de ballenas y delfines (por persona)", "price": "€35-60" },
+        { "label": "Bolo do caco con mantequilla de ajo", "price": "€2-4" }
+      ],
+      "tip": "Sube en teleférico, baja en tobogán parte del camino y vuelve en autobús urbano en lugar de comprar la vuelta del teleférico."
+    },
+    "gettingAround": "Los autobuses urbanos amarillos de Funchal suben a Monte y a las colinas; para las levadas y Porto Moniz alquila un coche pequeño o únete a una excursión, porque las carreteras son empinadas y con curvas.",
+    "food": "A los niños suelen gustarles el pan plano bolo do caco con mantequilla de ajo, la espetada de ternera, los dados de maíz frito (milho frito) y los plátanos pequeños de Madeira; se cena desde las 19:00.",
+    "firstDay": {
+      "morning": "Explora el Mercado dos Lavradores y prueba una maracuyá o un plátano.",
+      "afternoon": "Sube en teleférico a Monte, visita los jardines y baja en tobogán.",
+      "evening": "Pasea por la calle de las puertas pintadas de la Zona Velha y cena bolo do caco."
+    }
+  },
+  "booklet": {
+    "marks": ["Monte cable car", "Monte Palace Tropical Garden", "Mercado dos Lavradores", "Funchal Cathedral"],
+    "food": ["bolo do caco", "espetada", "passion fruit", "Madeira bananas"],
+    "facts": [
+      "Funchal is named after funcho, the Portuguese word for fennel, which grew here.",
+      "Madeira's laurel forest is a kind of forest that covered southern Europe millions of years ago.",
+      "Footballer Cristiano Ronaldo was born in Funchal."
+    ],
+    "hunt": ["a cable car", "a wicker toboggan", "a straw hat", "a banana tree", "a painted door", "a blue tile picture", "a dolphin", "a passion fruit", "a cruise ship", "a water channel", "some tropical flowers", "a lizard on a wall"],
+    "quiz": [
+      ["What is the Monte toboggan made of?", "Wicker", "Plastic", "Ice", "Metal"],
+      ["What is a levada?", "A water channel", "A cake", "A boat", "A bird"],
+      ["Which ocean surrounds Madeira?", "The Atlantic", "The Pacific", "The Indian", "The Arctic"]
+    ],
+    "missions": ["Toboggan rider", "Levada trail explorer"]
+  },
+  "missionsEs": ["Piloto del tobogán", "Explorador de levadas"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "oaxaca",
+  "name": "Oaxaca",
+  "nameEs": "Oaxaca",
+  "country": "Mexico",
+  "countryEs": "México",
+  "flag": "🇲🇽",
+  "region": "americas",
+  "lang": "es",
+  "phrases": [["Hola","Hello"],["Gracias","Thank you"],["Por favor","Please"],["Sí","Yes"]],
+  "icons": "🦎 🍫 🌵",
+  "scene": "city",
+  "bestMonths": [10, 11, 12, 2, 3],
+  "seasons": ["autumn", "winter", "spring"],
+  "en": {
+    "tagline": "Hot chocolate • painted alebrijes • ancient pyramids",
+    "intro": "Oaxaca is a colourful, walkable colonial city where the air smells of roasting cacao and grilled tlayudas. Families climb the ancient Zapotec platforms of Monte Albán, paint wooden alebrije animals with village artisans and look for shapes in one of the widest tree trunks on Earth. Festivals such as Day of the Dead and the July Guelaguetza fill the streets with music, flowers and dancing.",
+    "ages": { "best": "5-12", "text": "Ages 5-12 enjoy the craft workshops, markets and ruins most; little ones manage too, but Monte Albán and Hierve el Agua involve sun, steps and uneven ground." },
+    "stroller": { "rating": "mixed", "text": "The pedestrian Andador Macedonio Alcalá is smooth, but other sidewalks are narrow with high kerbs and gaps. Monte Albán has gravel paths and steep stone stairs, so bring a carrier for under-4s." },
+    "mustDos": [
+      { "title": "Monte Albán", "text": "Explore a Zapotec city on a flattened mountaintop with a ball court and big stone platforms to climb; go early, as there is little shade, and under-13s enter free.", "ages": "4+" },
+      { "title": "Chocolate grinding on 20 de Noviembre", "text": "At shops like Mayordomo, kids watch cacao, sugar and cinnamon ground into paste, then taste hot chocolate with soft egg bread.", "ages": "3+" },
+      { "title": "Alebrije workshop", "text": "In San Martín Tilcajete or San Antonio Arrazola, families meet the carvers and paint their own small wooden creature to take home.", "ages": "4+" },
+      { "title": "Árbol del Tule", "text": "This ancient cypress has a trunk over 40 metres around, and local children with flashlights show visitors elephant and lion shapes in the bark.", "ages": "3+" },
+      { "title": "Hierve el Agua", "text": "Mineral springs flow over cliffs that look like frozen waterfalls, with shallow pools for a dip; it is a 1.5-2 hour drive and road blockades sometimes close access.", "ages": "6+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo de las Culturas de Oaxaca", "text": "Gold treasures from Monte Albán's Tomb 7 inside the former Santo Domingo convent." },
+      { "title": "Museo Textil de Oaxaca", "text": "A small, often free museum of weaving, dyes and embroidery from Oaxacan villages." },
+      { "title": "Mercado 20 de Noviembre", "text": "A covered market with a smoky grill hall where you pick meat and eat hot." }
+    ],
+    "safety": [
+      "Oaxaca sits at about 1,550 m with strong sun, so use hats and sunscreen even when the air feels cool.",
+      "Tap water is not safe to drink, so stick to bottled or filtered water and choose busy street stalls with fast turnover.",
+      "Protests and road blockades happen from time to time, so check local news before long drives and leave buffer time before flights."
+    ],
+    "costs": {
+      "currency": "MXN",
+      "daily": "About MXN 3,000-5,000 (about €140-230) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Monte Albán entry (adult, under 13 free)", "price": "MXN 95-110 (about €4.50-5)" },
+        { "label": "Hierve el Agua community fee (per person)", "price": "MXN 50-100 (about €2.50-5)" },
+        { "label": "Tlayuda at a market or street stall", "price": "MXN 100-180 (about €5-8.50)" },
+        { "label": "Hot chocolate with bread", "price": "MXN 50-80 (about €2.50-4)" }
+      ],
+      "tip": "Eat the comida corrida set lunch at market stalls, and hire one driver for a full day of Tule, an alebrije village and Hierve el Agua."
+    },
+    "gettingAround": "The historic centre is compact and best on foot, and taxis are cheap for short hops. Shuttles run to Monte Albán from the centre, and a hired driver is the easiest way to reach the valley villages.",
+    "food": "Try tlayudas, stringy quesillo cheese, memelas, tamales in banana leaf, hot chocolate and fruit sorbet from the nieve stalls by the Basílica de la Soledad. The main meal is lunch, around 2-4 pm.",
+    "firstDay": {
+      "morning": "Walk the Andador to Santo Domingo church and peek at the cactus garden.",
+      "afternoon": "Watch chocolate being ground and lunch on tlayudas at 20 de Noviembre market.",
+      "evening": "Join families in the zócalo with balloon sellers and a cup of nieve."
+    }
+  },
+  "es": {
+    "tagline": "Chocolate caliente • alebrijes pintados • pirámides antiguas",
+    "intro": "Oaxaca es una ciudad colonial colorida y fácil de caminar, donde el aire huele a cacao tostado y a tlayudas en el comal. Las familias suben a las plataformas zapotecas de Monte Albán, pintan alebrijes de madera con artesanos de los pueblos y buscan figuras en uno de los troncos más anchos del planeta. Fiestas como el Día de Muertos y la Guelaguetza de julio llenan las calles de música, flores y baile.",
+    "ages": { "best": "5-12", "text": "De 5 a 12 años se disfrutan más los talleres, los mercados y las ruinas; los pequeños también se adaptan, pero Monte Albán y Hierve el Agua implican sol, escalones y suelo irregular." },
+    "stroller": { "rating": "mixed", "text": "El Andador Macedonio Alcalá, peatonal, es liso, pero las demás aceras son estrechas, con bordillos altos y huecos. Monte Albán tiene caminos de grava y escalinatas empinadas, así que lleva mochila portabebés para los menores de 4." },
+    "mustDos": [
+      { "title": "Monte Albán", "text": "Explora una ciudad zapoteca sobre una montaña aplanada, con juego de pelota y grandes plataformas de piedra para subir; ve temprano porque hay poca sombra, y los menores de 13 entran gratis.", "ages": "4+" },
+      { "title": "Molienda de chocolate en 20 de Noviembre", "text": "En tiendas como Mayordomo, los niños ven moler cacao, azúcar y canela hasta hacer pasta, y luego prueban chocolate caliente con pan de yema.", "ages": "3+" },
+      { "title": "Taller de alebrijes", "text": "En San Martín Tilcajete o San Antonio Arrazola, las familias conocen a los talladores y pintan su propia figurita de madera para llevarla a casa.", "ages": "4+" },
+      { "title": "Árbol del Tule", "text": "Este ahuehuete milenario tiene un tronco de más de 40 metros de contorno, y niños del pueblo con linternas enseñan a los visitantes figuras de elefantes y leones en la corteza.", "ages": "3+" },
+      { "title": "Hierve el Agua", "text": "Manantiales minerales caen por acantilados que parecen cascadas petrificadas, con pozas poco profundas para un chapuzón; está a 1,5-2 horas en coche y a veces los bloqueos cortan el acceso.", "ages": "6+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo de las Culturas de Oaxaca", "text": "Los tesoros de oro de la Tumba 7 de Monte Albán, dentro del antiguo convento de Santo Domingo." },
+      { "title": "Museo Textil de Oaxaca", "text": "Un pequeño museo, a menudo gratuito, de tejidos, tintes y bordados de los pueblos oaxaqueños." },
+      { "title": "Mercado 20 de Noviembre", "text": "Un mercado cubierto con un pasillo de asadores lleno de humo donde eliges la carne y la comes al momento." }
+    ],
+    "safety": [
+      "Oaxaca está a unos 1.550 m y el sol pega fuerte, así que usa gorro y protector solar aunque el aire se sienta fresco.",
+      "El agua del grifo no es potable, así que bebe agua embotellada o filtrada y elige puestos callejeros concurridos, con mucha rotación.",
+      "De vez en cuando hay protestas y bloqueos de carreteras, así que revisa las noticias locales antes de trayectos largos y deja margen antes de los vuelos."
+    ],
+    "costs": {
+      "currency": "MXN",
+      "daily": "Unos MXN 3.000-5.000 (unos €140-230) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Entrada a Monte Albán (adulto, menores de 13 gratis)", "price": "MXN 95-110 (about €4.50-5)" },
+        { "label": "Cuota comunitaria de Hierve el Agua (por persona)", "price": "MXN 50-100 (about €2.50-5)" },
+        { "label": "Tlayuda en mercado o puesto callejero", "price": "MXN 100-180 (about €5-8.50)" },
+        { "label": "Chocolate caliente con pan", "price": "MXN 50-80 (about €2.50-4)" }
+      ],
+      "tip": "Come la comida corrida en los puestos del mercado y contrata un solo conductor para un día completo con el Tule, un pueblo de alebrijes y Hierve el Agua."
+    },
+    "gettingAround": "El centro histórico es compacto y se recorre mejor a pie, y los taxis son baratos para trayectos cortos. Hay transporte turístico a Monte Albán desde el centro, y un conductor contratado es lo más cómodo para los pueblos de los valles.",
+    "food": "Prueba las tlayudas, el quesillo de hebra, las memelas, los tamales en hoja de plátano, el chocolate caliente y las nieves de los puestos junto a la Basílica de la Soledad. La comida principal es al mediodía, hacia las 14-16 horas.",
+    "firstDay": {
+      "morning": "Recorre el Andador hasta el templo de Santo Domingo y asómate al jardín de cactus.",
+      "afternoon": "Mira cómo se muele el chocolate y come tlayudas en el mercado 20 de Noviembre.",
+      "evening": "Únete a las familias en el zócalo, entre globeros y con una nieve en la mano."
+    }
+  },
+  "booklet": {
+    "marks": ["Monte Albán", "Templo de Santo Domingo", "Árbol del Tule", "Hierve el Agua"],
+    "food": ["tlayuda", "hot chocolate", "quesillo cheese", "chapulines"],
+    "facts": [
+      "The Árbol del Tule has one of the widest tree trunks in the world, more than 40 metres around.",
+      "Alebrijes are bright painted wooden animals carved by families in villages near Oaxaca.",
+      "Monte Albán was a Zapotec city built on a flattened mountaintop more than 2,000 years ago."
+    ],
+    "hunt": ["an alebrije", "a skeleton figure", "some papel picado", "a cactus fence", "a woven rug", "a ball of quesillo", "a basket of grasshoppers", "a purple jacaranda tree", "a green stone building", "a marigold flower", "a balloon seller", "a Mexican flag"],
+    "quiz": [
+      ["What are Oaxaca's bright painted wooden animals called?", "Alebrijes", "Piñatas", "Totem poles", "Matryoshkas"],
+      ["Which drink made from cacao is Oaxaca famous for?", "Hot chocolate", "Lemonade", "Apple juice", "Orange soda"],
+      ["Which ancient people built Monte Albán?", "The Zapotecs", "The Vikings", "The Romans", "The Inca"]
+    ],
+    "missions": ["Alebrije designer", "Giant tree shape finder"]
+  },
+  "missionsEs": ["Diseñador de alebrijes", "Buscador de figuras del Tule"]
+}

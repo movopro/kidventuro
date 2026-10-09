@@ -1,0 +1,114 @@
+{
+  "slug": "strasbourg",
+  "name": "Strasbourg",
+  "nameEs": "Estrasburgo",
+  "country": "France",
+  "countryEs": "Francia",
+  "flag": "🇫🇷",
+  "region": "europe",
+  "lang": "fr",
+  "phrases": [["Bonjour", "Hello"], ["Merci", "Thank you"], ["S'il vous plaît", "Please"], ["Oui", "Yes"]],
+  "icons": "🎄 🥨 🐦",
+  "scene": "canals",
+  "bestMonths": [12, 5, 6, 9],
+  "seasons": ["winter", "spring", "summer"],
+  "en": {
+    "tagline": "Christmas market • timbered houses • storks",
+    "intro": "Strasbourg is a compact, flat city wrapped by the River Ill, with half-timbered Petite France, a pink sandstone cathedral and storks nesting in the parks. In December the whole old town turns into one of Europe's oldest Christmas markets, with gingerbread, carousels and a giant tree on Place Kléber. Outside the festive season it is calmer, cheaper and easy to explore on foot or by tram in two or three days.",
+    "ages": { "best": "4-12", "text": "Children of 4-8 love the carousels, the astronomical clock parade and the storks; older kids enjoy climbing the cathedral's 332 steps to the platform." },
+    "stroller": { "rating": "mixed", "text": "The centre is flat and trams are step-free, but Petite France has cobbles and market crowds in December make strollers slow; a carrier is easier in the evenings." },
+    "mustDos": [
+      { "title": "Christkindelsmärik and Place Kléber tree", "text": "Walk the market from Place Broglie to the cathedral square, ride a carousel and taste warm gingerbread; go before 4 pm on weekdays to avoid the heaviest crowds.", "ages": "all ages" },
+      { "title": "Cathedral astronomical clock", "text": "At 12:30 the apostles parade past Christ and a rooster flaps its wings; tickets for the show are a few euros and sell out on December weekends, so book online.", "ages": "4+" },
+      { "title": "Batorama boat trip", "text": "A covered boat loops around the island past Petite France and the European Parliament, with an audio guide for children; about 70 minutes and €10-17 per person.", "ages": "all ages" },
+      { "title": "Parc de l'Orangerie storks", "text": "Free park with stork nests on rooftops and trees, a playground and rowing boats on the lake in warm months; storks are most visible from February to August.", "ages": "all ages" },
+      { "title": "Le Vaisseau science centre", "text": "A hands-on science museum built for children, with water, building and animal zones; entry is about €12 per person or €40 for a family of four.", "ages": "3-12" }
+    ],
+    "rainyDay": [
+      { "title": "Musée Zoologique", "text": "Renovated natural history museum with big animal dioramas, free for under-18s." },
+      { "title": "Musée Alsacien", "text": "Old Alsatian rooms, toys and costumes in a riverside house, quick to visit with kids." },
+      { "title": "Le Vaisseau", "text": "Indoor science playground near the Rhine where children can spend a whole cold afternoon." }
+    ],
+    "safety": [
+      "December market crowds are dense, so agree a meeting point like the Kléber tree and keep phones and wallets zipped.",
+      "Trams are quiet and fast, and cyclists use many lanes, so teach kids to look both ways on every crossing.",
+      "Winter days are damp and near freezing, so pack hats, gloves and waterproof boots; tap water is safe to drink."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €150-230 a day for a family of four, excluding lodging; December prices run higher.",
+      "items": [
+        { "label": "Batorama boat trip (adult / child)", "price": "€15-17 / €8-10" },
+        { "label": "Le Vaisseau family ticket (4 people)", "price": "€40" },
+        { "label": "Tram 24-hour ticket", "price": "€4.50-5.50" },
+        { "label": "Tarte flambée to share", "price": "€10-15" }
+      ],
+      "tip": "City museums are free for under-18s, and the CTS trio ticket covers up to three people for 24 hours."
+    },
+    "gettingAround": "The old town is walkable in 15 minutes end to end; CTS trams A to F link the station, Homme de Fer and the Rhine side with step-free stops.",
+    "food": "Kids usually love tarte flambée (flammekueche), soft pretzels, bredele biscuits and the little brioche men called mannele; restaurants serve lunch 12-14 and dinner from 19.",
+    "firstDay": {
+      "morning": "Walk from the cathedral to Petite France and watch the lock bridges turn for boats.",
+      "afternoon": "Catch the 12:30 clock show, then ride Batorama for a warm seated tour.",
+      "evening": "Wander the lit Christmas market streets and share a tarte flambée for dinner."
+    }
+  },
+  "es": {
+    "tagline": "Mercado navideño • casas de entramado • cigüeñas",
+    "intro": "Estrasburgo es una ciudad compacta y llana rodeada por el río Ill, con el barrio de Petite France, una catedral de arenisca rosa y cigüeñas anidando en los parques. En diciembre todo el casco antiguo se convierte en uno de los mercados navideños más antiguos de Europa, con pan de especias, tiovivos y un árbol gigante en la plaza Kléber. Fuera de esas fechas es más tranquila y barata, y se recorre a pie o en tranvía en dos o tres días.",
+    "ages": { "best": "4-12", "text": "Los niños de 4 a 8 años disfrutan los tiovivos, el desfile del reloj astronómico y las cigüeñas; los mayores pueden subir los 332 escalones hasta la plataforma de la catedral." },
+    "stroller": { "rating": "mixed", "text": "El centro es llano y los tranvías no tienen escalones, pero Petite France tiene adoquines y en diciembre la multitud hace lento el carrito; por la tarde conviene una mochila portabebés." },
+    "mustDos": [
+      { "title": "Christkindelsmärik y el árbol de la plaza Kléber", "text": "Recorre el mercado desde la plaza Broglie hasta la catedral, sube a un tiovivo y prueba pan de especias caliente; ve antes de las 16:00 entre semana para evitar las aglomeraciones.", "ages": "todas las edades" },
+      { "title": "Reloj astronómico de la catedral", "text": "A las 12:30 los apóstoles desfilan y un gallo bate las alas; la entrada cuesta pocos euros y se agota los fines de semana de diciembre, así que resérvala en línea.", "ages": "4+" },
+      { "title": "Paseo en barco Batorama", "text": "Un barco cubierto rodea la isla pasando por Petite France y el Parlamento Europeo, con audioguía infantil; unos 70 minutos y entre 10 y 17 € por persona.", "ages": "todas las edades" },
+      { "title": "Cigüeñas del Parc de l'Orangerie", "text": "Parque gratuito con nidos de cigüeña en tejados y árboles, zona de juegos y barcas en el lago en los meses cálidos; las cigüeñas se ven más entre febrero y agosto.", "ages": "todas las edades" },
+      { "title": "Centro de ciencias Le Vaisseau", "text": "Museo de ciencia interactivo pensado para niños, con zonas de agua, construcción y animales; la entrada ronda 12 € por persona o 40 € para una familia de cuatro.", "ages": "3-12" }
+    ],
+    "rainyDay": [
+      { "title": "Musée Zoologique", "text": "Museo de historia natural renovado con grandes dioramas de animales, gratis para menores de 18 años." },
+      { "title": "Musée Alsacien", "text": "Habitaciones alsacianas antiguas, juguetes y trajes en una casa junto al río, fácil de visitar con niños." },
+      { "title": "Le Vaisseau", "text": "Parque científico cubierto cerca del Rin donde los niños pueden pasar toda una tarde fría." }
+    ],
+    "safety": [
+      "En el mercado navideño hay mucha gente, así que acordad un punto de encuentro como el árbol de Kléber y guardad bien móviles y carteras.",
+      "Los tranvías son silenciosos y rápidos, y hay muchos carriles bici, así que enseña a los niños a mirar a ambos lados en cada cruce.",
+      "Los días de invierno son húmedos y rondan los cero grados: lleva gorro, guantes y botas impermeables; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos 150-230 € al día para una familia de cuatro, sin alojamiento; en diciembre los precios suben.",
+      "items": [
+        { "label": "Barco Batorama (adulto / niño)", "price": "€15-17 / €8-10" },
+        { "label": "Le Vaisseau, entrada familiar (4 personas)", "price": "€40" },
+        { "label": "Billete de tranvía de 24 horas", "price": "€4.50-5.50" },
+        { "label": "Tarte flambée para compartir", "price": "€10-15" }
+      ],
+      "tip": "Los museos municipales son gratis para menores de 18 años y el billete CTS trio cubre hasta tres personas durante 24 horas."
+    },
+    "gettingAround": "El casco antiguo se cruza a pie en 15 minutos; los tranvías CTS A a F unen la estación, Homme de Fer y la zona del Rin con paradas sin escalones.",
+    "food": "A los niños les suelen encantar la tarte flambée (flammekueche), los pretzels blandos, las galletas bredele y los muñequitos de brioche llamados mannele; se come de 12 a 14 y se cena desde las 19.",
+    "firstDay": {
+      "morning": "Pasea desde la catedral hasta Petite France y mira cómo giran los puentes para los barcos.",
+      "afternoon": "Asiste al reloj de las 12:30 y después sube al Batorama para un recorrido sentados y abrigados.",
+      "evening": "Recorre las calles iluminadas del mercado navideño y cena una tarte flambée para compartir."
+    }
+  },
+  "booklet": {
+    "marks": ["Strasbourg Cathedral", "Petite France", "Place Kléber Christmas tree", "Ponts Couverts"],
+    "food": ["tarte flambée", "pretzel", "gingerbread", "bredele biscuits"],
+    "facts": [
+      "Strasbourg's Christmas market started in 1570, more than 450 years ago.",
+      "White storks are the symbol of Alsace and build huge nests on rooftops.",
+      "The cathedral spire was the tallest building in the world for over 200 years."
+    ],
+    "hunt": ["a stork", "a half-timbered house", "a carousel", "a gingerbread heart", "a tram", "a boat on the river", "a pretzel", "a giant Christmas tree", "a star decoration", "a swing bridge", "a red sandstone wall", "the astronomical clock"],
+    "quiz": [
+      ["Which bird is the symbol of Alsace?", "The stork", "The eagle", "The swan", "The parrot"],
+      ["What colour is Strasbourg Cathedral's stone?", "Pink", "Green", "Blue", "White"],
+      ["Which river flows around the old town?", "The Ill", "The Thames", "The Nile", "The Danube"]
+    ],
+    "missions": ["Stork spotter", "Christmas market detective"]
+  },
+  "missionsEs": ["Detective de cigüeñas", "Detective del mercado navideño"]
+}

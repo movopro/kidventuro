@@ -190,7 +190,7 @@ async function aiEnrichment(env,ref,bodyExtra={}){
 
   const health=await worker.fetch(new Request('https://example.workers.dev/health'),env);
   const healthBody=await health.json();
-  assert.equal(healthBody.release,'2026-08-26.6');
+  assert.equal(healthBody.release,'2026-10-10.1');
   assert.equal(healthBody.booklet_language,'en');
   assert.equal(Object.hasOwn(healthBody,'last_webhook'),false,'public health must not expose webhook-specific diagnostics');
   assert.equal(healthBody.variant_locks.test.adventure,true);

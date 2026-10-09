@@ -1,0 +1,114 @@
+{
+  "slug": "hiroshima",
+  "name": "Hiroshima",
+  "nameEs": "Hiroshima",
+  "country": "Japan",
+  "countryEs": "Japón",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "lang": "ja",
+  "phrases": [["Konnichiwa","Hello"],["Arigatou","Thank you"],["Kudasai","Please"],["Hai","Yes"]],
+  "icons": "⛩️ 🦌 🕊️",
+  "scene": "temple",
+  "bestMonths": [3, 4, 5, 10, 11],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "Paper cranes • floating gate • island deer",
+    "intro": "Hiroshima is a green, calm river city that rebuilt itself after the atomic bomb of 1945 and now shares a message of peace. Families can talk about that history gently at the Children's Peace Monument, hung with paper cranes from around the world. A short ferry then leads to Miyajima, where deer wander the lanes and a huge orange torii gate seems to float at high tide.",
+    "ages": { "best": "6-12", "text": "Miyajima, the streetcars and okonomiyaki suit every age; the Peace Memorial Museum shows real belongings and images of injuries, so it is best for about 10+ with a parent who has looked ahead." },
+    "stroller": { "rating": "easy", "text": "Central Hiroshima is flat, with wide pavements, low-floor streetcars and lifts at stations, and the Peace Park paths are smooth. On Miyajima the seafront is fine, but the Mt. Misen summit trail needs a carrier." },
+    "mustDos": [
+      { "title": "Peace Memorial Park", "text": "Walk past the A-Bomb Dome to the Children's Peace Monument, which honours Sadako Sasaki, and leave a folded crane; it is a calm place to talk about peace and kindness.", "ages": "5+" },
+      { "title": "Hiroshima Peace Memorial Museum", "text": "Entry is about JPY 200 for adults and free for junior high and younger; many families with under-10s visit only the park, while older kids benefit from a short talk before and after.", "ages": "10+" },
+      { "title": "Itsukushima Shrine on Miyajima", "text": "Check the tide table: at high tide the shrine and great torii seem to float, and at low tide you can walk out on the sand to the gate.", "ages": "3+" },
+      { "title": "Mt. Misen Ropeway", "text": "Two ropeway sections climb above the forest to views over the Seto Inland Sea islands, then a 30-minute rocky walk reaches the summit for older kids.", "ages": "5+" },
+      { "title": "Orizuru Tower", "text": "Next to the Peace Park, kids fold a paper crane and drop it into a tall glass wall of cranes, then step onto a wooden rooftop deck with city views.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Miyajima Public Aquarium", "text": "Finless porpoises, sea lions, penguins and Seto Inland Sea creatures, all under one roof." },
+      { "title": "Numaji Transport Museum", "text": "A transport museum with model trains, hands-on displays and ride-on bikes outside when it clears." },
+      { "title": "Okonomimura", "text": "A building of small griddle counters where kids watch okonomiyaki being layered and flipped." }
+    ],
+    "safety": [
+      "Miyajima deer are wild and will grab maps, snacks or paper bags, so keep food packed away, do not feed them and watch small children near them.",
+      "July and August are hot and humid, and typhoons in late summer can stop ferries, so carry water and check sailings before heading to Miyajima.",
+      "Bicycles often ride on the pavements, so keep kids walking on one side and hold hands at busy crossings; tap water is safe."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "About JPY 22,000-38,000 (about €130-225) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Peace Memorial Museum (adult; junior high and under free)", "price": "JPY 200 (about €1.20)" },
+        { "label": "Ferry to Miyajima, each way (adult / child)", "price": "JPY 200 / 100 (about €1.20 / €0.60)" },
+        { "label": "Miyajima Ropeway return (adult / child)", "price": "JPY 2,000 / 1,000 (about €12 / €6)" },
+        { "label": "Hiroshima-style okonomiyaki", "price": "JPY 1,000-1,600 (about €6-9.50)" }
+      ],
+      "tip": "The Peace Park and the Children's Peace Monument are free, and adults also pay a JPY 100 Miyajima visitor tax, usually collected with the ferry fare."
+    },
+    "gettingAround": "Hiroden streetcars cover the city at a flat fare, with half price for children and IC cards accepted. For Miyajima, take the JR train to Miyajimaguchi and a 10-minute ferry, or a direct boat from the Peace Park.",
+    "food": "Hiroshima-style okonomiyaki is a layered pancake of cabbage, noodles and egg cooked on a griddle in front of you. On Miyajima try maple-leaf momiji manju cakes, warm or fried, and grilled eel on rice.",
+    "firstDay": {
+      "morning": "Visit the Peace Park and fold a crane for the Children's Peace Monument.",
+      "afternoon": "Feed the koi and cross the small bridges of Shukkeien Garden.",
+      "evening": "Share okonomiyaki at a griddle counter in Okonomimura."
+    }
+  },
+  "es": {
+    "tagline": "Grullas de papel • puerta flotante • ciervos en la isla",
+    "intro": "Hiroshima es una ciudad verde y tranquila, cruzada por ríos, que se reconstruyó tras la bomba atómica de 1945 y hoy comparte un mensaje de paz. Las familias pueden hablar de esa historia con calma ante el Monumento a la Paz de los Niños, cubierto de grullas de papel de todo el mundo. Un ferri corto lleva después a Miyajima, donde los ciervos pasean por las calles y un gran torii naranja parece flotar con la marea alta.",
+    "ages": { "best": "6-12", "text": "Miyajima, los tranvías y el okonomiyaki van bien a cualquier edad; el Museo Memorial de la Paz muestra objetos reales e imágenes de heridas, así que es mejor desde unos 10 años y con un adulto que lo haya revisado antes." },
+    "stroller": { "rating": "easy", "text": "El centro de Hiroshima es llano, con aceras anchas, tranvías de piso bajo y ascensores en las estaciones, y los caminos del Parque de la Paz son lisos. En Miyajima el paseo marítimo va bien, pero el sendero a la cima del monte Misen pide mochila portabebés." },
+    "mustDos": [
+      { "title": "Parque Memorial de la Paz", "text": "Pasa junto a la Cúpula de la Bomba Atómica hasta el Monumento a la Paz de los Niños, dedicado a Sadako Sasaki, y deja una grulla de papel; es un lugar sereno para hablar de paz y amabilidad.", "ages": "5+" },
+      { "title": "Museo Memorial de la Paz de Hiroshima", "text": "La entrada cuesta unos JPY 200 para adultos y es gratis hasta secundaria; muchas familias con menores de 10 visitan solo el parque, y a los mayores les ayuda una charla breve antes y después.", "ages": "10+" },
+      { "title": "Santuario de Itsukushima en Miyajima", "text": "Consulta la tabla de mareas: con marea alta el santuario y el gran torii parecen flotar, y con marea baja se puede caminar por la arena hasta la puerta.", "ages": "3+" },
+      { "title": "Teleférico del monte Misen", "text": "Dos tramos de teleférico suben sobre el bosque hasta unas vistas de las islas del mar Interior de Seto, y luego un paseo rocoso de 30 minutos llega a la cima para los mayores.", "ages": "5+" },
+      { "title": "Orizuru Tower", "text": "Junto al Parque de la Paz, los niños doblan una grulla de papel y la dejan caer en una alta pared de cristal llena de grullas, y luego salen a una terraza de madera con vistas.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Acuario Público de Miyajima", "text": "Marsopas sin aleta, leones marinos, pingüinos y criaturas del mar Interior de Seto bajo un mismo techo." },
+      { "title": "Museo del Transporte Numaji", "text": "Un museo del transporte con trenes en miniatura, juegos interactivos y bicicletas para montar fuera cuando escampa." },
+      { "title": "Okonomimura", "text": "Un edificio lleno de pequeñas planchas donde los niños ven montar y voltear el okonomiyaki." }
+    ],
+    "safety": [
+      "Los ciervos de Miyajima son salvajes y arrebatan mapas, comida o bolsas de papel, así que guarda los alimentos, no les des de comer y vigila a los pequeños cerca de ellos.",
+      "Julio y agosto son calurosos y húmedos, y los tifones de final del verano pueden detener los ferris, así que lleva agua y revisa las salidas antes de ir a Miyajima.",
+      "Las bicicletas circulan a menudo por las aceras, así que camina con los niños a un lado y de la mano en los cruces concurridos; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "Unos JPY 22.000-38.000 (unos €130-225) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Museo Memorial de la Paz (adulto; hasta secundaria gratis)", "price": "JPY 200 (about €1.20)" },
+        { "label": "Ferri a Miyajima, por trayecto (adulto / niño)", "price": "JPY 200 / 100 (about €1.20 / €0.60)" },
+        { "label": "Teleférico de Miyajima, ida y vuelta (adulto / niño)", "price": "JPY 2,000 / 1,000 (about €12 / €6)" },
+        { "label": "Okonomiyaki al estilo de Hiroshima", "price": "JPY 1,000-1,600 (about €6-9.50)" }
+      ],
+      "tip": "El Parque de la Paz y el Monumento a la Paz de los Niños son gratis, y los adultos pagan además un impuesto de visitante de JPY 100 en Miyajima, que suele cobrarse con el billete del ferri."
+    },
+    "gettingAround": "Los tranvías de Hiroden recorren la ciudad con tarifa única, a mitad de precio para niños y con tarjetas IC. Para ir a Miyajima, toma el tren JR hasta Miyajimaguchi y un ferri de 10 minutos, o un barco directo desde el Parque de la Paz.",
+    "food": "El okonomiyaki al estilo de Hiroshima es una torta en capas de col, fideos y huevo que se cocina en la plancha delante de ti. En Miyajima prueba los momiji manju con forma de hoja de arce, calientes o fritos, y la anguila a la parrilla sobre arroz.",
+    "firstDay": {
+      "morning": "Visita el Parque de la Paz y dobla una grulla para el Monumento a la Paz de los Niños.",
+      "afternoon": "Da de comer a las carpas y cruza los puentecitos del jardín Shukkeien.",
+      "evening": "Comparte un okonomiyaki en una barra con plancha de Okonomimura."
+    }
+  },
+  "booklet": {
+    "marks": ["Itsukushima Shrine torii", "A-Bomb Dome", "Children's Peace Monument", "Mt. Misen"],
+    "food": ["okonomiyaki", "momiji manju", "grilled eel on rice", "lemon cake"],
+    "facts": [
+      "People all over the world fold paper cranes and send them to Hiroshima as a wish for peace.",
+      "At high tide, Miyajima's big orange torii gate looks as if it is floating on the sea.",
+      "Deer walk freely on Miyajima, where they were long seen as messengers of the gods."
+    ],
+    "hunt": ["a paper crane", "a floating torii gate", "a deer", "a streetcar", "a stone lantern", "a maple leaf", "a ferry", "an okonomiyaki griddle", "a five-storey pagoda", "a koi carp", "a peace bell", "an oyster raft in the sea"],
+    "quiz": [
+      ["What do people fold and send to Hiroshima as a wish for peace?", "Paper cranes", "Paper boats", "Paper hats", "Paper planes"],
+      ["Which animals walk freely on Miyajima island?", "Deer", "Pandas", "Kangaroos", "Zebras"],
+      ["What makes Miyajima's big torii gate look like it floats?", "The high tide", "A strong wind", "Hot-air balloons", "Deep snow"]
+    ],
+    "missions": ["Paper crane folder", "Floating gate tide watcher"]
+  },
+  "missionsEs": ["Plegador de grullas", "Vigía de la marea del torii"]
+}

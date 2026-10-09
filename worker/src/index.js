@@ -1,7 +1,8 @@
 import {getAiEnrichment} from './ai.js';
 import {handleAnalyticsEvent, trackAnalytics} from './analytics.js';
+import {GUIDE_DESTINATIONS} from './guide-destinations.js';
 
-const RELEASE = '2026-08-26.6';
+const RELEASE = '2026-10-10.1';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const BOOKLET_LANGUAGE = 'en';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);
@@ -11,7 +12,8 @@ const ALLOWED_DESTINATIONS = new Set([
   'Athens','Istanbul','New York','Orlando','Tokyo','Kyoto','Singapore','Sydney','Copenhagen','Budapest',
   'Venice','Florence','Madrid','Bangkok','Reykjavik','Munich','Salzburg','Zurich','Brussels','Bruges',
   'Dublin','Edinburgh','Stockholm','Oslo','Helsinki','Milan','Naples','Seville','Valencia','Porto',
-  'Nice','Dubrovnik','Krakow','Warsaw','Bucharest','Sofia','Abu Dhabi','Seoul','Hong Kong','Kuala Lumpur'
+  'Nice','Dubrovnik','Krakow','Warsaw','Bucharest','Sofia','Abu Dhabi','Seoul','Hong Kong','Kuala Lumpur',
+  ...GUIDE_DESTINATIONS
 ]);
 const ALLOWED_INTERESTS = new Set([
   'dinosaurs','space','animals','football','art','mysteries','castles','science',

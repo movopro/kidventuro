@@ -1,0 +1,114 @@
+{
+  "slug": "jeju",
+  "name": "Jeju",
+  "nameEs": "Jeju",
+  "country": "South Korea",
+  "countryEs": "Corea del Sur",
+  "flag": "🇰🇷",
+  "region": "asia",
+  "lang": "ko",
+  "phrases": [["Annyeonghaseyo", "Hello"], ["Gamsahamnida", "Thank you"], ["Honjeo opseoye", "Welcome (Jeju dialect)"], ["Aniyo", "No"]],
+  "icons": "🌋 🍊 🐴",
+  "scene": "island",
+  "bestMonths": [4, 5, 9, 10, 11],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "Volcano craters • waterfalls into the sea • tangerine orchards",
+    "intro": "Jeju is a volcanic island off Korea's south coast where families climb a crater at sunrise, watch women divers come in from the sea and pick tangerines straight off the tree. Distances are short, roads are good and a rental car turns each day into a loop of beaches, waterfalls and black-stone villages. Spring brings yellow canola fields; autumn brings clear hiking weather and the first tangerines.",
+    "ages": { "best": "5-12", "text": "Children of 5 and up manage the Seongsan Ilchulbong stairs and short Hallasan trails; full summit hikes suit only fit children of about 10 or older. Beaches, farms and aquariums work well for younger ones." },
+    "stroller": { "rating": "mixed", "text": "Promenades in Jeju City, Jungmun and around the waterfalls' upper paths are fine for strollers. Crater climbs, lava-rock coasts and mountain trails are stairs and uneven stone, so bring a carrier." },
+    "mustDos": [
+      { "title": "Seongsan Ilchulbong and the haenyeo divers", "text": "Climb about 20-30 minutes of steps up this sunrise crater for a view into the bowl, then watch the haenyeo women divers on the beach below, usually in the early afternoon if the sea allows. Entry is about ₩5,000 for adults and less for children.", "ages": "5+" },
+      { "title": "Hallasan via the Eorimok trail", "text": "Hallasan is South Korea's highest mountain, and the Eorimok trail to the Witse Oreum shelter is roughly a 4-5 hour return hike through forest and open meadow. Entry is free and no reservation is needed for this trail, but start early as entry closes in the afternoon.", "ages": "7+" },
+      { "title": "Hyeopjae Beach", "text": "Shallow, clear water over white sand with Biyangdo island floating offshore makes this the classic toddler-friendly beach on the west coast. Lifeguards are on duty in the summer season, roughly July and August.", "ages": "2+" },
+      { "title": "Tangerine picking", "text": "From roughly November to January, family-run orchards let children fill a basket with gamgyul tangerines and eat as many as they like on the spot. Expect about ₩5,000-10,000 per person including a small bag to take away.", "ages": "3+" },
+      { "title": "Jeongbang and Cheonjiyeon waterfalls", "text": "Jeongbang falls straight onto the beach into the sea, while Cheonjiyeon sits in a green gorge in Seogwipo with an easy flat path. Each costs only about ₩2,000 for adults and both fit in one afternoon.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Aqua Planet Jeju", "text": "A large aquarium near Seongsan with a huge main tank, touch pools and an indoor marine animal show." },
+      { "title": "Nexon Computer Museum", "text": "A hands-on museum in Jeju City where children play classic arcade and console games from past decades." },
+      { "title": "Jeju National Museum", "text": "A free museum in Jeju City explaining the island's volcanoes, tangerine farming and fishing life." }
+    ],
+    "safety": [
+      "Hallasan weather changes fast, so carry layers, water and snacks and turn back if cloud or wind builds; trails close to new entrants in the afternoon.",
+      "Jeju's coast is windy and waves can surge over the black lava rocks, so keep children off wet rocks and swim only at lifeguarded beaches in season.",
+      "Traffic keeps right, speed cameras are everywhere, and children under 6 must ride in a car seat, which rental firms provide if booked ahead."
+    ],
+    "costs": {
+      "currency": "KRW",
+      "daily": "About ₩220,000-350,000 (about €140-220) a day for a family of four, excluding lodging and car hire.",
+      "items": [
+        { "label": "Seongsan Ilchulbong, adult", "price": "₩5,000 (about €3)" },
+        { "label": "Aqua Planet Jeju, adult", "price": "₩40,000-50,000 (about €25-31)" },
+        { "label": "Small rental car, per day", "price": "₩40,000-90,000 (about €25-56)" },
+        { "label": "Black pork barbecue for two adults", "price": "₩50,000-80,000 (about €31-50)" }
+      ],
+      "tip": "Beaches, oreum hills, Olle trail walks and Hallasan are all free, so balance one paid attraction a day with these."
+    },
+    "gettingAround": "Flights from Seoul take about an hour, and most families rent a car at Jeju Airport; foreign drivers need an International Driving Permit. Without a car, airport limousine buses reach Jungmun and Seogwipo and local buses cover the coast, though slowly.",
+    "food": "Jeju black pork grilled at the table is the island's signature, and children usually like gogi-guksu pork noodle soup, mild abalone porridge and sweet hallabong tangerines. Seafood restaurants by the harbours serve lunch from about 11:00 and many close by 21:00.",
+    "firstDay": {
+      "morning": "Pick up the car and drive to Hyeopjae Beach for a paddle in the shallows.",
+      "afternoon": "Head south to Seogwipo for Cheonjiyeon and Jeongbang waterfalls.",
+      "evening": "Eat black pork barbecue and stroll Seogwipo's Olle Market for snacks."
+    }
+  },
+  "es": {
+    "tagline": "Cráteres volcánicos • cascadas que caen al mar • huertos de mandarinas",
+    "intro": "Jeju es una isla volcánica al sur de Corea donde las familias suben a un cráter al amanecer, ven a las buceadoras volver del mar y cogen mandarinas directamente del árbol. Las distancias son cortas, las carreteras son buenas y con coche de alquiler cada día se convierte en una ruta de playas, cascadas y pueblos de piedra negra. La primavera trae campos amarillos de colza; el otoño, buen tiempo para caminar y las primeras mandarinas.",
+    "ages": { "best": "5-12", "text": "A partir de los 5 años los niños suben bien las escaleras de Seongsan Ilchulbong y las rutas cortas del Hallasan; la cumbre completa es solo para niños en forma de unos 10 años o más. Playas, granjas y acuarios van muy bien con los pequeños." },
+    "stroller": { "rating": "mixed", "text": "Los paseos de la ciudad de Jeju, Jungmun y los caminos altos de las cascadas son aptos para carrito. Los cráteres, la costa de roca volcánica y las rutas de montaña tienen escaleras y piedra irregular, así que lleva mochila portabebés." },
+    "mustDos": [
+      { "title": "Seongsan Ilchulbong y las haenyeo", "text": "Sube unos 20-30 minutos de escalones a este cráter del amanecer para asomarte a su interior y luego mira a las haenyeo, buceadoras tradicionales, en la playa de abajo, normalmente a primera hora de la tarde si el mar lo permite. La entrada cuesta unos ₩5.000 para adultos y menos para niños.", "ages": "5+" },
+      { "title": "Hallasan por la ruta Eorimok", "text": "El Hallasan es la montaña más alta de Corea del Sur, y la ruta Eorimok hasta el refugio de Witse Oreum es una caminata de unas 4-5 horas ida y vuelta entre bosque y pradera. Es gratis y no requiere reserva, pero empieza temprano porque el acceso cierra por la tarde.", "ages": "7+" },
+      { "title": "Playa de Hyeopjae", "text": "Agua clara y poco profunda sobre arena blanca, con la isla de Biyangdo enfrente: es la playa clásica para niños pequeños en la costa oeste. Hay socorristas en temporada de verano, más o menos en julio y agosto.", "ages": "2+" },
+      { "title": "Recogida de mandarinas", "text": "Aproximadamente de noviembre a enero, huertos familiares dejan que los niños llenen una cesta de mandarinas gamgyul y coman todas las que quieran allí mismo. Calcula unos ₩5.000-10.000 por persona, con una bolsita para llevar.", "ages": "3+" },
+      { "title": "Cascadas de Jeongbang y Cheonjiyeon", "text": "Jeongbang cae directamente a la playa y al mar, mientras que Cheonjiyeon está en un desfiladero verde de Seogwipo con un camino llano y fácil. Cada una cuesta unos ₩2.000 para adultos y caben las dos en una tarde.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Aqua Planet Jeju", "text": "Un gran acuario cerca de Seongsan con un tanque enorme, piscinas táctiles y espectáculo de animales marinos bajo techo." },
+      { "title": "Museo de Ordenadores Nexon", "text": "Un museo interactivo en la ciudad de Jeju donde los niños juegan a máquinas recreativas y consolas clásicas." },
+      { "title": "Museo Nacional de Jeju", "text": "Un museo gratuito en la ciudad de Jeju que explica los volcanes, el cultivo de mandarinas y la vida pesquera." }
+    ],
+    "safety": [
+      "El tiempo en el Hallasan cambia rápido: lleva capas de ropa, agua y algo de comer y date la vuelta si aumentan las nubes o el viento; las rutas cierran el acceso por la tarde.",
+      "La costa de Jeju es ventosa y las olas pueden saltar sobre las rocas volcánicas, así que mantén a los niños lejos de las rocas mojadas y báñate solo en playas vigiladas en temporada.",
+      "Se circula por la derecha, hay radares por todas partes y los menores de 6 años deben ir en silla infantil, que las empresas de alquiler facilitan si se reserva antes."
+    ],
+    "costs": {
+      "currency": "KRW",
+      "daily": "Unos ₩220.000-350.000 (unos 140-220 €) al día para una familia de cuatro, sin alojamiento ni coche.",
+      "items": [
+        { "label": "Seongsan Ilchulbong, adulto", "price": "₩5,000 (about €3)" },
+        { "label": "Aqua Planet Jeju, adulto", "price": "₩40,000-50,000 (about €25-31)" },
+        { "label": "Coche de alquiler pequeño, por día", "price": "₩40,000-90,000 (about €25-56)" },
+        { "label": "Barbacoa de cerdo negro para dos adultos", "price": "₩50,000-80,000 (about €31-50)" }
+      ],
+      "tip": "Las playas, las colinas oreum, los senderos Olle y el Hallasan son gratis: combina una atracción de pago al día con ellos."
+    },
+    "gettingAround": "Los vuelos desde Seúl duran alrededor de una hora y la mayoría de familias alquila coche en el aeropuerto de Jeju; los conductores extranjeros necesitan permiso internacional de conducir. Sin coche, los autobuses del aeropuerto llegan a Jungmun y Seogwipo y los autobuses locales recorren la costa, aunque despacio.",
+    "food": "El cerdo negro de Jeju a la parrilla en la mesa es el plato estrella, y a los niños suelen gustarles la sopa de fideos con cerdo gogi-guksu, la suave papilla de oreja de mar y las dulces mandarinas hallabong. Los restaurantes de los puertos sirven comida desde las 11:00 y muchos cierran hacia las 21:00.",
+    "firstDay": {
+      "morning": "Recoge el coche y ve a la playa de Hyeopjae a chapotear en la orilla.",
+      "afternoon": "Baja a Seogwipo para ver las cascadas de Cheonjiyeon y Jeongbang.",
+      "evening": "Cena barbacoa de cerdo negro y pasea por el mercado Olle de Seogwipo."
+    }
+  },
+  "booklet": {
+    "marks": ["Seongsan Ilchulbong", "Hallasan Mountain", "Jeongbang Waterfall", "Hyeopjae Beach"],
+    "food": ["hallabong tangerine", "black pork barbecue", "abalone porridge", "pork noodle soup"],
+    "facts": [
+      "Hallasan on Jeju is the highest mountain in South Korea.",
+      "Haenyeo are women divers who catch sea food without air tanks.",
+      "Stone grandfathers called dol hareubang guard Jeju's villages."
+    ],
+    "hunt": ["a dol hareubang statue", "a tangerine tree", "a black lava rock", "a haenyeo diver", "a volcano crater", "a waterfall", "a Jeju pony", "a stone wall", "a yellow canola field", "a lighthouse", "an orange roof", "some black pork"],
+    "quiz": [
+      ["What is the highest mountain in South Korea?", "Hallasan", "Everest", "Fuji", "Kilimanjaro"],
+      ["Who are the haenyeo?", "Women who dive in the sea", "Mountain guides", "Tangerine farmers' dogs", "Bus drivers"],
+      ["What made Jeju island?", "Volcanoes", "Glaciers", "Coral only", "Sand dunes"]
+    ],
+    "missions": ["Stone grandfather spotter", "Haenyeo diver watch"]
+  },
+  "missionsEs": ["Buscador de abuelos de piedra", "Vigía de buceadoras haenyeo"]
+}

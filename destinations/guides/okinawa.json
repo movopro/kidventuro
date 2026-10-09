@@ -1,0 +1,114 @@
+{
+  "slug": "okinawa",
+  "name": "Okinawa",
+  "nameEs": "Okinawa",
+  "country": "Japan",
+  "countryEs": "Japón",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "lang": "ja",
+  "phrases": [["Haisai", "Hello (Okinawan greeting)"], ["Arigatō", "Thank you"], ["Onegaishimasu", "Please"], ["Hai", "Yes"]],
+  "icons": "🐋 🏝️ 🦁",
+  "scene": "island",
+  "bestMonths": [3, 4, 5, 10, 11],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "Whale sharks • white-sand islands • shisa lion-dogs",
+    "intro": "Okinawa feels like a different Japan: warm sea, coral reefs, a slower island pace and food that mixes Japanese, Chinese and American influences. Families usually base in Naha for the castle, markets and monorail, then drive north for a day at the Churaumi Aquarium, where whale sharks glide past a glass wall taller than a house. Calm, shallow beaches make it easy with younger children.",
+    "ages": { "best": "4-12", "text": "Toddlers and young children love the aquarium and the netted swimming beaches. Snorkelling trips to the Kerama Islands suit confident swimmers of about 6 and up, and most tour operators provide child-sized life jackets." },
+    "stroller": { "rating": "mixed", "text": "Naha's Kokusai-dori, the monorail and the aquarium are stroller-friendly with lifts and ramps. Shurijo's stone paths are steep and beaches and ferries are not, so bring a carrier for those days." },
+    "mustDos": [
+      { "title": "Okinawa Churaumi Aquarium", "text": "Watch whale sharks and manta rays in the huge Kuroshio Sea tank, then catch the free dolphin show outside in Ocean Expo Park. Tickets are ¥2,180 for adults, ¥710 for school-age children and free under 6; it is about two hours' drive north of Naha.", "ages": "2+" },
+      { "title": "Kerama Islands day trip", "text": "High-speed ferries from Tomari Port reach Tokashiki or Zamami in roughly 35-50 minutes, landing near beaches with clear water and sea turtles. Book ahead and check the forecast, as sailings are cancelled in rough seas.", "ages": "5+" },
+      { "title": "Shurijo Castle Park", "text": "The red palace of the old Ryukyu kings burned in 2019 and is being rebuilt, and visitors can watch the craftsmen at work. Gates, stone walls and viewpoints are free; the paid area costs ¥400 for adults and less for children.", "ages": "5+" },
+      { "title": "Kouri Island", "text": "Drive across the 2 km Kouri Bridge over turquoise water to a small island with shallow beaches and the heart-shaped Heart Rock. It pairs easily with the aquarium day, which is about 30 minutes away.", "ages": "3+" },
+      { "title": "Makishi Public Market and Kokusai-dori", "text": "Pick colourful fish on the ground floor of the market and have them cooked upstairs, then walk Kokusai-dori for shisa figures and Blue Seal ice cream. Expect about ¥1,500-3,000 per person for a market meal.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "DMM Kariyushi Aquarium", "text": "A modern, compact aquarium near the airport with touch pools, sloths and colourful reef fish under one roof." },
+      { "title": "Okinawa World and Gyokusendo Cave", "text": "Walk a lit underground path through stalactites, then watch an Eisa drum show in the covered village." },
+      { "title": "Okinawa Prefectural Museum", "text": "Ryukyu history, sea fossils and a hands-on discovery room in Naha's Omoromachi district." }
+    ],
+    "safety": [
+      "The sun is strong even in spring, so use rash guards and hats and plan beach time for mornings and late afternoons.",
+      "Box jellyfish appear from about June to September, so swim only at beaches with jellyfish nets and lifeguards and follow posted flags.",
+      "Typhoons can hit from July to October and stop ferries and flights, so keep flexible days; if you drive, cars keep left and under-6s must use a child seat."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "About ¥25,000-40,000 (about €145-235) a day for a family of four, excluding lodging and car hire.",
+      "items": [
+        { "label": "Churaumi Aquarium (adult / school-age child)", "price": "¥2,180 / ¥710 (about €13 / €4)" },
+        { "label": "Compact rental car, per day", "price": "¥6,000-12,000 (about €35-70)" },
+        { "label": "High-speed ferry Naha-Kerama, adult one way", "price": "¥2,500-4,000 (about €15-24)" },
+        { "label": "Bowl of Okinawa soba", "price": "¥700-1,200 (about €4-7)" }
+      ],
+      "tip": "Churaumi sells cheaper tickets from 16:00, when the crowds thin, and much of Ocean Expo Park, including the dolphin show and Emerald Beach, is free."
+    },
+    "gettingAround": "The Yui Rail monorail links Naha Airport with Kokusai-dori and Shuri, and is simple with children. For the aquarium and northern beaches a rental car is easiest, taking about two hours on the expressway; otherwise use the Yanbaru Express bus.",
+    "food": "Okinawa soba has thick wheat noodles in a mild pork broth that most children like, and taco rice and sata andagi doughnuts are easy wins. Many restaurants serve dinner from about 17:00, and families often eat early to beat the queues.",
+    "firstDay": {
+      "morning": "Ride the monorail to Shuri and walk the castle walls while it is still cool.",
+      "afternoon": "Head back to Kokusai-dori for lunch at Makishi Public Market and a Blue Seal ice cream.",
+      "evening": "Watch the sunset at Naminoue Beach in Naha, a short taxi ride away, before an early dinner."
+    }
+  },
+  "es": {
+    "tagline": "Tiburones ballena • islas de arena blanca • leones-perro shisa",
+    "intro": "Okinawa parece otro Japón: mar cálido, arrecifes de coral, un ritmo isleño más tranquilo y una cocina que mezcla influencias japonesas, chinas y estadounidenses. Las familias suelen alojarse en Naha para ver el castillo, los mercados y usar el monorraíl, y luego conducen al norte para pasar un día en el acuario Churaumi, donde los tiburones ballena nadan tras un cristal más alto que una casa. Las playas tranquilas y poco profundas facilitan el viaje con niños pequeños.",
+    "ages": { "best": "4-12", "text": "A los más pequeños les encantan el acuario y las playas con redes antimedusas. Las excursiones de esnórquel a las islas Kerama son para buenos nadadores a partir de unos 6 años, y casi todos los operadores tienen chalecos salvavidas infantiles." },
+    "stroller": { "rating": "mixed", "text": "Kokusai-dori, el monorraíl y el acuario se recorren bien en carrito, con ascensores y rampas. Los caminos de piedra de Shurijo son empinados y las playas y los ferris no son aptos, así que lleva mochila portabebés esos días." },
+    "mustDos": [
+      { "title": "Acuario Churaumi de Okinawa", "text": "Mira tiburones ballena y mantas en el enorme tanque del Mar de Kuroshio y después el espectáculo gratuito de delfines en el Ocean Expo Park. La entrada cuesta ¥2.180 para adultos, ¥710 para niños en edad escolar y es gratis para menores de 6; está a unas dos horas en coche al norte de Naha.", "ages": "2+" },
+      { "title": "Excursión a las islas Kerama", "text": "Los ferris rápidos desde el puerto de Tomari llegan a Tokashiki o Zamami en unos 35-50 minutos, cerca de playas de agua cristalina con tortugas marinas. Reserva con antelación y mira la previsión, porque se cancelan con mar agitado.", "ages": "5+" },
+      { "title": "Parque del Castillo de Shurijo", "text": "El palacio rojo de los antiguos reyes de Ryukyu se quemó en 2019 y se está reconstruyendo; se puede ver a los artesanos trabajando. Las puertas, murallas y miradores son gratis; la zona de pago cuesta ¥400 para adultos y menos para niños.", "ages": "5+" },
+      { "title": "Isla de Kouri", "text": "Cruza en coche el puente de Kouri, de 2 km sobre agua turquesa, hasta una isla pequeña con playas poco profundas y la roca con forma de corazón. Se combina fácilmente con el día del acuario, a unos 30 minutos.", "ages": "3+" },
+      { "title": "Mercado Makishi y Kokusai-dori", "text": "Elige pescados de colores en la planta baja del mercado y que te los cocinen arriba; luego pasea por Kokusai-dori entre figuras de shisa y helados Blue Seal. Calcula unos ¥1.500-3.000 por persona para comer en el mercado.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Acuario DMM Kariyushi", "text": "Un acuario moderno y compacto cerca del aeropuerto, con piscinas táctiles, perezosos y peces de arrecife bajo techo." },
+      { "title": "Okinawa World y la cueva Gyokusendo", "text": "Recorre un camino iluminado entre estalactitas y luego mira un espectáculo de tambores Eisa a cubierto." },
+      { "title": "Museo Prefectural de Okinawa", "text": "Historia de Ryukyu, fósiles marinos y una sala de descubrimiento interactiva en el barrio de Omoromachi, en Naha." }
+    ],
+    "safety": [
+      "El sol pega fuerte incluso en primavera: usa camisetas de licra y gorras y deja la playa para la mañana y la última hora de la tarde.",
+      "Entre junio y septiembre aparecen medusas de caja, así que báñate solo en playas con redes y socorristas y respeta las banderas.",
+      "De julio a octubre puede haber tifones que paran ferris y vuelos, así que deja días flexibles; si conduces, se circula por la izquierda y los menores de 6 años deben ir en silla infantil."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "Unos ¥25.000-40.000 (unos 145-235 €) al día para una familia de cuatro, sin alojamiento ni coche de alquiler.",
+      "items": [
+        { "label": "Acuario Churaumi (adulto / niño en edad escolar)", "price": "¥2,180 / ¥710 (about €13 / €4)" },
+        { "label": "Coche de alquiler compacto, por día", "price": "¥6,000-12,000 (about €35-70)" },
+        { "label": "Ferry rápido Naha-Kerama, adulto solo ida", "price": "¥2,500-4,000 (about €15-24)" },
+        { "label": "Cuenco de Okinawa soba", "price": "¥700-1,200 (about €4-7)" }
+      ],
+      "tip": "Churaumi vende entradas más baratas a partir de las 16:00, cuando hay menos gente, y gran parte del Ocean Expo Park, incluidos los delfines y Emerald Beach, es gratis."
+    },
+    "gettingAround": "El monorraíl Yui Rail une el aeropuerto de Naha con Kokusai-dori y Shuri, y es muy cómodo con niños. Para el acuario y las playas del norte lo más fácil es alquilar coche, unas dos horas por autopista; si no, toma el autobús Yanbaru Express.",
+    "food": "El Okinawa soba lleva fideos gruesos de trigo en un caldo suave de cerdo que gusta a casi todos los niños, y el taco rice y los buñuelos sata andagi son un acierto seguro. Muchos restaurantes sirven la cena desde las 17:00 y las familias suelen ir pronto para evitar colas.",
+    "firstDay": {
+      "morning": "Toma el monorraíl hasta Shuri y recorre las murallas del castillo mientras aún hace fresco.",
+      "afternoon": "Vuelve a Kokusai-dori para comer en el mercado Makishi y tomar un helado Blue Seal.",
+      "evening": "Mira el atardecer en la playa de Naminoue, a un corto trayecto en taxi, antes de cenar temprano."
+    }
+  },
+  "booklet": {
+    "marks": ["Churaumi Aquarium", "Shurijo Castle", "Kouri Bridge", "Kokusai-dori Street"],
+    "food": ["Okinawa soba", "sata andagi doughnuts", "taco rice", "Blue Seal ice cream"],
+    "facts": [
+      "Okinawa is made of more than 150 islands in a warm sea.",
+      "Whale sharks are the biggest fish in the world, and Churaumi has some.",
+      "Shisa lion-dogs sit on roofs and gates to guard Okinawan homes."
+    ],
+    "hunt": ["a shisa on a roof", "a whale shark", "a manta ray", "a red roof tile", "a hibiscus flower", "a sea turtle", "a coral reef", "a monorail train", "a palm tree", "a heart-shaped rock", "some white sand", "a sata andagi doughnut"],
+    "quiz": [
+      ["What is the biggest fish in the Churaumi Aquarium tank?", "A whale shark", "A goldfish", "A tuna", "A clownfish"],
+      ["What do shisa statues do on Okinawan houses?", "Guard the home", "Catch rain", "Tell the time", "Hold the roof up"],
+      ["What colour was the main hall of Shurijo Castle?", "Red", "Green", "Purple", "Black"]
+    ],
+    "missions": ["Whale shark watcher", "Shisa guardian count"]
+  },
+  "missionsEs": ["Observador de tiburones ballena", "Cuenta de guardianes shisa"]
+}

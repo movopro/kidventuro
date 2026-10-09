@@ -1,0 +1,114 @@
+{
+  "slug": "luang-prabang",
+  "name": "Luang Prabang",
+  "nameEs": "Luang Prabang",
+  "country": "Laos",
+  "countryEs": "Laos",
+  "flag": "🇱🇦",
+  "region": "asia",
+  "lang": "lo",
+  "phrases": [["Sabaidee", "Hello"], ["Khop chai", "Thank you"], ["Kaluna", "Please"], ["Doi", "Yes"]],
+  "icons": "🛕 🐻 💧",
+  "scene": "temple",
+  "bestMonths": [11, 12, 1, 2],
+  "seasons": ["winter"],
+  "en": {
+    "tagline": "Turquoise waterfalls • golden temples • slow boats on the Mekong",
+    "intro": "Luang Prabang is a quiet riverside town where saffron-robed monks walk at dawn, golden temples sit between French colonial houses and the day moves at a gentle pace. Families come for the turquoise pools of Kuang Si, a boat ride up the Mekong to caves full of Buddha statues and an easy night market. Most visits are three or four slow days, ideal after busier stops in Thailand or Vietnam.",
+    "ages": { "best": "5-12", "text": "Children of 5 and up enjoy the waterfall pools, boats and bear rescue centre most. The town has no theme parks or big museums, so it suits families happy with slow days, and the March-May hot season is hard on small children." },
+    "stroller": { "rating": "mixed", "text": "The peninsula's main streets are flat with pavements, but they are uneven and often broken. Mount Phousi has over 300 steps and Kuang Si has muddy, rooty paths, so a carrier is essential there." },
+    "mustDos": [
+      { "title": "Kuang Si Falls and the bear centre", "text": "Layered turquoise pools fall through the forest about 45 minutes from town, and some lower pools are open for swimming. The roughly 60,000 kip entry also covers the Free the Bears rescue centre at the gate, where children watch rescued moon bears play.", "ages": "4+" },
+      { "title": "Sunset from Mount Phousi", "text": "Climb just over 300 steps to the small golden stupa on top for a view of the Mekong and Nam Khan rivers at sunset. There is a small entry fee of a few tens of thousands of kip; go early, as the summit gets crowded.", "ages": "6+" },
+      { "title": "Mekong boat to Pak Ou Caves", "text": "A long wooden boat chugs about two hours upriver to two caves packed with thousands of small Buddha statues. A private boat costs roughly 350,000-600,000 kip and children can watch fishermen and water buffalo along the banks.", "ages": "5+" },
+      { "title": "Morning alms giving", "text": "At first light, long lines of monks walk the main street collecting sticky rice from kneeling locals. Watch quietly from across the road, never use flash and do not join in unless you follow local custom.", "ages": "6+" },
+      { "title": "Night market on Sisavangvong Road", "text": "From late afternoon, red-roofed stalls fill the main street with weaving, toy elephants and hand-painted paper. Children can choose a small souvenir for well under 50,000 kip, and the side-alley buffet is cheap and cheerful.", "ages": "3+" }
+    ],
+    "rainyDay": [
+      { "title": "Royal Palace Museum", "text": "The former king's palace shows thrones, royal gifts and old cars in the garage." },
+      { "title": "Traditional Arts and Ethnology Centre", "text": "A small, clear museum on Laos's ethnic groups, with costumes, toys and everyday objects children recognise." },
+      { "title": "Ock Pop Tok Living Crafts Centre", "text": "Hands-on weaving and natural dyeing classes by the Mekong, with half-day options that suit older children." }
+    ],
+    "safety": [
+      "The Mekong and Nam Khan have strong currents, so swim only in Kuang Si's marked pools and make sure children wear life jackets on boats.",
+      "Drink only bottled or filtered water, and use mosquito repellent at dawn and dusk, especially in the May-October rainy season.",
+      "March to May is very hot and often smoky from field burning, which can bother children with asthma; November to February is cooler and clearer."
+    ],
+    "costs": {
+      "currency": "LAK",
+      "daily": "About 2,500,000-4,000,000 kip (about €100-165) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Kuang Si Falls entry, per person", "price": "60,000 kip (about €2.50)" },
+        { "label": "Tuk-tuk or minivan to Kuang Si and back, per vehicle", "price": "300,000-500,000 kip (about €12-20)" },
+        { "label": "Private boat to Pak Ou Caves and back", "price": "350,000-600,000 kip (about €14-25)" },
+        { "label": "Bowl of noodle soup", "price": "25,000-45,000 kip (about €1-1.80)" }
+      ],
+      "tip": "Prices in kip change quickly with inflation, so carry clean euro or dollar notes to exchange in town and pay small vendors in kip."
+    },
+    "gettingAround": "The old town is easy to walk, with bikes for slightly longer hops and tuk-tuks for everything else; agree the fare first. The Laos-China Railway reaches Vientiane in about two hours, and tickets often sell out, so book early.",
+    "food": "Sticky rice served in little woven baskets is a hit with children, as are khao jee baguette sandwiches, fruit shakes and khanom kok coconut pancakes. Luang Prabang's own khao soi is a mild pork and tomato noodle soup; restaurants close early and the town is quiet by 22:00.",
+    "firstDay": {
+      "morning": "Walk the peninsula to Wat Xieng Thong, the town's most beautiful temple, before the heat.",
+      "afternoon": "Rest by a pool, then wander along the Mekong's riverside cafes.",
+      "evening": "Climb Mount Phousi for sunset and walk down into the night market for dinner."
+    }
+  },
+  "es": {
+    "tagline": "Cascadas turquesa • templos dorados • barcas lentas por el Mekong",
+    "intro": "Luang Prabang es una ciudad tranquila junto al río donde los monjes de túnica azafrán caminan al amanecer, los templos dorados se alternan con casas coloniales francesas y el día avanza sin prisas. Las familias vienen por las pozas turquesa de Kuang Si, un paseo en barca por el Mekong hasta cuevas llenas de budas y un mercado nocturno sencillo. Bastan tres o cuatro días tranquilos, ideales después de etapas más intensas en Tailandia o Vietnam.",
+    "ages": { "best": "5-12", "text": "A partir de los 5 años los niños disfrutan más las pozas, las barcas y el centro de rescate de osos. No hay parques temáticos ni grandes museos, así que encaja con familias que buscan calma, y la estación calurosa de marzo a mayo es dura para los pequeños." },
+    "stroller": { "rating": "mixed", "text": "Las calles principales de la península son llanas y tienen aceras, aunque irregulares y a menudo rotas. El monte Phousi tiene más de 300 escalones y Kuang Si tiene senderos con barro y raíces, así que allí es imprescindible la mochila portabebés." },
+    "mustDos": [
+      { "title": "Cascadas de Kuang Si y el centro de osos", "text": "Pozas turquesa escalonadas bajan por el bosque a unos 45 minutos de la ciudad, y en algunas de las de abajo se puede nadar. La entrada de unos 60.000 kips incluye el centro de rescate Free the Bears, donde los niños ven jugar a osos negros asiáticos rescatados.", "ages": "4+" },
+      { "title": "Atardecer desde el monte Phousi", "text": "Sube algo más de 300 escalones hasta la pequeña estupa dorada de la cima para ver el Mekong y el Nam Khan al atardecer. Hay una pequeña entrada de unas decenas de miles de kips; ve con tiempo porque la cima se llena.", "ages": "6+" },
+      { "title": "Barca por el Mekong a las cuevas de Pak Ou", "text": "Una larga barca de madera remonta el río unas dos horas hasta dos cuevas repletas de miles de pequeños budas. Una barca privada cuesta unos 350.000-600.000 kips y los niños ven pescadores y búfalos de agua por el camino.", "ages": "5+" },
+      { "title": "Ofrenda de limosnas al amanecer", "text": "Con las primeras luces, largas filas de monjes recorren la calle principal recogiendo arroz glutinoso de los vecinos arrodillados. Obsérvalo en silencio desde la otra acera, sin flash, y no participes si no sigues la costumbre local.", "ages": "6+" },
+      { "title": "Mercado nocturno de Sisavangvong", "text": "Desde media tarde, puestos con tejados rojos llenan la calle principal de tejidos, elefantes de juguete y papel pintado a mano. Los niños pueden elegir un recuerdo por mucho menos de 50.000 kips, y el bufé del callejón lateral es barato y animado.", "ages": "3+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Palacio Real", "text": "El antiguo palacio del rey muestra tronos, regalos reales y coches antiguos en el garaje." },
+      { "title": "Centro de Artes Tradicionales y Etnología", "text": "Un museo pequeño y claro sobre las etnias de Laos, con trajes, juguetes y objetos cotidianos que los niños reconocen." },
+      { "title": "Ock Pop Tok Living Crafts Centre", "text": "Clases prácticas de tejido y tintes naturales junto al Mekong, con opciones de medio día para niños mayores." }
+    ],
+    "safety": [
+      "El Mekong y el Nam Khan tienen corrientes fuertes, así que báñate solo en las pozas señalizadas de Kuang Si y pon chaleco salvavidas a los niños en las barcas.",
+      "Bebe solo agua embotellada o filtrada y usa repelente al amanecer y al anochecer, sobre todo en la estación de lluvias de mayo a octubre.",
+      "De marzo a mayo hace mucho calor y suele haber humo por la quema de campos, que puede molestar a niños con asma; de noviembre a febrero está más fresco y despejado."
+    ],
+    "costs": {
+      "currency": "LAK",
+      "daily": "Unos 2.500.000-4.000.000 kips (unos 100-165 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Entrada a Kuang Si, por persona", "price": "60,000 kip (about €2.50)" },
+        { "label": "Tuk-tuk o minibús a Kuang Si ida y vuelta, por vehículo", "price": "300,000-500,000 kip (about €12-20)" },
+        { "label": "Barca privada a Pak Ou ida y vuelta", "price": "350,000-600,000 kip (about €14-25)" },
+        { "label": "Cuenco de sopa de fideos", "price": "25,000-45,000 kip (about €1-1.80)" }
+      ],
+      "tip": "Los precios en kips cambian rápido por la inflación: lleva billetes limpios de euro o dólar para cambiar allí y paga en kips a los vendedores pequeños."
+    },
+    "gettingAround": "El casco antiguo se recorre a pie, con bicis para trayectos algo más largos y tuk-tuks para lo demás; acuerda el precio antes. El tren Laos-China llega a Vientiane en unas dos horas y los billetes suelen agotarse, así que reserva pronto.",
+    "food": "El arroz glutinoso servido en cestitas de mimbre encanta a los niños, igual que los bocadillos khao jee, los batidos de fruta y las tortitas de coco khanom kok. El khao soi local es una sopa suave de fideos con cerdo y tomate; los restaurantes cierran pronto y la ciudad está en calma hacia las 22:00.",
+    "firstDay": {
+      "morning": "Recorre la península a pie hasta Wat Xieng Thong, el templo más bonito, antes del calor.",
+      "afternoon": "Descansa en una piscina y luego pasea por los cafés junto al Mekong.",
+      "evening": "Sube al monte Phousi al atardecer y baja al mercado nocturno para cenar."
+    }
+  },
+  "booklet": {
+    "marks": ["Mount Phousi", "Wat Xieng Thong", "Kuang Si Falls", "Mekong River"],
+    "food": ["sticky rice", "coconut pancakes", "baguette sandwich", "fruit shake"],
+    "facts": [
+      "Monks in orange robes walk the streets every morning to collect sticky rice.",
+      "Two rivers, the Mekong and the Nam Khan, meet at Luang Prabang.",
+      "Kuang Si's water looks blue-green because of minerals from the rocks."
+    ],
+    "hunt": ["a monk in an orange robe", "a golden stupa", "a sticky rice basket", "a long wooden boat", "a moon bear", "a turquoise pool", "a temple dragon", "a tuk-tuk", "a water buffalo", "a paper lantern", "a woven scarf", "a frangipani flower"],
+    "quiz": [
+      ["What colour are the monks' robes in Luang Prabang?", "Orange", "Blue", "Green", "Black"],
+      ["What do people give the monks every morning?", "Sticky rice", "Ice cream", "Toys", "Newspapers"],
+      ["What lives at the rescue centre near Kuang Si Falls?", "Bears", "Penguins", "Kangaroos", "Polar foxes"]
+    ],
+    "missions": ["Orange robe spotter", "Waterfall pool counter"]
+  },
+  "missionsEs": ["Buscador de túnicas naranjas", "Contador de pozas de la cascada"]
+}

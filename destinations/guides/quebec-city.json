@@ -1,0 +1,114 @@
+{
+  "slug": "quebec-city",
+  "name": "Quebec City",
+  "nameEs": "Quebec",
+  "country": "Canada",
+  "countryEs": "Canadá",
+  "flag": "🇨🇦",
+  "region": "americas",
+  "lang": "fr",
+  "phrases": [["Bonjour", "Hello"], ["Merci", "Thank you"], ["S'il vous plaît", "Please"], ["Oui", "Yes"]],
+  "icons": "⛄ 🏰 🍁",
+  "scene": "snow",
+  "bestMonths": [1, 2, 6, 7, 8, 12],
+  "seasons": ["winter", "summer"],
+  "en": {
+    "tagline": "Winter Carnival • stone walls • maple taffy",
+    "intro": "Quebec City is a French-speaking walled town above the St Lawrence River that feels like a slice of old Europe in North America. In winter it is deep in snow, and from late January to mid-February the Winter Carnival brings Bonhomme the snowman, ice slides, night parades and canoe races on the frozen river. Summer is warm, green and full of street performers.",
+    "ages": { "best": "4-12", "text": "Toboggan slides, snow play and Bonhomme delight children of 4-8; tubing at Valcartier and the canoe races appeal to 8-12 year olds, though tubing has height rules." },
+    "stroller": { "rating": "hard", "text": "Old Quebec is hilly with stairs between the Upper and Lower Town, and winter brings ice and snowbanks, so use a sledge or carrier and take the funicular for the steepest climb." },
+    "mustDos": [
+      { "title": "Winter Carnival (Carnaval de Québec)", "text": "Late January to mid-February: meet Bonhomme at his ice palace, watch the night parades and snow sculptures; the Bonhomme effigy pass costs about C$20-25 (€12-16) for adults.", "ages": "all ages" },
+      { "title": "Terrasse Dufferin toboggan slide", "text": "A wooden slide in front of the Château Frontenac sends sleds racing down at high speed in winter; each ride costs a few dollars, and age rules for little ones are posted at the ticket booth.", "ages": "4+" },
+      { "title": "Montmorency Falls", "text": "Waterfalls 30 m higher than Niagara, 15 minutes from town, with a cable car, a suspension bridge over the top and a frozen 'sugarloaf' of ice in winter.", "ages": "all ages" },
+      { "title": "Village Vacances Valcartier", "text": "Big snow-tubing park in winter and water park in summer, about 25 minutes north; the Hôtel de Glace ice hotel stands next door from January to March.", "ages": "4+" },
+      { "title": "Maple taffy on snow", "text": "Warm maple syrup poured onto clean snow and rolled onto a stick; find it at the Carnival, sugar shacks in spring or shops on Rue du Petit-Champlain.", "ages": "all ages" }
+    ],
+    "rainyDay": [
+      { "title": "Musée de la civilisation", "text": "Hands-on family exhibitions about Quebec life, nature and history in the Lower Town." },
+      { "title": "Aquarium du Québec", "text": "Polar bears, walruses and seals, with indoor halls for very cold or rainy days." },
+      { "title": "Morrin Centre", "text": "An old jail turned library where kids can see historic cells on guided tours." }
+    ],
+    "safety": [
+      "Winter can drop to -20 °C with wind chill, so dress kids in thermal layers, waterproof mitts and face cover and go indoors to warm up often.",
+      "Pavements and stairs get icy, so wear boots with good grip and consider slip-on ice cleats for parents carrying children.",
+      "Cars drive on the right and turning traffic can be quick on slushy roads, so cross at lights; tap water is safe to drink."
+    ],
+    "costs": {
+      "currency": "CAD",
+      "daily": "About C$300-450 (€185-280) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Carnival effigy pass (adult)", "price": "C$20-25 (≈ €12-16)" },
+        { "label": "Dufferin toboggan ride (per person)", "price": "C$4-6 (≈ €2.50-4)" },
+        { "label": "Valcartier winter tubing day (per person)", "price": "C$45-60 (≈ €28-37)" },
+        { "label": "Poutine (regular size)", "price": "C$10-16 (≈ €6-10)" }
+      ],
+      "tip": "Many Carnival activities are free with a single effigy pass, and the Place D'Youville skating rink is free if you bring skates."
+    },
+    "gettingAround": "Old Quebec is walkable and the funicular links Upper and Lower Town; RTC buses and the Métrobus cover the city, but you need a car or shuttle for Montmorency and Valcartier.",
+    "food": "Kids love poutine (fries with cheese curds and gravy), crêpes, maple taffy and BeaverTails pastries; tourtière meat pie is a winter classic, and dinner starts around 18:00.",
+    "firstDay": {
+      "morning": "Walk the city walls and the Plains of Abraham, then try the Dufferin toboggan slide.",
+      "afternoon": "Ride the funicular to Petit-Champlain and warm up with hot chocolate and crêpes.",
+      "evening": "Join a Carnival night parade or watch Château Frontenac light up from the terrace."
+    }
+  },
+  "es": {
+    "tagline": "Carnaval de invierno • murallas de piedra • caramelo de arce",
+    "intro": "Quebec es una ciudad amurallada de habla francesa sobre el río San Lorenzo que parece un trocito de la vieja Europa en Norteamérica. En invierno está cubierta de nieve y, de finales de enero a mediados de febrero, el Carnaval trae a Bonhomme, el muñeco de nieve, toboganes de hielo, desfiles nocturnos y carreras de canoas en el río helado. El verano es cálido, verde y lleno de artistas callejeros.",
+    "ages": { "best": "4-12", "text": "Los toboganes, el juego en la nieve y Bonhomme encantan a los niños de 4 a 8 años; el tubing en Valcartier y las carreras de canoas atraen a los de 8 a 12, aunque el tubing tiene requisitos de altura." },
+    "stroller": { "rating": "hard", "text": "El Viejo Quebec tiene cuestas y escaleras entre la ciudad alta y la baja, y en invierno hay hielo y montones de nieve, así que usa un trineo o mochila portabebés y el funicular para la subida más dura." },
+    "mustDos": [
+      { "title": "Carnaval de Quebec", "text": "De finales de enero a mediados de febrero: saluda a Bonhomme en su palacio de hielo, mira los desfiles nocturnos y las esculturas de nieve; la efigie de acceso cuesta unos 20-25 C$ (12-16 €) por adulto.", "ages": "todas las edades" },
+      { "title": "Tobogán de la Terrasse Dufferin", "text": "Un tobogán de madera frente al Château Frontenac lanza los trineos a gran velocidad en invierno; cada bajada cuesta pocos dólares y las normas de edad para los pequeños están en la taquilla.", "ages": "4+" },
+      { "title": "Cataratas de Montmorency", "text": "Cascadas 30 m más altas que las del Niágara, a 15 minutos de la ciudad, con teleférico, un puente colgante sobre ellas y un 'pan de azúcar' de hielo en invierno.", "ages": "todas las edades" },
+      { "title": "Village Vacances Valcartier", "text": "Gran parque de tubing en invierno y parque acuático en verano, a unos 25 minutos al norte; al lado se levanta el Hôtel de Glace de enero a marzo.", "ages": "4+" },
+      { "title": "Caramelo de arce sobre nieve", "text": "Sirope de arce caliente vertido sobre nieve limpia y enrollado en un palito; lo encontrarás en el Carnaval, en las cabañas de azúcar en primavera o en tiendas de la Rue du Petit-Champlain.", "ages": "todas las edades" }
+    ],
+    "rainyDay": [
+      { "title": "Musée de la civilisation", "text": "Exposiciones familiares interactivas sobre la vida, la naturaleza y la historia de Quebec en la ciudad baja." },
+      { "title": "Aquarium du Québec", "text": "Osos polares, morsas y focas, con salas interiores para días muy fríos o lluviosos." },
+      { "title": "Morrin Centre", "text": "Una antigua cárcel convertida en biblioteca donde los niños ven las celdas en visitas guiadas." }
+    ],
+    "safety": [
+      "En invierno se puede llegar a -20 °C con el viento, así que viste a los niños con capas térmicas, manoplas impermeables y braga de cuello, y entrad a calentaros a menudo.",
+      "Las aceras y escaleras se hielan, así que lleva botas con buen agarre y plantéate crampones ligeros si vas a cargar con niños.",
+      "Se conduce por la derecha y los coches giran rápido aun con nieve sucia, así que cruza en los semáforos; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "CAD",
+      "daily": "Unos 300-450 C$ (185-280 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Efigie del Carnaval (adulto)", "price": "C$20-25 (≈ €12-16)" },
+        { "label": "Bajada en el tobogán Dufferin (por persona)", "price": "C$4-6 (≈ €2.50-4)" },
+        { "label": "Día de tubing en Valcartier en invierno (por persona)", "price": "C$45-60 (≈ €28-37)" },
+        { "label": "Poutine (tamaño normal)", "price": "C$10-16 (≈ €6-10)" }
+      ],
+      "tip": "Muchas actividades del Carnaval están incluidas con una sola efigie, y la pista de patinaje de Place D'Youville es gratis si llevas patines."
+    },
+    "gettingAround": "El Viejo Quebec se recorre a pie y el funicular une la ciudad alta y la baja; los autobuses RTC y el Métrobus cubren la ciudad, pero para Montmorency y Valcartier necesitas coche o lanzadera.",
+    "food": "A los niños les encantan la poutine (patatas fritas con queso en grano y salsa), las crepes, el caramelo de arce y los dulces BeaverTails; la tourtière, un pastel de carne, es un clásico de invierno, y se cena desde las 18:00.",
+    "firstDay": {
+      "morning": "Recorre las murallas y las Llanuras de Abraham y prueba el tobogán Dufferin.",
+      "afternoon": "Baja en funicular a Petit-Champlain y entra en calor con chocolate caliente y crepes.",
+      "evening": "Ve a un desfile nocturno del Carnaval o mira cómo se ilumina el Château Frontenac desde la terraza."
+    }
+  },
+  "booklet": {
+    "marks": ["Château Frontenac", "Old Quebec city walls", "Montmorency Falls", "Petit-Champlain"],
+    "food": ["poutine", "maple taffy", "crêpes", "tourtière"],
+    "facts": [
+      "Quebec City was founded in 1608 and still has stone walls around its old town.",
+      "Montmorency Falls are about 30 metres taller than Niagara Falls.",
+      "Bonhomme, the Carnival snowman, wears a red hat and a colourful sash."
+    ],
+    "hunt": ["a snowman", "a castle-like hotel", "a toboggan", "a red hat", "a stone city gate", "an ice sculpture", "a maple leaf", "a frozen waterfall", "a funicular", "a horse-drawn carriage", "some icicles", "a snow fort"],
+    "quiz": [
+      ["What is the name of the Carnival snowman?", "Bonhomme", "Olaf", "Frosty", "Pierre"],
+      ["What is poured on snow to make taffy?", "Maple syrup", "Chocolate", "Honey", "Ketchup"],
+      ["Which language do most people speak in Quebec City?", "French", "German", "Italian", "Japanese"]
+    ],
+    "missions": ["Snow carnival scout", "Maple taffy taster"]
+  },
+  "missionsEs": ["Explorador del carnaval de nieve", "Catador de caramelo de arce"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "tallinn",
+  "name": "Tallinn",
+  "nameEs": "Tallin",
+  "country": "Estonia",
+  "countryEs": "Estonia",
+  "flag": "🇪🇪",
+  "region": "europe",
+  "lang": "et",
+  "phrases": [["Tere", "Hello"], ["Aitäh", "Thank you"], ["Palun", "Please"], ["Jah", "Yes"]],
+  "icons": "🏰 ⚓ 🛡️",
+  "scene": "city",
+  "bestMonths": [5, 6, 7, 8, 12],
+  "seasons": ["summer", "winter"],
+  "en": {
+    "tagline": "Medieval towers • submarines • seaside parks",
+    "intro": "Tallinn's old town still has most of its medieval wall, with round towers and red pointed roofs that look straight out of a picture book. Beyond the walls the city is modern, green and easy: a huge seaplane hangar full of ships, a palace park with swans, and a beach a short bus ride away. Summer evenings stay light very late, and in December a Christmas market fills Town Hall Square.",
+    "ages": { "best": "5-12", "text": "Children from about 5 enjoy the towers, tunnels and ship museum most, while the Miia-Milla-Manda children's museum in Kadriorg is designed for younger children up to about 11." },
+    "stroller": { "rating": "mixed", "text": "Old town cobbles are bumpy and the climb to Toompea hill uses steep lanes and steps, so bring a carrier there; newer districts and parks are smooth." },
+    "mustDos": [
+      { "title": "Old town walls and towers", "text": "Find Old Thomas, the soldier weather vane on the Town Hall, walk a stretch of the city wall between the towers and look over the rooftops from the Kohtuotsa and Patkuli viewing platforms.", "ages": "4+" },
+      { "title": "Seaplane Harbour", "text": "Inside a giant concrete hangar kids can climb into the 1930s submarine Lembit, try ship and flight simulators, and explore the old icebreaker Suur Tõll moored outside.", "ages": "4+" },
+      { "title": "Kadriorg Park", "text": "A short tram ride from the centre, this palace park has a swan pond, playgrounds and the Miia-Milla-Manda children's museum, where kids play shop, cook and dress up.", "ages": "3+" },
+      { "title": "Estonian Open Air Museum", "text": "Wooden farmhouses, windmills and a village tavern stand in a seaside forest at Rocca al Mare, with crafts and horse-cart rides on summer days.", "ages": "4+" },
+      { "title": "Proto Invention Factory", "text": "In the Noblessner harbour district, old inventions such as hot-air balloons and early cars come to life through virtual reality and hands-on machines.", "ages": "6+" }
+    ],
+    "rainyDay": [
+      { "title": "Kiek in de Kök and Bastion Tunnels", "text": "A cannon tower museum with guided walks through old defensive tunnels under Toompea hill." },
+      { "title": "Kalev Marzipan Room", "text": "Small old town workshop where children paint their own marzipan figures to take home." },
+      { "title": "Tallinn TV Tower", "text": "Ride the lift to a 170-metre viewing floor with glass floor panels and interactive exhibits about Estonia." }
+    ],
+    "safety": [
+      "Old town cobbles get slippery in rain and very icy in winter, so give children shoes with good grip and hold hands on the steep lanes.",
+      "Cruise ships bring large crowds to the old town around midday in summer, so agree a meeting point such as the Town Hall door.",
+      "Tap water is safe to drink, and traffic drives on the right, so teach children to look left first when crossing."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €140-220 a day for a family of four excluding lodging, depending on how many paid museums you visit.",
+      "items": [
+        { "label": "Seaplane Harbour entry (child to adult)", "price": "€10-25" },
+        { "label": "Open Air Museum entry (child to adult, summer)", "price": "€6-16" },
+        { "label": "Public transport single ticket (adult)", "price": "€1.50-3" },
+        { "label": "Tallinn Card 24 h (adult; children about half)", "price": "€40-55" }
+      ],
+      "tip": "Children under 7 ride public transport free, and the Tallinn Card pays off on a day you combine Seaplane Harbour, the TV Tower and the Open Air Museum."
+    },
+    "gettingAround": "The old town is best on foot, while trams reach Kadriorg and the airport and buses go to Rocca al Mare and Pirita beach; buy a smart card (Ühiskaart) at a kiosk or a QR ticket online before boarding.",
+    "food": "Try dark rye bread, pancakes with jam, kama (a sweet grain and yoghurt drink) and Kalev chocolate; lunch menus run around 12:00-15:00 and many cafes have children's corners.",
+    "firstDay": {
+      "morning": "Enter the old town by Viru Gate and find Old Thomas on the Town Hall roof.",
+      "afternoon": "Walk through Kalamaja to the Seaplane Harbour and climb aboard the submarine.",
+      "evening": "Watch the sunset from the Patkuli viewing platform over the old town roofs."
+    }
+  },
+  "es": {
+    "tagline": "Torres medievales • submarinos • parques junto al mar",
+    "intro": "El casco antiguo de Tallin conserva casi toda su muralla medieval, con torres redondas y tejados rojos puntiagudos que parecen salidos de un cuento. Fuera de las murallas la ciudad es moderna, verde y cómoda: un enorme hangar de hidroaviones lleno de barcos, un parque de palacio con cisnes y una playa a poca distancia en autobús. En verano anochece muy tarde, y en diciembre un mercado navideño llena la plaza del Ayuntamiento.",
+    "ages": { "best": "5-12", "text": "Los niños desde unos 5 años disfrutan más de las torres, los túneles y el museo marítimo, mientras que el museo infantil Miia-Milla-Manda de Kadriorg está pensado para niños más pequeños, hasta unos 11 años." },
+    "stroller": { "rating": "mixed", "text": "El empedrado del casco antiguo es irregular y la subida a la colina de Toompea tiene cuestas y escalones, así que llevad mochila portabebés; los barrios nuevos y los parques son lisos." },
+    "mustDos": [
+      { "title": "Murallas y torres del casco antiguo", "text": "Buscad a Vana Toomas, el soldado veleta del Ayuntamiento, recorred un tramo de muralla entre las torres y mirad los tejados desde los miradores de Kohtuotsa y Patkuli.", "ages": "4+" },
+      { "title": "Puerto de Hidroaviones (Lennusadam)", "text": "Dentro de un gigantesco hangar de hormigón los niños pueden entrar en el submarino Lembit de los años 30, probar simuladores de barco y de vuelo y explorar el viejo rompehielos Suur Tõll amarrado fuera.", "ages": "4+" },
+      { "title": "Parque de Kadriorg", "text": "A un corto trayecto en tranvía, este parque palaciego tiene estanque de cisnes, parques infantiles y el museo Miia-Milla-Manda, donde los niños juegan a las tiendas, cocinan y se disfrazan.", "ages": "3+" },
+      { "title": "Museo Estonio al Aire Libre", "text": "Granjas de madera, molinos de viento y una taberna de pueblo en un bosque junto al mar en Rocca al Mare, con artesanía y paseos en carro de caballos los días de verano.", "ages": "4+" },
+      { "title": "Fábrica de Inventos Proto", "text": "En el barrio portuario de Noblessner, inventos antiguos como globos aerostáticos y los primeros coches cobran vida con realidad virtual y máquinas para tocar.", "ages": "6+" }
+    ],
+    "rainyDay": [
+      { "title": "Kiek in de Kök y túneles del bastión", "text": "Un museo en una torre de cañones con visitas guiadas por antiguos túneles defensivos bajo la colina de Toompea." },
+      { "title": "Sala del Mazapán Kalev", "text": "Pequeño taller del casco antiguo donde los niños pintan sus propias figuras de mazapán para llevárselas." },
+      { "title": "Torre de Televisión de Tallin", "text": "Subid en ascensor a un mirador a 170 metros con paneles de suelo de cristal y exposiciones interactivas sobre Estonia." }
+    ],
+    "safety": [
+      "El empedrado del casco antiguo resbala con lluvia y se hiela en invierno, así que poned a los niños calzado con buena suela y dadles la mano en las cuestas.",
+      "En verano los cruceros llenan el casco antiguo hacia el mediodía, así que acordad un punto de encuentro como la puerta del Ayuntamiento.",
+      "El agua del grifo es potable y se conduce por la derecha, así que enseñad a los niños a mirar primero a la izquierda al cruzar."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos €140-220 al día para una familia de cuatro sin alojamiento, según cuántos museos de pago visitéis.",
+      "items": [
+        { "label": "Entrada al Puerto de Hidroaviones (de niño a adulto)", "price": "€10-25" },
+        { "label": "Entrada al Museo al Aire Libre (de niño a adulto, verano)", "price": "€6-16" },
+        { "label": "Billete sencillo de transporte público (adulto)", "price": "€1.50-3" },
+        { "label": "Tallinn Card 24 h (adulto; niños más o menos la mitad)", "price": "€40-55" }
+      ],
+      "tip": "Los menores de 7 años viajan gratis en transporte público, y la Tallinn Card compensa el día que juntéis el Puerto de Hidroaviones, la Torre de TV y el Museo al Aire Libre."
+    },
+    "gettingAround": "El casco antiguo se recorre a pie; los tranvías llegan a Kadriorg y al aeropuerto y los autobuses a Rocca al Mare y a la playa de Pirita; comprad una tarjeta recargable (Ühiskaart) en un quiosco o un billete QR en línea antes de subir.",
+    "food": "Probad el pan negro de centeno, las tortitas con mermelada, el kama (bebida dulce de cereales y yogur) y el chocolate Kalev; los menús de mediodía van de 12:00 a 15:00 y muchas cafeterías tienen rincón infantil.",
+    "firstDay": {
+      "morning": "Entrad al casco antiguo por la Puerta de Viru y buscad a Vana Toomas en el tejado del Ayuntamiento.",
+      "afternoon": "Caminad por Kalamaja hasta el Puerto de Hidroaviones y subid al submarino.",
+      "evening": "Ved la puesta de sol desde el mirador de Patkuli sobre los tejados del casco antiguo."
+    }
+  },
+  "booklet": {
+    "marks": ["Town Hall Square", "Fat Margaret Tower", "Seaplane Harbour", "Kadriorg Palace"],
+    "food": ["black rye bread", "marzipan", "pancakes with jam", "kama"],
+    "facts": [
+      "A soldier weather vane called Old Thomas has guarded Tallinn's Town Hall roof for centuries.",
+      "Estonia has more than 2,000 islands in the sea around it.",
+      "In June it stays light in Tallinn until almost midnight."
+    ],
+    "hunt": ["a round tower with a red roof", "a soldier weather vane", "a cannon", "a swan", "a submarine", "a windmill", "a tram", "a wooden house", "a ship in the harbour", "a city wall", "some marzipan", "Old Thomas"],
+    "quiz": [
+      ["What is the name of the soldier on Tallinn's Town Hall?", "Old Thomas", "Brave Peter", "Tall Tom", "Sir Harbour"],
+      ["What sweet treat do Tallinn shops paint and sell?", "Marzipan", "Ice cream", "Popcorn", "Candy floss"],
+      ["Which sea is Tallinn next to?", "The Baltic Sea", "The Red Sea", "The Black Sea", "The Dead Sea"]
+    ],
+    "missions": ["Tower and turret counter", "Old Thomas finder"]
+  },
+  "missionsEs": ["Contador de torres", "Buscador de Vana Toomas"]
+}

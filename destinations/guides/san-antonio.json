@@ -1,0 +1,114 @@
+{
+  "slug": "san-antonio",
+  "name": "San Antonio",
+  "nameEs": "San Antonio",
+  "country": "United States",
+  "countryEs": "Estados Unidos",
+  "flag": "🇺🇸",
+  "region": "americas",
+  "lang": "en",
+  "phrases": [["Howdy","Hello"],["Much obliged","Thank you"],["If you please","Please"],["Yes, ma'am","Yes"]],
+  "icons": "🤠 🌮 🛶",
+  "scene": "city",
+  "bestMonths": [3, 4, 10, 11],
+  "seasons": ["spring", "autumn"],
+  "en": {
+    "tagline": "River boats • old missions • breakfast tacos",
+    "intro": "San Antonio is an easy, friendly city for a first taste of Texas. Families float along the shaded River Walk, stand inside the Alamo, explore Spanish missions that are still working churches and fill up on breakfast tacos. Distances downtown are short, many top sights are free, and big theme parks sit on the edge of town for a splurge day.",
+    "ages": { "best": "4-12", "text": "Ages 6-12 get the most from the Alamo and mission stories, while 4-5 year olds love the boat ride, the zoo and The DoSeum. Coaster height limits apply at Six Flags Fiesta Texas and SeaWorld." },
+    "stroller": { "rating": "mixed", "text": "Downtown sidewalks are flat and smooth, but many River Walk access points are stairs only, so look for the ramps and hotel elevators. A light umbrella stroller plus a carrier works best on the narrow river paths." },
+    "mustDos": [
+      { "title": "River Walk boat cruise", "text": "Go Rio boats loop the river for about 35 minutes with a guide pointing out bridges, ducks and old buildings; buy tickets online for evening slots.", "ages": "3+" },
+      { "title": "The Alamo", "text": "Entry to the 1700s mission church is free with a timed reservation; kids enjoy the live history demonstrations and the courtyard with its huge old live oak.", "ages": "6+" },
+      { "title": "Mission San José", "text": "The largest of the San Antonio Missions has thick stone walls, a rose window and a granary to explore, and kids can earn a free Junior Ranger badge at the visitor center.", "ages": "5+" },
+      { "title": "San Antonio Zoo", "text": "In Brackenridge Park, with a hippo underwater viewing area, a big lorikeet aviary and a small kids zoo; tickets cost about USD 30-45 depending on the date.", "ages": "3+" },
+      { "title": "The DoSeum", "text": "San Antonio's children's museum has a big water table, a spy academy and climbing structures, best for an energetic half day around USD 18-22 each.", "ages": "4-10" }
+    ],
+    "rainyDay": [
+      { "title": "Witte Museum", "text": "Dinosaur skeletons, Texas wildlife dioramas and a hands-on body science gallery in Brackenridge Park." },
+      { "title": "Natural Bridge Caverns", "text": "Guided cave walks about 30 minutes north of town, a steady cool temperature inside all year." },
+      { "title": "Tower of the Americas", "text": "Ride the glass elevator up 750 feet for big city views and a 4D theatre ride at the base." }
+    ],
+    "safety": [
+      "From June to September afternoons often pass 35°C, so plan outdoor sights early, carry water and use the shady river level at midday.",
+      "Much of the River Walk has no railing along the water, so keep small children on the inside and hold hands in crowds.",
+      "Heavy storms can flood low-water road crossings quickly; never drive or walk through moving water, and tap water is safe to drink."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "About USD 250-400 (about €215-345) a day for a family of four, excluding lodging; theme park days cost more.",
+      "items": [
+        { "label": "Go Rio river cruise (adult / child)", "price": "USD 15-18 / 8-11 (about €13-16 / €7-10)" },
+        { "label": "San Antonio Zoo (per person, date-based)", "price": "USD 30-45 (about €26-39)" },
+        { "label": "The DoSeum (per person)", "price": "USD 18-22 (about €16-19)" },
+        { "label": "Breakfast taco", "price": "USD 3-5 (about €3-4)" }
+      ],
+      "tip": "The Alamo church, the River Walk and all four mission churches are free, so pair them with one paid attraction a day."
+    },
+    "gettingAround": "Downtown, the River Walk and the Pearl are walkable, and VIA buses cover the main routes. A car makes the missions, zoo and caverns much easier, or cycle the flat Mission Reach trail between missions.",
+    "food": "Tex-Mex rules: breakfast tacos, puffy tacos, enchiladas and pan dulce, plus brisket from barbecue joints. Families eat early, around 5:30-7 pm, and portions are big enough to share.",
+    "firstDay": {
+      "morning": "Visit the Alamo early before the heat and the tour groups arrive.",
+      "afternoon": "Take a Go Rio cruise, then wander the shady River Walk to La Villita craft shops.",
+      "evening": "Eat Tex-Mex at Historic Market Square and pick a sweet from a panadería counter."
+    }
+  },
+  "es": {
+    "tagline": "Barcos en el río • misiones antiguas • tacos de desayuno",
+    "intro": "San Antonio es una ciudad fácil y amable para descubrir Texas en familia. Se pasea en barco por el River Walk, a la sombra de los árboles, se entra en El Álamo, se recorren cuatro misiones españolas que siguen activas y se desayunan tacos. En el centro todo queda cerca, muchas visitas son gratis y los grandes parques temáticos están a las afueras para un día especial.",
+    "ages": { "best": "4-12", "text": "Los niños de 6 a 12 años disfrutan más las historias de El Álamo y las misiones, y los de 4 y 5 años adoran el barco, el zoológico y The DoSeum. Six Flags Fiesta Texas y SeaWorld tienen límites de estatura en las montañas rusas." },
+    "stroller": { "rating": "mixed", "text": "Las aceras del centro son planas y lisas, pero muchos accesos al River Walk son solo escaleras, así que busca las rampas y los ascensores de los hoteles. Un cochecito ligero y una mochila portabebés funcionan mejor en los senderos estrechos del río." },
+    "mustDos": [
+      { "title": "Paseo en barco por el River Walk", "text": "Los barcos de Go Rio recorren el río durante unos 35 minutos con un guía que señala puentes, patos y edificios antiguos; compra en línea para las salidas de la tarde.", "ages": "3+" },
+      { "title": "El Álamo", "text": "La entrada a la iglesia de la misión, del siglo XVIII, es gratuita con reserva horaria; a los niños les gustan las demostraciones históricas y el enorme roble del patio.", "ages": "6+" },
+      { "title": "Misión San José", "text": "La mayor de las misiones de San Antonio tiene gruesos muros de piedra, un rosetón y un granero para explorar, y los niños pueden ganar gratis la insignia de Junior Ranger.", "ages": "5+" },
+      { "title": "Zoológico de San Antonio", "text": "Está en Brackenridge Park y tiene un mirador submarino de hipopótamos, un gran aviario de loris y un zoo infantil; la entrada cuesta unos USD 30-45 según la fecha.", "ages": "3+" },
+      { "title": "The DoSeum", "text": "El museo infantil de San Antonio tiene una gran mesa de agua, una academia de espías y estructuras para trepar, ideal para media mañana activa por unos USD 18-22 por persona.", "ages": "4-10" }
+    ],
+    "rainyDay": [
+      { "title": "Witte Museum", "text": "Esqueletos de dinosaurios, dioramas de fauna texana y una sala práctica sobre el cuerpo humano en Brackenridge Park." },
+      { "title": "Natural Bridge Caverns", "text": "Recorridos guiados por cuevas a unos 30 minutos al norte, con temperatura fresca y estable todo el año." },
+      { "title": "Tower of the Americas", "text": "Sube en el ascensor de cristal a 229 metros para ver la ciudad y prueba la atracción 4D de la base." }
+    ],
+    "safety": [
+      "De junio a septiembre las tardes suelen superar los 35 °C, así que haz las visitas al aire libre temprano, lleva agua y aprovecha la sombra del río al mediodía.",
+      "Gran parte del River Walk no tiene barandilla junto al agua, así que lleva a los pequeños por el lado de dentro y de la mano entre la gente.",
+      "Las tormentas fuertes inundan rápido los cruces bajos de las carreteras; nunca cruces agua en movimiento, y el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "Unos USD 250-400 (unos €215-345) al día para una familia de cuatro, sin alojamiento; los días de parque temático cuestan más.",
+      "items": [
+        { "label": "Paseo en barco Go Rio (adulto / niño)", "price": "USD 15-18 / 8-11 (about €13-16 / €7-10)" },
+        { "label": "Zoológico de San Antonio (por persona, según la fecha)", "price": "USD 30-45 (about €26-39)" },
+        { "label": "The DoSeum (por persona)", "price": "USD 18-22 (about €16-19)" },
+        { "label": "Taco de desayuno", "price": "USD 3-5 (about €3-4)" }
+      ],
+      "tip": "La iglesia de El Álamo, el River Walk y las cuatro iglesias de las misiones son gratis, así que combínalas con una sola atracción de pago al día."
+    },
+    "gettingAround": "El centro, el River Walk y el barrio Pearl se recorren a pie, y los autobuses VIA cubren las rutas principales. Con coche es mucho más fácil llegar a las misiones, el zoo y las cuevas, o puedes pedalear por el sendero llano Mission Reach.",
+    "food": "Manda la comida tex-mex: tacos de desayuno, puffy tacos, enchiladas y pan dulce, además de brisket en las barbacoas. Las familias cenan temprano, entre 17:30 y 19:00, y las raciones son grandes para compartir.",
+    "firstDay": {
+      "morning": "Visita El Álamo temprano, antes del calor y de los grupos.",
+      "afternoon": "Haz el paseo en barco Go Rio y camina por el River Walk hasta las tiendas de artesanía de La Villita.",
+      "evening": "Cena tex-mex en Historic Market Square y elige un dulce en una panadería."
+    }
+  },
+  "booklet": {
+    "marks": ["The Alamo", "San Antonio River Walk", "Tower of the Americas", "Mission San José"],
+    "food": ["breakfast tacos", "puffy tacos", "pan dulce", "paletas"],
+    "facts": [
+      "The River Walk is one floor below the busy streets, right beside the San Antonio River.",
+      "San Antonio has five old Spanish missions, and four of them are still churches today.",
+      "The Tower of the Americas is 750 feet tall and was built for a world's fair in 1968."
+    ],
+    "hunt": ["a river boat", "a stone bridge", "a cowboy hat", "some papel picado flags", "a cactus", "a mission bell", "a longhorn", "a mariachi guitar", "a duck on the river", "a cypress tree", "a Texas flag", "a glass elevator"],
+    "quiz": [
+      ["Which famous old mission stands in the middle of San Antonio?", "The Alamo", "The Eiffel Tower", "Big Ben", "The Colosseum"],
+      ["What do visitors ride along the River Walk?", "Boats", "Camels", "Ski lifts", "Trams"],
+      ["Which flag is called the Lone Star flag?", "The Texas flag", "The Japanese flag", "The Canadian flag", "The Swiss flag"]
+    ],
+    "missions": ["River Walk boat spotter", "Mission bell detective"]
+  },
+  "missionsEs": ["Vigía de barcos del río", "Detective de campanas"]
+}

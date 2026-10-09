@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','catalog-6.js']){
+for(const file of ['catalog-core.js','catalog-1.js','catalog-2.js','catalog-3.js','catalog-4.js','catalog-5.js','catalog-6.js','catalog-7.js']){
   vm.runInContext(fs.readFileSync(new URL(`./${file}`,import.meta.url),'utf8'),context,{filename:file});
 }
 
@@ -13,7 +13,8 @@ const langs=context.window.KV_LANG;
 const interests=context.window.KV_INTERESTS;
 const names=Object.keys(cities);
 
-assert.equal(names.length,100,'Kidventuro must expose exactly 100 destination catalogs');
+const guideIndex=JSON.parse(fs.readFileSync(new URL('./destinations/guide-index.json',import.meta.url),'utf8'));
+assert.equal(names.length,100+guideIndex.length,`Kidventuro must expose exactly ${100+guideIndex.length} destination catalogs`);
 assert.ok(Object.keys(interests).length>=16,'interest catalog unexpectedly shrank');
 
 for(const name of names){
@@ -31,7 +32,14 @@ for(const name of names){
 const expansion=fs.readFileSync(new URL('./site-expansion.js',import.meta.url),'utf8');
 const expansion2=fs.readFileSync(new URL('./site-expansion-2.js',import.meta.url),'utf8');
 for(const name of names.slice(25,50)) assert.ok(expansion.includes(`'${name}'`),`landing expansion missing ${name}`);
-for(const name of names.slice(50)) assert.ok(expansion2.includes(`"${name}"`)||expansion2.includes(`'${name}'`),`second landing expansion missing ${name}`);
+for(const name of names.slice(50,100)) assert.ok(expansion2.includes(`"${name}"`)||expansion2.includes(`'${name}'`),`second landing expansion missing ${name}`);
 assert.ok(expansion2.includes('KIDVENTURO_DESTINATION_COUNT=100'),'landing destination count marker missing');
+const expansion3=fs.readFileSync(new URL('./site-expansion-3.js',import.meta.url),'utf8');
+const worker=fs.readFileSync(new URL('./worker/src/guide-destinations.js',import.meta.url),'utf8');
+for(const name of names.slice(100)){
+  assert.ok(expansion3.includes(JSON.stringify(name)),`guide expansion missing ${name}`);
+  assert.ok(worker.includes(JSON.stringify(name)),`Worker allow-list missing ${name}`);
+  assert.ok(guideIndex.some(g=>g.name===name),`guide index missing ${name}`);
+}
 
 console.log(`Catalog validation passed: ${names.length} destinations, ${Object.keys(langs).length} language sets.`);

@@ -1,0 +1,114 @@
+{
+  "slug": "rovaniemi",
+  "name": "Rovaniemi",
+  "nameEs": "Rovaniemi",
+  "country": "Finland",
+  "countryEs": "Finlandia",
+  "flag": "🇫🇮",
+  "region": "europe",
+  "lang": "fi",
+  "phrases": [["Hei", "Hello"], ["Kiitos", "Thank you"], ["Ole hyvä", "Please"], ["Kyllä", "Yes"]],
+  "icons": "🎅 ❄️ 🦌",
+  "scene": "snow",
+  "bestMonths": [12, 1, 2, 3],
+  "seasons": ["winter"],
+  "en": {
+    "tagline": "Reindeer • husky sleds • northern lights",
+    "intro": "Rovaniemi is the capital of Finnish Lapland and sits right on the Arctic Circle, so a winter trip here means deep snow, blue-tinted daylight and real reindeer pulling sleighs. Families come for Santa Claus Village, husky rides and the chance of northern lights, but the quieter moments stick too: hot berry juice by a campfire, snow-heavy pine forest and a sky that turns pink at noon.",
+    "ages": { "best": "4-12", "text": "Children from about 4 enjoy Santa and the reindeer most; husky and snowmobile safaris usually seat small children in a sled, and drivers of snowmobiles must be adults with a licence." },
+    "stroller": { "rating": "hard", "text": "Pavements are packed snow and ice for months, so a pulk sledge or a sturdy carrier works far better than a stroller; many hotels and shops lend or rent kick sledges." },
+    "mustDos": [
+      { "title": "Santa Claus Village", "text": "Cross the painted Arctic Circle line, visit Santa in his office (meeting him is free, official photos cost extra) and post a card at Santa's Main Post Office with the special postmark.", "ages": "3+" },
+      { "title": "Husky safari", "text": "A team of excited dogs pulls you through snowy forest; short 1-2 hour rides suit young children, who sit in the sled wrapped in blankets while an adult or guide drives.", "ages": "4+" },
+      { "title": "Reindeer farm visit", "text": "Herding families near the city offer short reindeer sleigh rides, feeding and stories by a fire in a wooden kota hut; most trips include hotel pickup and warm overalls.", "ages": "3+" },
+      { "title": "SantaPark", "text": "An Arctic cavern park built inside a rock shelter with an elf school, gingerbread baking and a small train ride; it is mainly open in the Christmas season, so check dates.", "ages": "3-10" },
+      { "title": "Ounasvaara hill", "text": "The local fell just across the river has sledding slopes, gentle ski runs with a ski school and snowshoe trails with views over the town at sunset.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Arktikum", "text": "Science centre and museum with a long glass corridor, Arctic animals and a northern lights show room." },
+      { "title": "Pilke Science Centre", "text": "Hands-on forest exhibition next to Arktikum where kids drive a forest machine simulator and build with wood." },
+      { "title": "Korundi House of Culture", "text": "Art museum in an old brick bus depot, with family workshops and a warm cafe for thawing out." }
+    ],
+    "safety": [
+      "January temperatures often drop to -20 °C or lower, so dress children in wool layers, mittens over gloves and check fingers, cheeks and toes every half hour outside.",
+      "Do not walk onto frozen rivers or lakes unless it is a marked route, because ice thickness changes near currents and bridges.",
+      "Days are very short in midwinter, so put a reflector on every child's coat; Finns wear them by habit and drivers expect them."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €180-280 a day for a family of four excluding lodging; each guided safari adds roughly €300-600 for the family.",
+      "items": [
+        { "label": "Husky safari (1-2 h, per child)", "price": "€90-150" },
+        { "label": "Reindeer farm visit with sleigh ride (per person)", "price": "€50-110" },
+        { "label": "SantaPark ticket (per person, winter)", "price": "€40-60" },
+        { "label": "Arktikum entry (child to adult)", "price": "€8-20" }
+      ],
+      "tip": "Eat your main meal at a weekday lunch buffet (lounas), which costs far less than dinner and usually includes bread, salad and coffee."
+    },
+    "gettingAround": "The compact centre is walkable, and Linkki city bus line 8 runs to Santa Claus Village about 8 km north; almost all safaris include pickup from central hotels.",
+    "food": "Try salmon soup, sautéed reindeer with mashed potato and lingonberry, and squeaky oven cheese with cloudberry jam; Finns eat lunch around 11:00-13:00 and dinner early.",
+    "firstDay": {
+      "morning": "Take the bus to Santa Claus Village while it is quiet and cross the Arctic Circle line first.",
+      "afternoon": "Visit Arktikum to warm up and learn what you will see on safari.",
+      "evening": "Walk to the Lumberjack's Candle Bridge and look north for the northern lights on a clear night."
+    }
+  },
+  "es": {
+    "tagline": "Renos • trineos de huskies • auroras boreales",
+    "intro": "Rovaniemi es la capital de la Laponia finlandesa y está justo sobre el Círculo Polar Ártico, así que un viaje en invierno significa nieve profunda, luz azulada y renos de verdad tirando de trineos. Las familias vienen por la aldea de Papá Noel, los paseos con huskies y la posibilidad de ver auroras, pero también se recuerdan los momentos tranquilos: zumo caliente de bayas junto al fuego, bosques de pinos cargados de nieve y un cielo rosado al mediodía.",
+    "ages": { "best": "4-12", "text": "Los niños desde unos 4 años disfrutan más de Papá Noel y los renos; en los safaris con huskies o motos de nieve los pequeños van sentados en un trineo, y solo adultos con carné pueden conducir motos de nieve." },
+    "stroller": { "rating": "hard", "text": "Las aceras son nieve compactada y hielo durante meses, así que un trineo tipo pulka o una buena mochila portabebés funcionan mucho mejor que el carrito; muchos hoteles prestan o alquilan trineos de empuje." },
+    "mustDos": [
+      { "title": "Aldea de Papá Noel (Santa Claus Village)", "text": "Cruzad la línea pintada del Círculo Polar, visitad a Papá Noel en su oficina (verlo es gratis, las fotos oficiales se pagan aparte) y enviad una postal con el matasellos especial de su oficina de correos.", "ages": "3+" },
+      { "title": "Safari con huskies", "text": "Un equipo de perros entusiasmados os lleva por el bosque nevado; los paseos cortos de 1-2 horas van bien para niños pequeños, que viajan sentados y tapados con mantas mientras conduce un adulto o el guía.", "ages": "4+" },
+      { "title": "Granja de renos", "text": "Familias de pastores cerca de la ciudad ofrecen paseos cortos en trineo, dar de comer a los renos y cuentos junto al fuego en una cabaña kota; casi siempre incluyen recogida en el hotel y monos de abrigo.", "ages": "3+" },
+      { "title": "SantaPark", "text": "Un parque dentro de una gran cueva en la roca con escuela de elfos, taller de galletas de jengibre y un pequeño tren; abre sobre todo en temporada navideña, así que conviene revisar las fechas.", "ages": "3-10" },
+      { "title": "Colina de Ounasvaara", "text": "La colina local, al otro lado del río, tiene pistas para deslizarse en trineo, pistas de esquí suaves con escuela y rutas con raquetas desde las que se ve la ciudad al atardecer.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Arktikum", "text": "Centro de ciencia y museo con un largo pasillo de cristal, animales árticos y una sala sobre la aurora boreal." },
+      { "title": "Centro de Ciencia Pilke", "text": "Exposición interactiva sobre el bosque junto al Arktikum, donde los niños manejan un simulador de máquina forestal y construyen con madera." },
+      { "title": "Casa de Cultura Korundi", "text": "Museo de arte en una antigua cochera de autobuses de ladrillo, con talleres familiares y una cafetería para entrar en calor." }
+    ],
+    "safety": [
+      "En enero las temperaturas suelen bajar a -20 °C o menos, así que vestid a los niños con capas de lana, manoplas sobre guantes y revisad dedos, mejillas y pies cada media hora al aire libre.",
+      "No caminéis sobre ríos o lagos helados salvo por rutas señalizadas, porque el grosor del hielo cambia cerca de corrientes y puentes.",
+      "En pleno invierno los días son muy cortos, así que poned un reflectante en el abrigo de cada niño; los finlandeses los llevan por costumbre y los conductores cuentan con ellos."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos €180-280 al día para una familia de cuatro sin alojamiento; cada safari guiado suma entre €300 y €600 para toda la familia.",
+      "items": [
+        { "label": "Safari con huskies (1-2 h, por niño)", "price": "€90-150" },
+        { "label": "Granja de renos con paseo en trineo (por persona)", "price": "€50-110" },
+        { "label": "Entrada a SantaPark (por persona, invierno)", "price": "€40-60" },
+        { "label": "Entrada al Arktikum (de niño a adulto)", "price": "€8-20" }
+      ],
+      "tip": "Haced la comida principal en un bufé de mediodía entre semana (lounas), que cuesta mucho menos que la cena e incluye pan, ensalada y café."
+    },
+    "gettingAround": "El centro es pequeño y se recorre a pie, y la línea 8 del autobús urbano Linkki llega a la aldea de Papá Noel, a unos 8 km al norte; casi todos los safaris recogen en los hoteles del centro.",
+    "food": "Probad la sopa de salmón, el reno salteado con puré y arándanos rojos, y el queso horneado que chirría al morderlo con mermelada de mora ártica; en Finlandia se come entre las 11:00 y las 13:00 y se cena temprano.",
+    "firstDay": {
+      "morning": "Id en autobús a la aldea de Papá Noel cuando aún está tranquila y cruzad primero la línea del Círculo Polar.",
+      "afternoon": "Visitad el Arktikum para entrar en calor y aprender lo que veréis en el safari.",
+      "evening": "Caminad hasta el puente Jätkänkynttilä y mirad hacia el norte por si aparece la aurora en una noche despejada."
+    }
+  },
+  "booklet": {
+    "marks": ["Santa Claus Village", "Arktikum", "Ounasvaara", "Jätkänkynttilä Bridge"],
+    "food": ["salmon soup", "squeaky cheese with cloudberry jam", "blueberry pie", "cinnamon bun"],
+    "facts": [
+      "Every reindeer in Finland belongs to a herder, even the ones you see walking by the road.",
+      "In December the sun shines for only about two hours a day in Rovaniemi.",
+      "The Arctic Circle line runs right through Santa Claus Village."
+    ],
+    "hunt": ["a reindeer", "a husky", "a snowy roof", "a red mailbox", "an icicle", "a kick sledge", "a snowman", "a campfire", "a pine tree full of snow", "a reflector on a coat", "an elf hat", "some northern lights"],
+    "quiz": [
+      ["What line can you cross at Santa Claus Village?", "The Arctic Circle", "The Equator", "The Tropic of Cancer", "The Date Line"],
+      ["What do reindeer mostly eat in winter?", "Lichen", "Carrots", "Fish", "Pine cones"],
+      ["What is another name for the northern lights?", "Aurora borealis", "Midnight sun", "Rainbow rain", "Star dust"]
+    ],
+    "missions": ["Reindeer spotter", "Northern lights colour hunt"]
+  },
+  "missionsEs": ["Detective de renos", "Caza de colores de la aurora"]
+}

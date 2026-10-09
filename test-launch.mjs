@@ -93,7 +93,7 @@ assert.equal(analytics.includes('(...args)=>window.dataLayer.push(args)'),false,
 assert.ok(refunds.includes('Kidventuro Mini, Adventure and Family'),'delivery policy must cover all three products');
 
 for(const marker of [
-  "const RELEASE = '2026-08-26.6'",
+  "const RELEASE = '2026-10-10.1'",
   "const BOOKLET_LANGUAGE = 'en'",
   'BODY_LIMITS','checkout_ref_already_used','checkout_ref_conflict','ignored_ref_refunded','ignored_refund_order_mismatch',
   'const orderSubtotal = Number(attrs.subtotal)','orderSubtotal !== expectedPrice',"url.pathname === '/diagnostics'",

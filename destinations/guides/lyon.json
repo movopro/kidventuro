@@ -1,0 +1,114 @@
+{
+  "slug": "lyon",
+  "name": "Lyon",
+  "nameEs": "Lyon",
+  "country": "France",
+  "countryEs": "Francia",
+  "flag": "🇫🇷",
+  "region": "europe",
+  "lang": "fr",
+  "phrases": [["Bonjour", "Hello"], ["Merci", "Thank you"], ["S'il vous plaît", "Please"], ["Oui", "Yes"]],
+  "icons": "🎭 🦁 🎬",
+  "scene": "city",
+  "bestMonths": [4, 5, 6, 9, 10, 12],
+  "seasons": ["spring", "autumn", "winter"],
+  "en": {
+    "tagline": "Puppets • secret passageways • two rivers",
+    "intro": "Lyon sits where the Rhône and Saône rivers meet, and it rewards families with a free zoo, a funicular up Fourvière hill and secret covered passageways called traboules in the old town. It is the home of Guignol the puppet and of cinema itself, and it takes food seriously without being stuffy. Early December brings the Fête des Lumières, when buildings glow with light shows for four nights.",
+    "ages": { "best": "4-12", "text": "Little ones enjoy Guignol shows and the zoo; 7-12 year olds get the most from the traboules treasure hunt, the miniatures museum and Musée des Confluences." },
+    "stroller": { "rating": "mixed", "text": "The Presqu'île and riverbanks are flat and smooth, but Vieux Lyon is cobbled and the Croix-Rousse slopes are steep stairs; use the funicular and metro lifts where you can." },
+    "mustDos": [
+      { "title": "Parc de la Tête d'Or and zoo", "text": "A huge free park with a free zoo, an African plain area with giraffes, pony rides, a small train and pedal boats on the lake in warm months.", "ages": "all ages" },
+      { "title": "Funicular to Fourvière", "text": "Ride the little funicular from Vieux Lyon up to the basilica for a city view, then walk down past the Roman theatres; it costs one standard TCL ticket.", "ages": "all ages" },
+      { "title": "Traboule hunt in Vieux Lyon", "text": "Look for the doors marked with the lion symbol and slip through the hidden courtyards; start at 54 rue Saint-Jean, the longest traboule, and keep voices low because people live there.", "ages": "6+" },
+      { "title": "Musée Cinéma et Miniature", "text": "Tiny handmade rooms and real film props and costumes fill this old-town house; allow 90 minutes and expect roughly €13 for adults and €9-10 for children.", "ages": "5+" },
+      { "title": "Guignol puppet show", "text": "Lyon's own puppet character has played here since the early 1800s; short shows in French at small theatres like La Maison de Guignol work fine for non-speakers.", "ages": "3-8" }
+    ],
+    "rainyDay": [
+      { "title": "Musée des Confluences", "text": "Dinosaurs, mummies and insects in a futuristic building, free for under-18s." },
+      { "title": "Aquarium de Lyon", "text": "Sharks, rays and a touch pool across about 50 tanks, reachable by bus." },
+      { "title": "Musée Lumière", "text": "The villa where the first films were made, with early cameras and short clips to watch." }
+    ],
+    "safety": [
+      "Riverbank paths (the berges) are popular with fast bikes and scooters, so keep little ones on the inside edge.",
+      "Pickpockets work the metro and Vieux Lyon at busy times, so carry bags in front and phones out of back pockets.",
+      "Summer afternoons can pass 35 °C, so plan museums or parks with shade after lunch; tap water is safe."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €140-210 a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "TCL single ticket (metro, tram, funicular)", "price": "€2-2.50" },
+        { "label": "Musée Cinéma et Miniature (adult / child)", "price": "€12-14 / €9-10" },
+        { "label": "Aquarium de Lyon (adult / child)", "price": "€19-23 / €14-17" },
+        { "label": "Bouchon children's menu", "price": "€10-15" }
+      ],
+      "tip": "The zoo, Tête d'Or park and city museums are free for kids, and the Lyon City Card bundles transport with most entries."
+    },
+    "gettingAround": "Four metro lines (A to D), trams and two funiculars cover everything; buy a 24-hour or 48-hour TCL ticket and walk the flat Presqu'île between sights.",
+    "food": "Kids tend to like quenelles in sauce, saucisson, bugnes doughnuts and the bright pink tarte aux pralines; bouchon restaurants serve lunch 12-14 and dinner from about 19:30.",
+    "firstDay": {
+      "morning": "Ride the funicular up Fourvière and look over both rivers from the basilica terrace.",
+      "afternoon": "Walk down to Vieux Lyon for a traboule hunt and the miniatures museum.",
+      "evening": "Cross the footbridge to Presqu'île and share a praline tart after dinner."
+    }
+  },
+  "es": {
+    "tagline": "Títeres • pasadizos secretos • dos ríos",
+    "intro": "Lyon está donde se unen el Ródano y el Saona, y ofrece a las familias un zoo gratuito, un funicular hasta la colina de Fourvière y pasadizos cubiertos secretos, los traboules, en el casco antiguo. Es la ciudad del títere Guignol y la cuna del cine, y se toma la comida en serio sin ser estirada. A principios de diciembre llega la Fête des Lumières, con espectáculos de luz en los edificios durante cuatro noches.",
+    "ages": { "best": "4-12", "text": "Los pequeños disfrutan con Guignol y el zoo; los niños de 7 a 12 años sacan más partido a la búsqueda de traboules, al museo de miniaturas y al Musée des Confluences." },
+    "stroller": { "rating": "mixed", "text": "La Presqu'île y las orillas son llanas y lisas, pero Vieux Lyon tiene adoquines y la Croix-Rousse empinadas escaleras; usa el funicular y los ascensores del metro siempre que puedas." },
+    "mustDos": [
+      { "title": "Parc de la Tête d'Or y su zoo", "text": "Un enorme parque gratuito con zoo gratuito, una llanura africana con jirafas, paseos en poni, un trenecito y barcas a pedales en el lago en los meses cálidos.", "ages": "todas las edades" },
+      { "title": "Funicular a Fourvière", "text": "Sube en el pequeño funicular desde Vieux Lyon hasta la basílica para ver la ciudad y baja a pie junto a los teatros romanos; cuesta un billete TCL normal.", "ages": "todas las edades" },
+      { "title": "Búsqueda de traboules en Vieux Lyon", "text": "Busca las puertas con el símbolo del león y cruza los patios escondidos; empieza en el 54 de la rue Saint-Jean, el traboule más largo, y hablad bajo porque allí vive gente.", "ages": "6+" },
+      { "title": "Musée Cinéma et Miniature", "text": "Diminutas habitaciones hechas a mano y objetos y trajes reales de películas llenan esta casa del casco antiguo; calcula 90 minutos y unos 13 € por adulto y 9-10 € por niño.", "ages": "5+" },
+      { "title": "Función de títeres de Guignol", "text": "El títere de Lyon actúa aquí desde principios del siglo XIX; las funciones cortas en francés de teatros como La Maison de Guignol se entienden sin hablar el idioma.", "ages": "3-8" }
+    ],
+    "rainyDay": [
+      { "title": "Musée des Confluences", "text": "Dinosaurios, momias e insectos en un edificio futurista, gratis para menores de 18 años." },
+      { "title": "Aquarium de Lyon", "text": "Tiburones, rayas y un estanque táctil en unos 50 acuarios, accesible en autobús." },
+      { "title": "Musée Lumière", "text": "La villa donde se rodaron las primeras películas, con cámaras antiguas y cortos para ver." }
+    ],
+    "safety": [
+      "Los paseos junto al río (las berges) están llenos de bicis y patinetes rápidos, así que mantén a los pequeños por el lado interior.",
+      "Hay carteristas en el metro y en Vieux Lyon en horas punta: lleva el bolso delante y el móvil fuera de los bolsillos traseros.",
+      "Las tardes de verano pueden superar los 35 °C, así que planea museos o parques con sombra después de comer; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos 140-210 € al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Billete sencillo TCL (metro, tranvía, funicular)", "price": "€2-2.50" },
+        { "label": "Musée Cinéma et Miniature (adulto / niño)", "price": "€12-14 / €9-10" },
+        { "label": "Aquarium de Lyon (adulto / niño)", "price": "€19-23 / €14-17" },
+        { "label": "Menú infantil en un bouchon", "price": "€10-15" }
+      ],
+      "tip": "El zoo, el parque de la Tête d'Or y los museos municipales son gratis para los niños, y la Lyon City Card incluye transporte y casi todas las entradas."
+    },
+    "gettingAround": "Cuatro líneas de metro (A a D), tranvías y dos funiculares lo cubren todo; compra un billete TCL de 24 o 48 horas y recorre a pie la llana Presqu'île.",
+    "food": "Suelen gustar las quenelles en salsa, el saucisson, los buñuelos bugnes y la tarta rosa de praliné; los bouchons sirven comidas de 12 a 14 y cenas desde las 19:30 aproximadamente.",
+    "firstDay": {
+      "morning": "Sube en funicular a Fourvière y contempla los dos ríos desde la terraza de la basílica.",
+      "afternoon": "Baja a Vieux Lyon para buscar traboules y visitar el museo de miniaturas.",
+      "evening": "Cruza la pasarela hasta la Presqu'île y comparte una tarta de praliné después de cenar."
+    }
+  },
+  "booklet": {
+    "marks": ["Fourvière Basilica", "Vieux Lyon", "Parc de la Tête d'Or", "Musée des Confluences"],
+    "food": ["praline tart", "quenelle", "bugnes", "saucisson"],
+    "facts": [
+      "The Lumière brothers showed some of the first films ever in Lyon in 1895.",
+      "Guignol, a famous French puppet, was created in Lyon over 200 years ago.",
+      "Lyon has two rivers, the Rhône and the Saône, that meet at the city's tip."
+    ],
+    "hunt": ["a funicular", "a lion statue", "a puppet", "a pink praline tart", "a secret passageway door", "a giraffe", "a bridge over a river", "a Roman theatre", "a mural painted on a wall", "a basilica on a hill", "a metro sign", "some colourful old houses"],
+    "quiz": [
+      ["What is the name of Lyon's famous puppet?", "Guignol", "Pinocchio", "Punch", "Kermit"],
+      ["What colour is a Lyon praline tart?", "Pink", "Blue", "Green", "Black"],
+      ["What is a traboule?", "A hidden passage", "A cheese", "A boat", "A dance"]
+    ],
+    "missions": ["Traboule explorer", "Puppet and film detective"]
+  },
+  "missionsEs": ["Explorador de traboules", "Detective de títeres y cine"]
+}

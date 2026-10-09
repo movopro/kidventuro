@@ -1,0 +1,114 @@
+{
+  "slug": "palma-de-mallorca",
+  "name": "Palma de Mallorca",
+  "nameEs": "Palma de Mallorca",
+  "country": "Spain",
+  "countryEs": "España",
+  "flag": "🇪🇸",
+  "region": "europe",
+  "lang": "ca",
+  "phrases": [["Hola", "Hello"], ["Gràcies", "Thank you"], ["Si us plau", "Please"], ["Sí", "Yes"]],
+  "icons": "🏰 🚂 🏖️",
+  "scene": "island",
+  "bestMonths": [5, 6, 9, 10],
+  "seasons": ["spring", "summer", "autumn"],
+  "en": {
+    "tagline": "Seaside cathedral • round castle • wooden train",
+    "intro": "Palma is a proper city on a sunny bay, which makes it a good family base when you want beaches and something to do on a cloudy day. The Gothic cathedral sits right above the sea, a round castle watches from a pine hill, and a 1912 wooden train runs through orange groves to Sóller. Late spring and early autumn give warm sea water without the July crowds.",
+    "ages": { "best": "4-12", "text": "Beaches and the aquarium suit all ages; the Sóller train, Bellver Castle towers and the Drach caves concert work best from about 5, once kids can manage stairs and sit still." },
+    "stroller": { "rating": "mixed", "text": "The seafront promenade and Parc de la Mar are flat and smooth, but the old town has narrow lanes and steps, and Bellver Castle sits up a steep wooded hill best reached by taxi or bus." },
+    "mustDos": [
+      { "title": "La Seu cathedral", "text": "Inside, coloured light from the huge rose window falls on the floor and Gaudí's iron canopy hangs over the altar; adult entry is roughly €10, with reductions for children.", "ages": "5+" },
+      { "title": "Bellver Castle", "text": "A rare round castle from the 1300s with a moat, a prison tower and views over the whole bay; entry is a few euros and free on Sundays.", "ages": "4+" },
+      { "title": "Sóller train and tram", "text": "The 1912 wooden train crosses the mountains in about an hour, then an old open tram runs down to the port beach; adults pay roughly €20-30 each way, and the line often pauses for maintenance in December and January.", "ages": "all ages" },
+      { "title": "Palma Aquarium", "text": "One of Europe's deepest shark tanks plus a jungle zone and outdoor play area near Can Pastilla; booking online saves a few euros per ticket.", "ages": "all ages" },
+      { "title": "City beaches", "text": "Ciutat Jardí has shallow water and calm, sandy shallows for small children, while Can Pere Antoni is closest to the old town for a quick swim.", "ages": "all ages" }
+    ],
+    "rainyDay": [
+      { "title": "Coves del Drac", "text": "Huge caves near Porto Cristo with an underground lake and a short boat ride with live music." },
+      { "title": "Mercat de l'Olivar", "text": "Covered market with fish, fruit and tapas counters where kids can graze and look around." },
+      { "title": "Es Baluard museum", "text": "Modern art inside the old city walls, with a free terrace and regular family workshops." }
+    ],
+    "safety": [
+      "Summer sun is strong from June to September, so use high-factor sunscreen, hats and shade between noon and 4 pm.",
+      "Respect beach flags and choose bays with lifeguards, as wind can bring currents even on calm-looking days.",
+      "Tap water in Palma is safe but tastes of minerals, so many families buy large bottles; watch bags on crowded buses and beaches."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €150-230 a day for a family of four, excluding lodging and car hire.",
+      "items": [
+        { "label": "Palma Aquarium (adult / child)", "price": "€27-32 / €18-22" },
+        { "label": "Sóller train, one way (adult)", "price": "€20-30" },
+        { "label": "Coves del Drac with concert (adult / child)", "price": "€20-25 / €12-15" },
+        { "label": "Ensaïmada pastry", "price": "€2-4" }
+      ],
+      "tip": "Visit Bellver on Sunday when it is free, and take a picnic of pa amb oli to the beach instead of seafront cafés."
+    },
+    "gettingAround": "EMT city buses run along the bay and to the airport, and old town sights are walkable; hire a car or use TIB buses for Sóller, the caves and quieter coves.",
+    "food": "Kids tend to love ensaïmada spiral pastries, pa amb oli (bread with tomato and oil), croquetas and ice cream; locals lunch around 13:30-15:30 and dine from 20:30.",
+    "firstDay": {
+      "morning": "Visit the cathedral early and walk through Parc de la Mar beside its lake.",
+      "afternoon": "Head to Ciutat Jardí for a swim and lunch at a beach chiringuito.",
+      "evening": "Wander the old town lanes for tapas and an ensaïmada for dessert."
+    }
+  },
+  "es": {
+    "tagline": "Catedral junto al mar • castillo redondo • tren de madera",
+    "intro": "Palma es una ciudad de verdad en una bahía soleada, así que es una buena base familiar cuando quieres playa y planes para un día nublado. La catedral gótica se alza junto al mar, un castillo redondo vigila desde una colina de pinos y un tren de madera de 1912 cruza naranjales hasta Sóller. A finales de primavera y principios de otoño el mar está templado y hay menos gente que en julio.",
+    "ages": { "best": "4-12", "text": "Las playas y el acuario sirven para todas las edades; el tren de Sóller, las torres de Bellver y el concierto de las Coves del Drac funcionan mejor desde los 5 años, cuando ya suben escaleras y aguantan sentados." },
+    "stroller": { "rating": "mixed", "text": "El paseo marítimo y el Parc de la Mar son llanos y lisos, pero el casco antiguo tiene callejuelas y escalones, y el castillo de Bellver está en una colina empinada a la que conviene ir en taxi o autobús." },
+    "mustDos": [
+      { "title": "Catedral de La Seu", "text": "Dentro, la luz del enorme rosetón tiñe el suelo de colores y el baldaquino de hierro de Gaudí cuelga sobre el altar; la entrada de adulto ronda 10 €, con descuento para niños.", "ages": "5+" },
+      { "title": "Castillo de Bellver", "text": "Un raro castillo redondo del siglo XIV con foso, torre prisión y vistas a toda la bahía; la entrada cuesta pocos euros y es gratis los domingos.", "ages": "4+" },
+      { "title": "Tren y tranvía de Sóller", "text": "El tren de madera de 1912 cruza la sierra en una hora y después un tranvía antiguo y abierto baja hasta la playa del puerto; los adultos pagan unos 20-30 € por trayecto, y la línea suele parar por mantenimiento en diciembre y enero.", "ages": "todas las edades" },
+      { "title": "Palma Aquarium", "text": "Uno de los tanques de tiburones más profundos de Europa, una zona de selva y un área de juegos exterior cerca de Can Pastilla; comprar en línea ahorra unos euros.", "ages": "todas las edades" },
+      { "title": "Playas de la ciudad", "text": "Ciutat Jardí tiene agua tranquila y poco profunda para los más pequeños, y Can Pere Antoni es la más cercana al casco antiguo para un baño rápido.", "ages": "todas las edades" }
+    ],
+    "rainyDay": [
+      { "title": "Coves del Drac", "text": "Enormes cuevas cerca de Porto Cristo con un lago subterráneo y un breve paseo en barca con música en directo." },
+      { "title": "Mercat de l'Olivar", "text": "Mercado cubierto con puestos de pescado, fruta y tapas donde los niños pueden picar y curiosear." },
+      { "title": "Museo Es Baluard", "text": "Arte moderno dentro de la antigua muralla, con terraza gratuita y talleres familiares frecuentes." }
+    ],
+    "safety": [
+      "El sol de junio a septiembre es fuerte, así que usa protector solar alto, gorras y sombra entre el mediodía y las 16:00.",
+      "Respeta las banderas y elige calas con socorrista, porque el viento puede crear corrientes aunque el mar parezca tranquilo.",
+      "El agua del grifo de Palma es segura pero sabe a minerales, por eso muchas familias compran garrafas; vigila los bolsos en autobuses y playas llenas."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos 150-230 € al día para una familia de cuatro, sin alojamiento ni coche de alquiler.",
+      "items": [
+        { "label": "Palma Aquarium (adulto / niño)", "price": "€27-32 / €18-22" },
+        { "label": "Tren de Sóller, ida (adulto)", "price": "€20-30" },
+        { "label": "Coves del Drac con concierto (adulto / niño)", "price": "€20-25 / €12-15" },
+        { "label": "Ensaimada", "price": "€2-4" }
+      ],
+      "tip": "Visita Bellver el domingo, cuando es gratis, y lleva a la playa un pícnic de pa amb oli en vez de comer en los cafés del paseo."
+    },
+    "gettingAround": "Los autobuses urbanos de la EMT recorren la bahía y llegan al aeropuerto, y el casco antiguo se recorre a pie; alquila coche o usa los autobuses TIB para Sóller, las cuevas y las calas tranquilas.",
+    "food": "A los niños suelen encantarles la ensaimada, el pa amb oli (pan con tomate y aceite), las croquetas y los helados; aquí se come hacia las 13:30-15:30 y se cena desde las 20:30.",
+    "firstDay": {
+      "morning": "Visita la catedral temprano y pasea por el Parc de la Mar junto a su lago.",
+      "afternoon": "Ve a Ciutat Jardí a bañarte y come en un chiringuito de playa.",
+      "evening": "Recorre las callejuelas del casco antiguo de tapas y toma una ensaimada de postre."
+    }
+  },
+  "booklet": {
+    "marks": ["La Seu cathedral", "Bellver Castle", "Sóller train", "Parc de la Mar"],
+    "food": ["ensaïmada", "pa amb oli", "oranges", "croquetas"],
+    "facts": [
+      "Bellver Castle is round, which is very rare for a castle in Europe.",
+      "The Sóller train has been carrying people over the mountains since 1912.",
+      "Mallorca is the biggest of the Balearic Islands in the Mediterranean Sea."
+    ],
+    "hunt": ["a round tower", "a wooden train", "a palm tree", "a sailing boat", "a spiral pastry", "an orange tree", "a stained-glass window", "a lifeguard tower", "a seagull", "a yellow tram", "some green shutters", "a sandcastle"],
+    "quiz": [
+      ["What shape is Bellver Castle?", "Round", "Square", "Triangle", "Star"],
+      ["What is an ensaïmada?", "A spiral pastry", "A boat", "A dance", "A fish"],
+      ["Which sea surrounds Mallorca?", "The Mediterranean", "The Baltic", "The Red Sea", "The North Sea"]
+    ],
+    "missions": ["Castle tower lookout", "Island train conductor"]
+  },
+  "missionsEs": ["Vigía de la torre del castillo", "Maquinista del tren de la isla"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "sapporo",
+  "name": "Sapporo",
+  "nameEs": "Sapporo",
+  "country": "Japan",
+  "countryEs": "Japón",
+  "flag": "🇯🇵",
+  "region": "asia",
+  "lang": "ja",
+  "phrases": [["Konnichiwa","Hello"],["Arigatou gozaimasu","Thank you"],["Onegaishimasu","Please"],["Hai","Yes"]],
+  "icons": "⛄ 🍜 🐧",
+  "scene": "snow",
+  "bestMonths": [12, 1, 2, 7, 8],
+  "seasons": ["winter", "summer"],
+  "en": {
+    "tagline": "Snow sculptures • penguin parade • miso ramen",
+    "intro": "Sapporo, on Japan's northern island of Hokkaido, turns into a snow city every winter. In early February the Snow Festival fills Odori Park with sculptures as big as buildings, and kids slide down snow ramps at the family site. Warm underground walkways link the centre, steaming bowls of miso ramen wait in every street, and a day trip brings the famous penguin walk at Asahiyama Zoo.",
+    "ages": { "best": "4-12", "text": "Every age loves the snow play and sculptures, while ages 6-12 cope best with long cold days outside; babies are fine with warm layers and short outings." },
+    "stroller": { "rating": "mixed", "text": "Packed snow and ice make strollers hard work outside in winter, but the Chi-ka-ho underground walkway from Sapporo Station to Odori and Susukino is smooth with lifts. Many local families use a carrier or a small sled." },
+    "mustDos": [
+      { "title": "Sapporo Snow Festival", "text": "For about a week in early February, Odori Park shows giant snow sculptures and Susukino glitters with ice carvings, while the Tsudome site has snow slides and rafting for kids.", "ages": "3+" },
+      { "title": "Mt. Moiwa Ropeway", "text": "A ropeway and a small cable car climb to a summit with one of Japan's best night views; adults pay about JPY 2,100 return and children half.", "ages": "3+" },
+      { "title": "Takino Suzuran Hillside Park", "text": "In winter this national park becomes a big snow playground with tubing hills, snowshoe trails and sledding, about an hour from the centre by subway and bus.", "ages": "3+" },
+      { "title": "Asahiyama Zoo penguin walk", "text": "On winter days, king penguins waddle past visitors in a snowy line at this zoo in Asahikawa, about 85 minutes away by JR limited express train.", "ages": "3+" },
+      { "title": "Otaru day trip", "text": "About 40 minutes away by JR, kids watch music boxes and glass being made beside the old canal, lit with candles during February's Snow Light Path.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Shiroi Koibito Park", "text": "A cookie factory with a production line view and a decorate-your-own cookie class." },
+      { "title": "Sapporo Science Center", "text": "Hands-on science galleries and a planetarium near Shin-Sapporo station, all indoors and warm." },
+      { "title": "Sapporo Olympic Museum", "text": "At the Okurayama ski jump, try the jump simulator and ride the lift to the top." }
+    ],
+    "safety": [
+      "Pavements are often icy, so buy slip-on shoe spikes from a convenience store or drug store and teach kids to take small, flat penguin steps.",
+      "Days are often around -5 to -10°C with wind, but shops and trains are very warm, so dress in layers that come off easily.",
+      "Snow and icicles can slide off roofs without warning, so walk away from building edges after snowfall; tap water is safe to drink."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "About JPY 25,000-40,000 (about €150-235) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Mt. Moiwa Ropeway + mini cable car return (adult / child)", "price": "JPY 2,100 / 1,050 (about €12 / €6)" },
+        { "label": "Asahiyama Zoo (adult, junior high and under free)", "price": "JPY 1,000 (about €6)" },
+        { "label": "Shiroi Koibito Park factory tour (adult / child)", "price": "JPY 800-1,000 / 400-500 (about €5-6 / €2.50-3)" },
+        { "label": "Bowl of miso ramen", "price": "JPY 900-1,400 (about €5-8)" }
+      ],
+      "tip": "The Snow Festival is free, and the subway and JR charge half fare for ages 6-11 while younger children usually ride free with an adult."
+    },
+    "gettingAround": "Three subway lines and a streetcar loop cover the city, and IC cards such as Kitaca or Suica work on all of them. JR trains reach Otaru in about 40 minutes and New Chitose Airport in about 40 minutes.",
+    "food": "Kids usually love miso ramen from Ramen Yokocho, mild soup curry, grilled Genghis Khan lamb and rich Hokkaido milk soft-serve, even in winter. Lunch starts around 11:30 and dinner around 6 pm.",
+    "firstDay": {
+      "morning": "Walk the Odori Park sculptures and peek at the Sapporo Clock Tower.",
+      "afternoon": "Warm up underground in Chi-ka-ho, then visit Shiroi Koibito Park.",
+      "evening": "Ride up Mt. Moiwa for the night view, then share miso ramen in Susukino."
+    }
+  },
+  "es": {
+    "tagline": "Esculturas de nieve • desfile de pingüinos • ramen de miso",
+    "intro": "Sapporo, en Hokkaido, la isla norte de Japón, se convierte cada invierno en una ciudad de nieve. A principios de febrero, el Festival de la Nieve llena el parque Odori de esculturas tan grandes como edificios, y los niños se deslizan por rampas de nieve en la zona familiar. Pasadizos subterráneos templados unen el centro, hay ramen de miso humeante en cada calle, y en una excursión se ve el famoso paseo de pingüinos del zoo de Asahiyama.",
+    "ages": { "best": "4-12", "text": "A todas las edades les encantan los juegos en la nieve y las esculturas, y los de 6 a 12 años aguantan mejor los días largos al frío; los bebés están bien con ropa de abrigo y salidas cortas." },
+    "stroller": { "rating": "mixed", "text": "En invierno la nieve compacta y el hielo complican el cochecito en la calle, pero el pasadizo subterráneo Chi-ka-ho, de la estación de Sapporo a Odori y Susukino, es liso y con ascensores. Muchas familias locales usan portabebés o un trineo pequeño." },
+    "mustDos": [
+      { "title": "Festival de la Nieve de Sapporo", "text": "Durante una semana a principios de febrero, el parque Odori muestra esculturas de nieve gigantes y Susukino brilla con tallas de hielo, mientras que la zona Tsudome tiene toboganes de nieve y balsas para niños.", "ages": "3+" },
+      { "title": "Teleférico del monte Moiwa", "text": "Un teleférico y un pequeño funicular suben a una cima con una de las mejores vistas nocturnas de Japón; los adultos pagan unos JPY 2.100 ida y vuelta y los niños la mitad.", "ages": "3+" },
+      { "title": "Parque Takino Suzuran", "text": "En invierno este parque nacional se convierte en un gran patio de nieve con colinas para deslizarse en flotador, rutas con raquetas y trineos, a una hora del centro en metro y bus.", "ages": "3+" },
+      { "title": "Paseo de pingüinos en el zoo de Asahiyama", "text": "En los días de invierno, los pingüinos rey desfilan en fila sobre la nieve junto a los visitantes en este zoo de Asahikawa, a unos 85 minutos en tren expreso de JR.", "ages": "3+" },
+      { "title": "Excursión a Otaru", "text": "A unos 40 minutos en JR, los niños ven cómo se hacen cajas de música y vidrio junto al viejo canal, iluminado con velas durante el Snow Light Path de febrero.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Shiroi Koibito Park", "text": "Una fábrica de galletas con vista a la línea de producción y taller para decorar tus galletas." },
+      { "title": "Sapporo Science Center", "text": "Salas de ciencia interactivas y un planetario cerca de la estación Shin-Sapporo, todo bajo techo y calentito." },
+      { "title": "Museo Olímpico de Sapporo", "text": "En el trampolín de esquí de Okurayama, prueba el simulador de salto y sube en telesilla hasta arriba." }
+    ],
+    "safety": [
+      "Las aceras suelen estar heladas, así que compra crampones para el calzado en un konbini o una farmacia y enseña a los niños a dar pasos cortos y planos, como un pingüino.",
+      "Muchos días rondan entre -5 y -10 °C con viento, pero tiendas y trenes tienen mucha calefacción, así que viste por capas fáciles de quitar.",
+      "La nieve y los carámbanos pueden caer de los tejados sin aviso, así que camina lejos del borde de los edificios tras una nevada; el agua del grifo es potable."
+    ],
+    "costs": {
+      "currency": "JPY",
+      "daily": "Unos JPY 25.000-40.000 (unos €150-235) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Teleférico del monte Moiwa + minifunicular, ida y vuelta (adulto / niño)", "price": "JPY 2,100 / 1,050 (about €12 / €6)" },
+        { "label": "Zoo de Asahiyama (adulto; hasta secundaria gratis)", "price": "JPY 1,000 (about €6)" },
+        { "label": "Visita a la fábrica de Shiroi Koibito Park (adulto / niño)", "price": "JPY 800-1,000 / 400-500 (about €5-6 / €2.50-3)" },
+        { "label": "Tazón de ramen de miso", "price": "JPY 900-1,400 (about €5-8)" }
+      ],
+      "tip": "El Festival de la Nieve es gratis, y en metro y JR los niños de 6 a 11 años pagan media tarifa, mientras que los menores suelen viajar gratis con un adulto."
+    },
+    "gettingAround": "Tres líneas de metro y un tranvía circular cubren la ciudad, y las tarjetas IC como Kitaca o Suica sirven en todos. Los trenes JR llegan a Otaru en unos 40 minutos y al aeropuerto de New Chitose en unos 40 minutos.",
+    "food": "A los niños suelen gustarles el ramen de miso del Ramen Yokocho, el curry en sopa suave, el cordero a la parrilla Genghis Khan y el helado de leche de Hokkaido, incluso en invierno. El almuerzo empieza hacia las 11:30 y la cena hacia las 18 horas.",
+    "firstDay": {
+      "morning": "Recorre las esculturas del parque Odori y asómate a la Torre del Reloj de Sapporo.",
+      "afternoon": "Entra en calor bajo tierra en Chi-ka-ho y luego visita Shiroi Koibito Park.",
+      "evening": "Sube al monte Moiwa para la vista nocturna y comparte un ramen de miso en Susukino."
+    }
+  },
+  "booklet": {
+    "marks": ["Odori Park", "Sapporo TV Tower", "Sapporo Clock Tower", "Mt. Moiwa"],
+    "food": ["miso ramen", "soup curry", "grilled corn", "milk soft-serve ice cream"],
+    "facts": [
+      "Sapporo gets about 5 metres of snow each winter, and almost 2 million people live there.",
+      "The Snow Festival began in 1950, when local students built six snow statues in Odori Park.",
+      "Sapporo hosted the 1972 Winter Olympics, the first Winter Games ever held in Asia."
+    ],
+    "hunt": ["a giant snow sculpture", "an ice sculpture", "a snowman", "an icicle", "a TV tower", "a clock tower", "a penguin", "a bowl of ramen", "a snow plough", "a vending machine with hot drinks", "a sled", "some snow lanterns"],
+    "quiz": [
+      ["Which Sapporo festival is famous for giant snow statues?", "The Snow Festival", "The Cherry Blossom Festival", "The Lantern Festival", "The Kite Festival"],
+      ["Which Japanese island is Sapporo on?", "Hokkaido", "Honshu", "Okinawa", "Bali"],
+      ["Which noodle soup is Sapporo famous for?", "Miso ramen", "Tomato soup", "Pumpkin soup", "Fish stew"]
+    ],
+    "missions": ["Snow sculpture judge", "Icicle counter"]
+  },
+  "missionsEs": ["Juez de esculturas de nieve", "Contador de carámbanos"]
+}

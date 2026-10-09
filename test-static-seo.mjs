@@ -20,14 +20,16 @@ const robots = await readFile(new URL('./robots.txt', import.meta.url), 'utf8');
 const supported = [...robots.matchAll(/^Allow: \/destinations\/([a-z0-9-]+)\.html$/gm)]
   .map(match => `${match[1]}.html`)
   .filter(file => file !== 'index.html');
-assert.equal(supported.length, 50, 'robots.txt must allow exactly 50 supported destination pages');
+const guideCount = JSON.parse(await readFile(new URL('./destinations/guide-index.json', import.meta.url), 'utf8')).length;
+const expectedSupported = 50 + guideCount;
+assert.equal(supported.length, expectedSupported, `robots.txt must allow exactly ${expectedSupported} supported destination pages`);
 
 let checked = 0;
 for (const group of groups) {
   const dirUrl = new URL(group.dir, import.meta.url);
   const present = new Set(await readdir(dirUrl));
   const files = supported.filter(file => present.has(file));
-  assert.equal(files.length, 50, `${group.lang}: expected 50 supported destination pages`);
+  assert.equal(files.length, expectedSupported, `${group.lang}: expected ${expectedSupported} supported destination pages`);
 
   for (const file of files) {
     const html = await readFile(new URL(file, dirUrl), 'utf8');
@@ -51,5 +53,5 @@ for (const group of groups) {
   }
 }
 
-assert.equal(seenTitles.size, 100, 'Every destination page must have a unique title');
+assert.equal(seenTitles.size, expectedSupported * 2, 'Every destination page must have a unique title');
 console.log(`Static SEO validation passed for ${checked} destination pages.`);

@@ -1,0 +1,114 @@
+{
+  "slug": "bergen",
+  "name": "Bergen",
+  "nameEs": "Bergen",
+  "country": "Norway",
+  "countryEs": "Noruega",
+  "flag": "🇳🇴",
+  "region": "europe",
+  "lang": "nb",
+  "phrases": [["Hei", "Hello"], ["Takk", "Thank you"], ["Vær så snill", "Please"], ["Ja", "Yes"]],
+  "icons": "⛰️ 🧌 🐟",
+  "scene": "coast",
+  "bestMonths": [5, 6, 7, 8],
+  "seasons": ["spring", "summer"],
+  "en": {
+    "tagline": "Troll forest • wooden wharf • fjord boats",
+    "intro": "Bergen sits between seven mountains and the sea, the gateway to Norway's fjords. Within minutes of the colourful wooden houses of Bryggen, a funicular lifts you to a forest with wooden trolls, lakes and playgrounds, and boats leave the harbour for waterfalls and narrow fjords. It rains often, so pack waterproofs, but on a clear day the views from Fløyen and Ulriken feel like the top of the world.",
+    "ages": { "best": "4-12", "text": "Fløyen's troll forest and the aquarium delight children from about 3, while longer hikes, kayaks and the Ulriken ridge suit ages 8 and up." },
+    "stroller": { "rating": "mixed", "text": "The harbour area is flat, but central streets climb steeply and Bryggen's alleys have uneven wooden boards, so a carrier is handy; Fløyen's main paths are gravel and stroller-friendly." },
+    "mustDos": [
+      { "title": "Fløibanen to Mount Fløyen", "text": "The funicular climbs to 320 metres in about six minutes, where the Trollskogen trail hides carved trolls, and there are playgrounds, a lake and canoes for hire in summer.", "ages": "3+" },
+      { "title": "Bergen Aquarium", "text": "Watch penguins and sea lions at feeding time, see starfish and crabs up close and meet creatures from the Norwegian coast at the tip of the Nordnes peninsula.", "ages": "3+" },
+      { "title": "Bryggen and the fish market", "text": "Wander the narrow alleys behind the old Hanseatic wooden houses, then look at king crabs and salmon at the harbour fish market, busiest in summer.", "ages": "4+" },
+      { "title": "Fjord cruise to Mostraumen", "text": "A three-hour boat trip from the city centre squeezes through a narrow strait between steep cliffs and noses right up to waterfalls; bring warm layers for the deck.", "ages": "4+" },
+      { "title": "Ulriken643 cable car", "text": "The cable car to Bergen's highest mountain gives views over the city, islands and sea, with easy short walks on the summit plateau for small legs.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "VilVite Science Centre", "text": "Hands-on science centre with a loop bicycle, water play and weather experiments that fill half a day." },
+      { "title": "AdO arena", "text": "Bergen's big indoor swimming arena with waterslides and a warm children's pool." },
+      { "title": "Bryggens Museum", "text": "Medieval finds from the wharf, including wooden sticks carved with runic messages and old shoes." }
+    ],
+    "safety": [
+      "Bergen gets rain on around 200 days a year, so waterproof jackets, trousers and spare socks matter more than anything else you pack.",
+      "Mountain trails above Fløyen and Ulriken can be wet and foggy, so stay on marked paths and turn back early if the cloud comes down.",
+      "Harbour edges at Bryggen and the fish market have no railings, so hold small children's hands along the quay."
+    ],
+    "costs": {
+      "currency": "NOK",
+      "daily": "About NOK 3,000-4,500 (≈ €255-385) a day for a family of four excluding lodging; Norway is pricey, so plan picnic lunches.",
+      "items": [
+        { "label": "Fløibanen funicular return (adult; children about half)", "price": "NOK 170-200 (≈ €15-17)" },
+        { "label": "Bergen Aquarium entry (child to adult)", "price": "NOK 250-360 (≈ €21-31)" },
+        { "label": "Mostraumen fjord cruise (adult; children about half)", "price": "NOK 850-1,050 (≈ €73-90)" },
+        { "label": "Fish soup or fish cake lunch (per person)", "price": "NOK 150-260 (≈ €13-22)" }
+      ],
+      "tip": "Ride Fløibanen up and walk down through the forest on the 45-minute path, and buy picnic supplies at supermarkets such as Rema 1000 or Kiwi."
+    },
+    "gettingAround": "The centre is compact, and the Bybanen light rail runs from the airport to the city in about 45 minutes; Skyss buses and the light rail share tickets bought in the Skyss app.",
+    "food": "Kids usually love fiskekaker (fish cakes), waffles with brown cheese and skillingsboller, Bergen's big cinnamon buns; try creamy Bergen fish soup at the Fish Market hall.",
+    "firstDay": {
+      "morning": "Ride Fløibanen early and follow the Trollskogen trail at the top.",
+      "afternoon": "Walk down through the forest to Bryggen and explore the wooden alleys.",
+      "evening": "Eat fish cakes by the harbour and watch the boats come in."
+    }
+  },
+  "es": {
+    "tagline": "Bosque de troles • muelle de madera • barcos por el fiordo",
+    "intro": "Bergen está entre siete montañas y el mar, la puerta de entrada a los fiordos de Noruega. A pocos minutos de las casas de madera de colores de Bryggen, un funicular os sube a un bosque con troles de madera, lagos y parques infantiles, y desde el puerto salen barcos hacia cascadas y fiordos estrechos. Llueve a menudo, así que llevad ropa impermeable, pero en un día despejado las vistas desde Fløyen y Ulriken parecen la cima del mundo.",
+    "ages": { "best": "4-12", "text": "El bosque de troles de Fløyen y el acuario encantan desde unos 3 años, mientras que las caminatas largas, los kayaks y la cresta de Ulriken van mejor desde los 8." },
+    "stroller": { "rating": "mixed", "text": "La zona del puerto es llana, pero las calles del centro suben mucho y los callejones de Bryggen tienen tablas de madera irregulares, así que conviene una mochila portabebés; los caminos principales de Fløyen son de grava y aptos para carrito." },
+    "mustDos": [
+      { "title": "Fløibanen al monte Fløyen", "text": "El funicular sube a 320 metros en unos seis minutos; arriba, el sendero Trollskogen esconde troles tallados y hay parques infantiles, un lago y canoas de alquiler en verano.", "ages": "3+" },
+      { "title": "Acuario de Bergen", "text": "Ved a los pingüinos y leones marinos a la hora de comer, ved de cerca estrellas de mar y cangrejos y descubrid animales de la costa noruega en la punta de la península de Nordnes.", "ages": "3+" },
+      { "title": "Bryggen y el mercado de pescado", "text": "Recorred los callejones estrechos tras las antiguas casas hanseáticas de madera y luego mirad los cangrejos reales y el salmón en el mercado del puerto, más animado en verano.", "ages": "4+" },
+      { "title": "Crucero por el fiordo hasta Mostraumen", "text": "Una excursión en barco de tres horas desde el centro pasa por un estrecho entre acantilados y se acerca muchísimo a las cascadas; llevad capas de abrigo para la cubierta.", "ages": "4+" },
+      { "title": "Teleférico Ulriken643", "text": "El teleférico a la montaña más alta de Bergen ofrece vistas de la ciudad, las islas y el mar, con paseos cortos y fáciles por la meseta de la cima para piernas pequeñas.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Centro de Ciencia VilVite", "text": "Centro de ciencia interactivo con una bicicleta que da la vuelta completa, juegos de agua y experimentos del tiempo para media jornada." },
+      { "title": "AdO arena", "text": "La gran piscina cubierta de Bergen, con toboganes de agua y una piscina infantil templada." },
+      { "title": "Museo de Bryggen", "text": "Hallazgos medievales del muelle, como palitos de madera con mensajes en runas y zapatos antiguos." }
+    ],
+    "safety": [
+      "En Bergen llueve unos 200 días al año, así que chaquetas y pantalones impermeables y calcetines de repuesto importan más que cualquier otra cosa en la maleta.",
+      "Los senderos de montaña sobre Fløyen y Ulriken pueden estar mojados y con niebla, así que seguid los caminos marcados y volved pronto si baja la nube.",
+      "Los bordes del puerto en Bryggen y el mercado de pescado no tienen barandilla, así que dad la mano a los pequeños por el muelle."
+    ],
+    "costs": {
+      "currency": "NOK",
+      "daily": "Unos NOK 3.000-4.500 (≈ €255-385) al día para una familia de cuatro sin alojamiento; Noruega es cara, así que planead comidas de pícnic.",
+      "items": [
+        { "label": "Funicular Fløibanen ida y vuelta (adulto; niños más o menos la mitad)", "price": "NOK 170-200 (≈ €15-17)" },
+        { "label": "Entrada al Acuario de Bergen (de niño a adulto)", "price": "NOK 250-360 (≈ €21-31)" },
+        { "label": "Crucero por el fiordo a Mostraumen (adulto; niños más o menos la mitad)", "price": "NOK 850-1,050 (≈ €73-90)" },
+        { "label": "Comida de sopa o croquetas de pescado (por persona)", "price": "NOK 150-260 (≈ €13-22)" }
+      ],
+      "tip": "Subid en Fløibanen y bajad a pie por el bosque en unos 45 minutos, y comprad el pícnic en supermercados como Rema 1000 o Kiwi."
+    },
+    "gettingAround": "El centro es compacto y el tren ligero Bybanen va del aeropuerto a la ciudad en unos 45 minutos; autobuses y tren ligero comparten billetes que se compran en la app Skyss.",
+    "food": "A los niños suelen gustarles las fiskekaker (tortitas de pescado), los gofres con queso marrón y los skillingsboller, los grandes rollos de canela de Bergen; probad la cremosa sopa de pescado de Bergen en el mercado.",
+    "firstDay": {
+      "morning": "Subid temprano en Fløibanen y seguid el sendero Trollskogen arriba.",
+      "afternoon": "Bajad andando por el bosque hasta Bryggen y explorad los callejones de madera.",
+      "evening": "Cenad tortitas de pescado junto al puerto y ved llegar los barcos."
+    }
+  },
+  "booklet": {
+    "marks": ["Bryggen", "Mount Fløyen", "Fish Market", "Ulriken"],
+    "food": ["fish cakes", "waffles with brown cheese", "cinnamon bun", "fish soup"],
+    "facts": [
+      "Bergen is surrounded by seven mountains.",
+      "The colourful wooden houses of Bryggen are on the UNESCO World Heritage list.",
+      "It rains in Bergen on about 200 days every year, so locals always carry a raincoat."
+    ],
+    "hunt": ["a troll", "a funicular", "a wooden house", "a fishing boat", "a king crab", "a penguin", "a waterfall", "a seagull", "a Norwegian flag", "an umbrella", "a goat", "some rain boots"],
+    "quiz": [
+      ["How many mountains surround Bergen?", "Seven", "Two", "Twenty", "One hundred"],
+      ["What creatures hide in the forest on Mount Fløyen?", "Trolls", "Dragons", "Dinosaurs", "Robots"],
+      ["What is the long, narrow sea inlet between mountains called?", "A fjord", "A desert", "A volcano", "A glacier"]
+    ],
+    "missions": ["Troll tracker", "Raindrop weather reporter"]
+  },
+  "missionsEs": ["Rastreador de troles", "Reportero del tiempo y la lluvia"]
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "kandy",
+  "name": "Kandy",
+  "nameEs": "Kandy",
+  "country": "Sri Lanka",
+  "countryEs": "Sri Lanka",
+  "flag": "🇱🇰",
+  "region": "asia",
+  "lang": "si",
+  "phrases": [["Āyubōwan", "Hello (may you live long)"], ["Istūti", "Thank you"], ["Karunākarala", "Please"], ["Ow", "Yes"]],
+  "icons": "🐘 🛕 🍵",
+  "scene": "temple",
+  "bestMonths": [1, 2, 3, 4, 8],
+  "seasons": ["winter", "spring"],
+  "en": {
+    "tagline": "The Temple of the Tooth • tea hills • drums and fire dancers",
+    "intro": "Kandy sits around a lake in Sri Lanka's green hill country, slightly cooler than the coast and home to the island's most sacred Buddhist temple. Families listen to the evening drumming at the Temple of the Tooth, watch Kandyan dancers walk on fire and explore one of Asia's grandest botanical gardens. It is also the starting point for the slow, scenic train into the tea plantations.",
+    "ages": { "best": "5-12", "text": "Children of 5 and up enjoy the dance show, gardens and train most, and older ones follow the story of the tooth relic. Toddlers do fine but the temple needs quiet behaviour and long queues can test patience." },
+    "stroller": { "rating": "hard", "text": "Pavements in Kandy are narrow, broken and often stepped, and the traffic is heavy. Peradeniya's main avenues are stroller-friendly, but elsewhere a good carrier is far more practical." },
+    "mustDos": [
+      { "title": "Temple of the Tooth", "text": "Sri Dalada Maligawa holds a tooth of the Buddha in a golden casket, and drummers play during the daily ceremonies while pilgrims bring lotus flowers. Foreign adults pay about LKR 2,000; everyone removes shoes and covers shoulders and knees.", "ages": "5+" },
+      { "title": "Royal Botanic Gardens, Peradeniya", "text": "Huge lawns, an avenue of royal palms, a giant Javan fig tree and trees full of hanging fruit bats make this an easy half day just outside town. Foreign adults pay roughly LKR 3,000-3,500, children about half.", "ages": "3+" },
+      { "title": "Kandyan dance show", "text": "A one-hour evening show of drummers, masked dancers and acrobatic performers ends with fire walking over hot coals. Tickets cost roughly LKR 1,500-3,000, and seats near the front give children the best view.", "ages": "4+" },
+      { "title": "Kandy Lake and the Bahirawakanda Buddha", "text": "Walk part of the flat path around the lake to spot monitor lizards and pelicans, then take a tuk-tuk up to the big white Buddha statue on the hill for the view. The lake walk is free and the statue has a small entry fee.", "ages": "4+" },
+      { "title": "Scenic hill-country train", "text": "The line from Kandy climbs through tea estates, tunnels and waterfalls; families often ride a shorter stretch to Hatton or Nanu Oya rather than the full day to Ella. Reserved observation or second-class seats are cheap but sell out, so book ahead.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Ceylon Tea Museum", "text": "An old tea factory in the Hantana hills with machinery, tea tasting and a rooftop view." },
+      { "title": "International Buddhist Museum", "text": "Next to the Temple of the Tooth, with Buddha statues and models from many countries, included in the temple ticket." },
+      { "title": "Kandy National Museum", "text": "A small museum in the former palace complex with royal objects, weapons and old jewellery." }
+    ],
+    "safety": [
+      "Kandy's roads are busy and pavements narrow, so hold hands near the clock tower and book tuk-tuks through PickMe or Uber for fair, metered fares.",
+      "Monkeys around Udawattakele, Bahirawakanda and Peradeniya grab food, and leeches appear on forest paths after rain, so keep snacks away and wear closed shoes.",
+      "Drink bottled or filtered water, choose freshly cooked food, and expect large crowds and road closures during the Esala Perahera festival in July or August."
+    ],
+    "costs": {
+      "currency": "LKR",
+      "daily": "About LKR 30,000-50,000 (about €85-145) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Temple of the Tooth, foreign adult", "price": "LKR 2,000 (about €6)" },
+        { "label": "Peradeniya Botanic Gardens, foreign adult", "price": "LKR 3,000-3,500 (about €9-10)" },
+        { "label": "Kandyan dance show, per person", "price": "LKR 1,500-3,000 (about €4.50-9)" },
+        { "label": "Rice and curry lunch", "price": "LKR 800-1,800 (about €2.50-5)" }
+      ],
+      "tip": "Ask for child prices at every site, as many charge half or nothing for younger children, and use ride-hailing tuk-tuks instead of street hails."
+    },
+    "gettingAround": "Trains from Colombo Fort take about 2.5-3 hours, and many families hire a car with driver for the hill country. In town, walk the lake and centre and use PickMe or Uber tuk-tuks for Peradeniya and the viewpoints.",
+    "food": "Children usually like egg hoppers, string hoppers with mild dhal, kottu roti and a king coconut to drink. Ask for curries 'not spicy'; buffalo curd with kithul treacle is a favourite dessert, and dinner is often served from 19:00.",
+    "firstDay": {
+      "morning": "Walk around Kandy Lake and spot water monitors and pelicans.",
+      "afternoon": "Spend a few hours in the shade of Peradeniya's giant trees.",
+      "evening": "Watch the Kandyan dance show, then hear the drums at the Temple of the Tooth."
+    }
+  },
+  "es": {
+    "tagline": "El Templo del Diente • colinas de té • tambores y bailarines de fuego",
+    "intro": "Kandy rodea un lago en las verdes colinas del centro de Sri Lanka, algo más fresca que la costa y sede del templo budista más sagrado de la isla. Las familias escuchan los tambores de la tarde en el Templo del Diente, ven a bailarines kandyanos caminar sobre brasas y exploran uno de los jardines botánicos más grandiosos de Asia. También es el punto de partida del lento y precioso tren a las plantaciones de té.",
+    "ages": { "best": "5-12", "text": "A partir de los 5 años los niños disfrutan más el espectáculo de danza, los jardines y el tren, y los mayores siguen la historia de la reliquia del diente. Los pequeños se adaptan, pero en el templo hay que estar en silencio y las colas largas ponen a prueba la paciencia." },
+    "stroller": { "rating": "hard", "text": "Las aceras de Kandy son estrechas, están rotas y tienen escalones, y el tráfico es denso. Las avenidas principales de Peradeniya son aptas para carrito, pero en el resto es mucho más práctica una buena mochila portabebés." },
+    "mustDos": [
+      { "title": "Templo del Diente", "text": "Sri Dalada Maligawa guarda un diente de Buda en un relicario dorado, y los tamborileros tocan durante las ceremonias diarias mientras los peregrinos llevan flores de loto. Los adultos extranjeros pagan unas LKR 2.000; hay que descalzarse y cubrir hombros y rodillas.", "ages": "5+" },
+      { "title": "Real Jardín Botánico de Peradeniya", "text": "Grandes praderas, una avenida de palmeras reales, una higuera de Java gigante y árboles llenos de murciélagos frugívoros colgados hacen de él una media jornada fácil a las afueras. Los adultos extranjeros pagan unas LKR 3.000-3.500 y los niños aproximadamente la mitad.", "ages": "3+" },
+      { "title": "Espectáculo de danza kandyana", "text": "Una hora por la tarde de tambores, bailarines con máscaras y acróbatas que termina con un paseo sobre brasas. Las entradas cuestan unas LKR 1.500-3.000, y desde las primeras filas los niños lo ven mejor.", "ages": "4+" },
+      { "title": "Lago de Kandy y el Buda de Bahirawakanda", "text": "Recorre parte del camino llano alrededor del lago buscando varanos y pelícanos y luego sube en tuk-tuk a la gran estatua blanca de Buda en la colina para ver las vistas. El paseo es gratis y la estatua tiene una pequeña entrada.", "ages": "4+" },
+      { "title": "Tren panorámico de las colinas", "text": "La línea desde Kandy sube entre plantaciones de té, túneles y cascadas; muchas familias hacen un tramo corto hasta Hatton o Nanu Oya en vez del día entero hasta Ella. Los asientos reservados de observación o segunda clase son baratos pero se agotan, así que reserva con antelación.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo del Té de Ceilán", "text": "Una antigua fábrica de té en las colinas de Hantana con maquinaria, cata de té y vistas desde la azotea." },
+      { "title": "Museo Budista Internacional", "text": "Junto al Templo del Diente, con estatuas y maquetas de muchos países, incluido en la entrada del templo." },
+      { "title": "Museo Nacional de Kandy", "text": "Un museo pequeño en el antiguo complejo del palacio con objetos reales, armas y joyas antiguas." }
+    ],
+    "safety": [
+      "Las calles de Kandy tienen mucho tráfico y aceras estrechas, así que da la mano a los niños cerca de la torre del reloj y pide los tuk-tuks por PickMe o Uber para pagar tarifas justas.",
+      "Los monos de Udawattakele, Bahirawakanda y Peradeniya roban comida y tras la lluvia aparecen sanguijuelas en los senderos del bosque, así que guarda la merienda y usa calzado cerrado.",
+      "Bebe agua embotellada o filtrada, elige comida recién hecha y cuenta con multitudes y cortes de calles durante el festival Esala Perahera en julio o agosto."
+    ],
+    "costs": {
+      "currency": "LKR",
+      "daily": "Unas LKR 30.000-50.000 (unos 85-145 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Templo del Diente, adulto extranjero", "price": "LKR 2,000 (about €6)" },
+        { "label": "Jardín Botánico de Peradeniya, adulto extranjero", "price": "LKR 3,000-3,500 (about €9-10)" },
+        { "label": "Espectáculo de danza kandyana, por persona", "price": "LKR 1,500-3,000 (about €4.50-9)" },
+        { "label": "Comida de arroz con curry", "price": "LKR 800-1,800 (about €2.50-5)" }
+      ],
+      "tip": "Pregunta siempre por el precio infantil, porque muchos sitios cobran la mitad o nada a los más pequeños, y usa tuk-tuks por aplicación en lugar de pararlos en la calle."
+    },
+    "gettingAround": "El tren desde Colombo Fort tarda unas 2,5-3 horas y muchas familias contratan coche con conductor para las colinas. En la ciudad, camina por el lago y el centro y usa tuk-tuks de PickMe o Uber para Peradeniya y los miradores.",
+    "food": "A los niños suelen gustarles los egg hoppers, los string hoppers con dhal suave, el kottu roti y un coco rey para beber. Pide los curris 'sin picante'; la cuajada de búfala con melaza de kithul es el postre favorito y la cena se sirve a menudo desde las 19:00.",
+    "firstDay": {
+      "morning": "Pasea alrededor del lago de Kandy buscando varanos y pelícanos.",
+      "afternoon": "Pasa unas horas a la sombra de los árboles gigantes de Peradeniya.",
+      "evening": "Mira el espectáculo de danza kandyana y luego escucha los tambores en el Templo del Diente."
+    }
+  },
+  "booklet": {
+    "marks": ["Temple of the Tooth", "Kandy Lake", "Peradeniya Gardens", "Bahirawakanda Buddha"],
+    "food": ["egg hoppers", "king coconut", "curd and treacle", "kottu roti"],
+    "facts": [
+      "Kandy was the last capital of Sri Lanka's kings.",
+      "Every summer elephants parade through Kandy in a festival called the Perahera.",
+      "Sri Lanka is one of the biggest tea growers in the world."
+    ],
+    "hunt": ["a white Buddha statue", "a lotus flower", "a temple drum", "a tuk-tuk", "a water monitor lizard", "a fruit bat", "a pelican", "a tea bush", "a blue train", "an orange king coconut", "a fire dancer", "a monkey"],
+    "quiz": [
+      ["What special treasure is kept in Kandy's famous temple?", "A tooth of the Buddha", "A golden egg", "A crown of ice", "A dragon's feather"],
+      ["What drink is grown on the hills around Kandy?", "Tea", "Cola", "Orange juice", "Hot chocolate"],
+      ["What do dancers walk over at the end of a Kandyan dance show?", "Hot coals", "Ice cubes", "Water", "Pillows"]
+    ],
+    "missions": ["Tea leaf detective", "Temple drum listener"]
+  },
+  "missionsEs": ["Detective de hojas de té", "Oyente de tambores del templo"]
+}

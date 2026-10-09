@@ -1,0 +1,114 @@
+{
+  "slug": "cusco",
+  "name": "Cusco",
+  "nameEs": "Cusco",
+  "country": "Peru",
+  "countryEs": "Perú",
+  "flag": "🇵🇪",
+  "region": "americas",
+  "lang": "es",
+  "phrases": [["Hola","Hello"],["Gracias","Thank you"],["Por favor","Please"],["Sí","Yes"]],
+  "icons": "🦙 🏔️ 🌽",
+  "scene": "mountains",
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "seasons": ["spring", "summer", "autumn"],
+  "en": {
+    "tagline": "Inca stones • llamas • Machu Picchu",
+    "intro": "Cusco was the capital of the Inca world, and children can still touch walls built without mortar, slide down rocks at Sacsayhuamán and feed alpacas by the road. It is also the gateway to Machu Picchu. The city sits at about 3,400 m, so this trip rewards slow pacing: many families sleep lower in the Sacred Valley first and save Cusco's steep streets for later.",
+    "ages": { "best": "6-12", "text": "Ages 6-12 handle the walking, stairs and altitude best; for babies and toddlers, talk to a paediatrician first, and note that Huayna Picchu and Machu Picchu Mountain climbs are for ages 12+." },
+    "stroller": { "rating": "hard", "text": "Cusco is steep, cobbled and full of steps, and the thin air makes pushing hard work. Strollers are not allowed inside Machu Picchu, so bring a soft carrier for under-4s." },
+    "mustDos": [
+      { "title": "Machu Picchu", "text": "Take the train from Ollantaytambo to Aguas Calientes and the bus up; tickets are timed with fixed circuits, sell out weeks ahead in June-August, and every child needs one with passport details.", "ages": "5+" },
+      { "title": "Sacsayhuamán", "text": "Kids stare at zigzag walls of giant stones, then whizz down the smooth natural rock slides of the Rodadero just across the field.", "ages": "4+" },
+      { "title": "Awana Kancha", "text": "On the road to Pisac, children feed llamas, alpacas and vicuñas and watch women spin and weave wool; entry is by donation or a small fee.", "ages": "3+" },
+      { "title": "Moray and the Maras salt pans", "text": "See the giant circular Inca terraces at Moray, then walk beside thousands of white salt pools at Maras and buy a small bag of pink salt.", "ages": "5+" },
+      { "title": "Ollantaytambo", "text": "Climb the steep terraces of the Inca fortress and follow the stone water channels that still run beside the village lanes at a lower 2,800 m.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "ChocoMuseo Cusco", "text": "A bean-to-bar chocolate workshop where kids make and decorate their own treats." },
+      { "title": "Planetarium Cusco", "text": "An evening show about how the Inca read the stars, with telescopes on clear nights." },
+      { "title": "Qorikancha", "text": "The Inca Sun Temple inside a Spanish convent, with perfectly fitted stone rooms to explore." }
+    ],
+    "safety": [
+      "Altitude sickness can hit children too, so rest the first day, drink plenty, eat light and see a doctor if a child has a strong headache, vomits or becomes unusually sleepy.",
+      "The high-altitude sun burns quickly while nights in June and July can drop near 0°C, so pack hats, sunscreen and warm layers together.",
+      "Tap water is not safe to drink, so use bottled or filtered water, including for brushing teeth with small children."
+    ],
+    "costs": {
+      "currency": "PEN",
+      "daily": "About PEN 700-1,100 (about €175-275) a day for a family of four, excluding lodging and the Machu Picchu day.",
+      "items": [
+        { "label": "Machu Picchu entry (foreign adult / child 3-17)", "price": "PEN 152-165 / 70-80 (about €38-41 / €18-20)" },
+        { "label": "Train Ollantaytambo to Aguas Calientes (per person, each way)", "price": "USD 60-110 (about €52-95)" },
+        { "label": "Bus Aguas Calientes to Machu Picchu (adult return)", "price": "USD 24 (about €21)" },
+        { "label": "Boleto Turístico del Cusco (adult, 10 days)", "price": "PEN 130 (about €32)" }
+      ],
+      "tip": "The Boleto Turístico covers Sacsayhuamán, Moray, Pisac, Ollantaytambo and more, so plan those sites inside its 10 days."
+    },
+    "gettingAround": "Walk the centre slowly and use cheap licensed taxis for uphill trips. For the Sacred Valley hire a driver for the day, and reach Machu Picchu by PeruRail or Inca Rail trains plus the Consettur bus.",
+    "food": "Try giant-kernel corn with cheese, lomo saltado, quinoa soup and purple-corn chicha morada, which has no alcohol. Eat light the first two days at altitude, with lunch as the main meal around 1 pm.",
+    "firstDay": {
+      "morning": "Arrive and go straight down to the Sacred Valley to sleep lower.",
+      "afternoon": "Take a gentle walk and visit the alpacas at Awana Kancha.",
+      "evening": "Have soup and an early night so bodies adjust to the altitude."
+    }
+  },
+  "es": {
+    "tagline": "Piedras incas • llamas • Machu Picchu",
+    "intro": "Cusco fue la capital del mundo inca, y los niños aún pueden tocar muros levantados sin argamasa, deslizarse por las rocas de Sacsayhuamán y dar de comer a las alpacas junto a la carretera. También es la puerta de Machu Picchu. La ciudad está a unos 3.400 m, así que conviene ir despacio: muchas familias duermen primero en el Valle Sagrado, más abajo, y dejan las cuestas de Cusco para después.",
+    "ages": { "best": "6-12", "text": "De 6 a 12 años se llevan mejor las caminatas, las escaleras y la altura; con bebés y niños pequeños consulta antes al pediatra, y ten en cuenta que Huayna Picchu y la Montaña Machu Picchu son para mayores de 12." },
+    "stroller": { "rating": "hard", "text": "Cusco tiene cuestas, adoquines y escalones por todas partes, y con el aire fino empujar un cochecito cansa mucho. En Machu Picchu no se permiten cochecitos, así que lleva una mochila portabebés blanda para menores de 4." },
+    "mustDos": [
+      { "title": "Machu Picchu", "text": "Toma el tren de Ollantaytambo a Aguas Calientes y el bus hasta arriba; las entradas tienen hora y circuito fijos, se agotan semanas antes de junio a agosto y cada niño necesita la suya con su pasaporte.", "ages": "5+" },
+      { "title": "Sacsayhuamán", "text": "Los niños se quedan boquiabiertos ante los muros en zigzag de piedras gigantes y luego se deslizan por los toboganes naturales de roca del Rodadero, al otro lado de la explanada.", "ages": "4+" },
+      { "title": "Awana Kancha", "text": "En la carretera a Pisac, los niños dan de comer a llamas, alpacas y vicuñas y ven a las mujeres hilar y tejer la lana; se entra con donativo o una pequeña tarifa.", "ages": "3+" },
+      { "title": "Moray y las salineras de Maras", "text": "Mira las enormes terrazas circulares incas de Moray y luego camina junto a miles de pozas de sal blanca en Maras, donde se compra una bolsita de sal rosada.", "ages": "5+" },
+      { "title": "Ollantaytambo", "text": "Sube las empinadas terrazas de la fortaleza inca y sigue los canales de piedra que todavía corren junto a las calles del pueblo, a unos 2.800 m, más abajo que Cusco.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "ChocoMuseo Cusco", "text": "Un taller de chocolate del grano a la tableta donde los niños preparan y decoran sus dulces." },
+      { "title": "Planetarium Cusco", "text": "Una sesión nocturna sobre cómo leían los incas las estrellas, con telescopios si el cielo está despejado." },
+      { "title": "Qorikancha", "text": "El Templo del Sol inca dentro de un convento español, con salas de piedra perfectamente encajada." }
+    ],
+    "safety": [
+      "El mal de altura también afecta a los niños, así que descansa el primer día, bebe mucho, come ligero y busca un médico si un niño tiene dolor de cabeza fuerte, vomita o está muy adormilado.",
+      "El sol de altura quema rápido y en junio y julio las noches pueden acercarse a 0 °C, así que lleva gorro, protector solar y ropa de abrigo a la vez.",
+      "El agua del grifo no es potable, así que usa agua embotellada o filtrada, también para lavar los dientes de los pequeños."
+    ],
+    "costs": {
+      "currency": "PEN",
+      "daily": "Unos PEN 700-1.100 (unos €175-275) al día para una familia de cuatro, sin alojamiento ni el día de Machu Picchu.",
+      "items": [
+        { "label": "Entrada a Machu Picchu (adulto extranjero / niño de 3 a 17)", "price": "PEN 152-165 / 70-80 (about €38-41 / €18-20)" },
+        { "label": "Tren Ollantaytambo - Aguas Calientes (por persona, por trayecto)", "price": "USD 60-110 (about €52-95)" },
+        { "label": "Bus Aguas Calientes - Machu Picchu (adulto, ida y vuelta)", "price": "USD 24 (about €21)" },
+        { "label": "Boleto Turístico del Cusco (adulto, 10 días)", "price": "PEN 130 (about €32)" }
+      ],
+      "tip": "El Boleto Turístico incluye Sacsayhuamán, Moray, Pisac, Ollantaytambo y más, así que organiza esas visitas dentro de sus 10 días."
+    },
+    "gettingAround": "Recorre el centro a pie y sin prisa, y usa taxis autorizados, que son baratos, para las subidas. Para el Valle Sagrado contrata un conductor por el día, y llega a Machu Picchu en los trenes de PeruRail o Inca Rail más el bus de Consettur.",
+    "food": "Prueba el choclo con queso de granos gigantes, el lomo saltado, la sopa de quinua y la chicha morada de maíz morado, que no lleva alcohol. Come ligero los dos primeros días en altura; el almuerzo, hacia las 13 horas, es la comida principal.",
+    "firstDay": {
+      "morning": "Al llegar, baja directamente al Valle Sagrado para dormir más abajo.",
+      "afternoon": "Da un paseo tranquilo y visita las alpacas de Awana Kancha.",
+      "evening": "Cena una sopa y acuéstate temprano para que el cuerpo se adapte a la altura."
+    }
+  },
+  "booklet": {
+    "marks": ["Machu Picchu", "Sacsayhuamán", "Plaza de Armas", "Maras salt pans"],
+    "food": ["corn with cheese", "chicha morada", "lomo saltado", "alfajores"],
+    "facts": [
+      "Cusco was the capital of the Inca Empire, and many people there still speak Quechua.",
+      "Inca builders fitted giant stones so tightly that a sheet of paper cannot slip between them.",
+      "Llamas and alpacas are cousins of the camel, but they have no hump."
+    ],
+    "hunt": ["a llama", "an alpaca", "a rainbow flag", "a stone with 12 corners", "a woven blanket", "a giant corn cob", "a stone terrace", "a snowy mountain", "a tall hat", "a train to Machu Picchu", "a church bell tower", "some colourful potatoes"],
+    "quiz": [
+      ["Which famous Inca city sits high in the mountains near Cusco?", "Machu Picchu", "Atlantis", "Petra", "Angkor Wat"],
+      ["Which soft-wool animal lives in the Andes?", "The alpaca", "The camel", "The kangaroo", "The polar bear"],
+      ["Who built Cusco's great stone walls long ago?", "The Inca", "The Vikings", "The Romans", "The Egyptians"]
+    ],
+    "missions": ["Twelve-angled stone hunter", "Llama and alpaca spotter"]
+  },
+  "missionsEs": ["Cazador de piedras incas", "Vigía de llamas y alpacas"]
+}

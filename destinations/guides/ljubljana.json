@@ -1,0 +1,114 @@
+{
+  "slug": "ljubljana",
+  "name": "Ljubljana",
+  "nameEs": "Liubliana",
+  "country": "Slovenia",
+  "countryEs": "Eslovenia",
+  "flag": "🇸🇮",
+  "region": "europe",
+  "lang": "sl",
+  "phrases": [["Dober dan", "Hello"], ["Hvala", "Thank you"], ["Prosim", "Please"], ["Ja", "Yes"]],
+  "icons": "🐉 🏰 🛶",
+  "scene": "city",
+  "bestMonths": [5, 6, 7, 8, 9],
+  "seasons": ["spring", "summer", "autumn"],
+  "en": {
+    "tagline": "Dragon bridges • castle funicular • Lake Bled",
+    "intro": "Ljubljana is a small, car-free capital where dragons guard the bridges and a funicular climbs to a hilltop castle. Children can walk almost everywhere, eat ice cream by the green Ljubljanica river and count dragons on lamp posts and drain covers. It also makes a calm base for day trips: Lake Bled with its island church is about an hour away, and Postojna Cave has its own underground train.",
+    "ages": { "best": "4-12", "text": "The city suits children from toddlers up, and from about 5 they can manage the Bled lake loop and the 1.5-hour Postojna Cave tour comfortably." },
+    "stroller": { "rating": "easy", "text": "The old centre is pedestrianised and mostly flat with smooth paving, the castle funicular takes strollers, and the 6 km path around Lake Bled is level." },
+    "mustDos": [
+      { "title": "Ljubljana Castle by funicular", "text": "Ride the glass funicular up in about a minute, climb the lookout tower for views towards the Alps and visit the puppet museum inside the castle walls.", "ages": "3+" },
+      { "title": "Dragon hunt and river boat", "text": "Count the four bronze dragons on Dragon Bridge, cross the Triple Bridge to Prešeren Square, then take a 45-60 minute boat ride along the Ljubljanica.", "ages": "3+" },
+      { "title": "Tivoli Park and Ljubljana Zoo", "text": "The city's big park has playgrounds, a pond and shady paths that lead uphill to the zoo on Rožnik hill, with giraffes, sea lions and a petting area.", "ages": "3+" },
+      { "title": "Lake Bled day trip", "text": "A bus from Ljubljana bus station takes about 1 hour 15 minutes; row or take a wooden pletna boat to the island, climb the 99 steps and ring the wishing bell, then share a Bled cream cake.", "ages": "4+" },
+      { "title": "Postojna Cave", "text": "An electric train carries you deep into the cave before a guided walk past giant stalactites and the olm, a pale cave salamander kids call the baby dragon.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "House of Experiments", "text": "Small hands-on science centre in the old town with puzzles, light tricks and weekend shows." },
+      { "title": "Slovenian Museum of Natural History", "text": "Mammoth skeleton, stuffed Alpine animals and minerals next to the National Museum." },
+      { "title": "Atlantis Water Park", "text": "Indoor water park at BTC City with slides and warm children's pools, reached by city bus." }
+    ],
+    "safety": [
+      "Postojna Cave stays around 10 °C all year, so bring jackets and closed shoes even on a hot summer day.",
+      "Cyclists share the pedestrian centre and the riverside paths, so keep small children to one side and watch for bikes behind you.",
+      "Tap water is excellent and free public drinking fountains are common, but the Ljubljanica river itself is not for swimming."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "About €150-230 a day for a family of four excluding lodging; a Postojna day adds roughly €100-150.",
+      "items": [
+        { "label": "Castle ticket with funicular (adult; children about half)", "price": "€14-20" },
+        { "label": "Bus Ljubljana to Bled (one way, adult)", "price": "€6-8" },
+        { "label": "Pletna boat to Bled Island (adult return)", "price": "€15-20" },
+        { "label": "Postojna Cave entry (child to adult)", "price": "€20-40" }
+      ],
+      "tip": "Walking up Castle Hill is free and takes about 15 minutes, and a picnic from the Central Market by the river saves a lot on lunch."
+    },
+    "gettingAround": "Walk the centre or call a free Kavalir electric cart inside the pedestrian zone; city buses need a prepaid Urbana card, and Bled buses leave from the bus station next to the train station.",
+    "food": "Try štruklji (rolled dumplings), Carniolan sausage, potica nut cake and burek; on spring to autumn Fridays the Open Kitchen street-food market at Pogačar Square is fun for families.",
+    "firstDay": {
+      "morning": "Find the dragons on Dragon Bridge and browse the Central Market for fruit.",
+      "afternoon": "Ride the funicular to the castle and climb the lookout tower.",
+      "evening": "Take a sunset boat ride on the Ljubljanica and eat ice cream on the riverbank."
+    }
+  },
+  "es": {
+    "tagline": "Puentes de dragones • funicular al castillo • lago Bled",
+    "intro": "Liubliana es una capital pequeña y sin coches donde los dragones vigilan los puentes y un funicular sube a un castillo en lo alto de la colina. Los niños pueden ir andando casi a todas partes, comer helado junto al verde río Ljubljanica y contar dragones en farolas y tapas de alcantarilla. También es una base tranquila para excursiones: el lago Bled con su iglesia en la isla está a una hora, y la cueva de Postojna tiene su propio tren subterráneo.",
+    "ages": { "best": "4-12", "text": "La ciudad va bien desde muy pequeños, y desde unos 5 años pueden hacer cómodamente la vuelta al lago Bled y la visita de hora y media a la cueva de Postojna." },
+    "stroller": { "rating": "easy", "text": "El centro histórico es peatonal, casi llano y bien pavimentado, el funicular del castillo admite carritos y el sendero de 6 km alrededor del lago Bled es llano." },
+    "mustDos": [
+      { "title": "Castillo de Liubliana en funicular", "text": "Subid en el funicular de cristal en un minuto, trepad a la torre mirador para ver los Alpes y visitad el museo de marionetas dentro de las murallas.", "ages": "3+" },
+      { "title": "Caza de dragones y barco por el río", "text": "Contad los cuatro dragones de bronce del Puente de los Dragones, cruzad el Triple Puente hasta la plaza Prešeren y haced un paseo en barco de 45-60 minutos por el Ljubljanica.", "ages": "3+" },
+      { "title": "Parque Tivoli y Zoo de Liubliana", "text": "El gran parque de la ciudad tiene parques infantiles, un estanque y caminos con sombra que suben hasta el zoo en la colina de Rožnik, con jirafas, leones marinos y zona para tocar animales.", "ages": "3+" },
+      { "title": "Excursión al lago Bled", "text": "El autobús desde la estación de Liubliana tarda 1 hora y 15 minutos; id remando o en una barca de madera pletna a la isla, subid los 99 escalones, tocad la campana de los deseos y compartid una tarta de crema de Bled.", "ages": "4+" },
+      { "title": "Cueva de Postojna", "text": "Un tren eléctrico os adentra en la cueva antes de una visita guiada entre estalactitas gigantes y el proteo, una salamandra pálida que los niños llaman el bebé dragón.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Casa de los Experimentos", "text": "Pequeño centro de ciencia interactivo en el casco antiguo con rompecabezas, trucos de luz y espectáculos el fin de semana." },
+      { "title": "Museo Esloveno de Historia Natural", "text": "Esqueleto de mamut, animales alpinos disecados y minerales junto al Museo Nacional." },
+      { "title": "Parque acuático Atlantis", "text": "Parque acuático cubierto en BTC City con toboganes y piscinas templadas para niños, al que se llega en autobús urbano." }
+    ],
+    "safety": [
+      "La cueva de Postojna se mantiene a unos 10 °C todo el año, así que llevad chaquetas y calzado cerrado incluso en pleno verano.",
+      "Las bicis comparten el centro peatonal y los paseos del río, así que llevad a los pequeños a un lado y atentos a las bicis por detrás.",
+      "El agua del grifo es excelente y hay muchas fuentes públicas, pero el río Ljubljanica no es para bañarse."
+    ],
+    "costs": {
+      "currency": "EUR",
+      "daily": "Unos €150-230 al día para una familia de cuatro sin alojamiento; un día en Postojna suma unos €100-150.",
+      "items": [
+        { "label": "Entrada al castillo con funicular (adulto; niños más o menos la mitad)", "price": "€14-20" },
+        { "label": "Autobús Liubliana-Bled (ida, adulto)", "price": "€6-8" },
+        { "label": "Barca pletna a la isla de Bled (adulto, ida y vuelta)", "price": "€15-20" },
+        { "label": "Entrada a la cueva de Postojna (de niño a adulto)", "price": "€20-40" }
+      ],
+      "tip": "Subir andando a la colina del castillo es gratis y lleva unos 15 minutos, y un pícnic del Mercado Central junto al río ahorra mucho en la comida."
+    },
+    "gettingAround": "Recorred el centro a pie o pedid un Kavalir, el cochecito eléctrico gratuito de la zona peatonal; los autobuses urbanos necesitan la tarjeta prepago Urbana, y los autobuses a Bled salen de la estación junto a la de tren.",
+    "food": "Probad los štruklji (rollitos de masa rellenos), la salchicha de Carniola, el bizcocho de nueces potica y el burek; los viernes de primavera a otoño el mercado callejero Odprta kuhna en la plaza Pogačar es divertido en familia.",
+    "firstDay": {
+      "morning": "Buscad los dragones del Puente de los Dragones y comprad fruta en el Mercado Central.",
+      "afternoon": "Subid en funicular al castillo y trepad a la torre mirador.",
+      "evening": "Haced un paseo en barco al atardecer por el Ljubljanica y tomad un helado en la orilla."
+    }
+  },
+  "booklet": {
+    "marks": ["Dragon Bridge", "Ljubljana Castle", "Triple Bridge", "Bled Island"],
+    "food": ["Bled cream cake", "potica nut cake", "Carniolan sausage", "struklji dumplings"],
+    "facts": [
+      "A dragon is the symbol of Ljubljana and appears on the city's flag.",
+      "Bled Island is the only natural island in Slovenia.",
+      "More than half of Slovenia is covered by forest."
+    ],
+    "hunt": ["a green dragon", "a bronze dragon statue", "a castle tower", "a funicular", "a wooden pletna boat", "a swan", "a church bell", "a bridge with three paths", "a stalactite", "a lock on a bridge", "an ice cream cone", "some cream cake"],
+    "quiz": [
+      ["What animal is the symbol of Ljubljana?", "A dragon", "A lion", "A bear", "An eagle"],
+      ["What do you ring on Bled Island to make a wish?", "A bell", "A gong", "A doorbell", "A drum"],
+      ["What is the pale creature in Postojna Cave called?", "The olm", "The cave cat", "The rock frog", "The dark fish"]
+    ],
+    "missions": ["Dragon counter", "Castle tower climber"]
+  },
+  "missionsEs": ["Contador de dragones", "Escalador de la torre del castillo"]
+}

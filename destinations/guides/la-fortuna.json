@@ -1,0 +1,114 @@
+{
+  "slug": "la-fortuna",
+  "name": "La Fortuna",
+  "nameEs": "La Fortuna",
+  "country": "Costa Rica",
+  "countryEs": "Costa Rica",
+  "flag": "🇨🇷",
+  "region": "americas",
+  "lang": "es",
+  "phrases": [["Hola","Hello"],["Gracias","Thank you"],["Por favor","Please"],["Pura vida","All good (Costa Rican greeting)"]],
+  "icons": "🌋 🐸 🦥",
+  "scene": "jungle",
+  "bestMonths": [1, 2, 3, 4, 7],
+  "seasons": ["winter", "spring"],
+  "en": {
+    "tagline": "Volcano views • hanging bridges • hot springs",
+    "intro": "La Fortuna is a small town at the foot of Arenal, a near-perfect volcano cone that often wears a cap of cloud. Families walk over old lava flows, cross hanging bridges through the treetops, swim below a tall waterfall and end the day in warm volcanic hot springs. At night, guides with torches find red-eyed tree frogs, and sloths are a common sight by day.",
+    "ages": { "best": "5-12", "text": "Ages 5-12 handle the trails and the waterfall steps best; zipline and canyoning operators set their own minimum ages and weights, often from about 5-8 years." },
+    "stroller": { "rating": "hard", "text": "Trails are muddy, rooty and full of steps, and the waterfall path has hundreds of stairs. A sturdy carrier is essential, and a stroller only helps in the town centre." },
+    "mustDos": [
+      { "title": "La Fortuna Waterfall", "text": "Walk down roughly 500 steps to a 70-metre waterfall and swim in the calmer side pools; adults pay about USD 18-20 and young children enter free or cheaper.", "ages": "6+" },
+      { "title": "Arenal Volcano National Park", "text": "Easy trails cross the 1968 lava flow, where kids clamber on black rocks and look up at the cone; go early, before clouds hide the summit.", "ages": "4+" },
+      { "title": "Mistico Hanging Bridges", "text": "A 3 km loop of suspension bridges over the rainforest canopy, best with a guide whose telescope spots sloths, toucans and sleeping bats.", "ages": "4+" },
+      { "title": "Hot springs afternoon", "text": "Resorts such as Baldi, Paradise and Tabacón have warm river or pool soaks, some with kids' pools and slides; day passes vary widely in price.", "ages": "3+" },
+      { "title": "Night frog walk", "text": "Guided night walks at reserves like Arenal Natura reveal red-eyed tree frogs, glass frogs and sleeping birds by torchlight in about two hours.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Rainforest chocolate tour", "text": "A covered farm tour from cacao pod to tasting bar, hands-on for kids." },
+      { "title": "Hot springs in the rain", "text": "Warm pools feel even better in a light shower, as long as there is no thunder." },
+      { "title": "Arenal EcoZoo", "text": "A serpentarium near El Castillo where snakes, frogs and reptiles are seen safely behind glass." }
+    ],
+    "safety": [
+      "Rivers and waterfall pools rise quickly after heavy rain, so swim only where guides or signs say it is safe and stay out after storms.",
+      "Snakes, bullet ants and spiny plants live along the trails, so keep kids on the path, wear closed shoes and never pick up animals.",
+      "Roads are narrow and wet, and it gets dark around 6 pm all year, so drive in daylight; tap water in town is generally safe."
+    ],
+    "costs": {
+      "currency": "CRC",
+      "daily": "About CRC 125,000-200,000 (about €215-345) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "La Fortuna Waterfall (adult)", "price": "USD 18-20 / CRC 9,000-10,000 (about €15-17)" },
+        { "label": "Mistico Hanging Bridges (adult)", "price": "USD 30-40 / CRC 15,000-20,000 (about €26-34)" },
+        { "label": "Hot springs day pass (adult)", "price": "USD 40-100 / CRC 20,000-50,000 (about €34-85)" },
+        { "label": "Casado lunch at a local soda", "price": "CRC 3,500-6,000 (about €6-10)" }
+      ],
+      "tip": "Most tours are priced in US dollars, but paying in colones at local sodas and shops is fine, and those meals are the best value."
+    },
+    "gettingAround": "A rental car gives the most freedom, and the main roads are paved. Shared shuttles connect San José in about 3-3.5 hours, and most tours include pick-up from La Fortuna hotels.",
+    "food": "Breakfast is gallo pinto with eggs and plantain, lunch a casado plate at a small soda, and fresh fruit batidos are everywhere. Dinners are early, around 6-7 pm, because darkness falls soon after six.",
+    "firstDay": {
+      "morning": "Walk the lava trails in Arenal Volcano National Park while the cone is clear.",
+      "afternoon": "Swim below La Fortuna Waterfall, then relax in town.",
+      "evening": "Join a night frog walk, then soak in a hot spring."
+    }
+  },
+  "es": {
+    "tagline": "Vistas al volcán • puentes colgantes • aguas termales",
+    "intro": "La Fortuna es un pueblo pequeño al pie del Arenal, un cono volcánico casi perfecto que a menudo lleva un sombrero de nubes. Las familias caminan sobre antiguas coladas de lava, cruzan puentes colgantes entre las copas de los árboles, se bañan bajo una alta catarata y terminan el día en aguas termales. De noche, los guías encuentran ranas de ojos rojos con linternas, y de día es fácil ver perezosos.",
+    "ages": { "best": "5-12", "text": "De 5 a 12 años se llevan mejor los senderos y los escalones de la catarata; los operadores de canopy y barranquismo fijan su propia edad y peso mínimos, a menudo desde los 5 u 8 años." },
+    "stroller": { "rating": "hard", "text": "Los senderos tienen barro, raíces y muchos escalones, y el camino a la catarata tiene cientos de peldaños. Una mochila portabebés resistente es imprescindible, y el cochecito solo sirve en el centro del pueblo." },
+    "mustDos": [
+      { "title": "Catarata La Fortuna", "text": "Baja unos 500 escalones hasta una catarata de 70 metros y báñate en las pozas laterales más tranquilas; los adultos pagan unos USD 18-20 y los niños pequeños entran gratis o con descuento.", "ages": "6+" },
+      { "title": "Parque Nacional Volcán Arenal", "text": "Senderos fáciles cruzan la colada de lava de 1968, donde los niños trepan por rocas negras y miran el cono; ve temprano, antes de que las nubes tapen la cima.", "ages": "4+" },
+      { "title": "Puentes Colgantes Místico", "text": "Un circuito de 3 km de puentes sobre el dosel de la selva, mejor con un guía cuyo telescopio encuentra perezosos, tucanes y murciélagos dormidos.", "ages": "4+" },
+      { "title": "Tarde de aguas termales", "text": "Centros como Baldi, Paradise y Tabacón tienen ríos o piscinas de agua caliente, algunos con piscinas infantiles y toboganes; el precio del pase de día varía mucho.", "ages": "3+" },
+      { "title": "Caminata nocturna de ranas", "text": "Las caminatas guiadas de noche en reservas como Arenal Natura descubren ranas de ojos rojos, ranas de cristal y aves dormidas a la luz de la linterna en unas dos horas.", "ages": "5+" }
+    ],
+    "rainyDay": [
+      { "title": "Tour del chocolate", "text": "Un recorrido techado por una finca, de la mazorca de cacao a la tableta, muy práctico para niños." },
+      { "title": "Termales bajo la lluvia", "text": "Las pozas calientes se disfrutan aún más con una lluvia suave, siempre que no haya truenos." },
+      { "title": "Arenal EcoZoo", "text": "Un serpentario cerca de El Castillo donde se ven serpientes, ranas y reptiles con seguridad tras el cristal." }
+    ],
+    "safety": [
+      "Los ríos y las pozas de las cataratas crecen rápido tras lluvias fuertes, así que báñate solo donde guías o carteles lo indiquen y no entres después de una tormenta.",
+      "En los senderos viven serpientes, hormigas bala y plantas con espinas, así que mantén a los niños en el camino, usa calzado cerrado y nunca toques animales.",
+      "Las carreteras son estrechas y húmedas, y anochece hacia las 18 horas todo el año, así que conduce de día; el agua del grifo en el pueblo suele ser potable."
+    ],
+    "costs": {
+      "currency": "CRC",
+      "daily": "Unos CRC 125.000-200.000 (unos €215-345) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Catarata La Fortuna (adulto)", "price": "USD 18-20 / CRC 9,000-10,000 (about €15-17)" },
+        { "label": "Puentes Colgantes Místico (adulto)", "price": "USD 30-40 / CRC 15,000-20,000 (about €26-34)" },
+        { "label": "Pase de día en aguas termales (adulto)", "price": "USD 40-100 / CRC 20,000-50,000 (about €34-85)" },
+        { "label": "Casado en una soda local", "price": "CRC 3,500-6,000 (about €6-10)" }
+      ],
+      "tip": "Casi todos los tours se cobran en dólares, pero en sodas y tiendas se paga sin problema en colones, y esas comidas son las que mejor precio tienen."
+    },
+    "gettingAround": "Un coche de alquiler da más libertad, y las carreteras principales están asfaltadas. Hay shuttles compartidos desde San José en unas 3-3,5 horas, y la mayoría de los tours recogen en los hoteles de La Fortuna.",
+    "food": "El desayuno es gallo pinto con huevos y plátano maduro, el almuerzo un casado en una soda pequeña, y hay batidos de fruta fresca en todas partes. Se cena temprano, hacia las 18-19 horas, porque oscurece poco después de las seis.",
+    "firstDay": {
+      "morning": "Recorre los senderos de lava del Parque Nacional Volcán Arenal con el cono despejado.",
+      "afternoon": "Báñate bajo la Catarata La Fortuna y luego descansa en el pueblo.",
+      "evening": "Haz una caminata nocturna de ranas y termina en unas aguas termales."
+    }
+  },
+  "booklet": {
+    "marks": ["Arenal Volcano", "La Fortuna Waterfall", "Lake Arenal", "Mistico Hanging Bridges"],
+    "food": ["gallo pinto", "casado", "fresh pineapple", "fruit batido"],
+    "facts": [
+      "Arenal Volcano erupted almost every day from 1968 to 2010, and now it is resting.",
+      "The red-eyed tree frog sleeps all day and opens its bright red eyes at night.",
+      "Tiny Costa Rica is home to about 5 out of every 100 kinds of animals and plants on Earth."
+    ],
+    "hunt": ["a red-eyed tree frog", "a sloth", "a toucan", "a coati", "a hanging bridge", "a line of leaf-cutter ants", "a blue morpho butterfly", "a cloud on the volcano", "a banana plant", "a waterfall", "some steam from a hot spring", "a Costa Rica flag"],
+    "quiz": [
+      ["What is the big cone-shaped mountain next to La Fortuna?", "Arenal Volcano", "Mount Everest", "Mount Fuji", "Table Mountain"],
+      ["What colour are the eyes of Costa Rica's famous tree frog?", "Red", "Blue", "Green", "Yellow"],
+      ["What do Costa Ricans say to mean 'all good'?", "Pura vida", "Hakuna matata", "Bon voyage", "Aloha"]
+    ],
+    "missions": ["Rainforest frog finder", "Hanging bridge explorer"]
+  },
+  "missionsEs": ["Buscador de ranas", "Explorador de puentes colgantes"]
+}

@@ -1,0 +1,282 @@
+{
+  "slug": "krabi",
+  "name": "Krabi",
+  "nameEs": "Krabi",
+  "country": "Thailand",
+  "countryEs": "Tailandia",
+  "flag": "🇹🇭",
+  "region": "asia",
+  "lang": "th",
+  "phrases": [
+    [
+      "Sawasdee",
+      "Hello"
+    ],
+    [
+      "Khop khun",
+      "Thank you"
+    ],
+    [
+      "Karuna",
+      "Please"
+    ],
+    [
+      "Chai",
+      "Yes"
+    ]
+  ],
+  "icons": "🏝️ 🛶 🐒",
+  "scene": "coast",
+  "bestMonths": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+  ],
+  "seasons": [
+    "winter",
+    "spring"
+  ],
+  "en": {
+    "tagline": "Limestone cliffs • longtail boats • island-hopping days",
+    "intro": "Krabi is Thailand's Andaman coast at its most dramatic: tall limestone cliffs rising out of warm, calm water, longtail boats lined up on the sand and islands a short ride offshore. Families base in Ao Nang for easy beach days, take a boat to car-free Railay and spend an afternoon floating in a jungle pool. From November to April the sea is usually flat enough for toddlers.",
+    "ages": {
+      "best": "4-12",
+      "text": "Calm beaches and shallow water suit even toddlers in the dry season. Island tours, kayaking and snorkelling are best from about age 5 or 6, and the 1,260 steps of Tiger Cave Temple are only for strong older children."
+    },
+    "stroller": {
+      "rating": "hard",
+      "text": "Ao Nang's beach road has a promenade, but pavements elsewhere are patchy and longtail boats mean wading through the shallows. Railay has sand paths and no roads, so a carrier is far more useful."
+    },
+    "mustDos": [
+      {
+        "title": "Longtail boat to Railay",
+        "text": "A 15-minute longtail ride from Ao Nang beach reaches Railay, where children watch rock climbers and paddle at Phra Nang Cave Beach. Boats cost about 100-200 THB per person each way and leave when full.",
+        "ages": "3+"
+      },
+      {
+        "title": "Four Islands tour",
+        "text": "A half- or full-day boat trip visits Poda Island, the sandbar at Tup Island that appears at low tide and the chicken-shaped rock of Chicken Island. Ask for child life jackets and pick a longtail tour for a shorter, gentler ride.",
+        "ages": "5+"
+      },
+      {
+        "title": "Emerald Pool and Hot Stream Waterfall",
+        "text": "In the forest about an hour from Ao Nang, a boardwalk leads to a clear green pool for swimming; foreign adults pay about 200 THB. Nearby, warm spring water tumbles over rocks into shallow pools that children can sit in.",
+        "ages": "4+"
+      },
+      {
+        "title": "Kayaking at Ao Thalane",
+        "text": "Paddle a two-seat kayak through mangrove channels and limestone canyons, watching for crab-eating macaques and mudskippers. Guided trips run with the tide and cost roughly 500-1,000 THB per person.",
+        "ages": "6+"
+      },
+      {
+        "title": "Krabi Town Walking Street",
+        "text": "On weekend evenings the town centre becomes a night market with grilled snacks, coconut ice cream and small live music stages. Most snacks cost 20-60 THB, so children can graze their way along.",
+        "ages": "3+"
+      }
+    ],
+    "rainyDay": [
+      {
+        "title": "Thai cooking class",
+        "text": "Many Ao Nang schools welcome children to pound curry paste and cook a simple pad thai."
+      },
+      {
+        "title": "Batik painting workshop",
+        "text": "Children paint a waxed outline of fish or elephants on cotton and take the cloth home."
+      },
+      {
+        "title": "Kids' Muay Thai lesson",
+        "text": "Several Ao Nang gyms run short beginner classes in a covered ring that tire out energetic children."
+      }
+    ],
+    "safety": [
+      "From May to October monsoon swells bring strong currents and red flags, so follow beach flags and let tours cancel without arguing.",
+      "Insist on properly fitting child life jackets on every boat, and use reef-safe sunscreen and rash guards, as the sun is fierce even on cloudy days.",
+      "Monkeys at Railay and Tiger Cave Temple grab bags and drinks, so keep food hidden, and drink only bottled or filtered water."
+    ],
+    "costs": {
+      "currency": "THB",
+      "daily": "About 3,500-6,000 THB (about €90-160) a day for a family of four, excluding lodging.",
+      "items": [
+        {
+          "label": "Longtail Ao Nang-Railay, per person one way",
+          "price": "100-200 THB (about €2.60-5)"
+        },
+        {
+          "label": "Four Islands longtail tour, per adult",
+          "price": "600-1,200 THB (about €16-32)"
+        },
+        {
+          "label": "National park fee for the islands (adult / child)",
+          "price": "400 / 200 THB (about €10.50 / €5)"
+        },
+        {
+          "label": "Pad thai or fried rice at a local stall",
+          "price": "60-120 THB (about €1.60-3.20)"
+        }
+      ],
+      "tip": "Book island tours at small local agencies and compare prices, as child rates are usually lower and many hotels charge more for the same trip."
+    },
+    "gettingAround": "Krabi airport is about 30-40 minutes from Ao Nang by taxi or Grab. White songthaew pick-up taxis run between Ao Nang and Krabi Town, and longtail boats are the only way to reach Railay.",
+    "food": "Children usually love fried rice, chicken satay, banana roti pancakes and mango sticky rice; ask for 'mai phet' (not spicy). Seafood dinners along Ao Nang's beachfront start around 18:00, and fresh coconuts are sold everywhere.",
+    "firstDay": {
+      "morning": "Swim and build sandcastles at Ao Nang Beach while the light is soft.",
+      "afternoon": "Take a longtail to Railay and paddle at Phra Nang Cave Beach.",
+      "evening": "Watch the sunset over the islands and eat banana roti from a street stall."
+    }
+  },
+  "es": {
+    "tagline": "Acantilados de piedra caliza • barcas de cola larga • días de islas",
+    "intro": "Krabi es la costa del Andamán tailandesa en su versión más espectacular: altos acantilados de caliza sobre un agua cálida y tranquila, barcas de cola larga en la arena e islas muy cerca. Las familias se alojan en Ao Nang para días de playa fáciles, van en barca a Railay, sin coches, y pasan una tarde flotando en una poza de la selva. De noviembre a abril el mar suele estar en calma incluso para los más pequeños.",
+    "ages": {
+      "best": "4-12",
+      "text": "Las playas tranquilas y el agua poco profunda van bien incluso con niños pequeños en la estación seca. Las excursiones a las islas, el kayak y el esnórquel son mejores a partir de unos 5 o 6 años, y los 1.260 escalones del Templo de la Cueva del Tigre son solo para niños mayores y fuertes."
+    },
+    "stroller": {
+      "rating": "hard",
+      "text": "La avenida de la playa de Ao Nang tiene paseo, pero las aceras en otras zonas son irregulares y para subir a las barcas hay que meterse en el agua. Railay tiene caminos de arena y no hay carreteras, así que es mucho más útil la mochila portabebés."
+    },
+    "mustDos": [
+      {
+        "title": "Barca de cola larga a Railay",
+        "text": "Un trayecto de 15 minutos desde la playa de Ao Nang lleva a Railay, donde los niños ven a los escaladores y chapotean en la playa de Phra Nang Cave. Las barcas cuestan unos 100-200 THB por persona y trayecto y salen cuando se llenan.",
+        "ages": "3+"
+      },
+      {
+        "title": "Excursión a las Cuatro Islas",
+        "text": "Una salida en barca de medio día o día entero visita la isla de Poda, el banco de arena de Tup que aparece con la marea baja y la roca con forma de gallina de Chicken Island. Pide chalecos infantiles y elige una barca de cola larga para un trayecto más corto y suave.",
+        "ages": "5+"
+      },
+      {
+        "title": "Emerald Pool y la cascada de agua caliente",
+        "text": "En el bosque, a una hora de Ao Nang, una pasarela lleva a una poza verde y transparente para bañarse; los adultos extranjeros pagan unos 200 THB. Cerca, agua termal templada cae por las rocas a pozas poco profundas donde los niños se pueden sentar.",
+        "ages": "4+"
+      },
+      {
+        "title": "Kayak en Ao Thalane",
+        "text": "Rema en un kayak doble por canales de manglar y cañones de piedra caliza, buscando macacos cangrejeros y peces del fango. Las salidas guiadas dependen de la marea y cuestan unos 500-1.000 THB por persona.",
+        "ages": "6+"
+      },
+      {
+        "title": "Walking Street de Krabi Town",
+        "text": "Las noches de fin de semana el centro se convierte en un mercado nocturno con pinchos a la brasa, helado de coco y pequeños escenarios de música. La mayoría de tentempiés cuestan 20-60 THB, así que los niños pueden ir probando de todo.",
+        "ages": "3+"
+      }
+    ],
+    "rainyDay": [
+      {
+        "title": "Clase de cocina tailandesa",
+        "text": "Muchas escuelas de Ao Nang reciben a niños para machacar pasta de curry y cocinar un pad thai sencillo."
+      },
+      {
+        "title": "Taller de pintura batik",
+        "text": "Los niños pintan un dibujo encerado de peces o elefantes sobre algodón y se llevan la tela."
+      },
+      {
+        "title": "Clase infantil de muay thai",
+        "text": "Varios gimnasios de Ao Nang ofrecen clases cortas para principiantes en un ring cubierto que cansan a los más movidos."
+      }
+    ],
+    "safety": [
+      "De mayo a octubre el oleaje del monzón trae corrientes fuertes y banderas rojas, así que respeta las banderas y acepta sin discutir que se cancelen excursiones.",
+      "Exige chalecos salvavidas infantiles de la talla correcta en cada barca y usa protector solar respetuoso con el arrecife y camisetas de licra, porque el sol quema incluso nublado.",
+      "Los monos de Railay y del Templo de la Cueva del Tigre roban bolsas y bebidas, así que guarda la comida, y bebe solo agua embotellada o filtrada."
+    ],
+    "costs": {
+      "currency": "THB",
+      "daily": "Unos 3.500-6.000 THB (unos 90-160 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        {
+          "label": "Barca Ao Nang-Railay, por persona solo ida",
+          "price": "100-200 THB (about €2.60-5)"
+        },
+        {
+          "label": "Excursión Cuatro Islas en barca de cola larga, adulto",
+          "price": "600-1,200 THB (about €16-32)"
+        },
+        {
+          "label": "Tasa del parque nacional de las islas (adulto / niño)",
+          "price": "400 / 200 THB (about €10.50 / €5)"
+        },
+        {
+          "label": "Pad thai o arroz frito en un puesto local",
+          "price": "60-120 THB (about €1.60-3.20)"
+        }
+      ],
+      "tip": "Reserva las excursiones en agencias locales pequeñas y compara precios: la tarifa infantil suele ser más baja y muchos hoteles cobran más por la misma salida."
+    },
+    "gettingAround": "El aeropuerto de Krabi está a unos 30-40 minutos de Ao Nang en taxi o Grab. Las camionetas blancas songthaew unen Ao Nang y Krabi Town, y a Railay solo se llega en barca de cola larga.",
+    "food": "A los niños suelen encantarles el arroz frito, el satay de pollo, el roti de plátano y el arroz glutinoso con mango; pide 'mai phet' (sin picante). Las cenas de marisco en el paseo de Ao Nang empiezan hacia las 18:00 y hay cocos frescos en todas partes.",
+    "firstDay": {
+      "morning": "Báñate y haz castillos de arena en la playa de Ao Nang con la luz suave.",
+      "afternoon": "Ve en barca de cola larga a Railay y chapotea en la playa de Phra Nang Cave.",
+      "evening": "Mira la puesta de sol sobre las islas y cena roti de plátano de un puesto callejero."
+    }
+  },
+  "booklet": {
+    "marks": [
+      "Railay Beach",
+      "Phra Nang Cave",
+      "Chicken Island",
+      "Tiger Cave Temple"
+    ],
+    "food": [
+      "mango sticky rice",
+      "banana roti",
+      "fried rice",
+      "fresh coconut"
+    ],
+    "facts": [
+      "Krabi's tall cliffs are limestone, rock made from old sea shells and coral.",
+      "Longtail boats have an engine on a very long pole at the back.",
+      "Chicken Island has a rock shaped like a chicken's head and neck."
+    ],
+    "hunt": [
+      "a longtail boat",
+      "a rock climber",
+      "a limestone cliff",
+      "a monkey",
+      "a coconut",
+      "a hermit crab",
+      "a starfish",
+      "a colourful boat ribbon",
+      "a sea kayak",
+      "a mangrove tree",
+      "a golden Buddha",
+      "a sandbar"
+    ],
+    "quiz": [
+      [
+        "Which island has a rock shaped like a bird's head?",
+        "Chicken Island",
+        "Duck Island",
+        "Owl Island",
+        "Parrot Island"
+      ],
+      [
+        "How do you get to Railay Beach?",
+        "By longtail boat",
+        "By train",
+        "By cable car",
+        "By bus"
+      ],
+      [
+        "What are Krabi's tall cliffs made of?",
+        "Limestone",
+        "Chocolate",
+        "Ice",
+        "Glass"
+      ]
+    ],
+    "missions": [
+      "Longtail boat counter",
+      "Cliff climber spotter"
+    ]
+  },
+  "missionsEs": [
+    "Contador de barcas de cola larga",
+    "Vigía de escaladores"
+  ]
+}

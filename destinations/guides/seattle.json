@@ -1,0 +1,114 @@
+{
+  "slug": "seattle",
+  "name": "Seattle",
+  "nameEs": "Seattle",
+  "country": "United States",
+  "countryEs": "Estados Unidos",
+  "flag": "🇺🇸",
+  "region": "americas",
+  "lang": "en",
+  "phrases": [["Hi", "Hello"], ["Thanks", "Thank you"], ["Please", "Please"], ["Yeah", "Yes"]],
+  "icons": "🗼 🐟 ⛴️",
+  "scene": "coast",
+  "bestMonths": [6, 7, 8, 9],
+  "seasons": ["summer", "spring"],
+  "en": {
+    "tagline": "Space Needle • flying fish • ferry rides",
+    "intro": "Seattle sits between saltwater and snowy volcanoes, and on clear days Mount Rainier floats over the skyline. Kids remember the fishmongers tossing salmon at Pike Place Market, the view from the Space Needle, a huge troll hiding under a bridge and the ferry ride across Puget Sound. Summers are dry and mild; the rest of the year brings drizzle, so good indoor museums matter.",
+    "ages": { "best": "4-12", "text": "The aquarium, ferries and Pike Place suit all ages; the Museum of Flight and MoPOP are best for 7-12 year olds who like planes, music and films." },
+    "stroller": { "rating": "mixed", "text": "The waterfront and Seattle Center are smooth and flat, but downtown streets climb very steeply from the water, so use the Pike Place elevators and buses or a carrier." },
+    "mustDos": [
+      { "title": "Pike Place Market", "text": "Watch fishmongers throw whole salmon, see the first Starbucks queue and the bronze pig Rachel; go before 10 am on weekends to dodge the crowds.", "ages": "all ages" },
+      { "title": "Space Needle", "text": "Glass floors and tilting glass benches about 150 m up; timed tickets cost roughly US$35-45 for adults, and a combo with Chihuly Garden and Glass saves a little.", "ages": "all ages" },
+      { "title": "Seattle Aquarium and Ocean Pavilion", "text": "Touch pools with sea stars, sea otters and a shark-filled reef hall in the newer Ocean Pavilion on the rebuilt waterfront.", "ages": "all ages" },
+      { "title": "Ferry to Bainbridge Island", "text": "A 35-minute ride on a big green and white state ferry with skyline views; walk-on adults pay about US$10-11 and riders 18 and under travel free.", "ages": "all ages" },
+      { "title": "Fremont Troll", "text": "A giant concrete troll crushing a real Volkswagen Beetle under the Aurora Bridge, free to climb on, plus Gas Works Park nearby for kites and picnics.", "ages": "all ages" }
+    ],
+    "rainyDay": [
+      { "title": "Museum of Flight", "text": "Real jets, a space shuttle trainer and cockpits kids can sit in, south of downtown." },
+      { "title": "Seattle Children's Museum", "text": "Pretend-play town for under-10s in the Seattle Center Armory building." },
+      { "title": "Museum of Pop Culture (MoPOP)", "text": "Guitars, film monsters and a sound lab where kids can play real instruments." }
+    ],
+    "safety": [
+      "A few downtown blocks, especially around Third Avenue, can feel rough, so stick to busy streets and use the waterfront or buses with children.",
+      "Puget Sound is cold all year and beaches have tides and slippery rocks, so keep kids in sight and in shoes at the shore.",
+      "Steep hills and quiet electric buses make crossings tricky, so hold hands at lights; tap water is excellent and free everywhere."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "About US$280-420 (≈ €240-365) a day for a family of four, excluding lodging.",
+      "items": [
+        { "label": "Space Needle (adult / child 5-12)", "price": "US$35-45 / US$26-35 (≈ €30-39 / €22-30)" },
+        { "label": "Seattle Aquarium (adult / child)", "price": "US$35-45 / US$25-30 (≈ €30-39 / €22-26)" },
+        { "label": "Bainbridge ferry, walk-on adult round trip", "price": "US$10-11 (≈ €9-10)" },
+        { "label": "Clam chowder in a bread bowl", "price": "US$12-18 (≈ €10-16)" }
+      ],
+      "tip": "Kids 18 and under ride Link light rail, King County Metro buses and state ferries free, and the Seattle CityPASS bundles the big entries."
+    },
+    "gettingAround": "Link light rail runs from the airport to downtown and the university, buses and the 1962 Monorail cover the centre, and water taxis cross to West Seattle.",
+    "food": "Kids usually like clam chowder, fish and chips, Pike Place mini doughnuts, teriyaki bowls and summer cherries; dinner starts early, around 17:30-18:30.",
+    "firstDay": {
+      "morning": "Explore Pike Place Market and watch the fish throwing before the crowds arrive.",
+      "afternoon": "Walk down to the waterfront aquarium, then ride the Monorail to Seattle Center.",
+      "evening": "Go up the Space Needle near sunset to see the city lights and Mount Rainier."
+    }
+  },
+  "es": {
+    "tagline": "Space Needle • peces voladores • ferris",
+    "intro": "Seattle está entre el agua salada y volcanes nevados, y en días claros el monte Rainier parece flotar sobre los rascacielos. Los niños recuerdan a los pescaderos lanzando salmones en Pike Place Market, la vista desde la Space Needle, un enorme trol escondido bajo un puente y el ferri por el Puget Sound. Los veranos son secos y suaves; el resto del año llovizna, así que los buenos museos cubiertos cuentan.",
+    "ages": { "best": "4-12", "text": "El acuario, los ferris y Pike Place sirven para todas las edades; el Museum of Flight y el MoPOP son ideales para niños de 7 a 12 años a los que les gustan los aviones, la música y el cine." },
+    "stroller": { "rating": "mixed", "text": "El paseo marítimo y Seattle Center son lisos y llanos, pero las calles del centro suben muy empinadas desde el agua, así que usa los ascensores de Pike Place, los autobuses o una mochila portabebés." },
+    "mustDos": [
+      { "title": "Pike Place Market", "text": "Mira a los pescaderos lanzar salmones enteros, la cola del primer Starbucks y la cerdita de bronce Rachel; ve antes de las 10:00 los fines de semana para evitar las multitudes.", "ages": "todas las edades" },
+      { "title": "Space Needle", "text": "Suelos de cristal y bancos de cristal inclinables a unos 150 m de altura; las entradas con hora cuestan unos 35-45 US$ por adulto, y el combinado con Chihuly Garden and Glass ahorra algo.", "ages": "todas las edades" },
+      { "title": "Seattle Aquarium y Ocean Pavilion", "text": "Estanques táctiles con estrellas de mar, nutrias marinas y una sala de arrecife con tiburones en el nuevo Ocean Pavilion del renovado paseo marítimo.", "ages": "todas las edades" },
+      { "title": "Ferri a Bainbridge Island", "text": "Un trayecto de 35 minutos en un gran ferri verde y blanco con vistas a la ciudad; los adultos a pie pagan unos 10-11 US$ y los menores de 19 años viajan gratis.", "ages": "todas las edades" },
+      { "title": "Fremont Troll", "text": "Un trol gigante de hormigón aplastando un Volkswagen Escarabajo real bajo el puente Aurora, gratis para trepar, con Gas Works Park cerca para cometas y pícnics.", "ages": "todas las edades" }
+    ],
+    "rainyDay": [
+      { "title": "Museum of Flight", "text": "Aviones reales, un simulador del transbordador espacial y cabinas donde los niños pueden sentarse, al sur del centro." },
+      { "title": "Seattle Children's Museum", "text": "Un pueblo de juego simbólico para menores de 10 años en el edificio Armory de Seattle Center." },
+      { "title": "Museum of Pop Culture (MoPOP)", "text": "Guitarras, monstruos de cine y un laboratorio de sonido donde los niños tocan instrumentos de verdad." }
+    ],
+    "safety": [
+      "Algunas manzanas del centro, sobre todo en la Tercera Avenida, pueden resultar incómodas, así que ve por calles concurridas y usa el paseo marítimo o el autobús con niños.",
+      "El Puget Sound está frío todo el año y las playas tienen mareas y rocas resbaladizas, así que vigila a los niños y que lleven calzado en la orilla.",
+      "Las cuestas y los autobuses eléctricos silenciosos complican los cruces, así que da la mano en los semáforos; el agua del grifo es excelente y gratuita en todas partes."
+    ],
+    "costs": {
+      "currency": "USD",
+      "daily": "Unos 280-420 US$ (240-365 €) al día para una familia de cuatro, sin alojamiento.",
+      "items": [
+        { "label": "Space Needle (adulto / niño 5-12)", "price": "US$35-45 / US$26-35 (≈ €30-39 / €22-30)" },
+        { "label": "Seattle Aquarium (adulto / niño)", "price": "US$35-45 / US$25-30 (≈ €30-39 / €22-26)" },
+        { "label": "Ferri a Bainbridge, adulto a pie ida y vuelta", "price": "US$10-11 (≈ €9-10)" },
+        { "label": "Crema de almejas en pan", "price": "US$12-18 (≈ €10-16)" }
+      ],
+      "tip": "Los menores de 19 años viajan gratis en el tren ligero Link, los autobuses de King County Metro y los ferris estatales, y el Seattle CityPASS agrupa las entradas principales."
+    },
+    "gettingAround": "El tren ligero Link va del aeropuerto al centro y a la universidad, los autobuses y el monorraíl de 1962 cubren el centro, y los taxis acuáticos cruzan a West Seattle.",
+    "food": "A los niños suelen gustarles la crema de almejas, el fish and chips, los minidonuts de Pike Place, los boles de teriyaki y las cerezas en verano; se cena pronto, hacia las 17:30-18:30.",
+    "firstDay": {
+      "morning": "Explora Pike Place Market y mira el lanzamiento de pescado antes de que llegue la gente.",
+      "afternoon": "Baja al acuario del paseo marítimo y toma el monorraíl hasta Seattle Center.",
+      "evening": "Sube a la Space Needle al atardecer para ver las luces de la ciudad y el monte Rainier."
+    }
+  },
+  "booklet": {
+    "marks": ["Space Needle", "Pike Place Market", "Fremont Troll", "Mount Rainier"],
+    "food": ["clam chowder", "salmon", "mini doughnuts", "cherries"],
+    "facts": [
+      "The Space Needle was built for a World's Fair in 1962.",
+      "Pike Place Market opened in 1907 and is one of the oldest markets in the USA.",
+      "Mount Rainier, seen from Seattle, is a volcano covered in glaciers."
+    ],
+    "hunt": ["a fish flying through the air", "a bronze pig", "a green and white ferry", "a seaplane", "a troll", "a monorail train", "an orca picture", "a seagull", "a snowy volcano", "a totem pole", "a sea star", "some umbrellas"],
+    "quiz": [
+      ["What do fishmongers throw at Pike Place Market?", "Salmon", "Pizza", "Balls", "Shoes"],
+      ["What does the Fremont Troll hold in its hand?", "A car", "A fish", "A guitar", "A kite"],
+      ["What is Mount Rainier?", "A volcano", "A lake", "A castle", "An island"]
+    ],
+    "missions": ["Ferry captain's lookout", "Troll and tower hunter"]
+  },
+  "missionsEs": ["Vigía del capitán del ferri", "Cazador del trol y la torre"]
+}

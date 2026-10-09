@@ -1,0 +1,114 @@
+{
+  "slug": "gothenburg",
+  "name": "Gothenburg",
+  "nameEs": "Gotemburgo",
+  "country": "Sweden",
+  "countryEs": "Suecia",
+  "flag": "🇸🇪",
+  "region": "europe",
+  "lang": "sv",
+  "phrases": [["Hej", "Hello"], ["Tack", "Thank you"], ["Snälla", "Please"], ["Ja", "Yes"]],
+  "icons": "🎢 🦈 🐰",
+  "scene": "coast",
+  "bestMonths": [6, 7, 8, 12],
+  "seasons": ["summer", "winter"],
+  "en": {
+    "tagline": "Roller coasters • rainforest science • island ferries",
+    "intro": "Gothenburg is Sweden's friendly west-coast city, built around canals and trams and only a ferry hop from smooth granite islands. Families come for Liseberg, Scandinavia's biggest amusement park, and Universeum, a science centre with a real rainforest and sharks. Between those, there are free animals in Slottsskogen park, giant cinnamon buns in Haga and summer swims from car-free islands in the southern archipelago.",
+    "ages": { "best": "4-12", "text": "Liseberg's Rabbit Land is made for children of about 3-7, while the big coasters need 110-140 cm, so mixed-age families can split up for an hour." },
+    "stroller": { "rating": "easy", "text": "Streets are flat, low-floor trams and archipelago ferries take strollers, and parks have smooth paths; only Haga's side streets and Skansen Kronan hill have cobbles." },
+    "mustDos": [
+      { "title": "Liseberg", "text": "Ride wooden and steel coasters, visit Rabbit Land for little ones and watch shows; the park opens roughly late April to September, with Halloween in autumn and a big Christmas market in winter.", "ages": "3+" },
+      { "title": "Universeum", "text": "Walk through a steamy rainforest with free-flying birds and small animals, see sharks and rays in a huge aquarium tank and try hands-on science labs on several floors.", "ages": "3+" },
+      { "title": "Southern archipelago by ferry", "text": "Take tram 11 to Saltholmen and a ferry included in your Västtrafik ticket to car-free Styrsö or Vrångö for rock pools, bike paths and summer swimming.", "ages": "3+" },
+      { "title": "Slottsskogen park", "text": "This huge free park has seals, penguins, elk and a children's zoo in summer, plus the Plikta playground, one of the city's best.", "ages": "3+" },
+      { "title": "Paddan canal boat", "text": "A low open boat cruises the 17th-century canals and under bridges so low that everyone has to duck; tours run from spring to autumn.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Natural History Museum", "text": "In Slottsskogen, with a famous stuffed blue whale and halls full of animals from around the world." },
+      { "title": "Museum of World Culture", "text": "Changing exhibitions with family activities and creative workshops next to Universeum, free for children." },
+      { "title": "Valhallabadet", "text": "Big public indoor swimming hall near Liseberg with a children's pool and family swim times." }
+    ],
+    "safety": [
+      "Archipelago rocks are slippery when wet and the sea is cold even in July, so swim at marked bathing spots and keep life jackets on small children in boats.",
+      "Trams have right of way and run quietly in narrow streets, so stop and look both ways at every tram track.",
+      "Liseberg is crowded on summer weekends, so give children a wristband or card with your phone number and agree a meeting point."
+    ],
+    "costs": {
+      "currency": "SEK",
+      "daily": "About SEK 2,200-3,500 (≈ €200-320) a day for a family of four excluding lodging; a Liseberg day with ride passes costs more.",
+      "items": [
+        { "label": "Liseberg entry (per person; under 110 cm free; rides extra)", "price": "SEK 95-150 (≈ €9-14)" },
+        { "label": "Liseberg ride pass (per person)", "price": "SEK 345-500 (≈ €31-45)" },
+        { "label": "Universeum entry (per person)", "price": "SEK 200-320 (≈ €18-29)" },
+        { "label": "Paddan canal boat (child to adult)", "price": "SEK 100-250 (≈ €9-23)" }
+      ],
+      "tip": "City-run museums are free for visitors under 20, and Liseberg tickets are cheaper online than at the gate."
+    },
+    "gettingAround": "Gothenburg has a large tram network, and Västtrafik tickets bought in the To Go app cover trams, buses and the southern archipelago ferries.",
+    "food": "Try köttbullar (meatballs) with lingonberry, a shrimp sandwich and the huge Hagabullen cinnamon bun in Haga; Swedes break for fika (coffee, juice and a pastry) mid-afternoon.",
+    "firstDay": {
+      "morning": "Explore Universeum when it opens, before the queues build at the rainforest.",
+      "afternoon": "Walk to Haga for a giant cinnamon bun, then climb to Skansen Kronan for the view.",
+      "evening": "Spend the evening at Liseberg, when lights come on and lines get shorter."
+    }
+  },
+  "es": {
+    "tagline": "Montañas rusas • ciencia en la selva • ferris a las islas",
+    "intro": "Gotemburgo es la amable ciudad de la costa oeste de Suecia, construida entre canales y tranvías y a un salto en ferri de islas de granito pulido. Las familias vienen por Liseberg, el mayor parque de atracciones de Escandinavia, y por Universeum, un centro de ciencia con selva tropical de verdad y tiburones. Entre medias hay animales gratis en el parque Slottsskogen, rollos de canela gigantes en Haga y baños de verano en islas sin coches del archipiélago sur.",
+    "ages": { "best": "4-12", "text": "La Tierra de los Conejos de Liseberg está pensada para niños de unos 3 a 7 años, mientras que las montañas rusas grandes piden 110-140 cm, así que las familias con edades mezcladas pueden separarse un rato." },
+    "stroller": { "rating": "easy", "text": "Las calles son llanas, los tranvías de piso bajo y los ferris del archipiélago admiten carritos y los parques tienen caminos lisos; solo las calles laterales de Haga y la colina de Skansen Kronan tienen adoquines." },
+    "mustDos": [
+      { "title": "Liseberg", "text": "Subid a montañas rusas de madera y acero, visitad la Tierra de los Conejos con los pequeños y ved espectáculos; el parque abre más o menos de finales de abril a septiembre, con Halloween en otoño y un gran mercado navideño en invierno.", "ages": "3+" },
+      { "title": "Universeum", "text": "Caminad por una selva húmeda con aves sueltas y pequeños animales, ved tiburones y rayas en un enorme acuario y probad laboratorios de ciencia interactivos en varias plantas.", "ages": "3+" },
+      { "title": "Archipiélago sur en ferri", "text": "Tomad el tranvía 11 hasta Saltholmen y un ferri incluido en el billete de Västtrafik hasta Styrsö o Vrångö, islas sin coches con pozas, caminos para bici y baños en verano.", "ages": "3+" },
+      { "title": "Parque Slottsskogen", "text": "Este enorme parque gratuito tiene focas, pingüinos, alces y un zoo infantil en verano, además del parque infantil Plikta, uno de los mejores de la ciudad.", "ages": "3+" },
+      { "title": "Barco Paddan por los canales", "text": "Una barca baja y abierta recorre los canales del siglo XVII y pasa bajo puentes tan bajos que todos tienen que agacharse; funciona de primavera a otoño.", "ages": "4+" }
+    ],
+    "rainyDay": [
+      { "title": "Museo de Historia Natural", "text": "En Slottsskogen, con una famosa ballena azul disecada y salas llenas de animales de todo el mundo." },
+      { "title": "Museo de las Culturas del Mundo", "text": "Exposiciones cambiantes con actividades familiares y talleres creativos junto a Universeum, gratis para niños." },
+      { "title": "Valhallabadet", "text": "Gran piscina pública cubierta cerca de Liseberg con piscina infantil y horarios de baño familiar." }
+    ],
+    "safety": [
+      "Las rocas del archipiélago resbalan mojadas y el mar está frío incluso en julio, así que bañaos en zonas señalizadas y poned chaleco salvavidas a los pequeños en las barcas.",
+      "Los tranvías tienen preferencia y circulan silenciosos por calles estrechas, así que parad y mirad a ambos lados en cada vía.",
+      "Liseberg se llena los fines de semana de verano, así que dad a los niños una pulsera o tarjeta con vuestro teléfono y acordad un punto de encuentro."
+    ],
+    "costs": {
+      "currency": "SEK",
+      "daily": "Unos SEK 2.200-3.500 (≈ €200-320) al día para una familia de cuatro sin alojamiento; un día en Liseberg con pase de atracciones cuesta más.",
+      "items": [
+        { "label": "Entrada a Liseberg (por persona; menores de 110 cm gratis; atracciones aparte)", "price": "SEK 95-150 (≈ €9-14)" },
+        { "label": "Pase de atracciones de Liseberg (por persona)", "price": "SEK 345-500 (≈ €31-45)" },
+        { "label": "Entrada a Universeum (por persona)", "price": "SEK 200-320 (≈ €18-29)" },
+        { "label": "Barco Paddan (de niño a adulto)", "price": "SEK 100-250 (≈ €9-23)" }
+      ],
+      "tip": "Los museos municipales son gratis para menores de 20 años, y las entradas de Liseberg salen más baratas en línea que en taquilla."
+    },
+    "gettingAround": "Gotemburgo tiene una gran red de tranvías, y los billetes de Västtrafik comprados en la app To Go sirven para tranvías, autobuses y ferris del archipiélago sur.",
+    "food": "Probad las köttbullar (albóndigas) con mermelada de arándano rojo, un bocadillo de gambas y el enorme rollo de canela Hagabullen en Haga; los suecos hacen la fika (café, zumo y un dulce) a media tarde.",
+    "firstDay": {
+      "morning": "Explorad Universeum en cuanto abra, antes de que se formen colas en la selva.",
+      "afternoon": "Caminad hasta Haga para un rollo de canela gigante y subid a Skansen Kronan por las vistas.",
+      "evening": "Pasad la tarde en Liseberg, cuando se encienden las luces y las colas se acortan."
+    }
+  },
+  "booklet": {
+    "marks": ["Liseberg", "Universeum", "Skansen Kronan", "Feskekôrka"],
+    "food": ["giant cinnamon bun", "meatballs with lingonberry", "shrimp sandwich", "princess cake"],
+    "facts": [
+      "Gothenburg's Natural History Museum has the only stuffed blue whale in the world.",
+      "Liseberg opened in 1923 and has a big green rabbit as its mascot.",
+      "Gothenburg's fish market hall is called the Fish Church because it looks like a church."
+    ],
+    "hunt": ["a blue tram", "a ferry", "a roller coaster", "a green rabbit", "a shark", "a seal", "a giant cinnamon bun", "a sailing boat", "a lighthouse", "a canal bridge", "a Swedish flag", "some red wooden houses"],
+    "quiz": [
+      ["What animal is Liseberg's mascot?", "A rabbit", "A moose", "A bear", "A seagull"],
+      ["What huge animal is stuffed in the Natural History Museum?", "A blue whale", "An elephant", "A dinosaur", "A giraffe"],
+      ["What is the Swedish coffee and cake break called?", "Fika", "Smorgas", "Hygge", "Siesta"]
+    ],
+    "missions": ["Tram number collector", "Island hopper"]
+  },
+  "missionsEs": ["Coleccionista de números de tranvía", "Saltador de islas"]
+}
