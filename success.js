@@ -73,6 +73,8 @@
     statusEl.textContent=data.test_mode?`Test ${label} payment confirmed ✓`:`${label} payment confirmed ✓`;
     statusEl.className='status ok';
     btn.classList.remove('hidden');
+    const heading=document.querySelector('h1');
+    if(heading) heading.textContent='Your adventure is ready';
     help.textContent='Your personalized Kidventuro product is ready to open. The printable book is currently generated in English.';
   };
 
