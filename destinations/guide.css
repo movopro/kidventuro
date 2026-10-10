@@ -97,3 +97,22 @@ a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,s
 .j-nums{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .j-nums div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;justify-content:space-between;gap:8px}
 @media print{.journal{margin:0}.j-page{border:0;border-radius:0;margin:0;max-width:none;padding:14mm 16mm;min-height:297mm;break-after:page;page-break-after:always}.j-page:last-child{break-after:auto}.j-cover{min-height:260mm}.seo-hero,.tool,.crumbs{display:none!important}@page{size:A4;margin:0}}
+/* Trip pack: print the guide for offline use, plus a journal and packing list pre-filled with the destination */
+.guide-pack{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;background:var(--sun);border:1px solid var(--line);border-radius:22px;padding:22px 26px;margin:34px 0}
+.guide-pack h2{margin:0;font-size:1.35rem;flex-basis:100%}
+.guide-pack p{margin:0 0 4px;flex-basis:100%;line-height:1.6;color:var(--ink)}
+.guide-pack button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:12px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.guide-pack button:hover{background:var(--brand-ink)}
+.guide-pack a{color:var(--brand-ink);font-weight:700}
+.guide-print-head{display:none}
+@media print{
+  body.guide-dest .guide-art,body.guide-dest .guide-book,body.guide-dest .guide-related,body.guide-dest .guide-pack{display:none!important}
+  body.guide-dest .guide-print-head{display:block;font-size:9pt;color:#555;margin:0 0 4mm}
+  body.guide-dest .guide-hero{display:block;padding:0}
+  body.guide-dest .seo-copy{max-width:none;font-size:10.5pt;line-height:1.5}
+  body.guide-dest h2{break-after:avoid}
+  body.guide-dest li,body.guide-dest tr,body.guide-dest .guide-day>div,body.guide-dest .guide-facts>div,body.guide-dest details{break-inside:avoid}
+  body.guide-dest .seo-faq details{border:0;padding:0;margin:0 0 8px}
+  body.guide-dest .seo-faq summary{list-style:none}
+  body.guide-dest .seo-faq summary::-webkit-details-marker{display:none}
+}

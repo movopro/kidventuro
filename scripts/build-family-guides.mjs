@@ -18,6 +18,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://kidventuro.com';
 // Content date for lastmod/dateModified. Bump it when guide content changes, so regeneration stays byte-identical.
 const TODAY = '2026-10-10';
+// Cache key for guide.css and tools/guide-print.js: bump when either changes.
+const CSS_V = '20261010-2';
 const guideDir = path.join(root, 'destinations', 'guides');
 
 const esc = v => String(v ?? '')
@@ -168,6 +170,9 @@ const UI = {
     related: 'More family destinations', packing: 'Packing for this trip? Use the age-smart packing list', packingHref: '/packing-list.html',
     month: 'Best destinations for kids this month', monthHref: '/best-family-destinations-this-month.html',
     journal: 'Print a travel journal for the trip', journalHref: '/travel-journal.html',
+    packTitle: 'Take this guide on the trip',
+    packText: g => `Signal and roaming are not guaranteed abroad. Print this guide or save it as a PDF, then add a ${g.name} travel journal and packing list. All three are free and are made in your browser.`,
+    printGuide: 'Print / save this guide as PDF', packJournal: g => `Travel journal for ${g.name}`, packList: g => `Packing list for ${g.name}`, printedFrom: 'Printed from',
     privacy: 'Privacy', terms: 'Terms', refunds: 'Refunds & delivery', crumbs: 'Breadcrumb', figAlt: g => `Illustrated postcard of ${g.name}`
   },
   es: {
@@ -191,6 +196,9 @@ const UI = {
     related: 'Más destinos para familias', packing: '¿Preparando la maleta? Usa la lista de equipaje por edades', packingHref: '/es/lista-de-equipaje.html',
     month: 'Mejores destinos para niños este mes', monthHref: '/es/mejores-destinos-familiares-este-mes.html',
     journal: 'Imprime un diario para el viaje', journalHref: '/es/diario-de-viaje.html',
+    packTitle: 'Llévate esta guía de viaje',
+    packText: g => `En el extranjero no siempre hay cobertura ni roaming. Imprime esta guía o guárdala en PDF y añade un diario de viaje y una lista de equipaje para ${g.nameEs}. Los tres son gratis y se crean en tu navegador.`,
+    printGuide: 'Imprimir / guardar la guía en PDF', packJournal: g => `Diario de viaje de ${g.nameEs}`, packList: g => `Lista de equipaje para ${g.nameEs}`, printedFrom: 'Impreso desde',
     privacy: 'Privacidad', terms: 'Términos', refunds: 'Reembolsos', crumbs: 'Ruta de navegación', figAlt: g => `Postal ilustrada de ${g.nameEs}`
   }
 };
@@ -257,10 +265,11 @@ function guidePage(g, lang) {
   <script type="application/ld+json">${jsonLd(ld)}</script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/destinations/seo.css">
-  <link rel="stylesheet" href="/destinations/guide.css?v=${TODAY}">
+  <link rel="stylesheet" href="/destinations/guide.css?v=${CSS_V}">
 </head>
-<body class="guide">
+<body class="guide guide-dest">
   <div class="seo-shell">
+    <p class="guide-print-head">${t.printedFrom} ${urlFor(g, lang).replace(/^https:\/\//, '')}</p>
     <header class="seo-head">
       <a class="seo-brand" href="${t.homeHref}">Kidventuro</a>
       <a href="${t.hubHref}">${t.all}</a>
@@ -286,6 +295,13 @@ function guidePage(g, lang) {
       <section class="guide-two">
         <div><h2>${t.bestAges}</h2><p>${esc(c.ages.text)}</p></div>
         <div><h2>${t.stroller}</h2><p>${esc(c.stroller.text)}</p></div>
+      </section>
+      <section class="guide-pack">
+        <h2>${t.packTitle}</h2>
+        <p>${esc(t.packText(g))}</p>
+        <button type="button" data-print-guide hidden>${t.printGuide}</button>
+        <a href="${t.journalHref}?dest=${encodeURIComponent(g.name)}#journal">${esc(t.packJournal(g))}</a>
+        <a href="${t.packingHref}?dest=${encodeURIComponent(g.name)}">${esc(t.packList(g))}</a>
       </section>
       <section class="seo-copy guide-wide">
         <h2>${esc(t.mustDos(g))}</h2>
@@ -319,7 +335,7 @@ function guidePage(g, lang) {
         <h2>${t.faq}</h2>
         ${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n        ')}
       </section>
-      <section>
+      <section class="guide-related">
         <h2>${t.related}</h2>
         <div class="seo-dests">${related(g, lang)}</div>
         <p class="guide-links"><a href="${t.packingHref}">${t.packing}</a> · <a href="${t.monthHref}">${t.month}</a> · <a href="${t.journalHref}">${t.journal}</a></p>
@@ -327,6 +343,7 @@ function guidePage(g, lang) {
     </main>
     <footer class="seo-foot">© Kidventuro · <a href="/privacy.html">${t.privacy}</a> · <a href="/terms.html">${t.terms}</a> · <a href="/refunds.html">${t.refunds}</a></footer>
   </div>
+  <script src="/tools/guide-print.js?v=${CSS_V}" defer></script>
   <script src="/runtime-config.js"></script>
   <script src="/analytics.js"></script>
 </body>
@@ -462,7 +479,8 @@ for (const [file, lang] of [['destinations/index.html', 'en'], ['es/destinos/ind
   html = replaceBlock(html, '<!-- guides:start -->', '<!-- guides:end -->', body, '<section class="seo-copy"><h2>');
   const total = 50 + guides.length;
   html = html.replace(/\b(50|\d{2,3})( travel activity guides for kids| supported family destinations| Kidventuro destinations| Kidventuro travel activity guides| supported destinations| destinos: actividades| destinos compatibles| destinos Kidventuro)/g, (_, n, rest) => `${total}${rest}`);
-  if (!html.includes('guide.css')) html = html.replace('<link rel="stylesheet" href="seo.css">', `<link rel="stylesheet" href="seo.css"><link rel="stylesheet" href="/destinations/guide.css?v=${TODAY}">`);
+  html = html.replace(/guide\.css\?v=[^"]*/g, `guide.css?v=${CSS_V}`);
+  if (!html.includes('guide.css')) html = html.replace('<link rel="stylesheet" href="seo.css">', `<link rel="stylesheet" href="seo.css"><link rel="stylesheet" href="/destinations/guide.css?v=${CSS_V}">`);
   await write(file, html);
 }
 
@@ -494,7 +512,7 @@ function shell({ lang, path: pagePath, altPath, title, description, body, script
   <script type="application/ld+json">${jsonLd(ld)}</script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/destinations/seo.css">
-  <link rel="stylesheet" href="/destinations/guide.css?v=${TODAY}">
+  <link rel="stylesheet" href="/destinations/guide.css?v=${CSS_V}">
 </head>
 <body class="guide">
   <div class="seo-shell">

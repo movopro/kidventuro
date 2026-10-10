@@ -5,6 +5,9 @@
   --paper:#fffdf9;
   --orange:#ff7d4d;
   --orange-dark:#e95e2d;
+  /* Orange for surfaces and small text that carry words: white on it, or it on white, passes WCAG AA (4.95:1). */
+  --cta:#c4461b;
+  --cta-dark:#a83a14;
   --teal:#2b7a78;
   --mint:#dff4ea;
   --yellow:#ffd96a;
@@ -54,8 +57,8 @@ button{cursor:pointer}
 }
 .btn:hover{transform:translateY(-2px)}
 .btn-small{padding:10px 16px;background:var(--ink);color:white;font-size:.88rem}
-.btn-primary{background:var(--orange);color:white;box-shadow:0 9px 22px rgba(255,125,77,.24)}
-.btn-primary:hover{background:var(--orange-dark)}
+.btn-primary{background:var(--cta);color:white;box-shadow:0 9px 22px rgba(196,70,27,.24)}
+.btn-primary:hover{background:var(--cta-dark)}
 .btn-secondary{background:var(--ink);color:white}
 .btn-ghost{background:white;border:1px solid var(--line)}
 .btn-light{background:white;color:var(--ink)}
@@ -117,7 +120,7 @@ h1 em{font-style:normal;color:var(--orange-dark)}
 }
 .mini-badge{
   width:48px;height:48px;border-radius:15px;display:grid;place-items:center;
-  background:var(--orange);color:white;font-weight:950;font-size:1.3rem
+  background:var(--cta);color:white;font-weight:950;font-size:1.3rem
 }
 .book-kicker{margin-top:85px;font-size:.67rem;letter-spacing:.16em;font-weight:900;color:var(--teal)}
 .book-title{font-size:4.1rem;font-weight:950;letter-spacing:-.06em;line-height:1;margin:10px 0}
@@ -170,7 +173,7 @@ section:not(.hero):not(.final-cta){padding:90px clamp(24px,7vw,110px)}
 .preview-copy p:last-child{color:#d8e3e0;max-width:560px}
 .preview-missions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:2;margin-top:25px}
 .preview-missions div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);padding:13px;border-radius:14px}
-.preview-missions b{display:block;color:var(--orange);font-size:.75rem;margin-bottom:5px}
+.preview-missions b{display:block;color:var(--cta);font-size:.75rem;margin-bottom:5px}
 .preview-missions span{font-size:.78rem;font-weight:750}
 .sample-link{margin-top:20px;background:none;color:white;border:0;padding:0;font-weight:800;position:relative;z-index:2}
 .how-section{background:var(--mint)}
@@ -230,7 +233,7 @@ section:not(.hero):not(.final-cta){padding:90px clamp(24px,7vw,110px)}
 .price-card h3{font-size:3rem;letter-spacing:-.05em;margin:8px 0}
 .price-card p{color:var(--muted)}.featured p{color:#c9d7d4}
 .price-card ul{padding-left:20px;min-height:145px}.price-card li{margin:8px 0;font-size:.9rem}
-.popular{position:absolute;right:18px;top:18px;font-size:.64rem;font-weight:950;letter-spacing:.09em;background:var(--orange);color:white;padding:7px 9px;border-radius:999px}
+.popular{position:absolute;right:18px;top:18px;font-size:.64rem;font-weight:950;letter-spacing:.09em;background:var(--cta);color:white;padding:7px 9px;border-radius:999px}
 .pricing-note{text-align:center;color:var(--muted);font-size:.82rem;margin:28px 0 0}
 .faq-section{background:#fffaf2}
 .faq-grid{max-width:930px;display:grid;gap:10px}

@@ -20,6 +20,9 @@ for (const f of files) {
     assert.ok(html.includes(`<html lang="${lang}">`), `${path}: wrong lang`);
     assert.ok(html.includes(g[lang].mustDos[0].title.replaceAll('&', '&amp;').replaceAll('"', '&quot;')), `${path}: stale content, rebuild`);
     assert.ok(html.includes('"@type":"FAQPage"'), `${path}: FAQ structured data missing`);
+    // Trip pack: printable guide plus journal and packing list pre-filled with this destination.
+    const dest = encodeURIComponent(g.name);
+    assert.ok(html.includes('data-print-guide') && html.includes('/tools/guide-print.js') && html.includes(`?dest=${dest}#journal`) && html.includes(`?dest=${dest}"`), `${path}: trip pack missing`);
     assert.ok(!/\bundefined\b|\bnull\b|\[object Object\]/.test(html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '')), `${path}: template hole`);
   }
   await readFile(new URL(`./assets/destinations/${g.slug}.svg`, import.meta.url), 'utf8');
@@ -31,7 +34,7 @@ for (const page of ['packing-list.html', 'es/lista-de-equipaje.html', 'best-fami
   assert.ok(html.includes('rel="canonical"') && html.includes('application/ld+json') && (html.match(/<h1[ >]/g) || []).length === 1, `${page}: SEO basics`);
 }
 // The free tools run only in the browser: nothing typed into them is sent or stored.
-for (const tool of ['packing.js', 'journal.js']) {
+for (const tool of ['packing.js', 'journal.js', 'guide-print.js']) {
   const src = await readFile(new URL(`./tools/${tool}`, import.meta.url), 'utf8');
   assert.equal(/fetch\(|sendBeacon|localStorage|sessionStorage|XMLHttpRequest/.test(src), false, `${tool} must not send or store anything`);
 }
