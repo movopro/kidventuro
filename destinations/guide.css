@@ -1,5 +1,5 @@
 /* Family guide pages, packing list and seasonal page. Extends seo.css. */
-:root{--ink:#27231f;--muted:#6b6259;--line:#e9dfd1;--paper:#fffaf3;--card:#fff;--brand:#c8553d;--brand-ink:#9c3d2a;--mint:#e8f3ec;--sun:#fff1d6}
+:root{--ink:#27231f;--muted:#6b6259;--line:#e9dfd1;--paper:#fffaf3;--card:#fff;--brand:#b9471f;--brand-ink:#8f3517;--mint:#e8f3ec;--sun:#fff1d6}
 .guide .seo-head{gap:18px;flex-wrap:wrap}
 .guide .seo-head a{color:var(--ink)}
 .crumbs{font-size:.92rem;color:var(--muted)}
