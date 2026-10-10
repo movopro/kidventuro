@@ -10,7 +10,8 @@ Repository: `movopro/kidventuro`
 - Static GitHub Pages frontend on the Kidventuro custom domain
 - EN / BG ordering interface
 - Current paid printable books are generated in **English**
-- 50 destination choices
+- 90 destination choices (50 original + 40 with full family guides, see docs/DESTINATION-GUIDES.md)
+- Free tools: age-smart packing list and "best family destinations this month" (EN/ES)
 - 16 child-interest choices
 - Personalization by first name/nickname, age, destination, interest and trip length
 - Three age modes:
@@ -142,7 +143,7 @@ Not launch blockers:
 - `runtime-config.js` — public API URL, checkout mode and the three current Lemon Squeezy checkout URLs
 - `checkout.js` — fresh-ref checkout session registration, Family form and Lemon Squeezy redirect
 - `success.html`, `success.js` — verified fulfillment, receipt recovery and ref-scoped diagnostics
-- `catalog-core.js`, `catalog-1.js` … `catalog-5.js` — interests, local phrases and 50 destination catalogs
+- `catalog-core.js`, `catalog-1.js` … `catalog-7.js` — interests, local phrases and destination catalogs (`catalog-7.js` is generated from `destinations/guides/`)
 - `booklet-v2.js` — base Adventure generator
 - `mini-mode.js` — 10-page Mini adaptation
 - `family-mode.js` — multi-child Family generator
