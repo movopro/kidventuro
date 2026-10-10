@@ -33,3 +33,8 @@ for (const page of ['packing-list.html', 'es/lista-de-equipaje.html', 'best-fami
 const packing = await readFile(new URL('./tools/packing.js', import.meta.url), 'utf8');
 assert.equal(/fetch\(|sendBeacon|localStorage|XMLHttpRequest/.test(packing), false, 'packing list must not send or store anything');
 console.log(`Family guides passed: ${files.length} guides (${Object.entries(regions).map(([r, n]) => `${r} ${n}`).join(', ')}, ${winter.length} winter-friendly), feature pages present.`);
+// Regression: the preview card must not fall back to Rome's missions for destinations added outside app.js.
+for (const file of ['site-expansion.js', 'site-expansion-3.js']) {
+  const src = await readFile(new URL(`./${file}`, import.meta.url), 'utf8');
+  assert.ok(/destinationData\[name\]=|destinationData\[r\[0\]\]=/.test(src), `${file} must register its missions in app.js destinationData`);
+}

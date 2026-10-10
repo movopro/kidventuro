@@ -45,9 +45,9 @@ window.KIDVENTURO_CONFIG={
   };
 
   // Preserve the required enhancement order while keeping Spanish out of the default critical path.
-  const SITE_EXPANSION_SRC='site-expansion.js';
+  const SITE_EXPANSION_SRC='site-expansion.js?v=20261010';
   const DESTINATION_LINKS_SRC='destination-links.js?v=20260827-1';
-  const GUIDE_EXPANSION_SRC='site-expansion-3.js?v=20261010';
+  const GUIDE_EXPANSION_SRC='site-expansion-3.js?v=20261010-2';
   const SPANISH_SRC='spanish.js';
   const wantsSpanish=()=>new URLSearchParams(location.search).get('lang')==='es';
   const loadSpanish=()=>load(SPANISH_SRC).catch(error=>console.error('Kidventuro Spanish module failed',error));

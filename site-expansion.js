@@ -56,6 +56,8 @@
   };
 
   const extraMap=Object.fromEntries(extras.map(([name,flag,enDesc,bgDesc,enMissions,bgMissions])=>[name,{flag,enDesc,bgDesc,enMissions,bgMissions}]));
+  // app.js renders the preview from its own destinationData map and falls back to Rome for unknown names.
+  try{if(typeof destinationData==='object')extras.forEach(([name,,,,enMissions])=>{destinationData[name]={...(destinationData[name]||{}),missions:enMissions};});}catch{}
 
   function addDestinations(){
     const select=document.getElementById('destination');

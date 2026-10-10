@@ -7,6 +7,8 @@
   const map=Object.fromEntries(rows.map(r=>[r[0],r]));
   const isEs=()=>document.documentElement.lang==='es';
   const isBg=()=>document.documentElement.lang==='bg';
+  // app.js renders the preview from its own destinationData map and falls back to Rome for unknown names.
+  try{if(typeof destinationData==='object')rows.forEach(r=>{destinationData[r[0]]={...(destinationData[r[0]]||{}),missions:r[4]};});}catch{}
   function add(){
     const select=document.getElementById('destination');
     if(select){
