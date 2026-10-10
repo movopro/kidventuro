@@ -48,7 +48,7 @@ jobs:
           }
           const sitemap=fs.readFileSync('sitemap.xml','utf8');
           const urls=(sitemap.match(/<loc>/g)||[]).length;
-          if(urls!==107+guides*2+4) throw new Error(`Expected ${107+guides*2+4} sitemap URLs, found ${urls}`);
+          if(urls!==107+guides*2+6) throw new Error(`Expected ${107+guides*2+6} sitemap URLs, found ${urls}`);
           console.log('Supported SEO output is consistent.');
           NODE
 

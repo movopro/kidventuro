@@ -167,6 +167,7 @@ const UI = {
     q1: g => `Is ${g.name} good for young children?`, q2: g => `Can you use a stroller in ${g.name}?`, q3: g => `How much does a family day in ${g.name} cost?`, q4: g => `When is the best time to visit ${g.name} with kids?`,
     related: 'More family destinations', packing: 'Packing for this trip? Use the age-smart packing list', packingHref: '/packing-list.html',
     month: 'Best destinations for kids this month', monthHref: '/best-family-destinations-this-month.html',
+    journal: 'Print a travel journal for the trip', journalHref: '/travel-journal.html',
     privacy: 'Privacy', terms: 'Terms', refunds: 'Refunds & delivery', crumbs: 'Breadcrumb', figAlt: g => `Illustrated postcard of ${g.name}`
   },
   es: {
@@ -189,6 +190,7 @@ const UI = {
     q1: g => `¿Es ${g.nameEs} un buen destino para niños pequeños?`, q2: g => `¿Se puede usar carrito en ${g.nameEs}?`, q3: g => `¿Cuánto cuesta un día en familia en ${g.nameEs}?`, q4: g => `¿Cuál es la mejor época para visitar ${g.nameEs} con niños?`,
     related: 'Más destinos para familias', packing: '¿Preparando la maleta? Usa la lista de equipaje por edades', packingHref: '/es/lista-de-equipaje.html',
     month: 'Mejores destinos para niños este mes', monthHref: '/es/mejores-destinos-familiares-este-mes.html',
+    journal: 'Imprime un diario para el viaje', journalHref: '/es/diario-de-viaje.html',
     privacy: 'Privacidad', terms: 'Términos', refunds: 'Reembolsos', crumbs: 'Ruta de navegación', figAlt: g => `Postal ilustrada de ${g.nameEs}`
   }
 };
@@ -320,7 +322,7 @@ function guidePage(g, lang) {
       <section>
         <h2>${t.related}</h2>
         <div class="seo-dests">${related(g, lang)}</div>
-        <p class="guide-links"><a href="${t.packingHref}">${t.packing}</a> · <a href="${t.monthHref}">${t.month}</a></p>
+        <p class="guide-links"><a href="${t.packingHref}">${t.packing}</a> · <a href="${t.monthHref}">${t.month}</a> · <a href="${t.journalHref}">${t.journal}</a></p>
       </section>
     </main>
     <footer class="seo-foot">© Kidventuro · <a href="/privacy.html">${t.privacy}</a> · <a href="/terms.html">${t.terms}</a> · <a href="/refunds.html">${t.refunds}</a></footer>
@@ -431,7 +433,8 @@ await write('destinations/guide-index.json', JSON.stringify(guides.map(g => ({
   const extra = [
     ...guides.flatMap(g => [urlFor(g, 'en'), urlFor(g, 'es')]),
     `${SITE}/packing-list.html`, `${SITE}/es/lista-de-equipaje.html`,
-    `${SITE}/best-family-destinations-this-month.html`, `${SITE}/es/mejores-destinos-familiares-este-mes.html`
+    `${SITE}/best-family-destinations-this-month.html`, `${SITE}/es/mejores-destinos-familiares-este-mes.html`,
+    `${SITE}/travel-journal.html`, `${SITE}/es/diario-de-viaje.html`
   ];
   let sm = await read('sitemap.xml');
   sm = replaceBlock(sm, '  <!-- guides:start -->\n', '  <!-- guides:end -->\n',
@@ -554,6 +557,35 @@ for (const lang of ['en', 'es']) {
       </section>`;
   const ld = { '@context': 'https://schema.org', '@type': 'WebApplication', name: title.replace(' | Kidventuro', ''), url: `${SITE}${pagePath}`, applicationCategory: 'TravelApplication', operatingSystem: 'Any', inLanguage: lang, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' } };
   await write(pagePath.slice(1), shell({ lang, path: pagePath, altPath, title, description, body, scripts: ['/tools/packing.js?v=' + TODAY], ld }));
+
+  // Printable travel journal.
+  const jPath = es ? '/es/diario-de-viaje.html' : '/travel-journal.html', jAlt = es ? '/travel-journal.html' : '/es/diario-de-viaje.html';
+  const jTitle = L('Printable travel journal for kids | Kidventuro', 'Diario de viaje imprimible para niños | Kidventuro');
+  const jDesc = L('Free printable travel journal for kids aged 4–12: a page for every day of the trip with weather, the best moment, new tastes, a drawing box and a trip-in-numbers page. Made in your browser.', 'Diario de viaje imprimible y gratuito para niños de 4 a 12 años: una página por día con el tiempo, el mejor momento, sabores nuevos, un recuadro para dibujar y el viaje en números. Se crea en tu navegador.');
+  const jBody = `      <nav class="crumbs" aria-label="${UI[lang].crumbs}"><a href="${UI[lang].homeHref}">${UI[lang].home}</a> · <span>${L('Travel journal', 'Diario de viaje')}</span></nav>
+      <section class="seo-hero" style="padding-bottom:0">
+        <div class="seo-kicker">${L('Free printable', 'Imprimible gratis')}</div>
+        <h1>${L('Printable travel journal for kids', 'Diario de viaje imprimible para niños')}</h1>
+        <p class="seo-lead">${L('One A4 page for every day of the trip: circle the weather, write or draw the best moment, glue in a ticket. Younger children get bigger boxes and fewer lines; older ones write more. The name you type appears only on the printed cover and is not saved.', 'Una página A4 por cada día del viaje: rodear el tiempo, escribir o dibujar el mejor momento, pegar una entrada. Los pequeños tienen recuadros más grandes y menos líneas; los mayores escriben más. El nombre solo aparece en la portada impresa y no se guarda.')}</p>
+      </section>
+      <section class="tool">
+        <form id="journalForm" novalidate>
+          <div class="tool-grid">
+            <div><label for="jdest">${L('Destination', 'Destino')}</label><select id="jdest" name="dest"><option value="">${L('Any trip', 'Cualquier viaje')}</option>${allNames.map(n => `<option>${esc(n)}</option>`).join('')}</select></div>
+            <div><label for="jdays">${L('Days', 'Días')}</label><input id="jdays" name="days" type="number" min="1" max="14" value="5" inputmode="numeric"></div>
+            <div><label for="jage">${L('Child’s age', 'Edad')}</label><select id="jage" name="age">${Array.from({ length: 9 }, (_, i) => i + 4).map(a => `<option value="${a}"${a === 7 ? ' selected' : ''}>${a}</option>`).join('')}</select></div>
+            <div><label for="jname">${L('First name for the cover (optional)', 'Nombre para la portada (opcional)')}</label><input id="jname" name="name" type="text" maxlength="24" autocomplete="off"></div>
+          </div>
+          <div class="tool-actions"><button type="submit">${L('Make the journal', 'Crear el diario')}</button></div>
+        </form>
+        <div id="journalActions" class="tool-actions no-print" hidden><button type="button" id="journalPrint">${L('Print / Save as PDF', 'Imprimir / Guardar PDF')}</button></div>
+      </section>
+      <div id="journal" class="journal" tabindex="-1"><div id="journalOut" tabindex="-1" aria-live="polite"></div></div>
+      <section class="seo-copy no-print">
+        <p>${L('Want missions, scavenger hunts and a quiz made for one destination? The personalized activity book goes with the journal.', '¿Quieres misiones, búsquedas y un cuestionario para un destino concreto? El cuaderno personalizado combina con el diario.')} <a href="${UI[lang].homeHref}#create">${L('Create an activity book', 'Crear un cuaderno')}</a> · <a href="${UI[lang].packingHref}">${UI[lang].packing}</a></p>
+      </section>`;
+  const jLd = { '@context': 'https://schema.org', '@type': 'WebApplication', name: jTitle.replace(' | Kidventuro', ''), url: `${SITE}${jPath}`, applicationCategory: 'TravelApplication', operatingSystem: 'Any', inLanguage: lang, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' } };
+  await write(jPath.slice(1), shell({ lang, path: jPath, altPath: jAlt, title: jTitle, description: jDesc, body: jBody, scripts: ['/tools/journal.js?v=' + TODAY], ld: jLd }));
 
   // Seasonal page.
   const mPath = es ? '/es/mejores-destinos-familiares-este-mes.html' : '/best-family-destinations-this-month.html';

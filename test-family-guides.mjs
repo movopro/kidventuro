@@ -26,15 +26,18 @@ for (const f of files) {
 }
 for (const [r, n] of Object.entries(regions)) assert.ok(n >= 10, `region ${r} has only ${n} guides`);
 assert.ok(winter.length >= 10, `only ${winter.length} guides are good in winter`);
-for (const page of ['packing-list.html', 'es/lista-de-equipaje.html', 'best-family-destinations-this-month.html', 'es/mejores-destinos-familiares-este-mes.html']) {
+for (const page of ['packing-list.html', 'es/lista-de-equipaje.html', 'best-family-destinations-this-month.html', 'es/mejores-destinos-familiares-este-mes.html', 'travel-journal.html', 'es/diario-de-viaje.html']) {
   const html = await readFile(new URL(`./${page}`, import.meta.url), 'utf8');
   assert.ok(html.includes('rel="canonical"') && html.includes('application/ld+json') && (html.match(/<h1[ >]/g) || []).length === 1, `${page}: SEO basics`);
 }
-const packing = await readFile(new URL('./tools/packing.js', import.meta.url), 'utf8');
-assert.equal(/fetch\(|sendBeacon|localStorage|XMLHttpRequest/.test(packing), false, 'packing list must not send or store anything');
-console.log(`Family guides passed: ${files.length} guides (${Object.entries(regions).map(([r, n]) => `${r} ${n}`).join(', ')}, ${winter.length} winter-friendly), feature pages present.`);
+// The free tools run only in the browser: nothing typed into them is sent or stored.
+for (const tool of ['packing.js', 'journal.js']) {
+  const src = await readFile(new URL(`./tools/${tool}`, import.meta.url), 'utf8');
+  assert.equal(/fetch\(|sendBeacon|localStorage|sessionStorage|XMLHttpRequest/.test(src), false, `${tool} must not send or store anything`);
+}
 // Regression: the preview card must not fall back to Rome's missions for destinations added outside app.js.
 for (const file of ['site-expansion.js', 'site-expansion-3.js']) {
   const src = await readFile(new URL(`./${file}`, import.meta.url), 'utf8');
   assert.ok(/destinationData\[name\]=|destinationData\[r\[0\]\]=/.test(src), `${file} must register its missions in app.js destinationData`);
 }
+console.log(`Family guides passed: ${files.length} guides (${Object.entries(regions).map(([r, n]) => `${r} ${n}`).join(', ')}, ${winter.length} winter-friendly), feature pages present.`);
