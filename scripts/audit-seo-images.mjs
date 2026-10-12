@@ -76,6 +76,40 @@ export function parseSitemap(xml) {
 
 const decode = s => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
+// Merchant-listing rules: every Product needs an absolute same-domain image that exists, and each offer states shipping
+// (digital, nothing shipped) and a return policy, otherwise Search Console marks the item invalid or warns.
+export function checkProducts(file, roots, err, exists, localFor) {
+  const visit = (n) => {
+    if (Array.isArray(n)) return n.forEach(visit);
+    if (!n || typeof n !== 'object') return;
+    if (n['@type'] === 'Product') {
+      const imgs = [n.image].flat().filter(Boolean).map(v => (typeof v === 'string' ? v : v.url));
+      if (!imgs.length) err(file, `Product "${n.name}" has no image (invalid merchant listing)`);
+      for (const u of imgs) {
+        if (!u || !u.startsWith(`${SITE}/`)) err(file, `Product "${n.name}" image must be an absolute kidventuro.com URL: ${u}`);
+        else if (!exists(localFor(u))) err(file, `Product "${n.name}" image does not exist: ${u}`);
+      }
+      const offers = [n.offers].flat().filter(Boolean);
+      if (!offers.length) err(file, `Product "${n.name}" has no offers`);
+      for (const o of offers) {
+        if (!o.shippingDetails) err(file, `Product "${n.name}" offer lacks shippingDetails`);
+        if (!o.hasMerchantReturnPolicy) err(file, `Product "${n.name}" offer lacks hasMerchantReturnPolicy`);
+      }
+    }
+    Object.values(n).forEach(visit);
+  };
+  roots.forEach(visit);
+}
+
+// launch-polish.js injects the pricing Product list at run time (Google renders it). Evaluate just that expression.
+export function injectedLd(js) {
+  const a = js.indexOf("const SITE='https://kidventuro.com';");
+  const b = js.indexOf("const jsonLd=document.createElement('script');");
+  const c = js.indexOf('JSON.stringify(', b), d = js.indexOf(');\n    document.head.appendChild(jsonLd)', c);
+  if (b < 0 || c < 0 || d < 0) return null;
+  return new Function(`${a >= 0 ? js.slice(a, b) : ''}return ${js.slice(c + 'JSON.stringify('.length, d)};`)();
+}
+
 export async function auditSite(root) {
   const errors = [], warnings = [], info = { externalImageHosts: new Set(), pages: 0, indexable: 0, images: 0, sitemapUrls: 0, sitemapImages: 0 };
   const err = (f, msg) => errors.push(`${f}: ${msg}`);
@@ -194,6 +228,7 @@ export async function auditSite(root) {
         Object.values(n).forEach(walkLd);
       };
       nodes.forEach(walkLd);
+      checkProducts(file, nodes, err, exists, localFor);
       const types = nodes.map(n => n['@type']);
       // A page that shows a guide illustration must declare it as an ImageObject; guides must carry the destination schema.
       if (/\/destinations\/|\/destinos\//.test(urlPath) && page.indexable && /<figure class="guide-art"/.test(html)) {
@@ -203,6 +238,17 @@ export async function auditSite(root) {
       }
     }
     imageUrlsByPage.set(urlPath, pageImages);
+  }
+
+  // ---- run-time JSON-LD from launch-polish.js
+  if (exists('launch-polish.js')) {
+    const js = (await readFile(path.join(root, 'launch-polish.js'), 'utf8')).replace(/\r\n/g, '\n');
+    if (js.includes('application/ld+json')) {
+      let ld = null;
+      try { ld = injectedLd(js); } catch (e) { err('launch-polish.js', `injected JSON-LD cannot be evaluated: ${e.message}`); }
+      if (ld) checkProducts('launch-polish.js', [ld], err, exists, localFor);
+      else if (!errors.some(e => e.startsWith('launch-polish.js'))) err('launch-polish.js', 'injected JSON-LD not found by the audit');
+    }
   }
 
   // ---- hreflang reciprocity (indexable pages only)

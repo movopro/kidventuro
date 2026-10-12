@@ -36,6 +36,13 @@ const clean = () => ({
   'sitemap.xml': goodSitemap,
   'robots.txt': `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`
 });
+const OFFER = '{"@type":"Offer","price":"5.90","shippingDetails":{"@type":"OfferShippingDetails"},"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy"}}';
+const productPage = (image, offer) => head('/rome.html').replace('{"@context":"https://schema.org","@type":"WebPage","name":"t"}',
+  JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: 'P', ...(image ? { image } : {}), offers: '__O__' }).replace('"__O__"', offer)) + '<body></body></html>';
+// Same shape as the Product list launch-polish.js injects at run time.
+const INJECTED = `(()=>{ const jsonLd=document.createElement('script');
+    jsonLd.type='application/ld+json'; jsonLd.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',itemListElement:[{'@type':'ListItem',position:1,item:{'@type':'Product',name:'N',image:SITE+'/assets/og-kidventuro.png',offers:${OFFER}}}]});
+    document.head.appendChild(jsonLd);`;
 async function audit(mutate) {
   const files = clean(); mutate(files);
   const dir = await mkdtemp(path.join(tmpdir(), 'kv-seo-'));
@@ -51,6 +58,7 @@ async function audit(mutate) {
 const page = (img) => f => { f['rome.html'] = `${head('/rome.html')}<body><main>${img}</main></body></html>`; };
 
 assert.deepEqual(await audit(() => {}), [], 'the clean fixture must pass');
+assert.deepEqual(await audit(f => { f['rome.html'] = productPage(`${SITE}/assets/og-kidventuro.png`, OFFER); }), [], 'a complete Product must pass');
 const cases = [
   ['missing alt', page(IMG.replace(/ alt="[^"]*"/, '')), /no alt attribute/],
   ['empty alt', page(IMG.replace(/alt="[^"]*"/, 'alt=""')), /empty alt/],
@@ -79,6 +87,11 @@ const cases = [
   ['indexable page missing from the sitemap', f => { f['sitemap.xml'] = goodSitemap.replace(/<url><loc>[^<]*\/<\/loc><\/url>/, ''); }, /not in the sitemap/],
   ['image blocked by robots.txt', f => { f['robots.txt'] += 'Disallow: /assets/\nAllow: /assets/og-kidventuro.png\n'; }, /image blocked by robots/],
   ['page blocked by robots.txt', f => { f['robots.txt'] += 'Disallow: /rome.html\n'; }, /blocked by robots/],
+  ['Product without image', f => { f['rome.html'] = productPage(null, OFFER); }, /Product "P" has no image/],
+  ['Product image on another host', f => { f['rome.html'] = productPage('https://cdn.example.com/p.png', OFFER); }, /image must be an absolute kidventuro\.com URL/],
+  ['Product image file missing', f => { f['rome.html'] = productPage(`${SITE}/assets/gone.png`, OFFER); }, /image does not exist/],
+  ['Product offer without shipping/return policy', f => { f['rome.html'] = productPage(`${SITE}/assets/og-kidventuro.png`, '{"@type":"Offer","price":"5.90"}'); }, /lacks shippingDetails/],
+  ['injected Product list without image', f => { f['launch-polish.js'] = INJECTED.replace("image:SITE+'/assets/og-kidventuro.png',", ''); }, /Product "N" has no image/],
   ['404 page missing', f => { f['404.html'] = null; }, /404\.html: missing/],
   ['404 page indexable', f => { f['404.html'] = `${head('/404.html')}<body></body></html>`; }, /must be noindex/]
 ];

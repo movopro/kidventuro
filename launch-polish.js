@@ -223,6 +223,16 @@
   }
 
   if(mode==='live'&&allCheckoutUrls&&!document.getElementById('kidventuroStructuredData')){
+    // Product items need an image; offers state the digital delivery (no physical shipping) and point to the refund policy
+    // page, which says refunds follow consumer law and the merchant of record (no fixed return window is stated there).
+    const SITE='https://kidventuro.com';
+    const offer=price=>({
+      '@type':'Offer',priceCurrency:'EUR',price,url:SITE+'/#pricing',availability:'https://schema.org/InStock',
+      shippingDetails:{'@type':'OfferShippingDetails',shippingRate:{'@type':'MonetaryAmount',value:'0',currency:'EUR'},
+        deliveryTime:{'@type':'ShippingDeliveryTime',handlingTime:{'@type':'QuantitativeValue',minValue:0,maxValue:0,unitCode:'DAY'},transitTime:{'@type':'QuantitativeValue',minValue:0,maxValue:0,unitCode:'DAY'}}},
+      hasMerchantReturnPolicy:{'@type':'MerchantReturnPolicy',returnPolicyCategory:'https://schema.org/MerchantReturnUnspecified',url:SITE+'/refunds.html'}
+    });
+    const product=(position,name,description,price)=>({'@type':'ListItem',position,item:{'@type':'Product',name,image:SITE+'/assets/og-kidventuro.png',brand:{'@type':'Brand',name:'Kidventuro'},description,offers:offer(price)}});
     const jsonLd=document.createElement('script');
     jsonLd.id='kidventuroStructuredData';
     jsonLd.type='application/ld+json';
@@ -231,9 +241,9 @@
       '@type':'ItemList',
       name:'Kidventuro personalized printable travel adventures',
       itemListElement:[
-        { '@type':'ListItem', position:1, item:{ '@type':'Product', name:'Kidventuro Mini', brand:{'@type':'Brand',name:'Kidventuro'}, description:'10-page personalized printable travel activity pack for ages 4–12.', offers:{'@type':'Offer',priceCurrency:'EUR',price:'5.90',url:'https://kidventuro.com/#pricing',availability:'https://schema.org/InStock'} } },
-        { '@type':'ListItem', position:2, item:{ '@type':'Product', name:'Kidventuro Adventure', brand:{'@type':'Brand',name:'Kidventuro'}, description:'25–28-page personalized printable travel adventure for ages 4–12.', offers:{'@type':'Offer',priceCurrency:'EUR',price:'9.90',url:'https://kidventuro.com/#pricing',availability:'https://schema.org/InStock'} } },
-        { '@type':'ListItem', position:3, item:{ '@type':'Product', name:'Kidventuro Family', brand:{'@type':'Brand',name:'Kidventuro'}, description:'Personalized printable family travel adventure for up to three children.', offers:{'@type':'Offer',priceCurrency:'EUR',price:'14.90',url:'https://kidventuro.com/#pricing',availability:'https://schema.org/InStock'} } }
+        product(1,'Kidventuro Mini','10-page personalized printable travel activity pack for ages 4–12.','5.90'),
+        product(2,'Kidventuro Adventure','25–28-page personalized printable travel adventure for ages 4–12.','9.90'),
+        product(3,'Kidventuro Family','Personalized printable family travel adventure for up to three children.','14.90')
       ]
     });
     document.head.appendChild(jsonLd);
