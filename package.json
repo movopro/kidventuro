@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "generate-seo": "node scripts/generate-supported-destination-pages.mjs",
+    "audit-seo": "node scripts/audit-seo-images.mjs",
     "deploy": "npm --prefix worker install --no-audit --no-fund && npm --prefix worker run deploy",
     "check-worker": "npm --prefix worker install --no-audit --no-fund && npm --prefix worker run check"
   }

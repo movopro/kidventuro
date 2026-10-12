@@ -17,7 +17,7 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://kidventuro.com';
 // Content date for lastmod/dateModified. Bump it when guide content changes, so regeneration stays byte-identical.
-const TODAY = '2026-10-10';
+const TODAY = '2026-10-12';
 // Cache key for guide.css and tools/guide-print.js: bump when either changes.
 const CSS_V = '20261010-2';
 const guideDir = path.join(root, 'destinations', 'guides');
@@ -202,6 +202,8 @@ const UI = {
     privacy: 'Privacidad', terms: 'Términos', refunds: 'Reembolsos', crumbs: 'Ruta de navegación', figAlt: g => `Postal ilustrada de ${g.nameEs}`
   }
 };
+// Alt text of the shared 1200x630 social card (assets/og-kidventuro.png) per page language.
+const OG_ALT = { en: 'Kidventuro printable travel adventures for kids', es: 'Kidventuro, aventuras de viaje imprimibles y personalizadas para niños' };
 const urlFor = (g, lang) => lang === 'es' ? `${SITE}/es/destinos/${g.slug}.html` : `${SITE}/destinations/${g.slug}.html`;
 
 function related(g, lang) {
@@ -227,7 +229,7 @@ function guidePage(g, lang) {
     '@graph': [
       { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: lang, dateModified: TODAY,
         isPartOf: { '@type': 'WebSite', name: 'Kidventuro', url: `${SITE}/` }, breadcrumb: { '@id': `${canonical}#breadcrumb` },
-        primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}/assets/destinations/${g.slug}.svg` }, about: { '@id': `${canonical}#destination` } },
+        primaryImageOfPage: { '@type': 'ImageObject', '@id': `${canonical}#image`, url: `${SITE}/assets/destinations/${g.slug}.svg`, contentUrl: `${SITE}/assets/destinations/${g.slug}.svg`, encodingFormat: 'image/svg+xml', width: 1200, height: 675, caption: t.figAlt(g), inLanguage: lang }, about: { '@id': `${canonical}#destination` } },
       { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`, itemListElement: [
         { '@type': 'ListItem', position: 1, name: t.home, item: `${SITE}${t.homeHref}` },
         { '@type': 'ListItem', position: 2, name: t.hub, item: `${SITE}${t.hubHref}` },
@@ -258,7 +260,9 @@ function guidePage(g, lang) {
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${SITE}/assets/og-kidventuro.png">
-  <meta property="og:image:alt" content="Kidventuro printable travel adventures for kids">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${esc(OG_ALT[lang])}">
   <meta property="og:url" content="${canonical}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="${SITE}/assets/og-kidventuro.png">
@@ -455,7 +459,13 @@ await write('destinations/guide-index.json', JSON.stringify(guides.map(g => ({
   ];
   let sm = await read('sitemap.xml');
   sm = replaceBlock(sm, '  <!-- guides:start -->\n', '  <!-- guides:end -->\n',
-    extra.map(u => `  <url><loc>${u}</loc><lastmod>${TODAY}</lastmod></url>\n`).join(''), '</urlset>');
+    extra.map(u => {
+      const g = guides.find(x => urlFor(x, 'en') === u || urlFor(x, 'es') === u);
+      const img = g ? `<image:image><image:loc>${SITE}/assets/destinations/${g.slug}.svg</image:loc></image:image>` : '';
+      return `  <url><loc>${u}</loc><lastmod>${TODAY}</lastmod>${img}</url>\n`;
+    }).join(''), '</urlset>');
+  // The legacy generator writes a plain <urlset>; the image sitemap extension needs its namespace.
+  sm = sm.replace(/<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"[^>]*>/, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">');
   await write('sitemap.xml', sm);
 }
 
@@ -506,6 +516,9 @@ function shell({ lang, path: pagePath, altPath, title, description, body, script
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${SITE}/assets/og-kidventuro.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${esc(OG_ALT[lang])}">
   <meta property="og:url" content="${SITE}${pagePath}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="${SITE}/assets/og-kidventuro.png">

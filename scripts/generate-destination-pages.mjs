@@ -214,7 +214,11 @@ const urls = [
   'https://kidventuro.com/terms.html',
   'https://kidventuro.com/refunds.html'
 ];
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url => `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')}\n</urlset>\n`;
+// The two home pages carry the shared brand card as an image entry (image sitemap extension, same-domain URLs only).
+const homeImage = 'https://kidventuro.com/assets/og-kidventuro.png';
+const imageEntry = url => (url === 'https://kidventuro.com/' || url === 'https://kidventuro.com/es/'
+  ? `<image:image><image:loc>${homeImage}</image:loc></image:image>` : '');
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.map(url => `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod>${imageEntry(url)}</url>`).join('\n')}\n</urlset>\n`;
 await writeFile(path.join(root, 'sitemap.xml'), sitemap);
 
 console.log(`Generated ${Object.keys(destinations).length * 2} destination pages and ${urls.length} sitemap URLs.`);
