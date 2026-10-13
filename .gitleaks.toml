@@ -1,0 +1,9 @@
+# gitleaks: default rules plus one reviewed allowance.
+# "slotKey" values in social-autopilot status/claim files are slot names such as 2026-10-13-afternoon, not secrets.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "social-autopilot slot names"
+regexTarget = "line"
+regexes = ['''"slotKey":\s*"[A-Za-z0-9:_\-]+"''']

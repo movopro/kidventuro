@@ -7,3 +7,11 @@ scripts/submit-indexnow.mjs:generic-api-key:3
 # Test fixtures ("test-secret"/"live-secret" literals), not real secrets.
 worker/test-webhook.mjs:generic-api-key:12
 worker/test-webhook.mjs:generic-api-key:13
+b89ffddf1fcdcd5b93fab29588fcac014ac942d6:scripts/submit-indexnow.mjs:generic-api-key:3
+b567ab63e79c364e687e19d5de26c4bacd9aa9a8:scripts/submit-indexnow.mjs:generic-api-key:3
+e5eff32a9539d6822ea38846f33ca0f9f974c6c9:analytics.js:generic-api-key:3
+2a588d2093059981706cba6ac79328357fcc82b4:test-launch.mjs:generic-api-key:50
+ea1390a95cb247039d68d2e4fa5735888191454c:worker/test-webhook.mjs:generic-api-key:12
+ea1390a95cb247039d68d2e4fa5735888191454c:worker/test-webhook.mjs:generic-api-key:13
+09fe2f00e5b0787c1bf411bef881d52b247fc748:worker/test-webhook.mjs:generic-api-key:12
+6af5e2ac6a29434e07e4485ba29296b233d24e0f:worker/test-webhook.mjs:generic-api-key:11
