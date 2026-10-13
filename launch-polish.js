@@ -144,7 +144,7 @@
       'Personalized travel activities that keep kids busy on the journey and curious once you arrive.',
       'Персонализирани занимания, които държат децата ангажирани по пътя и любопитни, когато пристигнете.');
     setI18n('heroSample','See what\'s inside','Виж какво има вътре');
-    setI18n('trust1','50 destinations','50 дестинации');
+    setI18n('trust1','90 destinations','90 дестинации');
     setI18n('trust2','Print at home','Печат у дома');
     setI18n('trust3','Made for ages 4–12','За деца 4–12 г.');
     setI18n('trust4','One-time purchase','Еднократна покупка');
@@ -172,8 +172,8 @@
     setI18n('use4Title','Remembering the trip','След пътуването');
     setI18n('use4Text','Drawing, journal and certificate pages turn the booklet into a simple travel keepsake.','Страници за рисуване, дневник и сертификат превръщат книжката в малък спомен от пътуването.');
 
-    setI18n('destEyebrow','50 DESTINATIONS','50 ДЕСТИНАЦИИ');
-    setI18n('destTitle','50 destinations. Thousands of possible adventures.','50 дестинации. Хиляди възможни приключения.');
+    setI18n('destEyebrow','90 DESTINATIONS','90 ДЕСТИНАЦИИ');
+    setI18n('destTitle','90 destinations. Thousands of possible adventures.','90 дестинации. Хиляди възможни приключения.');
     setI18n('formNote',
       'No child account is created. Use a first name or nickname only. Personalization is stored temporarily only to create and deliver the adventure.',
       'Не се създава детски профил. Използвай само първо име или прякор. Персонализацията се пази временно само за създаване и доставка на приключението.');

@@ -120,10 +120,10 @@
     const lang=document.documentElement.lang;
     const href=lang==='es'?'/es/destinos/':'/destinations/';
     const text=lang==='bg'
-      ?'Разгледай всички 50 гидове с занимания →'
+      ?'Разгледай всички 90 гидове с занимания →'
       :lang==='es'
-        ?'Ver las 50 guías de actividades →'
-        :'Browse all 50 destination activity guides →';
+        ?'Ver las 90 guías de actividades →'
+        :'Browse all 90 destination activity guides →';
     if(link.getAttribute('href')!==href)link.setAttribute('href',href);
     if(link.textContent!==text)link.textContent=text;
     return true;

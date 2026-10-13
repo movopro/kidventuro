@@ -11,24 +11,9 @@
     else addEventListener('load',schedule,{once:true});
   };
 
-  // Keep rendered destination hubs aligned with the 50 destinations the paid generator actually supports.
+  // The destination hubs are written by scripts/build-family-guides.mjs (title, description, counts, cards); only add the hub schema.
   const hubPath=location.pathname.replace(/index\.html$/,'');
   if(hubPath==='/destinations/'||hubPath==='/es/destinos/'){
-    document.querySelectorAll('.seo-grid>.seo-card').forEach((card,index)=>{if(index>=50)card.remove();});
-    const spanish=hubPath==='/es/destinos/';
-    document.title=spanish?'50 destinos: actividades de viaje para niños | Kidventuro':'50 travel activity guides for kids | Kidventuro';
-    const desc=document.querySelector('meta[name="description"]');
-    if(desc)desc.content=spanish
-      ?'Explora 50 destinos compatibles con actividades de viaje personalizadas e imprimibles para niños de 4 a 12 años.'
-      :'Explore 50 supported family destinations with personalized printable travel activities and scavenger hunts for kids ages 4–12.';
-    const ogTitle=document.querySelector('meta[property="og:title"]');
-    if(ogTitle)ogTitle.content=document.title;
-    const ogDesc=document.querySelector('meta[property="og:description"]');
-    if(ogDesc)ogDesc.content=spanish
-      ?'Explora 50 destinos Kidventuro con actividades familiares imprimibles y misiones.'
-      :'Explore 50 Kidventuro destinations with printable family travel activities and missions.';
-    const kicker=document.querySelector('.seo-kicker');
-    if(kicker)kicker.textContent=spanish?'50 destinos compatibles':'50 supported destinations';
     if(!document.getElementById('kidventuroDestinationHubSchema')){
       const schema=document.createElement('script');
       schema.id='kidventuroDestinationHubSchema';

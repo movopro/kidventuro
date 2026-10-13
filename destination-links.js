@@ -31,10 +31,10 @@
     const lang=document.documentElement.lang;
     a.href=lang==='es'?'/es/destinos/':'/destinations/';
     a.textContent=lang==='bg'
-      ?'Разгледай всички 50 гидове с занимания →'
+      ?'Разгледай всички 90 гидове с занимания →'
       :lang==='es'
-        ?'Ver las 50 guías de actividades →'
-        :'Browse all 50 destination activity guides →';
+        ?'Ver las 90 guías de actividades →'
+        :'Browse all 90 destination activity guides →';
   }
 
   function applyDestinationFromQuery(){

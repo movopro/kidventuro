@@ -89,8 +89,8 @@
     const bg=document.documentElement.lang==='bg';
     const eyebrow=document.querySelector('[data-i18n="destEyebrow"]');
     const title=document.querySelector('[data-i18n="destTitle"]');
-    if(eyebrow) eyebrow.textContent=bg?'50 ДЕСТИНАЦИИ':'50 DESTINATIONS';
-    if(title) title.textContent=bg?'50 дестинации. Хиляди възможни приключения.':'50 destinations. Thousands of possible adventures.';
+    if(eyebrow) eyebrow.textContent=bg?'90 ДЕСТИНАЦИИ':'90 DESTINATIONS';
+    if(title) title.textContent=bg?'90 дестинации. Хиляди възможни приключения.':'90 destinations. Thousands of possible adventures.';
   }
 
   function updateDestinationCards(){
@@ -159,5 +159,5 @@
   document.getElementById('previewForm')?.addEventListener('submit',()=>queueMicrotask(updateMissionPreview));
   document.getElementById('languageToggle')?.addEventListener('click',()=>queueMicrotask(refresh));
 
-  window.KIDVENTURO_DESTINATION_COUNT=50;
+  window.KIDVENTURO_DESTINATION_COUNT=90;
 })();

@@ -7,7 +7,7 @@
     eyebrow:'PERSONALIZADO • IMPRIMIBLE • LISTO EN MINUTOS',heroTitle:'Convierte cada viaje en una <em>aventura.</em>',
     heroSub:'Actividades de viaje personalizadas para entretener a los niños durante el trayecto y despertar su curiosidad al llegar.',
     heroCta:'Crear vista previa gratis',heroSample:'Ver qué incluye',
-    trust1:'50 destinos',trust2:'Imprime en casa',trust3:'Para edades de 4 a 12',trust4:'Pago único',
+    trust1:'90 destinos',trust2:'Imprime en casa',trust3:'Para edades de 4 a 12',trust4:'Pago único',
     heroProof:'Sin app. Sin suscripción. Guarda como PDF, imprime y llévalo en el viaje.',
     createEyebrow:'PRUÉBALO AHORA',createTitle:'Haz que su aventura sea personal.',
     createSub:'Elige el niño, el destino y el viaje. Mira la idea antes de comprar.',
@@ -26,7 +26,7 @@
     use2Title:'En las esperas',use2Text:'Algo útil para la puerta de embarque, el hotel o la mesa del restaurante.',
     use3Title:'Explorando la ciudad',use3Text:'Búsquedas y misiones de observación que hacen que los niños miren el lugar que les rodea.',
     use4Title:'Recordando el viaje',use4Text:'Dibujo, diario y certificado convierten el cuaderno en un recuerdo sencillo.',
-    destEyebrow:'50 DESTINOS',destTitle:'50 destinos. Miles de aventuras posibles.',
+    destEyebrow:'90 DESTINOS',destTitle:'90 destinos. Miles de aventuras posibles.',
     sampleEyebrow:'QUÉ INCLUYE',sampleTitle:'Menos pantalla. Más “¡lo encontré!”',
     sampleText:'Cada libro combina actividades tranquilas de viaje con misiones para observar el destino real.',
     sample1:'Bingo de viaje y búsquedas',sample2:'Puzles y retos adaptados a la edad',sample3:'Palabras locales, comida y curiosidades',
@@ -141,7 +141,7 @@
     set('modalTitle',`Mini misión de ${name} en ${destination}`);
     set('printIntro',`¡Bienvenido a ${destination}, ${name}! Mira con atención, permanece con tu adulto y reúne pistas.`);
     const guide=document.querySelector('[data-destination-guides]');
-    if(guide)guide.textContent='Explorar las 50 guías de destinos →';
+    if(guide)guide.textContent='Explorar las 90 guías de destinos →';
     localizeLaunch();
   }
 

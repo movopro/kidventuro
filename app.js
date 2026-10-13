@@ -14,7 +14,7 @@ const translations={
     step1Title:'Tell us about your explorer',step1Text:'Name, age, trip length, destination and the things they love.',
     step2Title:'We build the adventure',step2Text:'Games, missions, facts and activities adapt to age, interests, destination and trip length.',
     step3Title:'Print, pack, explore',step3Text:'Save the book as PDF and bring it on the plane, train or road trip.',
-    destEyebrow:'25 DESTINATIONS',destTitle:'25 destinations. Thousands of possible adventures.',
+    destEyebrow:'90 DESTINATIONS',destTitle:'90 destinations. Thousands of possible adventures.',
     sampleEyebrow:"WHAT'S INSIDE",sampleTitle:'Less screen time. More “I found it!”',sampleText:'Each book mixes quiet travel activities with missions that make children notice the real destination around them.',
     sample1:'Travel bingo & scavenger hunts',sample2:'Age-adapted puzzles and challenges',sample3:'Local words, food and fun facts',sample4:'Drawing, journaling and memory pages',sample5:'Personalized explorer certificate',printSample:'Print demo page',
     pricingEyebrow:'SIMPLE PRICING',pricingTitle:'One small purchase. One much better trip.',miniDesc:'A quick travel pack for the journey.',mini1:'10 printable pages',mini2:'Personalized cover',mini3:'Travel games & puzzles',
