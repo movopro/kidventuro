@@ -1,0 +1,9 @@
+# Reviewed false positives (2026-10-14, Session 11 final audit). Never allowlist a folder.
+# Cloudflare Web Analytics site token: public by design (sent by every visitor's browser).
+analytics.js:generic-api-key:3
+test-launch.mjs:generic-api-key:60
+# IndexNow key: public by design (served as /7796f6...txt).
+scripts/submit-indexnow.mjs:generic-api-key:3
+# Test fixtures ("test-secret"/"live-secret" literals), not real secrets.
+worker/test-webhook.mjs:generic-api-key:12
+worker/test-webhook.mjs:generic-api-key:13
