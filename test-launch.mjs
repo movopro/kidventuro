@@ -22,7 +22,10 @@ const scriptOrder=['runtime-config.js','analytics.js','app.js','checkout.js','la
 assert.deepEqual([...scriptOrder].sort((a,b)=>a-b),scriptOrder,'landing scripts must load runtime config and analytics before checkout logic');
 assert.ok(index.includes('launch.css'),'conversion-focused launch stylesheet must be loaded');
 
-assert.ok(index.includes('50 DESTINATIONS'),'base landing HTML must advertise all 50 destinations');
+// 50 paid legacy destinations + the family guides (destinations/guide-index.json): the count is derived, never typed in.
+const destinationTotal=50+JSON.parse(await read('./destinations/guide-index.json')).length;
+assert.ok(index.includes(destinationTotal+' DESTINATIONS'),'base landing HTML must advertise all '+destinationTotal+' destinations');
+assert.ok(index.includes('across '+destinationTotal+' destinations'),'home meta description must state the real destination count');
 assert.equal(index.includes('25 DESTINATIONS'),false,'stale 25-destination launch copy must stay removed');
 assert.equal(index.includes('MVP'),false,'customer-facing landing HTML must not contain MVP copy');
 assert.equal(refunds.includes('being tested before'),false,'refund policy must not contain pre-launch status copy');

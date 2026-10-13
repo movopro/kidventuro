@@ -3,12 +3,15 @@
 //
 //   node scripts/audit-seo-images.mjs                          audit the working tree, exit 1 on any error
 //   node scripts/audit-seo-images.mjs --live https://kidventuro.com   also fetch sitemap URLs, images and a 404 over HTTP
+//   node scripts/audit-seo-images.mjs --local                  same HTTP checks against a static server over the working tree (loopback)
 //
 // The tree is the source of truth; the generators (scripts/build-family-guides.mjs, generate-destination-pages.mjs) must
 // produce output that passes. Fix the generator, never the generated file. Used by test-seo-images.mjs (part of npm test).
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
+import { imageSize } from './image-size.mjs';
+import { createServer } from 'node:http';
 
 export const SITE = 'https://kidventuro.com';
 const SKIP_DIRS = new Set(['node_modules', 'worker', '.git', '.github']);
@@ -61,10 +64,10 @@ export function parseRobots(text) {
   return { isAllowed(p) { let best = null; for (const r of compiled) if (r.re.test(p) && (!best || r.len > best.len || (r.len === best.len && r.allow))) best = r; return !best || best.allow; } };
 }
 
-function pngSize(buf) {
-  if (buf.length < 24 || buf.readUInt32BE(0) !== 0x89504e47) return null;
-  return { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
-}
+// Social cards must stay small: a link preview that is slow to fetch is dropped by some scrapers.
+export const SOCIAL_MAX_BYTES = 150 * 1024;
+// A destination guide page (EN or ES, not a hub) must use its OWN card: /assets/social/[es/]<slug>-....{jpg,webp,png}.
+const GUIDE_PAGE = /^\/(?:destinations|es\/destinos)\/([a-z0-9-]+)\.html$/;
 
 export function parseSitemap(xml) {
   const urls = [];
@@ -111,7 +114,7 @@ export function injectedLd(js) {
 }
 
 export async function auditSite(root) {
-  const errors = [], warnings = [], info = { externalImageHosts: new Set(), pages: 0, indexable: 0, images: 0, sitemapUrls: 0, sitemapImages: 0 };
+  const errors = [], warnings = [], info = { externalImageHosts: new Set(), pages: 0, indexable: 0, images: 0, sitemapUrls: 0, sitemapImages: 0, guideCards: 0 };
   const err = (f, msg) => errors.push(`${f}: ${msg}`);
   const warn = (f, msg) => warnings.push(`${f}: ${msg}`);
   const files = await walk(root, root);
@@ -187,12 +190,22 @@ export async function auditSite(root) {
         const local = localFor(u);
         if (!exists(local)) { err(file, `social image does not exist: ${u}`); continue; }
         if (!robots.isAllowed(`/${local}`)) err(file, `social image blocked by robots.txt: ${u}`);
-        if (/\.png$/i.test(u)) {
-          const sz = pngSize(await readFile(path.join(root, local)));
-          if (!sz || sz.w !== 1200 || sz.h !== 630) err(file, `social image ${u} must be 1200x630 (is ${sz ? `${sz.w}x${sz.h}` : 'not a PNG'})`);
-        } else err(file, `social image should be PNG or JPEG: ${u}`);
+        if (/\.(png|jpe?g|webp)$/i.test(u)) {
+          const bytes = await readFile(path.join(root, local));
+          const sz = imageSize(bytes);
+          if (!sz || sz.w !== 1200 || sz.h !== 630) err(file, `social image ${u} must be 1200x630 (is ${sz ? `${sz.w}x${sz.h}` : 'not a PNG, JPEG or WebP'})`);
+          if (local.startsWith('assets/social/') && bytes.length > SOCIAL_MAX_BYTES) err(file, `social card ${u} is ${bytes.length} bytes (budget ${SOCIAL_MAX_BYTES})`);
+        } else err(file, `social image should be PNG, JPEG or WebP: ${u}`);
       }
       if (og[0] && metaContent(html, 'property', 'og:image:alt').length !== 1) err(file, 'missing og:image:alt');
+      // Destination guides: the social image is the page's own card, identical in og:image and twitter:image.
+      const guide = urlPath.match(GUIDE_PAGE);
+      if (guide && og[0]) {
+        const own = new RegExp(`^${SITE}/assets/social/${lang === 'es' ? 'es/' : ''}${guide[1]}-[a-z-]+\\.(jpg|jpeg|webp|png)$`);
+        if (!own.test(og[0])) err(file, `destination guide must use its own social card (assets/social/${lang === 'es' ? 'es/' : ''}${guide[1]}-*), not ${og[0]}`);
+        if (tw[0] !== og[0]) err(file, 'twitter:image must equal og:image on a destination guide');
+        info.guideCards += 1;
+      }
       if (og[0]) pageImages.add(og[0]);
       if (!lang) err(file, 'missing <html lang>');
       if (!/max-image-preview:large/.test(page.robotsMeta)) err(file, 'robots meta lacks max-image-preview:large (large image previews in Search and Discover)');
@@ -312,6 +325,24 @@ export async function auditSite(root) {
 }
 
 // Live checks: sitemap URLs 200 without redirects, images 200 with an image type, unknown path 404.
+// Minimal static server over the working tree on 127.0.0.1 (GitHub Pages semantics: /dir/ -> dir/index.html, 404.html for misses).
+export async function serveTree(root) {
+  const types = { '.html': 'text/html', '.xml': 'application/xml', '.txt': 'text/plain', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json' };
+  const server = createServer(async (req, res) => {
+    let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+    if (p.endsWith('/')) p += 'index.html';
+    const file = path.join(root, p);
+    let status = 200, body;
+    if (!file.startsWith(root) || p.split('/').some(s => s.startsWith('.'))) { status = 404; }
+    else { try { body = await readFile(file); } catch { try { body = await readFile(path.join(file, 'index.html')); } catch { status = 404; } } }
+    if (status === 404) { body = await readFile(path.join(root, '404.html')).catch(() => Buffer.from('not found')); res.writeHead(404, { 'content-type': 'text/html' }); return res.end(body); }
+    res.writeHead(200, { 'content-type': types[path.extname(file)] || (path.extname(p) ? 'application/octet-stream' : 'text/html') });
+    res.end(body);
+  });
+  await new Promise(r => server.listen(0, '127.0.0.1', r));
+  return { server, base: `http://127.0.0.1:${server.address().port}` };
+}
+
 export async function auditLive(base, root) {
   const errors = [];
   const get = async (u, method = 'GET') => fetch(u, { method, redirect: 'manual', headers: { 'user-agent': 'kidventuro-seo-audit' } });
@@ -324,6 +355,32 @@ export async function auditLive(base, root) {
   };
   const queue = [...entries.map(e => [e.loc, r => (r.status !== 200 ? `HTTP ${r.status}` : /noindex/i.test(r.headers.get('x-robots-tag') || '') ? 'x-robots-tag noindex' : null)]),
     ...[...imgs, `${SITE}/assets/og-kidventuro.png`].map(u => [u, r => (r.status !== 200 ? `HTTP ${r.status}` : !/^image\//.test(r.headers.get('content-type') || '') ? `content-type ${r.headers.get('content-type')}` : null)])];
+  // Every page's og:image: served 200 as an image, exactly 1200x630, within the card budget (read from the response bytes).
+  const ogImages = new Set();
+  for (let i = 0; i < entries.length; i += 12) {
+    await Promise.all(entries.slice(i, i + 12).map(async e => {
+      try {
+        const html = await (await get(e.loc.replace(SITE, base))).text();
+        const og = html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]*)"/i)?.[1];
+        if (!og) errors.push(`${e.loc}: no og:image`); else ogImages.add(og);
+      } catch (x) { errors.push(`${e.loc}: ${x.message}`); }
+    }));
+  }
+  const ogList = [...ogImages];
+  for (let i = 0; i < ogList.length; i += 12) {
+    await Promise.all(ogList.slice(i, i + 12).map(async u => {
+      try {
+        const r = await get(u.replace(SITE, base));
+        const buf = Buffer.from(await r.arrayBuffer());
+        const sz = imageSize(buf);
+        if (r.status !== 200) errors.push(`${u}: og:image HTTP ${r.status}`);
+        else if (!/^image\//.test(r.headers.get('content-type') || '')) errors.push(`${u}: og:image content-type ${r.headers.get('content-type')}`);
+        else if (!sz || sz.w !== 1200 || sz.h !== 630) errors.push(`${u}: og:image is ${sz ? `${sz.w}x${sz.h}` : 'not an image'}, expected 1200x630`);
+        else if (u.includes('/assets/social/') && buf.length > SOCIAL_MAX_BYTES) errors.push(`${u}: og:image is ${buf.length} bytes (budget ${SOCIAL_MAX_BYTES})`);
+      } catch (x) { errors.push(`${u}: ${x.message}`); }
+    }));
+  }
+  queue.push(...ogList.map(u => [u, () => null]));
   for (let i = 0; i < queue.length; i += 12) await Promise.all(queue.slice(i, i + 12).map(([u, c]) => probe(u.replace(SITE, base), c)));
   await probe(`${base}/this-page-does-not-exist-${Date.now()}`, r => (r.status === 404 ? null : `expected 404, got ${r.status}`));
   return { errors, checked: queue.length + 1 };
@@ -332,14 +389,18 @@ export async function auditLive(base, root) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   const { errors, warnings, info } = await auditSite(root);
-  console.log(`pages ${info.pages}, indexable ${info.indexable}, <img> ${info.images}, sitemap URLs ${info.sitemapUrls}, sitemap images ${info.sitemapImages}, external image hosts: ${info.externalImageHosts.join(', ') || 'none'}`);
+  console.log(`pages ${info.pages}, indexable ${info.indexable}, <img> ${info.images}, sitemap URLs ${info.sitemapUrls}, sitemap images ${info.sitemapImages}, guide pages with their own card ${info.guideCards}, external image hosts: ${info.externalImageHosts.join(', ') || 'none'}`);
   for (const w of warnings) console.log(`warn  ${w}`);
   for (const e of errors.slice(0, 60)) console.log(`ERROR ${e}`);
   if (errors.length > 60) console.log(`... ${errors.length - 60} more`);
   let liveErrors = 0;
   const li = process.argv.indexOf('--live');
-  if (li > 0) {
-    const live = await auditLive(process.argv[li + 1] || SITE, root);
+  const local = process.argv.includes('--local');
+  if (li > 0 || local) {
+    let server = null, base = process.argv[li + 1] || SITE;
+    if (local) { ({ server, base } = await serveTree(root)); }
+    const live = await auditLive(base, root);
+    server?.close();
     liveErrors = live.errors.length;
     live.errors.slice(0, 40).forEach(e => console.log(`LIVE ERROR ${e}`));
     console.log(`live: ${live.checked} URLs checked, ${live.errors.length} problems`);

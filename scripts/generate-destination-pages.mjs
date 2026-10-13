@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { cardUrl, cardAlt } from './social-cards/cards-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = await readFile(path.join(root, 'destinations', 'destination-data.js'), 'utf8');
@@ -102,6 +103,8 @@ function page({ slug, data, language }) {
   const ctaHref = isSpanish
     ? `/?lang=es&destination=${encodeURIComponent(city)}#create`
     : `/?destination=${encodeURIComponent(city)}#create`;
+  const card = cardUrl(slug, language);
+  const cardAltText = cardAlt(city, language);
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -113,7 +116,9 @@ function page({ slug, data, language }) {
         description,
         inLanguage: language,
         isPartOf: { '@type': 'WebSite', name: 'Kidventuro', url: 'https://kidventuro.com/' },
-        breadcrumb: { '@id': `${canonical}#breadcrumb` }
+        breadcrumb: { '@id': `${canonical}#breadcrumb` },
+        image: { '@id': `${canonical}#image` },
+        primaryImageOfPage: { '@type': 'ImageObject', '@id': `${canonical}#image`, url: card, contentUrl: card, encodingFormat: 'image/jpeg', width: 1200, height: 630, caption: cardAltText, inLanguage: language }
       },
       {
         '@type': 'BreadcrumbList',
@@ -145,7 +150,14 @@ function page({ slug, data, language }) {
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${card}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${escapeHtml(cardAltText)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${card}">
+  <meta name="twitter:image:alt" content="${escapeHtml(cardAltText)}">
   <script type="application/ld+json">${jsonLd(structuredData)}</script>
   <link rel="stylesheet" href="/destinations/seo.css">
 </head>
@@ -216,8 +228,12 @@ const urls = [
 ];
 // The two home pages carry the shared brand card as an image entry (image sitemap extension, same-domain URLs only).
 const homeImage = 'https://kidventuro.com/assets/og-kidventuro.png';
-const imageEntry = url => (url === 'https://kidventuro.com/' || url === 'https://kidventuro.com/es/'
-  ? `<image:image><image:loc>${homeImage}</image:loc></image:image>` : '');
+// Each destination page lists its own social card (assets/social, see scripts/social-cards).
+const imageEntry = url => {
+  if (url === 'https://kidventuro.com/' || url === 'https://kidventuro.com/es/') return `<image:image><image:loc>${homeImage}</image:loc></image:image>`;
+  const m = url.match(/^https:\/\/kidventuro\.com\/(es\/destinos|destinations)\/([a-z0-9-]+)\.html$/);
+  return m ? `<image:image><image:loc>${cardUrl(m[2], m[1] === 'destinations' ? 'en' : 'es')}</image:loc></image:image>` : '';
+};
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.map(url => `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod>${imageEntry(url)}</url>`).join('\n')}\n</urlset>\n`;
 await writeFile(path.join(root, 'sitemap.xml'), sitemap);
 

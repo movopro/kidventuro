@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {LEGACY_SLUGS} from './scripts/social-cards/cards-lib.mjs';
 import {readFile,readdir} from 'node:fs/promises';
 
 const read=path=>readFile(new URL(path,import.meta.url),'utf8');
@@ -36,8 +37,11 @@ for(const slug of expected){
   assert.ok(sitemap.includes(`https://kidventuro.com/es/destinos/${slug}.html`),`Spanish sitemap URL missing: ${slug}`);
   assert.ok(robots.includes(`Allow: /destinations/${slug}.html`),`robots allow missing for English destination: ${slug}`);
   assert.ok(robots.includes(`Allow: /es/destinos/${slug}.html`),`robots allow missing for Spanish destination: ${slug}`);
-  assert.ok(safeGenerator.includes(`'${slug}'`),`safe SEO generator missing supported slug: ${slug}`);
+  assert.ok(LEGACY_SLUGS.includes(slug),`safe SEO generator missing supported slug: ${slug}`);
 }
+// The safe generator takes its list of the 50 paid legacy destinations from scripts/social-cards/cards-lib.mjs (same order).
+assert.deepEqual(LEGACY_SLUGS,expected,'LEGACY_SLUGS must be the 50 supported destinations in generator order');
+assert.ok(safeGenerator.includes('supported=LEGACY_SLUGS'),'safe SEO generator must use LEGACY_SLUGS');
 
 // Family guides (destinations/guides/*.json) are paid-product destinations too; the hubs list them in a marked block.
 const guideSlugs=JSON.parse(await read('./destinations/guide-index.json')).map(g=>g.slug).sort();

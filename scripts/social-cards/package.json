@@ -1,0 +1,11 @@
+{
+  "name": "kidventuro-social-cards",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Renders the 1200x630 social cards (assets/social). Dev-time only: the rendered JPEGs are committed, CI never installs this.",
+  "type": "module",
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "sharp": "0.35.5"
+  }
+}

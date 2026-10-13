@@ -5,6 +5,8 @@
   "scripts": {
     "generate-seo": "node scripts/generate-supported-destination-pages.mjs",
     "audit-seo": "node scripts/audit-seo-images.mjs",
+    "social-cards": "node scripts/social-cards/render.mjs",
+    "social-cards:check": "node scripts/social-cards/render.mjs --check",
     "deploy": "npm --prefix worker install --no-audit --no-fund && npm --prefix worker run deploy",
     "check-worker": "npm --prefix worker install --no-audit --no-fund && npm --prefix worker run check"
   }

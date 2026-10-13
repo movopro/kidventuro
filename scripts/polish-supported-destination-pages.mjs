@@ -15,9 +15,6 @@ if (supported.length !== 50) {
   throw new Error(`Expected 50 supported destinations from robots.txt, found ${supported.length}`);
 }
 
-// Alt text of the shared social card, in the page language (the same strings as build-family-guides.mjs).
-const OG_ALT = { en: 'Kidventuro printable travel adventures for kids', es: 'Kidventuro, aventuras de viaje imprimibles y personalizadas para niños' };
-
 function polish(html, lang) {
   if (!html.includes('rel="canonical"') || !html.includes('application/ld+json')) {
     throw new Error('Refusing to polish a non-static destination page');
@@ -30,20 +27,8 @@ function polish(html, lang) {
     );
   }
 
-  if (!html.includes('property="og:image"')) {
-    html = html.replace(
-      '  <meta property="og:url"',
-      '  <meta property="og:image" content="https://kidventuro.com/assets/og-kidventuro.png">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta property="og:image:alt" content="' + OG_ALT[lang] + '">\n  <meta property="og:url"'
-    );
-  }
-
-  html = html.replace('  <meta name="twitter:card" content="summary">', '  <meta name="twitter:card" content="summary_large_image">');
-  if (!html.includes('name="twitter:image"')) {
-    html = html.replace(
-      '  <meta name="twitter:card" content="summary_large_image">',
-      '  <meta name="twitter:card" content="summary_large_image">\n  <meta name="twitter:image" content="https://kidventuro.com/assets/og-kidventuro.png">'
-    );
-  }
+  // og:image / twitter:image (the page's own social card) are written by generate-destination-pages.mjs.
+  if (!html.includes('property="og:image"') || !html.includes('name="twitter:image"')) throw new Error('Generated page lacks its social card tags');
 
   return html;
 }

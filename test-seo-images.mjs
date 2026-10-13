@@ -36,6 +36,15 @@ const clean = () => ({
   'sitemap.xml': goodSitemap,
   'robots.txt': `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`
 });
+// A minimal JPEG header (SOI + SOF0 with the frame size) padded to a given length: all the audit reads is size and byte count.
+const jpeg = (w, h, bytes = 4000) => { const b = Buffer.alloc(bytes); b.set([0xff, 0xd8, 0xff, 0xc0, 0x00, 0x11, 0x08], 0); b.writeUInt16BE(h, 7); b.writeUInt16BE(w, 9); return b; };
+const CARD = `${SITE}/assets/social/rome-kids-travel-guide.jpg`, CARD_ES = `${SITE}/assets/social/es/rome-guia-viaje-ninos.jpg`;
+// A destination guide (EN) with its own card, listed in the image sitemap together with the card.
+const withGuide = (f, { og = CARD, tw = og, sitemapCard = true } = {}) => {
+  f['destinations/rome.html'] = head('/destinations/rome.html', { og }).replace(`<meta name="twitter:image" content="${og}">`, `<meta name="twitter:image" content="${tw}">`) + '<body><main></main></body></html>';
+  f['assets/social/rome-kids-travel-guide.jpg'] = jpeg(1200, 630);
+  f['sitemap.xml'] = f['sitemap.xml'].replace('</urlset>', `<url><loc>${SITE}/destinations/rome.html</loc>${sitemapCard ? `<image:image><image:loc>${CARD}</image:loc></image:image>` : ''}</url></urlset>`);
+};
 const OFFER = '{"@type":"Offer","price":"5.90","shippingDetails":{"@type":"OfferShippingDetails"},"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy"}}';
 const productPage = (image, offer) => head('/rome.html').replace('{"@context":"https://schema.org","@type":"WebPage","name":"t"}',
   JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: 'P', ...(image ? { image } : {}), offers: '__O__' }).replace('"__O__"', offer)) + '<body></body></html>';
@@ -58,8 +67,15 @@ async function audit(mutate) {
 const page = (img) => f => { f['rome.html'] = `${head('/rome.html')}<body><main>${img}</main></body></html>`; };
 
 assert.deepEqual(await audit(() => {}), [], 'the clean fixture must pass');
+assert.deepEqual(await audit(f => withGuide(f)), [], 'a guide page with its own card, listed in the sitemap, must pass');
 assert.deepEqual(await audit(f => { f['rome.html'] = productPage(`${SITE}/assets/og-kidventuro.png`, OFFER); }), [], 'a complete Product must pass');
 const cases = [
+  ['guide page on the shared card', f => withGuide(f, { og: `${SITE}/assets/og-kidventuro.png` }), /must use its own social card/],
+  ['guide page on another destination\'s card', f => { withGuide(f, { og: `${SITE}/assets/social/paris-kids-travel-guide.jpg` }); f['assets/social/paris-kids-travel-guide.jpg'] = jpeg(1200, 630); }, /must use its own social card/],
+  ['guide card is not 1200x630', f => { withGuide(f); f['assets/social/rome-kids-travel-guide.jpg'] = jpeg(1200, 600); }, /must be 1200x630/],
+  ['guide card over the byte budget', f => { withGuide(f); f['assets/social/rome-kids-travel-guide.jpg'] = jpeg(1200, 630, 160 * 1024); }, /budget/],
+  ['guide card not in the image sitemap', f => withGuide(f, { sitemapCard: false }), /missing <image:image>/],
+  ['guide twitter:image differs from og:image', f => withGuide(f, { tw: `${SITE}/assets/og-kidventuro.png` }), /twitter:image must equal og:image/],
   ['missing alt', page(IMG.replace(/ alt="[^"]*"/, '')), /no alt attribute/],
   ['empty alt', page(IMG.replace(/alt="[^"]*"/, 'alt=""')), /empty alt/],
   ['missing width', page(IMG.replace(' width="1200"', '')), /numeric width and height/],
