@@ -217,6 +217,51 @@ async function aiEnrichment(env,ref,bodyExtra={}){
   assert.equal((await status(env,secondRef)).body.paid,false);
 }
 
+// Mini and Family learn their own Live variant from their first real order (paid, base price right), independently
+// of each other and of Test mode; a pending order teaches nothing; a later order with another variant never unlocks.
+{
+  const env=makeEnv();
+  const kids=[{name:'Emma',age:'5',interest:'animals'},{name:'Leo',age:'9',interest:'space'}];
+  const pendingRef='a1111111-2222-4333-8444-555555555555';
+  await registerSession(env,{ref:pendingRef,product:'mini'});
+  const pending=await sendWebhook(env,{ref:pendingRef,identifier:'mini-pending-live',dataId:'mini-pending',product:'mini',status:'pending',variantId:900001,testMode:false});
+  assert.equal(pending.body.ignored,'order_not_paid');
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:mini'),null,'a pending order must not lock the Mini variant');
+
+  const miniRef='a2222222-3333-4444-8555-666666666666';
+  await registerSession(env,{ref:miniRef,product:'mini'});
+  const mini=await sendWebhook(env,{ref:miniRef,identifier:'mini-first-live',dataId:'mini-first',product:'mini',variantId:900002,testMode:false});
+  assert.equal(mini.body.ok,true);
+  assert.equal((await status(env,miniRef)).body.paid,true);
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:mini'),'900002','the first paid Live Mini order locks its variant');
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:test:mini'),null,'a Live order must not lock the Test variant');
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:family'),null,'a Mini order must not lock Family');
+  let health=await (await worker.fetch(new Request('https://example.workers.dev/health'),env)).json();
+  assert.deepEqual(health.variant_locks.live,{mini:true,adventure:false,family:false});
+
+  const familyRef='a3333333-4444-4555-8666-777777777777';
+  await registerSession(env,{ref:familyRef,product:'family',destination:'Paris',days:'5',children:kids});
+  const family=await sendWebhook(env,{ref:familyRef,identifier:'family-first-live',dataId:'family-first',product:'family',subtotal:1490,itemPrice:1788,variantId:900003,testMode:false});
+  assert.equal(family.body.ok,true,'Family learns its own variant even though Mini is already locked');
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:family'),'900003');
+  assert.equal(await env.ENTITLEMENTS.get('variant_lock:live:mini'),'900002','a Family order must not move the Mini lock');
+
+  const otherMiniRef='a4444444-5555-4666-8777-888888888888';
+  await registerSession(env,{ref:otherMiniRef,product:'mini',name:'Sam'});
+  const wrong=await sendWebhook(env,{ref:otherMiniRef,identifier:'mini-other-variant',dataId:'mini-other',product:'mini',variantId:900004,testMode:false});
+  assert.equal(wrong.body.ignored,'unexpected_variant','another Mini variant must not unlock after the lock is learned');
+  assert.equal((await status(env,otherMiniRef)).body.paid,false);
+  const otherFamilyRef='a5555555-6666-4777-8888-999999999999';
+  await registerSession(env,{ref:otherFamilyRef,product:'family',destination:'Rome',days:'3',children:kids});
+  const familyWithMiniVariant=await sendWebhook(env,{ref:otherFamilyRef,identifier:'family-mini-variant',dataId:'family-mini-variant',product:'family',subtotal:1490,itemPrice:1788,variantId:900002,testMode:false});
+  assert.equal(familyWithMiniVariant.body.ignored,'unexpected_variant','the Mini variant must not unlock Family');
+  const again=await sendWebhook(env,{ref:otherMiniRef,identifier:'mini-other-right',dataId:'mini-other-right',product:'mini',variantId:900002,testMode:false});
+  assert.equal(again.body.ok,true,'the learned Mini variant keeps working');
+  health=await (await worker.fetch(new Request('https://example.workers.dev/health'),env)).json();
+  assert.deepEqual(health.variant_locks.live,{mini:true,adventure:false,family:true});
+  assert.deepEqual(health.variant_locks.test,{mini:false,adventure:false,family:false});
+}
+
 // Family base-price guard + 3-child fulfillment.
 {
   const env=makeEnv();
