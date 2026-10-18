@@ -15,7 +15,7 @@ const START = '<!-- kv-conversion:start -->';
 const END = '<!-- kv-conversion:end -->';
 const esc = s => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 
-const offerBar = '<div class="kv-offer-bar kv-scope" data-kv-offer hidden><span><b><span data-kv-percent></span>% off</b> your first trip pack · code <span class="kv-code" data-kv-code></span></span><span>ends in <span class="kv-countdown" data-kv-countdown></span></span></div>';
+const offerBar = '<div class="kv-offer-bar kv-scope" data-kv-offer><span><b><span data-kv-percent>30</span>% off</b> your first trip pack · code <span class="kv-code" data-kv-code>FIRSTTRIP</span></span><span>ends in <span class="kv-countdown" data-kv-countdown>3d 00h 00m 00s</span></span></div>';
 
 function gallery(slug, dest) {
   const has = SAMPLED.includes(slug);
@@ -96,6 +96,7 @@ console.log(`conversion layer applied to ${changed} destination pages (${skipped
   const crlf = raw.includes('\r\n');
   let sm = raw.replace(/\r\n/g, '\n');
   let added = 0;
+  if (!sm.includes('<loc>https://kidventuro.com/free-sample.html</loc>')) sm = sm.replace('</urlset>', '  <url><loc>https://kidventuro.com/free-sample.html</loc><lastmod>2026-10-18</lastmod></url>\n</urlset>');
   sm = sm.replace(/<url><loc>(https:\/\/kidventuro\.com\/([^<]*))<\/loc>([\s\S]*?)<\/url>/g, (whole, url, rel, rest) => {
     const file = rel === '' ? 'index.html' : rel.endsWith('/') ? rel + 'index.html' : rel;
     const full = path.join(ROOT, file);

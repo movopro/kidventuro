@@ -106,3 +106,8 @@
 .kv-qb-status:empty{display:none}
 .kv-qb-fixed .kv-qb-row:nth-of-type(2){grid-template-columns:1fr}
 .kv-sample-card a{color:#1f5f5d}
+/* contrast + target size (Lighthouse) */
+.kv-was{color:#5b6965}
+.price-card.featured .kv-was,.kv-offer-bar .kv-was{color:#d3dcd8}
+.kv-qb-go .kv-was{color:#fff}
+.kv-sample-card a{display:inline-block;padding:7px 0;min-height:32px}
