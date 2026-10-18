@@ -239,7 +239,7 @@
 
   const allowed=new Set([
     'page_view','preview_generated','sample_opened','pricing_viewed','checkout_clicked',
-    'booklet_opened','print_clicked','language_changed'
+    'booklet_opened','print_clicked','language_changed','sample_downloaded','offer_viewed','quickbuy_started'
   ]);
 
   const track=(event,extra={})=>{

@@ -28,4 +28,6 @@ try{
 // The legacy generator rewrites sitemap.xml from scratch; re-apply the family guides (pages, sitemap, robots, hubs).
 await import(`${pathToFileURL(path.join(root,'scripts','build-family-guides.mjs')).href}?supported=${Date.now()}`);
 
+await import(`${pathToFileURL(path.join(root,'scripts','apply-conversion.mjs')).href}?supported=${Date.now()}`);
+
 console.log(`SEO generation safely scoped to ${supported.length} paid-product destinations.`);
