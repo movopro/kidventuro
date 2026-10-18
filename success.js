@@ -137,7 +137,7 @@
   };
 
   let tries=0;
-  const maxTries=24;
+  const maxTries=72;   // about 3 minutes: Lemon Squeezy's webhook can take a while on a busy day
   const poll=async()=>{
     tries++;
     try{
@@ -163,6 +163,9 @@
       }
     }catch{}
 
+    if(tries===8){
+      help.textContent='Payment received. We are preparing your adventure; this can take up to a couple of minutes. Please keep this page open, your receipt email also has a link back to it.';
+    }
     if(tries>=maxTries){
       await showDiagnostic();
       return;

@@ -2,7 +2,7 @@ import {getAiEnrichment} from './ai.js';
 import {handleAnalyticsEvent, trackAnalytics} from './analytics.js';
 import {GUIDE_DESTINATIONS} from './guide-destinations.js';
 
-const RELEASE = '2026-10-10.1';
+const RELEASE = '2026-10-18.1';
 const ALLOWED_ORIGIN = 'https://kidventuro.com';
 const BOOKLET_LANGUAGE = 'en';
 const ALLOWED_PRODUCTS = new Set(['mini', 'adventure', 'family']);

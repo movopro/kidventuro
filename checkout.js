@@ -69,7 +69,7 @@
     const url=new URL(config.checkoutUrl);
     url.searchParams.set('checkout[custom][kv_ref]',ref);
     url.searchParams.set('checkout[custom][product]',product);
-    return url.toString();
+    return window.KVOffer?window.KVOffer.decorate(url.toString()):url.toString();
   };
 
   const startCheckout=async(product='adventure',e,familyChildren=null)=>{
@@ -200,12 +200,12 @@
   try{
     translations.en.openBooklet='Unlock full adventure — €9.90 →';
     translations.bg.openBooklet='Отключи пълното приключение — €9.90 →';
-    translations.en.createPreview='Get Adventure — €9.90';
-    translations.bg.createPreview='Вземи Adventure — €9.90';
-    translations.en.tryPreview='Get Mini — €5.90';
-    translations.bg.tryPreview='Вземи Mini — €5.90';
-    translations.en.tryPreview2='Get Family — €14.90';
-    translations.bg.tryPreview2='Вземи Family — €14.90';
+    translations.en.createPreview='Get the full adventure';
+    translations.bg.createPreview='Вземи пълното приключение';
+    translations.en.tryPreview='Get the quick pack';
+    translations.bg.tryPreview='Вземи бързия пакет';
+    translations.en.tryPreview2='Get the family pack';
+    translations.bg.tryPreview2='Вземи семейния пакет';
     translations.en.pricingNote='Secure one-time checkout. Personalized digital delivery after payment. No subscription.';
     translations.bg.pricingNote='Сигурно еднократно плащане. Персонализирана дигитална доставка след плащане. Без абонамент.';
     applyLanguage();

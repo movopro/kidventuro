@@ -1,6 +1,9 @@
 window.KIDVENTURO_CONFIG={
   apiBase:'https://kidventuro-api.m-oreshkov.workers.dev',
   checkoutMode:'live',
+  // Launch offer: a Lemon Squeezy discount with the same code and expiry. quickbuy.js applies it to checkout and
+  // shows the countdown only while it is running; after endsAt every offer element disappears by itself.
+  offer:{code:'FIRSTTRIP',percent:30,startsAt:'2026-10-18T00:00:00Z',endsAt:'2026-10-21T06:00:00Z'},
   google:{gtmId:'',tagId:'G-77YBK1S40E'},
   checkoutUrls:{
     mini:'https://kidventuro.lemonsqueezy.com/checkout/buy/74e8d656-faf0-4f7c-b1f2-cd7ca744452e',

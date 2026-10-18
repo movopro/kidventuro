@@ -1,7 +1,7 @@
 const ALLOWED_ORIGIN='https://kidventuro.com';
 const CLIENT_EVENTS=new Set([
   'page_view','preview_generated','sample_opened','pricing_viewed','checkout_clicked',
-  'booklet_opened','print_clicked','language_changed'
+  'booklet_opened','print_clicked','language_changed','sample_downloaded','offer_viewed','quickbuy_started'
 ]);
 const SERVER_EVENTS=new Set([
   'checkout_registered','payment_confirmed','payment_refunded','fulfillment_opened'
