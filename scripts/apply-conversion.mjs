@@ -59,7 +59,7 @@ for (const file of fs.readdirSync(DIR).filter(f => f.endsWith('.html'))) {
   let s = raw.replace(/\r\n/g, '\n');
   const prev = s.match(/data-kv-quickbuy data-destination="([^"]+)"/);                 // destination from an earlier run
   s = s.replace(new RegExp(`\\s*${START}[\\s\\S]*?${END}`, 'g'), '');          // drop any previous block
-  s = s.replace(/<link rel="stylesheet" href="\/conversion\.css[^>]*>\n?\s*/g, '').replace(/<script src="\/quickbuy\.js[^>]*><\/script>\n?\s*/g, '').replace(/<div class="kv-offer-bar[\s\S]*?<\/div>\n?\s*/g, '');
+  s = s.replace(/[ \t]*<link rel="stylesheet" href="\/conversion\.css[^>]*>\n?/g, '').replace(/[ \t]*<script src="\/quickbuy\.js[^>]*><\/script>\n?/g, '').replace(/[ \t]*<div class="kv-offer-bar[\s\S]*?<\/div>\n?/g, '');
   const slug = file.replace(/\.html$/, '');
 
   if (slug === 'index') {                                                     // destinations hub
