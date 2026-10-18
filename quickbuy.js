@@ -31,7 +31,7 @@
   };
   window.KVOffer={active,eur,list:LIST,discounted,decorate,code:()=>active()?offer.code:'',percent:()=>offer?offer.percent:0,endsAt:()=>endsAt};
 
-  const POPULAR=['Orlando','Paris','London','Rome','Barcelona','Vienna','Prague','Dubai','Rovaniemi','Reykjavik'];
+  const POPULAR=['Orlando','Paris','London','Rome','Barcelona','Vienna','Prague','Dubai','Rovaniemi','Reykjavik','Amsterdam','Berlin','Madrid','Lisbon','Athens','Istanbul','New York','Tokyo','Venice','Florence'];
   const INTERESTS=[
     ['dinosaurs','Dinosaurs 🦖'],['space','Space 🚀'],['animals','Animals 🐾'],['football','Football ⚽'],['art','Art 🎨'],['mysteries','Mysteries 🔎'],
     ['castles','Castles 🏰'],['science','Science 🔬'],['vehicles','Vehicles 🚗'],['nature','Nature 🌿'],['food','Food 🍕'],['music','Music 🎵'],

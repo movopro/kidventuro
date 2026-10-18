@@ -1,6 +1,6 @@
 // Regenerates free-sample.html (one card per launch destination). Run: node scripts/build-free-sample-page.mjs
 import fs from 'node:fs';
-const D = [['Orlando','orlando'],['Paris','paris'],['London','london'],['Rome','rome'],['Barcelona','barcelona'],['Vienna','vienna'],['Prague','prague'],['Dubai','dubai'],['Rovaniemi','rovaniemi'],['Reykjavik','reykjavik']];
+const D = [['Orlando','orlando'],['Paris','paris'],['London','london'],['Rome','rome'],['Barcelona','barcelona'],['Vienna','vienna'],['Prague','prague'],['Dubai','dubai'],['Rovaniemi','rovaniemi'],['Reykjavik','reykjavik'],['Amsterdam','amsterdam'],['Berlin','berlin'],['Madrid','madrid'],['Lisbon','lisbon'],['Athens','athens'],['Istanbul','istanbul'],['New York','new-york'],['Tokyo','tokyo'],['Venice','venice'],['Florence','florence']];
 const cards = D.map(([n, s], i) => `        <div class="kv-sample-card"><img src="/assets/samples/${s}-bingo.webp" width="1172" height="1658" alt="${n} sample page: travel bingo"${i ? ' loading="lazy"' : ''}><div><b>${n}</b><a href="/assets/samples/${s}-free-sample.pdf" data-kv-sample download>Download the free ${n} page (PDF)</a><br><a href="/destinations/${s}.html?utm_source=site&amp;utm_medium=free-sample&amp;utm_campaign=season#get-pack">Get the full ${n} pack</a></div></div>`).join('\n');
 const html = `<!doctype html>
 <html lang="en">

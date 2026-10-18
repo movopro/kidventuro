@@ -15,7 +15,8 @@ const siteIdx = args.indexOf('--site');
 const SITE = siteIdx >= 0 ? args.splice(siteIdx, 2)[1] : path.resolve(import.meta.dirname, '..');
 export const LAUNCH_DESTINATIONS = [
   ['Orlando', 'space'], ['Paris', 'art'], ['London', 'castles'], ['Rome', 'dinosaurs'], ['Barcelona', 'football'],
-  ['Vienna', 'music'], ['Prague', 'castles'], ['Dubai', 'vehicles'], ['Rovaniemi', 'animals'], ['Reykjavik', 'nature']
+  ['Vienna', 'music'], ['Prague', 'castles'], ['Dubai', 'vehicles'], ['Rovaniemi', 'animals'], ['Reykjavik', 'nature'],
+  ['Amsterdam', 'art'], ['Berlin', 'history'], ['Madrid', 'football'], ['Lisbon', 'art'], ['Athens', 'history'], ['Istanbul', 'food'], ['New York', 'superheroes'], ['Tokyo', 'trains'], ['Venice', 'ocean'], ['Florence', 'art']
 ];
 const wanted = args.length ? LAUNCH_DESTINATIONS.filter(([d]) => args.includes(d)) : LAUNCH_DESTINATIONS;
 const slugOf = d => d.toLowerCase().replace(/\s+/g, '-');

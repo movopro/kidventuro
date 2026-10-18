@@ -63,7 +63,7 @@ for(const f of await readdir(dir)){
   }
 }
 assert(pages>=90,`conversion layer on ${pages} pages`);
-for(const s of ['orlando','paris','london','rome','barcelona','vienna','prague','dubai','rovaniemi','reykjavik']){
+for(const s of ['orlando','paris','london','rome','barcelona','vienna','prague','dubai','rovaniemi','reykjavik','amsterdam','berlin','madrid','lisbon','athens','istanbul','new-york','tokyo','venice','florence']){
   for(const k of ['cover','bingo','hunt','puzzle','cert']) await access(new URL(`./assets/samples/${s}-${k}.webp`,import.meta.url));
 }
 const home=await readFile(new URL('./index.html',import.meta.url),'utf8');

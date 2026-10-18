@@ -7,7 +7,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIR = path.join(ROOT, 'destinations');
-const SAMPLED = ['orlando', 'paris', 'london', 'rome', 'barcelona', 'vienna', 'prague', 'dubai', 'rovaniemi', 'reykjavik'];
+const SAMPLED = ['orlando', 'paris', 'london', 'rome', 'barcelona', 'vienna', 'prague', 'dubai', 'rovaniemi', 'reykjavik', 'amsterdam', 'berlin', 'madrid', 'lisbon', 'athens', 'istanbul', 'new-york', 'tokyo', 'venice', 'florence'];
 const SEASON = [['Orlando', 'orlando'], ['Paris', 'paris'], ['London', 'london'], ['Rome', 'rome'], ['Barcelona', 'barcelona'], ['Vienna', 'vienna'], ['Prague', 'prague'], ['Dubai', 'dubai'], ['Rovaniemi', 'rovaniemi'], ['Reykjavik', 'reykjavik']];
 const V = '20261018';
 const HERO = /(<section class="(?:seo-hero|guide-hero)">[\s\S]*?<\/section>)/;
