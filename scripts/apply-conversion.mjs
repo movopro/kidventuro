@@ -15,7 +15,7 @@ const START = '<!-- kv-conversion:start -->';
 const END = '<!-- kv-conversion:end -->';
 const esc = s => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 
-const offerBar = '<div class="kv-offer-bar kv-scope" data-kv-offer><span><b><span data-kv-percent>30</span>% off</b> your first trip pack · code <span class="kv-code" data-kv-code>FIRSTTRIP</span></span><span>ends in <span class="kv-countdown" data-kv-countdown>3d 00h 00m 00s</span></span></div>';
+const offerBar = '<div class="kv-offer-bar kv-scope" data-kv-offer hidden><span><b><span data-kv-percent>30</span>% off</b> your first trip pack · code <span class="kv-code" data-kv-code>FIRSTTRIP</span></span><span>ends in <span class="kv-countdown" data-kv-countdown>3d 00h 00m 00s</span></span></div>';
 
 function gallery(slug, dest) {
   const has = SAMPLED.includes(slug);
