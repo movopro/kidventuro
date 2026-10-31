@@ -47,8 +47,20 @@ jobs:
             }
           }
           const sitemap=fs.readFileSync('sitemap.xml','utf8');
-          const urls=(sitemap.match(/<loc>/g)||[]).length;
-          if(urls!==107+guides*2+6) throw new Error(`Expected ${107+guides*2+6} sitemap URLs, found ${urls}`);
+          // No hard-coded total (it drifted to 193 while the site grew to 194 and would have failed the next run):
+          // every supported destination is listed in both languages, every <loc> is unique and points at a file that exists.
+          const locs=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+          if(new Set(locs).size!==locs.length) throw new Error('sitemap.xml lists a URL twice');
+          for(const slug of supported){
+            for(const path of [`/destinations/${slug}.html`,`/es/destinos/${slug}.html`]){
+              if(!locs.includes(`https://kidventuro.com${path}`)) throw new Error(`sitemap.xml is missing ${path}`);
+            }
+          }
+          for(const loc of locs){
+            const p=new URL(loc).pathname;
+            const file=p.endsWith('/')?`${p.slice(1)}index.html`:p.slice(1);
+            if(!fs.existsSync(file)) throw new Error(`sitemap.xml lists ${loc} but ${file} does not exist`);
+          }
           console.log('Supported SEO output is consistent.');
           NODE
 
