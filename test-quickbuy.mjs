@@ -70,3 +70,31 @@ const home=await readFile(new URL('./index.html',import.meta.url),'utf8');
 assert(!/id="childName"[^>]*value="Alex"/.test(home),'child name must not be pre-filled');
 assert(home.includes('data-kv-quickbuy')&&home.includes('data-kv-countdown'),'home hero has the order form and countdown');
 console.log(`Launch offer, quick buy and sample pages passed (${pages} destination pages)`);
+
+// 2026-11-09 selling pass: the hero cover is a live preview of the child's name, age and interest, and the button
+// names the child. Runs the real liveCover() against fake elements.
+{
+  const nodes={'[data-kv-cover-name]':[{textContent:''}],'[data-kv-cover-age]':[{textContent:''}],'[data-kv-cover-loves]':[{textContent:''}]};
+  const document={documentElement:{classList:{toggle(){}}},querySelectorAll:s=>nodes[s]||[],querySelector:()=>null,addEventListener(){},getElementById:()=>null};
+  const window={KIDVENTURO_CONFIG:{apiBase:'https://api.test',checkoutUrls:{},offer:null},addEventListener(){}};
+  const ctx=vm.createContext({window,document,Date,setInterval:()=>1,clearInterval(){},URL,URLSearchParams,console,sessionStorage:{setItem(){},removeItem(){}},fetch:async()=>({})});
+  vm.runInContext(source,ctx);
+  const label={textContent:'Get the 25-page pack'};
+  const form=(name,age,interest)=>({elements:{name:{value:name},age:{value:age},interest:{value:interest}},querySelector:s=>s==='.kv-qb-go span'?label:null});
+  assert.equal(typeof window.KVQuickBuy.liveCover,'function','quickbuy.js exposes liveCover');
+  window.KVQuickBuy.liveCover(form('  Leo ','9','space'));
+  assert.equal(nodes['[data-kv-cover-name]'][0].textContent,'Leo');
+  assert.equal(nodes['[data-kv-cover-age]'][0].textContent,'9');
+  assert.equal(nodes['[data-kv-cover-loves]'][0].textContent,'Loves Space','interest label without its emoji');
+  assert.equal(label.textContent,"Get Leo's 25-page pack");
+  window.KVQuickBuy.liveCover(form('James','7','trains'));
+  assert.equal(label.textContent,"Get James' 25-page pack");
+  window.KVQuickBuy.liveCover(form('','7','art'));
+  assert.equal(nodes['[data-kv-cover-name]'][0].textContent,'Mia','an empty name shows the sample name');
+  assert.equal(label.textContent,'Get the 25-page pack');
+}
+const css=await readFile(new URL('./conversion.css',import.meta.url),'utf8');
+assert(/\[data-kv-quickbuy\]:empty\{min-height:/.test(css),'the order form slot is reserved before quickbuy.js fills it (CLS)');
+for(const hook of ['data-kv-live-cover','data-kv-cover-name','data-kv-cover-age','data-kv-cover-loves']) assert(home.includes(hook),`home hero has ${hook}`);
+assert(source.includes('Secure checkout by Lemon Squeezy'),'the order form says who takes the payment');
+console.log('Live cover preview, personalized button and reserved form slot passed');

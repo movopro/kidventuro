@@ -111,3 +111,27 @@
 .price-card.featured .kv-was,.kv-offer-bar .kv-was{color:#d3dcd8}
 .kv-qb-go .kv-was{color:#fff}
 .kv-sample-card a{display:inline-block;padding:7px 0;min-height:32px}
+
+/* 2026-11-09 selling pass: live cover preview (the name is the product), CLS-free form slot, trust line, contrast */
+[data-kv-quickbuy]:empty{min-height:var(--kv-qb-h,275px)}
+.kv-pages-live{grid-template-columns:repeat(8,1fr);min-height:0}
+.kv-pages-live .p-b{grid-column:1/5;grid-row:1;transform:rotate(-7deg) translate(-4px,22px);z-index:1}
+.kv-pages-live .p-c{grid-column:5/9;grid-row:1;transform:rotate(7deg) translate(4px,30px);z-index:1}
+.kv-cover{grid-column:2/8;grid-row:1;z-index:3;position:relative;aspect-ratio:1172/1658;background:#fffdf9;container-type:inline-size;transform:rotate(-1.2deg);box-shadow:0 26px 60px rgba(32,49,47,.28)!important;border:1px solid #ece4d6}
+.kv-cover::before{content:"";position:absolute;width:62cqw;height:62cqw;border-radius:50%;background:#ffd96a;right:-24cqw;top:-26cqw}
+.kv-cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:58%;background:#dff4ea;clip-path:polygon(0 52%,100% 0,100% 100%,0 100%)}
+.kv-cover-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;padding:9cqw 8cqw 0;color:#20312f;text-align:left}
+.kv-cover-brand{font-size:3.4cqw;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#c4461b}
+.kv-cover-kicker{margin-top:21cqw;font-size:2.9cqw;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#1f5f5d}
+.kv-cover-city{display:block;font-size:13cqw;line-height:1;font-weight:900;letter-spacing:-.03em;margin:1.4cqw 0 3cqw;max-width:100%;overflow-wrap:anywhere}
+.kv-cover-for{font-size:5.6cqw;font-weight:900;line-height:1.15}
+.kv-cover-for [data-kv-cover-name]{color:#c4461b;transition:color .2s}
+.kv-cover-chips{display:flex;flex-wrap:wrap;gap:1.4cqw;margin-top:3.4cqw}
+.kv-cover-chips i{font-style:normal;font-weight:800;font-size:2.9cqw;padding:1cqw 2.4cqw;border:1px solid #e3dccf;border-radius:999px;background:#fff}
+.kv-cover-live{position:absolute;z-index:2;left:50%;bottom:6cqw;transform:translateX(-50%);background:#20312f;color:#fff;font-size:3.2cqw;font-weight:800;padding:1.4cqw 3.4cqw;border-radius:999px;white-space:nowrap}
+.kv-qb-secure{margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 12px;color:#4f5d59;font-size:.8rem;font-weight:700}
+.kv-qb-secure span::before{content:"✓ ";color:#2b7a78}
+#how .eyebrow{color:#1f5f5d}
+footer small{color:#5b6965}
+@media(max-width:860px){.kv-pages-live{max-width:380px}}
+@media(max-width:480px){[data-kv-quickbuy]:empty{min-height:var(--kv-qb-h-phone,285px)}}

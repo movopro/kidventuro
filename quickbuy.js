@@ -145,7 +145,21 @@
       if(POPULAR.includes(dest)){a.href=`/assets/samples/${slug}-free-sample.pdf`;a.textContent=`Free ${dest} sample page (PDF)`;}
     });
     document.querySelectorAll('[data-kv-dest]').forEach(el=>{el.textContent=dest;});
-    document.querySelectorAll('[data-kv-cap]').forEach(el=>{el.textContent=POPULAR.includes(dest)?`Real pages from a ${dest} pack made for “Mia”, age 7.`:`Sample pages shown for Rome. Yours is built for ${dest}, with your child's name.`;});
+    document.querySelectorAll('[data-kv-cap]').forEach(el=>{el.textContent=POPULAR.includes(dest)?`Your cover changes as you type. Inside: real pages from a ${dest} pack.`:`Your cover changes as you type. Inside: sample pages from Rome; yours are built for ${dest}.`;});
+  };
+
+  /* ---------- live cover: the child's name on the cover, as the parent types it ---------- */
+  const interestLabel=v=>{const hit=INTERESTS.find(([k])=>k===v);return hit?hit[1].replace(/\s*\p{Extended_Pictographic}.*$/u,''):'';};
+  const possessive=n=>/s$/i.test(n)?`${n}'`:`${n}'s`;
+  const liveCover=form=>{
+    const name=form.elements.name.value.trim().slice(0,20);
+    const age=form.elements.age.value;
+    document.querySelectorAll('[data-kv-cover-name]').forEach(el=>{el.textContent=name||'Mia';});
+    document.querySelectorAll('[data-kv-cover-age]').forEach(el=>{el.textContent=age;});
+    const loves=interestLabel(form.elements.interest.value);
+    document.querySelectorAll('[data-kv-cover-loves]').forEach(el=>{el.textContent=loves?`Loves ${loves}`:'';});
+    const label=form.querySelector('.kv-qb-go span');
+    if(label) label.textContent=name?`Get ${possessive(name)} 25-page pack`:'Get the 25-page pack';
   };
 
   const mount=root=>{
@@ -166,11 +180,14 @@
       <input type="hidden" name="days" value="4">
       <button class="kv-qb-go" type="submit"><span>Get the 25-page pack</span> <span class="kv-qb-price" data-kv-price="adventure"></span></button>
       <p class="kv-qb-status" role="status" aria-live="polite"></p>
+      <p class="kv-qb-secure"><span>Secure checkout by Lemon Squeezy</span><span>Opens in seconds after payment</span></p>
       <p class="kv-qb-fine" data-kv-offer hidden>Launch code <b data-kv-code></b> is applied automatically at checkout.</p>
     </form>`;
     const form=root.querySelector('form');
     let started=false;
     form.addEventListener('input',()=>{if(!started){started=true;track('quickbuy_started',{product:'adventure'});}},{once:false});
+    form.addEventListener('input',()=>liveCover(form));
+    form.addEventListener('change',()=>liveCover(form));
     form.addEventListener('submit',e=>{e.preventDefault();go(form,'adventure');});
     const sel=form.elements.destination;
     if(sel&&sel.tagName==='SELECT'){
@@ -192,5 +209,5 @@
   };
   document.querySelectorAll('[data-kv-quickbuy]').forEach(mount);
 
-  window.KVQuickBuy={mount,swapGallery,popular:POPULAR};
+  window.KVQuickBuy={mount,swapGallery,liveCover,popular:POPULAR};
 })();
