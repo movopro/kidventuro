@@ -48,7 +48,7 @@ export function planUrls({ sitemapXml, imageXml = '', changedFiles = [], previou
   }
   if (previousSitemapXml !== null) {
     const before = new Map(urlsOf(previousSitemapXml).map(p => [p.loc, p.lastmod]));
-    for (const p of pages) if (!before.has(p.loc)) add(p.loc, 'new in sitemap'); else if (before.get(p.loc) !== p.lastmod) add(p.loc, 'lastmod changed');
+    for (const p of pages) if (!before.has(p.loc)) add(p.loc, 'new in sitemap'); else if (p.lastmod > before.get(p.loc)) add(p.loc, 'lastmod changed'); // a lastmod that moved back is a re-dating, not a change
   }
   if (days > 0) {
     const since = new Date(Date.parse(`${today}T00:00:00Z`) - days * 86400000).toISOString().slice(0, 10);

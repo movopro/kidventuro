@@ -202,7 +202,7 @@ ok(robots.isAllowed(`/${KEY}.txt`), 'robots.txt blocks the key file');
   assert.deepEqual(planUrls({ sitemapXml, imageXml, changedFiles: ['scripts/build-sitemaps.mjs', 'styles.css', 'app.js'] }), [], 'a script, css or js change announces nothing');
   const imgPages = planUrls({ sitemapXml, imageXml, changedFiles: ['assets/social/munich-kids-travel-guide.jpg'] });
   assert.deepEqual(imgPages.map(p => p.url), [`${SITE}/destinations/munich.html`], 'a changed image announces the page that lists it');
-  const prev = sitemapXml.replace(/(<loc>https:\/\/kidventuro\.com\/destinations\/rome\.html<\/loc><lastmod>)[^<]+/, '$11999-01-01').replace(/<url><loc>https:\/\/kidventuro\.com\/destinations\/paris\.html<\/loc>[\s\S]*?<\/url>\n/, '');
+  const prev = sitemapXml.replace(/(<loc>https:\/\/kidventuro\.com\/destinations\/rome\.html<\/loc><lastmod>)[^<]+/, '$11999-01-01').replace(/(<loc>https:\/\/kidventuro\.com\/destinations\/vienna\.html<\/loc><lastmod>)[^<]+/, '$12999-01-01').replace(/<url><loc>https:\/\/kidventuro\.com\/destinations\/paris\.html<\/loc>[\s\S]*?<\/url>\n/, '');
   assert.deepEqual(planUrls({ sitemapXml, imageXml, previousSitemapXml: prev }).map(p => [p.url, p.why]), [[`${SITE}/destinations/rome.html`, 'lastmod changed'], [`${SITE}/destinations/paris.html`, 'new in sitemap']]);
   const recent = planUrls({ sitemapXml, imageXml, days: 1, today: [...stamped.values()].sort().at(-1) });
   ok(recent.length > 0 && recent.length < locs.length, 'the lastmod window must select some, not all, pages');
