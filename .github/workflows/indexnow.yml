@@ -1,29 +1,68 @@
 name: Submit updated pages to IndexNow
 
+# IndexNow reaches Bing, Yandex, Naver, Seznam and partners (not Google). The key is public by design: the engines read it from
+# https://kidventuro.com/<key>.txt, so no repository secret is needed. A push sends only the pages that changed in that push
+# (scripts/submit-indexnow.mjs); a manual run is a dry run (it prints the plan) unless "apply" is ticked.
 on:
   push:
     branches: [main]
     paths:
       - '**.html'
-      - '**.js'
-      - '**.mjs'
-      - '**.css'
       - 'sitemap.xml'
+      - 'sitemap-images.xml'
       - 'robots.txt'
       - 'assets/**'
+      - 'scripts/submit-indexnow.mjs'
       - '.github/workflows/indexnow.yml'
   workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Send the batch (unticked = dry run: only print the plan)'
+        type: boolean
+        default: false
+      all:
+        description: 'Plan = every page in sitemap.xml'
+        type: boolean
+        default: false
+      days:
+        description: 'Also the pages whose sitemap lastmod is within this many days (0 = none)'
+        default: '0'
 
 permissions:
   contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
 
 jobs:
   submit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
-      - name: Notify IndexNow
-        run: node scripts/submit-indexnow.mjs
+      - name: Plan and notify IndexNow
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          APPLY: ${{ github.event.inputs.apply }}
+          ALL: ${{ github.event.inputs.all }}
+          DAYS: ${{ github.event.inputs.days }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ "$EVENT" = "push" ]; then
+            args+=(--apply)
+            if [[ "$BEFORE" =~ ^[0-9a-f]{40}$ ]]; then args+=(--before "$BEFORE"); fi
+          else
+            if [ "$APPLY" = "true" ]; then args+=(--apply); fi
+            if [ "$ALL" = "true" ]; then args+=(--all); fi
+            if [[ "${DAYS:-0}" =~ ^[0-9]+$ ]]; then args+=(--days "${DAYS:-0}"); fi
+          fi
+          # GitHub Pages needs about a minute to publish the push; the engines fetch the pages after the submission.
+          if printf '%s\n' "${args[@]}" | grep -qx -- '--apply'; then sleep 90; fi
+          node scripts/submit-indexnow.mjs "${args[@]}"

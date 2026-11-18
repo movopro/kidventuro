@@ -1,7 +1,8 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { cardUrl, cardAlt } from './social-cards/cards-lib.mjs';
+import { legacyRelated } from './related-links.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = await readFile(path.join(root, 'destinations', 'destination-data.js'), 'utf8');
@@ -11,6 +12,12 @@ if (!match) throw new Error('Could not parse destinations/destination-data.js');
 
 const destinations = JSON.parse(match[1]);
 const missionsEs = JSON.parse(await readFile(path.join(root, 'scripts', 'legacy-missions-es.json'), 'utf8'));
+// Family guides (destinations/guides/*.json, the source of truth) that the "More family destinations" block may link to.
+const guideSources = [];
+for (const file of (await readdir(path.join(root, 'destinations', 'guides'))).filter(f => f.endsWith('.json')).sort()) {
+  const guide = JSON.parse(await readFile(path.join(root, 'destinations', 'guides', file), 'utf8'));
+  guideSources.push({ slug: guide.slug, name: guide.name, nameEs: guide.nameEs, region: guide.region, taglines: { en: guide.en.tagline, es: guide.es.tagline } });
+}
 const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -66,7 +73,9 @@ function page({ slug, data, language }) {
     breadcrumbDestinations: 'Destinos',
     privacy: 'Privacidad',
     terms: 'Términos',
-    refunds: 'Reembolsos'
+    refunds: 'Reembolsos',
+    related: 'Más destinos para familias',
+    tools: [['/es/lista-de-equipaje.html', 'Lista de equipaje por edades'], ['/es/mejores-destinos-familiares-este-mes.html', 'Mejores destinos para niños este mes'], ['/es/diario-de-viaje.html', 'Diario de viaje para imprimir']]
   } : {
     all: 'All destinations',
     switchLanguage: 'Español',
@@ -95,7 +104,9 @@ function page({ slug, data, language }) {
     breadcrumbDestinations: 'Destinations',
     privacy: 'Privacy',
     terms: 'Terms',
-    refunds: 'Refunds & delivery'
+    refunds: 'Refunds & delivery',
+    related: 'More family destinations',
+    tools: [['/packing-list.html', 'Age-smart packing list'], ['/best-family-destinations-this-month.html', 'Best destinations for kids this month'], ['/travel-journal.html', 'Printable travel journal'], ['/free-sample.html', 'Free sample pages of a Kidventuro book']]
   };
 
   const homeHref = isSpanish ? '/es/' : '/';
@@ -104,6 +115,12 @@ function page({ slug, data, language }) {
     ? `/?lang=es&destination=${encodeURIComponent(city)}#create`
     : `/?destination=${encodeURIComponent(city)}#create`;
   const card = cardUrl(slug, language);
+  // "More family destinations": same-region neighbours (scripts/related-links.mjs) and the three free tools. Crawlable links, no JS.
+  const relatedHtml = legacyRelated(slug, guideSources).map(({ slug: other, kind }) => {
+    const label = kind === 'legacy' ? destinations[other].name : (isSpanish ? guideSources.find(g => g.slug === other).nameEs : guideSources.find(g => g.slug === other).name);
+    const blurb = kind === 'legacy' ? (isSpanish ? destinations[other].es : destinations[other].en) : guideSources.find(g => g.slug === other).taglines[language];
+    return `<a class="seo-dest" href="${isSpanish ? '/es/destinos/' : '/destinations/'}${other}.html"><b>${escapeHtml(label)}</b>${escapeHtml(blurb)}</a>`;
+  }).join('');
   const cardAltText = cardAlt(city, language);
   const structuredData = {
     '@context': 'https://schema.org',
@@ -195,6 +212,11 @@ function page({ slug, data, language }) {
         <p>${escapeHtml(copy.optionsText)}</p>
         <h2>${escapeHtml(copy.parentTitle)}</h2>
         <p>${escapeHtml(copy.parentText)}</p>
+      </section>
+      <section class="seo-copy seo-related">
+        <h2>${escapeHtml(copy.related)}</h2>
+        <div class="seo-dests">${relatedHtml}</div>
+        <p class="seo-tools">${copy.tools.map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`).join(' · ')}</p>
       </section>
     </main>
     <footer class="seo-foot">© Kidventuro · <a href="/privacy.html">${escapeHtml(copy.privacy)}</a> · <a href="/terms.html">${escapeHtml(copy.terms)}</a> · <a href="/refunds.html">${escapeHtml(copy.refunds)}</a></footer>

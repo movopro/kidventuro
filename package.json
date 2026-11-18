@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "generate-seo": "node scripts/generate-supported-destination-pages.mjs",
+    "build-sitemaps": "node scripts/build-sitemaps.mjs",
     "audit-seo": "node scripts/audit-seo-images.mjs",
     "social-cards": "node scripts/social-cards/render.mjs",
     "social-cards:check": "node scripts/social-cards/render.mjs --check",

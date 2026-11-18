@@ -33,7 +33,8 @@ jobs:
               'privacy.html','terms.html','refunds.html','CNAME',
               'worker/package.json','worker/wrangler.jsonc','worker/src/index.js','worker/src/ai.js','worker/src/analytics.js',
               'worker/test-webhook.mjs','worker/test-ai.mjs','worker/test-analytics.mjs',
-              'test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs'
+              'test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs','test-indexing.mjs',
+              'scripts/build-sitemaps.mjs','scripts/submit-indexnow.mjs','sitemap-images.xml'
           ]
           missing=[p for p in required if not Path(p).exists()]
           if missing:
@@ -48,7 +49,7 @@ jobs:
 
           worker_pkg=json.loads(Path('worker/package.json').read_text(encoding='utf-8'))
           test_script=worker_pkg.get('scripts',{}).get('test','')
-          for marker in ['test-webhook.mjs','test-ai.mjs','test-analytics.mjs','test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs']:
+          for marker in ['test-webhook.mjs','test-ai.mjs','test-analytics.mjs','test-catalog.mjs','test-checkout-safety.mjs','test-launch.mjs','test-indexing.mjs']:
               if marker not in test_script:
                   raise SystemExit(f'Worker npm test is missing regression suite: {marker}')
 

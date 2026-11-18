@@ -1,0 +1,781 @@
+{
+ "note": "Written by scripts/build-sitemaps.mjs: the content hash and lastmod of every sitemap page. A page gets a new lastmod only when its HTML changes.",
+ "pages": {
+  "/": {
+   "sha1": "04170a0a7d72043ecda520b23b027cd80d5e13ff",
+   "lastmod": "2026-11-18"
+  },
+  "/best-family-destinations-this-month.html": {
+   "sha1": "0d3e5f226075d6d8dd56cddfaa509d5b98da6ae3",
+   "lastmod": "2026-10-13"
+  },
+  "/destinations/": {
+   "sha1": "697974b9bf4c46cc06250b1d6cecd755423b4d10",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/abu-dhabi.html": {
+   "sha1": "5018b1b2b899e18a26eeb3a3e9e5db9d36768162",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/amsterdam.html": {
+   "sha1": "8d830dbadbcd9a20c553022bdc7297e923033579",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/athens.html": {
+   "sha1": "19e39d63e0c96924842b5d6748fea9439f6f1a95",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/banff.html": {
+   "sha1": "89aa15a2c42d9a55a920271c2bf4bc624dab3692",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/bangkok.html": {
+   "sha1": "4f31691b2eed8dd33e1e1b0bb65e9d7b282cef27",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/barcelona.html": {
+   "sha1": "a1b956908dfaefb2a95c846d3e4c670b49014507",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/bergen.html": {
+   "sha1": "2a62366ae54ef9aa31c3065441cb870529c715e2",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/berlin.html": {
+   "sha1": "a10ba2de0d9ed3a319fe9846a63841baec6caa85",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/billund.html": {
+   "sha1": "edbb60691ca7f356f3c94c0d90e0deb2b4e2fdb1",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/bruges.html": {
+   "sha1": "e677ee7b4e5a880e39fd39972038ff1c6acf021e",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/brussels.html": {
+   "sha1": "93a31c4db8ffb9eec2b6d5694127fa54a86e448b",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/bucharest.html": {
+   "sha1": "f745ac4f92c705cf12ece1733a7d4623f24a6c48",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/budapest.html": {
+   "sha1": "424d63275df25b4c72576f77e378fd7e4567a327",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/busan.html": {
+   "sha1": "3834ec498585e2f7f33a92169dda6c03a2311224",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/cartagena.html": {
+   "sha1": "aaabf596e27e5cffea1d154bb710bc5108b60377",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/copenhagen.html": {
+   "sha1": "de411343fb74e4c8aa47f6005225a90b8cf595a4",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/cusco.html": {
+   "sha1": "969fea1b91f98164e2e0fc0debd12e559ecdc761",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/dubai.html": {
+   "sha1": "c0450468245d6e316e088c80e02a10d8c054020b",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/dublin.html": {
+   "sha1": "ea40dab0fb702a1f08cd206e55f1add111be3226",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/dubrovnik.html": {
+   "sha1": "7838816d32198ba66b8d9a34a68f6dafc5d4ece7",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/edinburgh.html": {
+   "sha1": "d325a812066e3a9b7e6f6a651bc31986d0f1d7ec",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/florence.html": {
+   "sha1": "2bab1289272dbb526fadd760767be79d25066900",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/funchal.html": {
+   "sha1": "02fb32b50063776ccad1d740523267557c673e27",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/gothenburg.html": {
+   "sha1": "0bed63ac4a370f56239ca06c10ca4b4bab7aa900",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/hamburg.html": {
+   "sha1": "3d9b829688e9b18ab0cfb34ebbcd5ce256535652",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/helsinki.html": {
+   "sha1": "c05c3a5b60d112b4567aae30ffa9806af6c363dc",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/hiroshima.html": {
+   "sha1": "6305053fadbf50f20007416a52d40d7edeb9a053",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/hoi-an.html": {
+   "sha1": "5d6e797a27a23b9ee5aaa5f36e98b068246e9c5a",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/hong-kong.html": {
+   "sha1": "ed952f7bf677f33fe0b823f5ee3bf160fc9dd043",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/innsbruck.html": {
+   "sha1": "efc83eaa35239d6aa872561901b54ea6627915e2",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/interlaken.html": {
+   "sha1": "4f449c19a4c31777942299a5fe9c9fa9f10695e9",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/istanbul.html": {
+   "sha1": "c14d436de5b9c140946a39082a76c4c84489ee44",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/jeju.html": {
+   "sha1": "0feeb51e6f351fb23bcf53dc2402397794987863",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/kandy.html": {
+   "sha1": "9d4178c8f26152648b0107c885e235e769f8d8c8",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/krabi.html": {
+   "sha1": "54c760a5f9356b24df90d25cc73955618b8c335b",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/krakow.html": {
+   "sha1": "98a50504b649979e5f023a0a3e88fcad72f74016",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/kuala-lumpur.html": {
+   "sha1": "80230767bd5feca4470bde97462a1429a739863b",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/kyoto.html": {
+   "sha1": "33acbe8ca053abe72424f6d1ad26f6087fba75ec",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/la-fortuna.html": {
+   "sha1": "9127a9150c130f5c3bdf800eaece95509e565fb4",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/lisbon.html": {
+   "sha1": "279f71fe6a3010377c83aa6cf6db6bd9e229470a",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/ljubljana.html": {
+   "sha1": "8e3647638264411f24b01fb24383d4521d84897a",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/london.html": {
+   "sha1": "ddf4315cb15d45409f95d1786a5900cc7a4b0e43",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/luang-prabang.html": {
+   "sha1": "88890eaa42c8246cb6911f22ebdfbc4cc564630e",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/lyon.html": {
+   "sha1": "de1aa3d4d719955e5c9555c773cbc739664b2aa6",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/macau.html": {
+   "sha1": "30cb485518bfd502014611f3cfd74658753a2d53",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/madrid.html": {
+   "sha1": "341d9b470a38f8b596703c6ce273f8e77ae63a85",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/milan.html": {
+   "sha1": "50b04f06f5ae06f8ce73e5b3b6e6c0f71ea0849d",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/munich.html": {
+   "sha1": "20c384a28c88d95d824e564991a056a2112db7b1",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/naples.html": {
+   "sha1": "30b4d77e53bb26c151e67748927f92f6b7ad9fb7",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/nara.html": {
+   "sha1": "0179951c91d053f28a99af43fbed0c7731fac53b",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/new-york.html": {
+   "sha1": "548ea1a216d62643cc0b6a9fd61d2a61cba2ab52",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/nice.html": {
+   "sha1": "28f93c6fa3b002287d1885a347faad3035fb04b4",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/oaxaca.html": {
+   "sha1": "e279214a0662ed40b53d52c0a70ee81406b73526",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/okinawa.html": {
+   "sha1": "1eac8e7fd7b8293143e25ec352086af2d57b6ffd",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/orlando.html": {
+   "sha1": "f8b2dd51eee3422de3402ba716f4ad116e9f7efa",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/oslo.html": {
+   "sha1": "b6d75ca734c441ff28917e894d74d78ecb3a2c45",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/palma-de-mallorca.html": {
+   "sha1": "8051a4f408ae219b6ca0ffeac484f38319afdadf",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/panama-city.html": {
+   "sha1": "65a7e84d0d284b246b5f7293525828c60c54ab45",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/paris.html": {
+   "sha1": "ebfba6c47b4ea2fa8c9d4f06374c47e33b2b5c0d",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/penang.html": {
+   "sha1": "386c4837d5ee8511c95f9e8df085529b5503eb6d",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/philadelphia.html": {
+   "sha1": "f6b15e7f0aa8817a13bc7450cf0265d4b047b0ff",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/porto.html": {
+   "sha1": "9216aae3756bc6e76cc45ff655b95f21709d7b5f",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/prague.html": {
+   "sha1": "236e57850ac202afa8cf678d964a50a00037f244",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/quebec-city.html": {
+   "sha1": "a9ce9a02c66fc8012965206109df351bf3447350",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/reykjavik.html": {
+   "sha1": "a4e0a8b253ca27466386b191d8a14cc1b7e19e10",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/riga.html": {
+   "sha1": "95f7df82d2bfeee0f79e91854f7a75be39872962",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/rome.html": {
+   "sha1": "b5649a1c607ece29fca9788af173d79fafb232ec",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/rovaniemi.html": {
+   "sha1": "ee704657ca6f5adb60bf680c2cff84803a558f82",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/salzburg.html": {
+   "sha1": "268cca5eba29ad170e95360f3eec538fcf2bafbd",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/san-antonio.html": {
+   "sha1": "217bbc9d5dcdbf759ad691fd649f5482f1e9f557",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/san-juan.html": {
+   "sha1": "2b01d4922e643b46c35bc9c60b1469615d4259a4",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/santiago.html": {
+   "sha1": "d7f96cafc596eda63902b7de4a932202ddacfb3d",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/sapporo.html": {
+   "sha1": "4bd0d20b21b9e28ff71d72357705b1af7e6d6573",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/seattle.html": {
+   "sha1": "955c98199d6c5e0f3fb711231ef4d4bc8ad1b202",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/seoul.html": {
+   "sha1": "7642670c5a81df8e6fad1d8ed5fb864fff887215",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/seville.html": {
+   "sha1": "f66128b8650f2909124d0d11ff5428b69f3b74f9",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/singapore.html": {
+   "sha1": "63272e2ad433f24ec63211dbd32a555350b86902",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/sofia.html": {
+   "sha1": "24b2cf1eae49f35a5dbadfa2ba178bfa2d809e4c",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/stockholm.html": {
+   "sha1": "d9e620d9e15fd1148c4e95618e927848ef6fa433",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/strasbourg.html": {
+   "sha1": "07ec2b4cad81db3333994e7a90f38b038a37be5a",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/sydney.html": {
+   "sha1": "cc7bb1e9ec65061c28c3db16271efb4a37285e1c",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/tallinn.html": {
+   "sha1": "ffcc203548e868412bf7a1546ab4101f4a1237aa",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/tenerife.html": {
+   "sha1": "f9314cf49e6c5d3170d82ecb2a3306e0093e6e06",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/tokyo.html": {
+   "sha1": "c314c9a90489ab03bff6fa59b38c5f5154ba07cd",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/valencia.html": {
+   "sha1": "ef45d0f2ba05587df1b4c231b574de629a8759d6",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/venice.html": {
+   "sha1": "3d7cdb3a4504c612b558811d665bb47e8b5a49ae",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/verona.html": {
+   "sha1": "98c145d9132a72412761334009bc69b78d371d2a",
+   "lastmod": "2026-10-31"
+  },
+  "/destinations/vienna.html": {
+   "sha1": "612e7de73a0f56aa5112432ed5528b158338eea3",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/warsaw.html": {
+   "sha1": "795f8d81bc0cb0faed70375fa6594a50953ffd4b",
+   "lastmod": "2026-11-18"
+  },
+  "/destinations/zurich.html": {
+   "sha1": "23924f9cd64636a5a2fd421cf43242b55ec5fe5a",
+   "lastmod": "2026-11-18"
+  },
+  "/es/": {
+   "sha1": "033430c7313d00c456e111f1e184c52cc183d05b",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/": {
+   "sha1": "ea547faed48a22458282b1754fbd377066ed85a9",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/abu-dhabi.html": {
+   "sha1": "5a60be5bde8dab004eccf25cbe8598ffbee8e85f",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/amsterdam.html": {
+   "sha1": "0b1f6be4953888194dd2601b8f78c65425b3f636",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/athens.html": {
+   "sha1": "5ef14419227bdcfe31166fdf0595b40066451eb4",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/banff.html": {
+   "sha1": "1c7b40b4ac2c31421ef6be95fdeafb2312c87051",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/bangkok.html": {
+   "sha1": "fd016b9e6139478a98a8293db791dcb9755a3557",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/barcelona.html": {
+   "sha1": "564d74af56c1b59cc17bd8330d7913277ee8f3ff",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/bergen.html": {
+   "sha1": "d7d035dc49bd5ba623c34dcc84c02dc86abfac83",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/berlin.html": {
+   "sha1": "d09d86d309802e38431ff0ce4738e1833699e0c2",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/billund.html": {
+   "sha1": "c307ddb6f9b137127d1bf28a6e54e3da73f4922c",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/bruges.html": {
+   "sha1": "8abf482891f7b86f80637d385cf2a4bbe0d03db4",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/brussels.html": {
+   "sha1": "4e6f3a454629b8a0be661bbb591d04bdc11b9be9",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/bucharest.html": {
+   "sha1": "314f154cbb8e0f04535e8eb8a05700f71dde0a8c",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/budapest.html": {
+   "sha1": "bbe36fcc3eb04299a170389ff4aa5cd5cf28cb14",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/busan.html": {
+   "sha1": "375e985429ae7093b5ab6ef5638e8b017a626fbf",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/cartagena.html": {
+   "sha1": "524e5b4206e665eabf4a89e86deb82a68688ffcb",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/copenhagen.html": {
+   "sha1": "86ff133e974756c2e48873d846c993fbd635ad74",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/cusco.html": {
+   "sha1": "cd94191a8575525574491304a92a365b0c4c3464",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/dubai.html": {
+   "sha1": "b5a51eb710bdabf7b9716fb5780553e648ffb1d8",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/dublin.html": {
+   "sha1": "3061a9142cbea93efa51ad3c6ef6961bd33177f0",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/dubrovnik.html": {
+   "sha1": "e651c66dbee99b6e76b9ca829bf63d1a528cb650",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/edinburgh.html": {
+   "sha1": "5af0cf1fbd2df73fc57ff0fe7df34e892736f033",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/florence.html": {
+   "sha1": "eb5a61929eb5dd7fa2f1a48a376d9a0ecf9f2634",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/funchal.html": {
+   "sha1": "9a3a69be4cc26e9d8a8eae5261961e45a36cb113",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/gothenburg.html": {
+   "sha1": "9e1967ce50d7b1279c667cf7921b06a4263eeb9c",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/hamburg.html": {
+   "sha1": "f8bc9aab233eee472da00cc8178017e5fee224ff",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/helsinki.html": {
+   "sha1": "5dbfe37eeb5078e86bbc84e10c1b3a17865e394b",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/hiroshima.html": {
+   "sha1": "3715b6509cfd8ba3ada3adece30d9be9b01bf2e9",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/hoi-an.html": {
+   "sha1": "b25c3ac209de91e700405d0778afa55c9e371f46",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/hong-kong.html": {
+   "sha1": "7ad11484f1b2e9867c426e9f1a9dee15f218e003",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/innsbruck.html": {
+   "sha1": "ba24d925d9d28cc78780ccf6dd7a9eb9cba65367",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/interlaken.html": {
+   "sha1": "97f8f66853096d31687e1ac350b5c0f5d09498c7",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/istanbul.html": {
+   "sha1": "2c54029ab8433ae78b3b23e5461d658bd48393b3",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/jeju.html": {
+   "sha1": "a2214b9135fe4bae7a8b6a5dfd6c7b593cb81846",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/kandy.html": {
+   "sha1": "0608cbde9647d94234faa257cc25cdf1d9ba477d",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/krabi.html": {
+   "sha1": "d3fc529baf7f63a0a406121d6a0fde5304329268",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/krakow.html": {
+   "sha1": "0b540acc73db4d4acd162a86a4395844a6f63c3c",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/kuala-lumpur.html": {
+   "sha1": "95f056f1f7465e3509d40c9440e92f9d961e26e5",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/kyoto.html": {
+   "sha1": "260cb140f08fda5e2a5543e0be636b8f79784f07",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/la-fortuna.html": {
+   "sha1": "5c2c93a0f4736cc16362aa44f10ace74b1d9577c",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/lisbon.html": {
+   "sha1": "2fbb76994f306ceee5175b4dd6cf96f9c73d6e61",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/ljubljana.html": {
+   "sha1": "de104317941e03d44aa7df6e04d3afbc6256c695",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/london.html": {
+   "sha1": "ca56ee25efd1e97d0214bffbdb458f288c35399a",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/luang-prabang.html": {
+   "sha1": "4c98a230e284d08ec42413980a72584afd626560",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/lyon.html": {
+   "sha1": "5721d6b70a70e7adef55d353f3b9afa310bbc5a6",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/macau.html": {
+   "sha1": "0b5a314a440d4ed03bef1d91c1a550b042cb7220",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/madrid.html": {
+   "sha1": "aff5dad79c013c4b27a974ddbd96a15926faff41",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/milan.html": {
+   "sha1": "d0ef4c5337eb101938043d6d77d4715bbef816f1",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/munich.html": {
+   "sha1": "f1e81e3f198b0915b86451bb366948fbc078c165",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/naples.html": {
+   "sha1": "f7feae3d18372cb7d59b6ea2511560da49d586c9",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/nara.html": {
+   "sha1": "6546609f3e20472bc524adcb1d7582a65e67fdfb",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/new-york.html": {
+   "sha1": "34e82345c672dc0dfbbb2cb67dae0d2f64611884",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/nice.html": {
+   "sha1": "1ffbb700d6dca04720db93b7d58a22f6b50d2ab0",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/oaxaca.html": {
+   "sha1": "d0d919aad7ae8b5d3b2b96ff0022cccd5e7d20f9",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/okinawa.html": {
+   "sha1": "4c44e1acb89a8eb7df6fb644725fbb64ca6c445a",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/orlando.html": {
+   "sha1": "7468956cab1968d7bb74a5bc020740d9d81d3455",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/oslo.html": {
+   "sha1": "88cee6c5742334b2f526f77a45be6021d5c5983c",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/palma-de-mallorca.html": {
+   "sha1": "b36cefb25dc4fa9664b908ab1b513feebacf9f3e",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/panama-city.html": {
+   "sha1": "99ed95d58fc64bfb602baa2cf0ffeafbd3a51109",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/paris.html": {
+   "sha1": "75c3163c044ac9214f718ff2130e10f3cb893597",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/penang.html": {
+   "sha1": "97077889c94b3dfc709653de172005f931beaaa0",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/philadelphia.html": {
+   "sha1": "51719d287f35e9eff6170a4e2d091f45867175dc",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/porto.html": {
+   "sha1": "2868c23dd71d00accb3a9f2fdc79e98dffe71cf3",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/prague.html": {
+   "sha1": "fe4469eada8cae7856ef84460ab1ecb6c6255a66",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/quebec-city.html": {
+   "sha1": "868bd5ea596344dafd4c79ff163a4708b554b88f",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/reykjavik.html": {
+   "sha1": "ac5fc843a8808c925cd9c806492b9c952f8979c8",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/riga.html": {
+   "sha1": "4e4cf08e90dedac0c5090530726c4569b73875ed",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/rome.html": {
+   "sha1": "9bc4fad4040840e2f5dc7af71f6756ca60e627d4",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/rovaniemi.html": {
+   "sha1": "41669997805320090b619d02a684d18476f43bf7",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/salzburg.html": {
+   "sha1": "bc39951cf8b0ea0e3152f3a02476a23c31c1e61a",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/san-antonio.html": {
+   "sha1": "b45c4a35cb06ff18b9785e91de4a594f1454a006",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/san-juan.html": {
+   "sha1": "d2a56c2d4ba214b06112b9c6d704ec8e6b88e2a0",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/santiago.html": {
+   "sha1": "72813d42afb7c84e169ca2ddd8715a031d10bb54",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/sapporo.html": {
+   "sha1": "20a39693c73c35a776ca6ad0a220e343cb18b562",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/seattle.html": {
+   "sha1": "43c398b0136ca7100cc814fcf19a8cfb4d8d115c",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/seoul.html": {
+   "sha1": "a7f7a4cdf1c55564b823b03c81afa25f5e73df8d",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/seville.html": {
+   "sha1": "bc6d184eba392d106b834a0cccf99b6c919ec9a9",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/singapore.html": {
+   "sha1": "942216fd59518a01cfe5d129cd16774f31e8a70a",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/sofia.html": {
+   "sha1": "9e73c45951ceedd61689fafe9a08f43c18bc168f",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/stockholm.html": {
+   "sha1": "caba81ecc13a774c8e7a205e2d6b5aff3ea147c4",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/strasbourg.html": {
+   "sha1": "0ac2bf0ccbf74af4d583c4fe73378623d7745def",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/sydney.html": {
+   "sha1": "93dadf39dbdc313c604754d0f406f40c21a79e06",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/tallinn.html": {
+   "sha1": "050d18274590849579bcd56ac83d133d45bbd263",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/tenerife.html": {
+   "sha1": "32599cf19c7ab587df65b3f4b97d7b006a001fc0",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/tokyo.html": {
+   "sha1": "a8eb1ab55d15a3586bc10f0edf2d307d909941b8",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/valencia.html": {
+   "sha1": "c7110de51b66ad6ea5b87b31425e7b749925875f",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/venice.html": {
+   "sha1": "902e150b6b5fd86b7c0d91265a4e1eeb00ae83ee",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/verona.html": {
+   "sha1": "f95f62b6a86a2a344adf1d58314a46600158a90e",
+   "lastmod": "2026-10-13"
+  },
+  "/es/destinos/vienna.html": {
+   "sha1": "2ab53ad490987d3314af6a4ef2aecea4b2b4d01e",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/warsaw.html": {
+   "sha1": "da962d53ea9aa1f72ecc4a759c1fc07307d437b2",
+   "lastmod": "2026-11-18"
+  },
+  "/es/destinos/zurich.html": {
+   "sha1": "175638d3f26576b41fa5b52c14537c4a681fd681",
+   "lastmod": "2026-11-18"
+  },
+  "/es/diario-de-viaje.html": {
+   "sha1": "c7fd1aa5dafe565d95b0392e74dcad9d0d48657d",
+   "lastmod": "2026-10-13"
+  },
+  "/es/lista-de-equipaje.html": {
+   "sha1": "177032674ef401c233ed0e7a348d80b472f04e07",
+   "lastmod": "2026-10-13"
+  },
+  "/es/mejores-destinos-familiares-este-mes.html": {
+   "sha1": "413de0271f80786b1f92e3574ca85733ca3f636d",
+   "lastmod": "2026-10-13"
+  },
+  "/free-sample.html": {
+   "sha1": "b37d84bc66730c60200b44f089213c9d8a23a4bd",
+   "lastmod": "2026-10-26"
+  },
+  "/packing-list.html": {
+   "sha1": "524dcad4311098ff7501a83ee07df7bbdb9cd1bc",
+   "lastmod": "2026-10-13"
+  },
+  "/privacy.html": {
+   "sha1": "b3278f3c4840c70acb5d9bf97609c08387f537c1",
+   "lastmod": "2026-10-12"
+  },
+  "/refunds.html": {
+   "sha1": "8c6896bab9d2aa88bd0c359e7f37a974414f1f54",
+   "lastmod": "2026-10-12"
+  },
+  "/terms.html": {
+   "sha1": "ad9e8aa55c7ede44d5ae4f529f31c43b2c74de46",
+   "lastmod": "2026-10-12"
+  },
+  "/travel-journal.html": {
+   "sha1": "f6de489fe71acc875cb9aa04ec6fcc673ed14c4b",
+   "lastmod": "2026-10-13"
+  }
+ }
+}

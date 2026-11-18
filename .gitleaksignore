@@ -15,3 +15,5 @@ ea1390a95cb247039d68d2e4fa5735888191454c:worker/test-webhook.mjs:generic-api-key
 ea1390a95cb247039d68d2e4fa5735888191454c:worker/test-webhook.mjs:generic-api-key:13
 09fe2f00e5b0787c1bf411bef881d52b247fc748:worker/test-webhook.mjs:generic-api-key:12
 6af5e2ac6a29434e07e4485ba29296b233d24e0f:worker/test-webhook.mjs:generic-api-key:11
+# IndexNow key moved to line 18 when submit-indexnow.mjs was rewritten (2026-11-18): the same public key, reviewed again.
+scripts/submit-indexnow.mjs:generic-api-key:18

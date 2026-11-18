@@ -193,3 +193,4 @@ Allow: /destinations/sapporo.html
 Allow: /es/destinos/sapporo.html
 # guides:end
 Sitemap: https://kidventuro.com/sitemap.xml
+Sitemap: https://kidventuro.com/sitemap-images.xml

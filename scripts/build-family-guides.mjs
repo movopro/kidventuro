@@ -390,7 +390,10 @@ for (const [file, lang] of [['destinations/index.html', 'en'], ['es/destinos/ind
     : { europe: 'Europe', americas: 'The Americas', asia: 'Asia', head: 'Full family guides', text: 'Guides with best ages, stroller notes, must-dos, rainy-day plans, safety and real costs.' };
   const cards = ['europe', 'americas', 'asia'].map(region => `<h3 class="guide-region">${label[region]}</h3><div class="seo-dests">` +
     guides.filter(g => g.region === region).map(g => `<a class="seo-dest" href="${g.slug}.html"><b>${g.flag} ${esc(lang === 'es' ? g.nameEs : g.name)}</b>${esc(g[lang].tagline)}</a>`).join('') + '</div>').join('');
-  const body = `<section class="seo-copy guide-hub"><h2>${label.head}</h2><p>${label.text}</p>${cards}</section>`;
+  // The free tools (and, in English, the free sample pages) are linked from the hub too, so they are not reachable only through guide pages.
+  const tools = [[UI[lang].packingHref, UI[lang].packing], [UI[lang].monthHref, UI[lang].month], [UI[lang].journalHref, UI[lang].journal], ...(lang === 'en' ? [['/free-sample.html', 'Free sample pages of a Kidventuro book']] : [])]
+    .map(([href, text]) => `<a href="${href}">${esc(text)}</a>`).join(' · ');
+  const body = `<section class="seo-copy guide-hub"><h2>${label.head}</h2><p>${label.text}</p>${cards}<p class="guide-links">${tools}</p></section>`;
   html = replaceBlock(html, '<!-- guides:start -->', '<!-- guides:end -->', body, '<section class="seo-copy"><h2>');
   const total = LEGACY_SLUGS.length + guides.length;
   html = html.replace(/\b(50|\d{2,3})( travel activity guides for kids| supported family destinations| Kidventuro destinations| Kidventuro travel activity guides| supported destinations| destinos: actividades| destinos compatibles| destinos Kidventuro)/g, (_, n, rest) => `${total}${rest}`);
@@ -403,7 +406,7 @@ for (const [file, lang] of [['destinations/index.html', 'en'], ['es/destinos/ind
 // destination count, derived like the hubs' count above; the run-time scripts already do the same after load.
 {
   const total = LEGACY_SLUGS.length + guides.length;
-  for (const [file, re] of [['index.html', /\b\d{2,3} (destinations|DESTINATIONS)\b/g], ['es/index.html', /\b\d{2,3} (destinos)\b/g]]) {
+  for (const [file, re] of [['index.html', /\b\d{2,3} (destinations|DESTINATIONS|destination activity guides)\b/g], ['es/index.html', /\b\d{2,3} (destinos)\b/g]]) {
     const html = await read(file);
     const next = html.replace(re, (_, w) => `${total} ${w}`);
     if (next !== html) await write(file, next);

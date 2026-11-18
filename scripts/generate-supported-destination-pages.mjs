@@ -30,4 +30,8 @@ await import(`${pathToFileURL(path.join(root,'scripts','build-family-guides.mjs'
 
 await import(`${pathToFileURL(path.join(root,'scripts','apply-conversion.mjs')).href}?supported=${Date.now()}`);
 
+// Last: honest lastmod per page (only changed pages get a new date) and the image sitemap (sitemap-images.xml).
+const {buildSitemaps}=await import(`${pathToFileURL(path.join(root,'scripts','build-sitemaps.mjs')).href}?supported=${Date.now()}`);
+await buildSitemaps({root});
+
 console.log(`SEO generation safely scoped to ${supported.length} paid-product destinations.`);

@@ -33,7 +33,21 @@ Since 2026-10-10 the site has two kinds of destination pages:
 | `worker/src/guide-destinations.js` | Worker allow-list extension |
 | `destinations/guide-index.json` | index used by tests and the feature pages |
 | `sitemap.xml`, `robots.txt`, both hubs | marked blocks `guides:start` / `guides:end` |
+| `sitemap.xml` `<lastmod>`, `scripts/sitemap-lastmod.json` | `scripts/build-sitemaps.mjs` (last step of `generate-seo`): a page gets today's date only when its HTML changed (content hash in the manifest) |
+| `sitemap-images.xml` | the image sitemap, same script: per page every `<img>`, srcset, og:image and JSON-LD image, read from the page itself; announced in `robots.txt` |
+| legacy pages, `<section class="seo-related">` | "More family destinations": 5 same-region legacy pages + 1 guide per page (`scripts/related-links.mjs`), plus the free tools |
 | `packing-list.html`, `best-family-destinations-this-month.html` (+ `es/`) | the two free tools |
+
+## Indexing (sitemaps, internal links, IndexNow)
+
+* Edit a page by hand (home, hubs, legal pages)? Run `npm run build-sitemaps` afterwards: `test-indexing.mjs` fails when a page changed but its `lastmod` or
+  `sitemap-images.xml` was not refreshed. Change the generator, never the generated files.
+* `test-indexing.mjs` also pins: every sitemap URL exists, is canonical and indexable; no page has fewer than 3 internal links from other pages or is more than
+  3 clicks from the home page (plain HTML links only); the home page links the hub, the free tools, the free samples and `/es/` without JavaScript.
+* IndexNow (Bing, Yandex and partners, not Google): `.github/workflows/indexnow.yml` runs on a push that touches pages, sitemaps or assets and sends only the pages
+  that changed in that push (`scripts/submit-indexnow.mjs`; `--before <sha>`). The key is public (`/<key>.txt`), no secret is needed. A manual run is a dry run unless
+  "apply" is ticked. Locally: `node scripts/submit-indexnow.mjs --all` prints the plan and sends nothing; `--apply` sends it.
+* Google ignores IndexNow: submit `https://kidventuro.com/sitemap-images.xml` once in Search Console (Sitemaps) and use "Request indexing" for single pages.
 
 ## Free tools
 
